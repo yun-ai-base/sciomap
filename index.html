@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title id="page-title">人类群星闪耀 — 科学星图</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="data/scientists.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --math:#3b82f6;--math-glow:#60a5fa;--math-bg:rgba(59,130,246,.12);
+  --physics:#10b981;--physics-glow:#34d399;--physics-bg:rgba(16,185,129,.12);
+  --chemistry:#8b5cf6;--chemistry-glow:#a78bfa;--chemistry-bg:rgba(139,92,246,.12);
+  --astronomy:#f59e0b;--astronomy-glow:#fbbf24;--astronomy-bg:rgba(245,158,11,.12);
+  --biology:#ef4444;--biology-glow:#f87171;--biology-bg:rgba(239,68,68,.12);
+  --cs:#06b6d4;--cs-glow:#22d3ee;--cs-bg:rgba(6,182,212,.12);
+  --medicine:#d946ef;--medicine-glow:#e879f9;--medicine-bg:rgba(217,70,239,.12);
+  --panel-bg:rgba(10,10,28,.88);--border-subtle:rgba(255,255,255,.06);
+  --fs-name:24px;--fs-name-en:13px;--fs-body:13px;--fs-quote:14px;
+  --fs-section:12px;--fs-small:11px;--fs-meta:12px;--fs-xs:10px;
+}
+[data-font-size=large]{--fs-name:28px;--fs-name-en:15px;--fs-body:15px;--fs-quote:17px;--fs-section:14px;--fs-small:13px;--fs-meta:14px;--fs-xs:12px}
+[data-font-size=small]{--fs-name:17px;--fs-name-en:10px;--fs-body:10px;--fs-quote:11px;--fs-section:9px;--fs-small:8px;--fs-meta:9px;--fs-xs:7px}
+html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:system-ui,-apple-system,"Microsoft YaHei","PingFang SC",sans-serif;color:#e2e8f0}
+#graph-svg{position:fixed;inset:0;z-index:1;cursor:grab}
+#graph-svg:active{cursor:grabbing}
+#loading{position:fixed;inset:0;z-index:100;background:#000008;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s}
+#loading.hidden{opacity:0;pointer-events:none}
+#loading .ring{width:48px;height:48px;border-radius:50%;border:2px solid rgba(16,185,129,.2);border-top-color:#10b981;animation:spin 1.2s linear infinite;margin-bottom:16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes dash-march{to{stroke-dashoffset:-16}}
+@keyframes pulse-glow{0%,100%{opacity:.4}50%{opacity:.9}}
+@keyframes sphere-breathe{0%,100%{opacity:0.08}50%{opacity:0.2}}
+.sphere-breathe{animation:sphere-breathe 3s ease-in-out infinite}
+#loading p{color:#64748b;font-size:13px;letter-spacing:1px}
+#header{position:fixed;z-index:5;top:16px;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none}
+#header h1{font-size:22px;font-weight:700;color:#f1f5f9;letter-spacing:2px;text-shadow:0 0 40px rgba(16,185,129,.3)}
+#header .sub{font-size:11px;color:#64748b;letter-spacing:3px;margin-top:4px}
+#tooltip{position:fixed;z-index:10;pointer-events:none;opacity:0;background:rgba(15,15,30,.94);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;max-width:340px;transition:opacity .2s;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+#tooltip .tt-name{font-size:16px;font-weight:700;margin-bottom:2px}
+#tooltip .tt-years{font-size:11px;color:#94a3b8;margin-bottom:4px}
+#tooltip .tt-disc{display:inline-block;padding:2px 10px;border-radius:100px;font-size:10px;margin-bottom:8px}
+#tooltip .tt-summary{font-size:12px;color:#cbd5e1;line-height:1.65;margin-bottom:6px}
+#tooltip .tt-contrib{font-size:11px;color:#94a3b8;line-height:1.5;padding:6px 10px;border-radius:6px;background:rgba(255,255,255,.025);border-left:2px solid rgba(255,255,255,.08)}
+#search-wrap{position:relative;margin-bottom:14px}
+#search-input{width:100%;padding:8px 12px 8px 30px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#e2e8f0;font-size:12px;font-family:inherit;outline:none;transition:all .2s}
+#search-input:focus{border-color:rgba(16,185,129,.35);box-shadow:0 0 12px rgba(16,185,129,.1)}
+#search-input::placeholder{color:#64748b}
+#search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:12px;color:#64748b;pointer-events:none}
+#search-results{position:absolute;top:100%;left:0;right:0;z-index:50;background:rgba(20,20,45,.98);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:12px;margin-top:4px;max-height:260px;overflow-y:auto;display:none;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+#search-results.show{display:block}
+#search-results::-webkit-scrollbar{width:4px}
+#search-results::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+.sr-item{display:flex;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;transition:all .15s;border-bottom:1px solid rgba(255,255,255,.03)}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover{background:rgba(16,185,129,.12)}
+.sr-item .sr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sr-item .sr-name{font-size:13px;font-weight:600;color:#f1f5f9}
+.sr-item .sr-meta{font-size:10px;color:#64748b;margin-left:auto}
+#lang-btn{position:fixed;z-index:8;top:12px;right:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:5px 12px;border-radius:8px;font-size:11px;font-family:inherit;cursor:pointer;transition:all .2s}
+#lang-btn:hover{background:rgba(255,255,255,.1);color:#e2e8f0}
+#disc-legend{position:fixed;z-index:5;top:72px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:wrap;justify-content:center;gap:10px;pointer-events:none;max-width:90vw}
+#disc-legend .lg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.65)}
+#disc-legend .lg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+#filter-panel{position:fixed;z-index:5;left:14px;top:50%;transform:translateY(-50%);background:var(--panel-bg);backdrop-filter:blur(20px);border:1px solid var(--border-subtle);border-radius:16px;padding:18px 14px;width:195px;font-size:12px;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .35s}
+#filter-panel.collapsed{transform:translateY(-50%) translateX(-210px);opacity:0;pointer-events:none}
+.filter-group{margin-bottom:12px}
+.filter-group-label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.filter-btns{display:flex;flex-wrap:wrap;gap:4px}
+.filter-btn{padding:4px 10px;border-radius:100px;border:1px solid rgba(255,255,255,.08);background:transparent;color:#94a3b8;font-size:11px;font-family:inherit;cursor:pointer;transition:all .2s}
+.filter-btn:hover{border-color:rgba(255,255,255,.2);color:#e2e8f0}
+.filter-btn.active{background:rgba(16,185,129,.2);border-color:#10b981;color:#6ee7b7;font-weight:600}
+#filter-reset{display:block;width:100%;padding:6px 0;margin-top:8px;border:none;border-radius:8px;background:rgba(255,255,255,.04);color:#64748b;font-size:11px;font-family:inherit;cursor:pointer;transition:all .2s}
+#filter-reset:hover{background:rgba(255,255,255,.08);color:#e2e8f0}
+#filter-toggle{position:fixed;z-index:6;left:14px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(15,15,30,.9);color:#94a3b8;font-size:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+#filter-toggle:hover{background:rgba(255,255,255,.1)}
+#filter-toggle.hidden{display:none}
+#mob-filter-btn{display:none;position:fixed;z-index:6;bottom:70px;right:16px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(16,185,129,.2);color:#6ee7b7;font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.4);transition:all .2s}
+#mob-filter-btn:active{transform:scale(.9)}
+#filter-overlay{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);display:none;opacity:0;transition:opacity .3s}
+#filter-overlay.show{display:block;opacity:1}
+#detail-panel{position:fixed;z-index:20;right:0;top:0;width:380px;height:100%;background:var(--panel-bg);backdrop-filter:blur(20px);border-left:1px solid var(--border-subtle);transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);overflow:hidden}
+#detail-panel.open{transform:translateX(0)}
+#detail-panel .dp-accent{position:absolute;left:0;top:0;width:3px;height:100%;background:linear-gradient(180deg,#10b981,#34d399)}
+.dp-close{position:absolute;z-index:2;top:12px;right:12px;width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,.06);color:#94a3b8;font-size:14px;cursor:pointer;transition:all .2s;font-family:inherit}
+.dp-close:hover{background:rgba(255,255,255,.12);color:#e2e8f0}
+.flash-line{animation:dash-march .6s linear infinite}
+.pulse-line{animation:pulse-glow 1.5s ease-in-out infinite}
+.dp-scroll{height:100%;overflow-y:auto;padding:32px 24px 44px}
+.dp-scroll::-webkit-scrollbar{width:4px}
+.dp-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
+.dp-hero{text-align:center;margin-bottom:24px}
+.dp-portrait{width:84px;height:84px;border-radius:50%;margin:0 auto 14px;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 40% 35%,rgba(16,185,129,.3),rgba(16,185,129,.08),rgba(0,0,0,.3));border:2px solid rgba(16,185,129,.3)}
+.dp-portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.dp-initial{font-size:30px;font-weight:700;color:#e2e8f0}
+.dp-name{font-size:var(--fs-name);font-weight:700;color:#f1f5f9;text-align:center;margin-bottom:2px}
+.dp-name-en{font-size:var(--fs-name-en);color:#64748b;text-align:center;margin-bottom:8px}
+.dp-meta{font-size:var(--fs-meta);color:#94a3b8;text-align:center;margin-bottom:12px}
+.dp-badges{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.dp-badge{display:inline-block;padding:2px 10px;border-radius:100px;font-size:var(--fs-xs);color:#94a3b8}
+.dp-influence{text-align:center;font-size:var(--fs-xs);color:#64748b;margin-bottom:16px}
+.dp-stars{display:flex;gap:2px;justify-content:center;margin-top:4px}
+.dp-star{width:10px;height:10px;border-radius:2px;background:rgba(255,255,255,.1)}
+.dp-star.filled{background:#10b981}
+.dp-fs-row{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 0 10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.dp-fs-label{font-size:11px;color:#64748b;letter-spacing:.5px}
+.dp-fs-btns{display:flex;gap:2px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.dp-fs-btn{padding:3px 12px;border:none;background:rgba(255,255,255,.04);color:#94a3b8;cursor:pointer;font-family:inherit;font-size:12px;transition:all .2s;line-height:1.5}
+.dp-fs-btn:hover{background:rgba(255,255,255,.08);color:#e2e8f0}
+.dp-fs-btn.active{background:rgba(16,185,129,.2);color:#6ee7b7;font-weight:600}
+.dp-quote-block{display:none;text-align:center;padding:16px 18px;margin:10px 0 18px;border-radius:12px;background:rgba(255,255,255,.015);border-left:3px solid rgba(16,185,129,.3)}
+.dp-quote-text{font-size:var(--fs-quote);color:#e2e8f0;font-style:italic;line-height:1.7}
+.dp-quote-src{font-size:11px;color:#64748b;margin-top:6px}
+.dp-quote-nav{display:flex;justify-content:center;gap:10px;margin-top:8px}
+.dp-quote-nav button{border:none;background:rgba(255,255,255,.06);color:#94a3b8;padding:2px 10px;border-radius:4px;cursor:pointer;font-size:11px;font-family:inherit}
+.dp-section{margin-bottom:22px}
+.dp-section-title{font-size:var(--fs-section);color:#94a3b8;font-weight:700;letter-spacing:.8px;margin-bottom:10px;display:flex;align-items:center;gap:8px;text-transform:uppercase}
+.dp-section-title::before{content:'';display:inline-block;width:3px;height:14px;border-radius:2px;background:var(--sec-color,#10b981);flex-shrink:0}
+.dp-section-icon{font-size:13px}
+.dp-summary{font-size:var(--fs-body);color:#e2e8f0;line-height:1.85;margin-bottom:20px}
+.dp-contrib-list{display:flex;flex-direction:column;gap:4px;padding-left:16px;border-left:2px solid rgba(255,255,255,.06)}
+.dp-contrib-item{position:relative;padding:8px 12px 8px 20px;border-radius:8px;transition:background .15s}
+.dp-contrib-item:hover{background:rgba(255,255,255,.025)}
+.dp-contrib-item::before{content:'';position:absolute;left:-22px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--sec-color,#10b981);opacity:.6}
+.dp-contrib-title{font-size:var(--fs-body);font-weight:600;color:#e2e8f0;margin-bottom:2px}
+.dp-contrib-year{font-size:var(--fs-xs);color:var(--sec-color,#10b981);font-weight:500;margin-left:8px;display:inline-block}
+.dp-contrib-desc{font-size:var(--fs-small);color:#94a3b8;line-height:1.7}
+.dp-contrib-type{display:inline-block;padding:1px 8px;border-radius:4px;font-size:10px;background:rgba(255,255,255,.06);color:#64748b;margin-top:4px}
+.dp-life{font-size:var(--fs-body);color:#e2e8f0;line-height:1.85;margin-bottom:20px}
+.dp-controversy-item{padding:12px 16px;border-radius:10px;background:rgba(239,68,68,.03);border:1px solid rgba(239,68,68,.08);margin-bottom:8px}
+
+.dp-anecdote{padding:14px 16px;border-radius:10px;background:rgba(59,130,246,.03);border:1px solid rgba(59,130,246,.08)}
+.dp-anecdote-label{font-size:var(--fs-xs);color:#64748b;margin-bottom:4px}
+.dp-anecdote-text{font-size:var(--fs-body);color:#cbd5e1;line-height:1.7}
+.dp-review{padding:16px 18px;border-radius:10px;background:rgba(139,92,246,.04);border:1px solid rgba(139,92,246,.1);font-size:var(--fs-body);color:#cbd5e1;line-height:1.8}
+.relation-list{display:flex;flex-direction:column;gap:8px}
+.relation-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;cursor:pointer;transition:all .15s;font-size:var(--fs-small)}
+.relation-item:hover{background:rgba(255,255,255,.04)}
+.relation-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.relation-name{color:#e2e8f0;font-weight:500}
+.relation-type{color:#64748b;font-size:10px;margin-left:auto}
+.dp-controversy-item .dp-clabel{font-size:var(--fs-body);font-weight:600;color:#e2e8f0;margin-bottom:4px}
+.dp-works-list{display:flex;flex-direction:column;gap:8px}
+.dp-work-item{position:relative;padding:10px 14px 10px 22px;border-radius:8px;background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04)}
+.dp-work-item::before{content:'';position:absolute;left:-14px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--sec-color,#10b981);opacity:.6}
+.dp-work-title{font-size:var(--fs-body);font-weight:600;color:#e2e8f0;margin-bottom:2px}
+.dp-work-year{font-size:var(--fs-xs);color:var(--sec-color,#10b981);font-weight:500;margin-left:8px;display:inline-block}
+.dp-work-type{display:inline-block;padding:1px 8px;border-radius:4px;font-size:10px;background:rgba(255,255,255,.06);color:#64748b;margin-top:3px}
+
+.dp-legacy-text{padding:14px 18px;border-radius:10px;background:rgba(16,185,129,.03);border-left:3px solid var(--sec-color,#10b981);font-size:var(--fs-body);color:#cbd5e1;line-height:1.8;font-style:italic}
+
+.dp-timeline{position:relative;padding-left:24px}
+.dp-timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--sec-color,#10b981);opacity:.3}
+.dp-tl-item{position:relative;padding:0 0 16px 16px}
+.dp-tl-item:last-child{padding-bottom:0}
+.dp-tl-item::before{content:'';position:absolute;left:-3px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--sec-color,#10b981);opacity:.4;border:2px solid rgba(255,255,255,.06)}
+.dp-tl-item:first-child::before{opacity:.9}
+.dp-tl-item:last-child::before{background:rgba(255,255,255,.15);border-color:var(--sec-color,#10b981)}
+.dp-tl-year{font-size:var(--fs-xs);color:var(--sec-color,#10b981);font-weight:600;margin-bottom:2px}
+.dp-tl-label{font-size:var(--fs-small);color:#cbd5e1;line-height:1.4}
+
+.dp-contemporaries-list{display:flex;flex-wrap:wrap;gap:8px;padding:4px 0}
+.dp-ct-item{padding:4px 12px;border-radius:100px;font-size:var(--fs-xs);cursor:pointer;transition:all .15s;border:1px solid rgba(255,255,255,.12);color:#94a3b8;background:rgba(255,255,255,.02)}
+.dp-ct-item:hover{background:rgba(255,255,255,.06);color:#e2e8f0;border-color:rgba(255,255,255,.2)}
+
+.dp-influence-tree{display:flex;flex-direction:column;gap:4px;padding:4px 0}
+.dp-it-item{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;cursor:pointer;transition:all .15s;font-size:var(--fs-small);color:#cbd5e1}
+.dp-it-item:hover{background:rgba(255,255,255,.04)}
+.dp-it-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dp-it-arrow{color:#64748b;font-size:10px;flex-shrink:0}
+
+.dp-controversy-item .dp-cdesc{font-size:var(--fs-small);color:#94a3b8;line-height:1.6}
+.dp-problem-item{padding:10px 14px;border-radius:10px;background:rgba(245,158,11,.03);border:1px solid rgba(245,158,11,.08)}
+.dp-problem-item .dp-plabel{font-size:var(--fs-body);font-weight:600;color:#e2e8f0;margin-bottom:4px}
+.dp-problem-item .dp-pdesc{font-size:var(--fs-small);color:#94a3b8;line-height:1.6}
+.school-tip{position:fixed;z-index:30;pointer-events:none;opacity:0;background:rgba(15,15,30,.96);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;max-width:280px;transition:opacity .15s;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+.school-tip .st-name{font-weight:600;color:#e2e8f0;margin-bottom:2px}
+.school-tip .st-desc{color:#94a3b8;line-height:1.5;font-size:11px}
+#zoom-controls{position:fixed;z-index:5;bottom:20px;right:20px;display:flex;flex-direction:column;gap:4px}
+#zoom-controls button{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(15,15,30,.9);color:#94a3b8;font-size:16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;font-family:inherit}
+#zoom-controls button:hover{background:rgba(255,255,255,.1);color:#e2e8f0}
+#reset-view{bottom:20px;right:60px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(15,15,30,.9);color:#94a3b8;font-size:14px;cursor:pointer;transition:all .2s;position:fixed;z-index:5;display:flex;align-items:center;justify-content:center;font-family:inherit}
+#reset-view:hover{background:rgba(255,255,255,.1);color:#e2e8f0}
+@media(max-width:768px){
+  :root{--fs-name:20px;--fs-name-en:12px;--fs-body:12px;--fs-quote:13px;--fs-section:12px;--fs-small:11px;--fs-meta:12px;--fs-xs:10px}
+  [data-font-size=large]{--fs-name:28px;--fs-name-en:17px;--fs-body:17px;--fs-quote:19px;--fs-section:16px;--fs-small:14px;--fs-meta:15px;--fs-xs:13px}
+  [data-font-size=small]{--fs-name:16px;--fs-name-en:10px;--fs-body:10px;--fs-quote:11px;--fs-section:9px;--fs-small:8px;--fs-meta:9px;--fs-xs:7px}
+  #header h1{font-size:18px}
+  #header .sub{font-size:10px}
+  #filter-panel{left:0;top:auto;bottom:0;transform:translateY(100%);width:100%;border-radius:16px 16px 0 0;border-left:none;border-bottom:none;padding:20px 18px 30px;max-height:70vh;overflow-y:auto}
+  #filter-panel.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  #filter-panel.collapsed{transform:translateY(100%);opacity:0;pointer-events:none}
+  #filter-toggle{display:none}
+  #mob-filter-btn{display:flex}
+  #detail-panel{width:100%;right:0;border-left:none;border-radius:16px 16px 0 0;transform:translateY(100%);top:auto;bottom:0;height:85vh}
+  #detail-panel.open{transform:translateY(0)}
+  .dp-scroll{padding:24px 16px 30px}
+  #lang-btn{top:12px;right:12px;padding:4px 10px;font-size:10px}
+	  #disc-legend{top:60px;gap:5px;max-width:95vw}
+	  #disc-legend .lg-item{font-size:9px}
+	  #disc-legend .lg-dot{width:5px;height:5px}
+  #reset-view{bottom:80px;right:16px;width:40px;height:40px;font-size:16px}
+  #zoom-controls{bottom:16px;right:16px}
+  #zoom-controls button{width:40px;height:40px;font-size:18px}
+}
+	/* View Toggle */
+	.view-toggle{display:flex;gap:4px;position:fixed;z-index:6;bottom:24px;left:50%;transform:translateX(-50%);pointer-events:auto}
+	.view-toggle button{padding:5px 16px;border-radius:100px;font-size:12px;border:1px solid rgba(255,255,255,.15);background:rgba(15,15,30,.9);color:#94a3b8;cursor:pointer;font-family:inherit;letter-spacing:.5px;transition:all .25s}
+	.view-toggle button:hover{border-color:rgba(255,255,255,.35);color:#e2e8f0}
+	.view-toggle button.active{background:rgba(16,185,129,.2);border-color:rgba(16,185,129,.45);color:#6ee7b7;font-weight:600;box-shadow:0 0 16px rgba(16,185,129,.15)}
+	/* Twin Universe */
+	#twin-view{position:fixed;inset:0;z-index:3;background:radial-gradient(ellipse at 50% 50%,#0a0a20,#000008);display:none;flex-direction:column;overflow-y:auto}
+	#twin-view.active{display:flex}
+	#twin-view .tw-header{text-align:center;padding:80px 24px 10px;flex-shrink:0}
+	#twin-view .tw-header h2{font-size:22px;font-weight:700;color:#f1f5f9;letter-spacing:1px}
+	#twin-view .tw-header p{font-size:12px;color:#64748b;margin-top:4px}
+	.tw-container{max-width:900px;margin:0 auto;padding:20px 24px 60px;width:100%}
+	.tw-section{margin-bottom:32px}
+	.tw-section-title{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#94a3b8;letter-spacing:.5px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+	.tw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+	.tw-card{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);text-decoration:none;transition:all .25s;cursor:pointer;min-width:0}
+	.tw-card:hover{background:rgba(255,255,255,.05);border-color:rgba(16,185,129,.25);transform:translateY(-2px)}
+	.tw-card-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+	.tw-card-icon.ai{background:rgba(16,185,129,.15)}
+	.tw-card-icon.tool{background:rgba(245,158,11,.12)}
+	.tw-card-icon.content{background:rgba(236,72,153,.1)}
+	.tw-card-icon.data{background:rgba(59,130,246,.1)}
+	.tw-card-info{flex:1;min-width:0}
+	.tw-card-name{font-size:13px;font-weight:600;color:#f1f5f9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+	.tw-card-desc{font-size:11px;color:#64748b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+	.tw-card-arrow{color:#4a4844;font-size:12px;flex-shrink:0;transition:all .25s}
+	.tw-card:hover .tw-card-arrow{color:#10b981;transform:translateX(3px)}
+	@media(max-width:768px){
+	  .view-toggle{gap:3px}
+	  .view-toggle button{padding:4px 12px;font-size:11px}
+	  #twin-view .tw-header{padding:50px 12px 6px}
+	  #twin-view .tw-header h2{font-size:18px}
+	  #twin-view .tw-header p{font-size:11px}
+	  .tw-container{padding:10px 12px 40px}
+	  .tw-grid{grid-template-columns:1fr;gap:8px}
+	  .tw-card{padding:12px 14px}
+	  .tw-section{margin-bottom:20px}
+	  .tw-section-title{font-size:12px}
+	  .view-toggle{top:auto;bottom:60px;left:50%;transform:translateX(-50%)}
+	}
+</style>
+</head>
+<body>
+<div id="loading"><div class="ring"></div><p id="load-txt">正在加载科学星图…</p></div>
+<canvas id="bg-canvas"></canvas>
+<svg id="graph-svg"></svg>
+<div id="header"><h1 id="h-title">🌟 人类群星闪耀</h1><div class="sub" id="h-sub">科学星图 — 在群星闪耀时，发现科学的脉络</div></div>
+<div class="view-toggle"><button class="active" data-view="star">星图</button><button data-view="twin">孪生宇宙</button></div>
+<div id="disc-legend"></div>
+<button id="lang-btn">EN</button>
+<div id="tooltip"><div class="tt-name"></div><div class="tt-years"></div><span class="tt-disc"></span><div class="tt-quote"></div></div>
+
+<div id="filter-panel">
+  <div id="search-wrap"><span id="search-icon">🔍</span><input id="search-input" type="text" placeholder="搜索科学家…" autocomplete="off"><div id="search-results"></div></div>
+  <div class="filter-group"><div class="filter-group-label" data-i18n="discipline">学科</div><div class="filter-btns" data-filter="discipline"></div></div>
+  <div class="filter-group"><div class="filter-group-label" data-i18n="culture">文化</div><div class="filter-btns" data-filter="culturalTag"></div></div>
+  <div class="filter-group"><div class="filter-group-label" data-i18n="era">时代</div><div class="filter-btns" data-filter="era"></div></div>
+  <button id="filter-reset" data-i18n="reset">重置全部筛选</button>
+</div>
+<button id="filter-toggle">▶</button>
+<button id="mob-filter-btn">🔍</button>
+<div id="filter-overlay"></div>
+
+<div id="detail-panel">
+  <div class="dp-accent"></div>
+  <button class="dp-close">✕</button>
+  <div class="dp-scroll">
+    <div class="dp-hero">
+      <div class="dp-portrait"><span class="dp-initial"></span></div>
+      <div class="dp-name"></div>
+      <div class="dp-name-en"></div>
+      <div class="dp-meta"></div>
+      <div class="dp-badges"></div>
+      <div class="dp-influence"><span data-i18n="influence">影响力</span><div class="dp-stars"></div></div>
+    </div>
+    <div class="dp-fs-row"><span class="dp-fs-label" data-i18n="fontSize">字号</span><div class="dp-fs-btns"><button class="dp-fs-btn" data-size="small" data-i18n="small">小</button><button class="dp-fs-btn active" data-size="medium" data-i18n="medium">中</button><button class="dp-fs-btn" data-size="large" data-i18n="large">大</button></div></div>
+    <div class="dp-quote-block"><div class="dp-quote-text"></div><div class="dp-quote-src"></div><div class="dp-quote-nav"></div></div>
+    <div class="dp-summary"></div>
+    <div class="dp-section" id="sec-life" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">📜</span><span data-i18n="lifeStory">生平轨迹</span></div><div class="dp-life"></div></div>
+    <div class="dp-section" id="sec-contrib" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">💡</span><span data-i18n="contributions">重大贡献</span></div><div class="dp-contrib-list"></div></div>
+    <div class="dp-section" id="sec-problem" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">⚡</span><span data-i18n="problems">要解决的问题</span></div><div class="dp-problem-list"></div></div>
+    <div class="dp-section" id="sec-controversy" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">⚔️</span><span data-i18n="controversies">观点冲突</span></div><div class="dp-controversy-list"></div></div>
+    <div class="dp-section" id="sec-anecdote" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">📖</span><span data-i18n="anecdote">逸闻趣事</span></div><div class="dp-anecdote"><div class="dp-anecdote-label" data-i18n="didYouKnow">你知道吗</div><div class="dp-anecdote-text"></div></div></div>
+    <div class="dp-section" id="sec-review" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">🧠</span><span data-i18n="review">深度点评</span></div><div class="dp-review"></div></div>
+    <div class="dp-section" id="sec-relation" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">🔗</span><span data-i18n="relations">科学关联</span></div><div class="relation-list"></div></div>
+    <div class="dp-section" id="sec-works" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">📖</span><span data-i18n="keyWorks">代表著作</span></div><div class="dp-works-list"></div></div>
+    <div class="dp-section" id="sec-legacy" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">🌱</span><span data-i18n="legacy">现代影响</span></div><div class="dp-legacy-text"></div></div>
+    <div class="dp-section" id="sec-timeline" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">⏳</span><span data-i18n="lifeTimeline">生平时间线</span></div><div class="dp-timeline"></div></div>
+    <div class="dp-section" id="sec-contemporaries" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">👥</span><span data-i18n="contemporaries">同时代人</span></div><div class="dp-contemporaries-list"></div></div>
+    <div class="dp-section" id="sec-influence" style="display:none"><div class="dp-section-title"><span class="dp-section-icon">🌳</span><span data-i18n="influenceTree">师承关系</span></div><div class="dp-influence-tree"></div></div>
+  </div>
+</div>
+
+<button id="reset-view">⟲</button>
+<div id="zoom-controls"><button id="zoom-in">+</button><button id="zoom-out">−</button></div>
+<div class="school-tip" id="disc-tip"><div class="st-name"></div><div class="st-desc"></div></div>
+
+<script>
+const langBtn=document.getElementById('lang-btn');
+let lang='zh',dataRef,simData,svg,gTree,gHulls,gEdges,gNodes,simulation,selectedNode,tooltip,detailPanel,searchIndex;
+
+const i18n={
+  zh:{mTitle:'🌟 人类群星闪耀',mSub:'科学星图 — 在群星闪耀时，发现科学的脉络',loadTxt:'正在加载科学星图…',sPlaceholder:'搜索科学家…',discipline:'学科',culture:'文化',era:'时代',reset:'重置全部筛选',influence:'影响力',lifeStory:'生平轨迹',contributions:'重大贡献',problems:'要解决的问题',controversies:'观点冲突',anecdote:'逸闻趣事',review:'深度点评',relations:'科学关联',solvedBy:'解决者',noResults:'无结果',fontSize:'字号',small:'小',medium:'中',large:'大',didYouKnow:'你知道吗',loadError:'加载失败，请使用 npx serve 启动本地服务器',keyWorks:'代表著作',legacy:'现代影响',lifeTimeline:'生平时间线',contemporaries:'同时代人',influenceTree:'师承关系',vStar:'星图',vTwin:'孪生宇宙',twinTitle:'🧬 科学孪生宇宙',twinSub:'我的其他项目 · 点击跳转'},
+  en:{mTitle:'🌟 Stellar Minds',mSub:'The Star Map of Science — Trace the evolution of science',loadTxt:'Loading science star map…',sPlaceholder:'Search scientists…',discipline:'Discipline',culture:'Culture',era:'Era',reset:'Reset Filters',influence:'Influence',lifeStory:'Life Story',contributions:'Key Contributions',problems:'Problems Solved',controversies:'Controversies',anecdote:'Anecdotes',review:'Deep Review',relations:'Connections',solvedBy:'Solved by',noResults:'No results',fontSize:'Font Size',small:'S',medium:'M',large:'L',didYouKnow:'Did You Know?',loadError:'Load failed. Use npx serve or a local server.',keyWorks:'Key Works',legacy:'Modern Legacy',lifeTimeline:'Life Timeline',contemporaries:'Contemporaries',influenceTree:'Influence Tree',vStar:'Star Map',vTwin:'Twinverse',twinTitle:'🧬 Science Twinverse',twinSub:'My other projects — click to visit'}
+};
+function t(key){return (i18n[lang]||i18n.zh)[key]||key}
+function applyLang(){
+  document.getElementById('h-title').textContent=t('mTitle');
+  document.getElementById('h-sub').textContent=t('mSub');
+  var lt=document.getElementById('load-txt');if(lt)lt.textContent=t('loadTxt');
+  document.getElementById('search-input').placeholder=t('sPlaceholder');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n)});
+  // Force detail panel titles
+  var dp=document.getElementById('detail-panel');if(dp)dp.querySelectorAll('.dp-section-title span[data-i18n]').forEach(function(el){el.textContent=t(el.dataset.i18n)});
+  document.getElementById('filter-reset').textContent=t('reset');
+  // Twin universe
+  document.querySelector('.view-toggle [data-view="star"]').textContent=t('vStar');
+  document.querySelector('.view-toggle [data-view="twin"]').textContent=t('vTwin');
+  var twH2=document.querySelector('#twin-view .tw-header h2');if(twH2)twH2.textContent=t('twinTitle');
+  var twP=document.querySelector('#twin-view .tw-header p');if(twP)twP.textContent=t('twinSub');
+  var twinView=document.getElementById('twin-view');
+  if(twinView&&twinView.classList.contains('active'))buildTwinUniverse();
+  // Update filter button text on language switch
+  var isEn=lang==='en';
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    var key=btn.dataset.key,val=btn.dataset.value;
+    if(dataRef){
+      var arr=key==='discipline'?dataRef.disciplines:key==='culturalTag'?dataRef.culturalTags:key==='era'?dataRef.eras:[];
+      var item=arr.find(function(x){return x.id===val});
+      if(item){btn.textContent=isEn?(item.nameEn||item.name):item.name}
+    }
+  });
+}
+langBtn.addEventListener('click',()=>{
+  lang=lang==='zh'?'en':'zh';
+  langBtn.textContent=lang==='zh'?'EN':'中';
+  applyLang();buildLegend();updateNodeTexts();try{localStorage.setItem('scimap-lang',lang)}catch(e){}
+  if(selectedNode&&detailPanel.classList.contains('open'))openDetailPanel(selectedNode);
+});
+(function(){try{var v=localStorage.getItem('scimap-lang');if(v)lang=v}catch(e){};langBtn.textContent=lang==='zh'?'EN':'中'})();
+
+const discColors={
+  mathematics:{color:'#3b82f6',glow:'#60a5fa'},physics:{color:'#10b981',glow:'#34d399'},
+  chemistry:{color:'#8b5cf6',glow:'#a78bfa'},astronomy:{color:'#f59e0b',glow:'#fbbf24'},
+  biology:{color:'#ef4444',glow:'#f87171'},cs:{color:'#06b6d4',glow:'#22d3ee'},
+  medicine:{color:'#d946ef',glow:'#e879f9'}
+};
+const initials={mathematics:'π',physics:'E',chemistry:'mol',astronomy:'★',biology:'DNA',cs:'λ',medicine:'☤'};
+const discDisplay={zh:{mathematics:'数学',physics:'物理学',chemistry:'化学',astronomy:'天文学',biology:'生物学',cs:'计算机科学',medicine:'医学'},en:{mathematics:'Mathematics',physics:'Physics',chemistry:'Chemistry',astronomy:'Astronomy',biology:'Biology',cs:'Computer Science',medicine:'Medicine'}};
+function discName(id){return discDisplay[lang]&&discDisplay[lang][id]?discDisplay[lang][id]:id}
+
+function buildLegend(){
+  const cont=document.getElementById('disc-legend');
+  cont.innerHTML=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'].map(d=>{
+    const c=discColors[d]||{color:'#64748b'};
+    return '<div class="lg-item"><span class="lg-dot" style="background:'+c.color+'"></span>'+discName(d)+'</div>';
+  }).join('');
+}
+
+function updateNodeTexts(){
+  if(!gNodes)return;
+  gNodes.selectAll('.node-group').each(function(d){
+    if(d.isBottleneck)return;
+    const g=d3.select(this);
+    g.selectAll('text').remove();
+    const name=lang==='en'?(d.nameEn||d.name):d.name;
+    const len=name.length,r=d.radius;
+    if(len<=5){
+      const fs=len<=3?Math.min(12,Math.max(8,r*.55)):Math.max(5.5,Math.min(9,r*.35));
+      g.append('text').attr('text-anchor','middle').attr('dy','.35em')
+        .attr('font-size',fs).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none').text(name);
+    }else{
+      const mid=Math.ceil(len/2),fs=Math.max(5,Math.min(7,r*.32));
+      g.append('text').attr('text-anchor','middle').attr('y',-3)
+        .attr('font-size',fs).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none').text(name.slice(0,mid));
+      g.append('text').attr('text-anchor','middle').attr('y',6)
+        .attr('font-size',fs).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none').text(name.slice(mid));
+    }
+  });
+}
+
+// ── Canvas Background (space nebula) ──
+const canvas=document.getElementById('bg-canvas'),ctx=canvas.getContext('2d');
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+// Nebula clouds
+const nebulaColors=['rgba(16,185,129,.03)','rgba(59,130,246,.03)','rgba(139,92,246,.03)','rgba(245,158,11,.02)','rgba(239,68,68,.02)'];
+const nebulae=[];
+for(let i=0;i<8;i++)nebulae.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:80+Math.random()*200,c:nebulaColors[i%nebulaColors.length],dx:(Math.random()-.5)*.1,dy:(Math.random()-.5)*.1});
+const discNebula=[
+  {disc:'mathematics',c:'rgba(59,130,246,.04)'},{disc:'physics',c:'rgba(16,185,129,.04)'},{disc:'chemistry',c:'rgba(139,92,246,.04)'},
+  {disc:'astronomy',c:'rgba(245,158,11,.03)'},{disc:'biology',c:'rgba(239,68,68,.03)'},{disc:'cs',c:'rgba(6,182,212,.03)'},{disc:'medicine',c:'rgba(236,72,153,.03)'}
+];
+const stars=[];
+for(let i=0;i<200;i++)stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*.8+.2,a:Math.random()*.6+.4,s:Math.random()*.008+.003,t:Math.random()*Math.PI*2});
+function drawBg(){
+  ctx.fillStyle='#000008';ctx.fillRect(0,0,canvas.width,canvas.height);
+  // Nebula blobs
+  nebulae.forEach(n=>{
+    n.x+=n.dx;n.y+=n.dy;
+    if(n.x<0||n.x>canvas.width)n.dx*=-1;
+    if(n.y<0||n.y>canvas.height)n.dy*=-1;
+    const g=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,n.r);
+    g.addColorStop(0,n.c);g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.fillRect(n.x-n.r,n.y-n.r,n.r*2,n.r*2);
+  });
+  // Stars with twinkle
+  stars.forEach(s=>{
+    s.t+=s.s;s.a=.3+.7*Math.abs(Math.sin(s.t));
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(255,255,255,'+s.a+')';ctx.fill()
+  });
+  requestAnimationFrame(drawBg)
+}
+drawBg();
+
+// ── Init ──
+svg=d3.select('#graph-svg');
+svg.append('defs');
+gTree=svg.append('g');
+gHulls=svg.append('g');
+gEdges=svg.append('g');
+gNodes=svg.append('g');
+tooltip=d3.select('#tooltip');
+detailPanel=d3.select('#detail-panel');
+let zoomBehavior;
+
+document.getElementById('filter-overlay').addEventListener('click',closeMobileFilter);
+document.getElementById('mob-filter-btn').addEventListener('click',()=>{
+  document.getElementById('filter-panel').classList.add('open');
+  document.getElementById('filter-overlay').classList.add('show');
+});
+function closeMobileFilter(){
+  document.getElementById('filter-panel').classList.remove('open');
+  document.getElementById('filter-overlay').classList.remove('show');
+}
+
+// ── Filter logic ──
+const currentFilters={discipline:new Set(),culturalTag:new Set(),era:new Set()};
+function toggleFilter(key,val,btn){
+  const s=currentFilters[key];
+  if(s.has(val)){s.delete(val);btn.classList.remove('active')}
+  else{s.add(val);btn.classList.add('active')}
+  applyAllFilters();
+}
+function isNodeVisible(d){
+  if(d.isBottleneck)return true;
+  if(currentFilters.discipline.size>0&&!currentFilters.discipline.has(d.discipline))return false;
+  if(currentFilters.culturalTag.size>0&&!currentFilters.culturalTag.has(d.culturalTag))return false;
+  if(currentFilters.era.size>0&&!currentFilters.era.has(d.era))return false;
+  return true;
+}
+
+// ── Data ──
+function init(){
+  try{
+    dataRef=_sciomapData;
+    processData();buildFilters();renderGraph();buildSearch();applyLang();buildLegend();
+    document.getElementById('loading').classList.add('hidden');
+    setTimeout(()=>document.getElementById('loading').remove(),700);
+  }catch(e){
+    console.error(e);
+    document.getElementById('loading').innerHTML='<p style="color:#ef4444;">'+t('loadError')+'<br><span style="font-size:11px;color:#94a3b8">'+e.message+'</span></p>';
+  }
+}
+function getDiscColor(id){return discColors[id]||{color:'#64748b',glow:'#94a3b8'}}
+
+function processData(){
+  const allNodes=[];
+  dataRef.scientists.forEach(p=>{
+    const c=getDiscColor(p.discipline);
+    allNodes.push({...p,radius:p.isBottleneck?10:(5+p.influence*1.5+(p.tags?p.tags.length-1:0)*1.5),color:c.color,glowColor:c.glow,x:Math.random()*window.innerWidth*.85+window.innerWidth*.075,y:Math.random()*window.innerHeight*.85+window.innerHeight*.075,fx:null,fy:null,isBottleneck:false});
+  });
+  dataRef.bottlenecks.forEach(b=>{
+    allNodes.push({id:b.id,name:b.label,nameEn:b.labelEn||b.label,birth:b.solvedYear?b.solvedYear-30:1900,death:null,discipline:b.discipline,subDiscipline:'',tags:[],culturalTag:'',era:b.era,radius:10,influence:0,color:'#64748b',glowColor:'#94a3b8',x:Math.random()*window.innerWidth*.5+window.innerWidth*.25,y:Math.random()*window.innerHeight*.5+window.innerHeight*.25,fx:null,fy:null,isBottleneck:true,summary:b.desc,summaryEn:b.descEn});
+  });
+  const nodeMap=new Map(allNodes.map(n=>[n.id,n]));
+  const edges=[];
+  dataRef.scientists.forEach(p=>{
+    if(!p.relationships)return;
+    p.relationships.forEach(rel=>{
+      const target=nodeMap.get(rel.target);
+      if(!target)return;
+      const tDef=dataRef.relationshipTypes.find(t=>t.id===rel.type)||{lineStyle:'dashed',strokeWidth:1.2};
+      edges.push({source:p.id,target:target.id,sourceNode:nodeMap.get(p.id),targetNode:target,type:rel.type,lineStyle:tDef.lineStyle,strokeWidth:rel.intensity?rel.intensity*.2:tDef.strokeWidth*.5,description:rel.description,descriptionEn:rel.descriptionEn});
+    });
+  });
+  simData={allNodes,allEdges:edges};
+}
+
+function buildFilters(){
+  const discContainer=document.querySelector('[data-filter="discipline"]');
+  dataRef.disciplines.forEach(d=>{
+    const btn=document.createElement('button');btn.className='filter-btn';btn.dataset.key='discipline';btn.dataset.value=d.id;btn.textContent=lang==='en'?(d.nameEn||d.name):d.name;
+    btn.addEventListener('click',()=>toggleFilter('discipline',d.id,btn));
+    discContainer.appendChild(btn);
+  });
+  const cultureContainer=document.querySelector('[data-filter="culturalTag"]');
+  dataRef.culturalTags.forEach(c=>{
+    const btn=document.createElement('button');btn.className='filter-btn';btn.dataset.key='culturalTag';btn.dataset.value=c.id;btn.textContent=lang==='en'?(c.nameEn||c.name):c.name;
+    btn.addEventListener('click',()=>toggleFilter('culturalTag',c.id,btn));
+    cultureContainer.appendChild(btn);
+  });
+  const eraContainer=document.querySelector('[data-filter="era"]');
+  dataRef.eras.forEach(e=>{
+    const btn=document.createElement('button');btn.className='filter-btn';btn.dataset.key='era';btn.dataset.value=e.id;btn.textContent=lang==='en'?(e.nameEn||e.name):e.name;
+    btn.addEventListener('click',()=>toggleFilter('era',e.id,btn));
+    eraContainer.appendChild(btn);
+  });
+  const discTip=document.getElementById('disc-tip');
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    const sub=dataRef.subDisciplines.find(s=>s.id===btn.dataset.value);
+    if(sub&&sub.description){
+      btn.addEventListener('mouseenter',function(e){
+        discTip.querySelector('.st-name').textContent=lang==='en'?(sub.nameEn||sub.name):sub.name;
+        discTip.querySelector('.st-desc').textContent=lang==='en'?(sub.descriptionEn||sub.description):sub.description;
+        const x=e.clientX+12,y=e.clientY-10;discTip.style.left=(x+300>window.innerWidth?x-316:x)+'px';
+        discTip.style.top=(y+180>window.innerHeight?y-196:y)+'px';discTip.style.opacity=1;
+      });
+      btn.addEventListener('mouseleave',()=>{discTip.style.opacity=0});
+    }
+  });
+  document.getElementById('filter-reset').addEventListener('click',()=>{
+    Object.keys(currentFilters).forEach(k=>{currentFilters[k].clear()});
+    document.querySelectorAll('.filter-btn.active').forEach(b=>b.classList.remove('active'));
+    applyAllFilters();closeMobileFilter();
+  });
+}
+
+function applyAllFilters(){
+  if(!simData)return;
+  const visibleIds=new Set(simData.allNodes.filter(isNodeVisible).map(n=>n.id));
+  gNodes.selectAll('.node-group').each(function(d){
+    const vis=visibleIds.has(d.id);
+    d3.select(this).selectAll('circle,text').transition().duration(500).attr('opacity',vis?null:.04).attr('display',vis?null:'none');
+    if(!vis){d.fx=null;d.fy=null}
+  });
+  gEdges.selectAll('line').each(function(d){
+    const src=d.source.id||d.source,tgt=d.target.id||d.target;
+    const vis=visibleIds.has(src)&&visibleIds.has(tgt);
+    d3.select(this).transition().duration(500).attr('opacity',vis?null:0).attr('display',vis?null:'none');
+  });
+  const visibleNodes=simData.allNodes.filter(n=>visibleIds.has(n.id));
+  gEdges.selectAll('line').each(function(d){
+    const src=d.source.id||d.source,tgt=d.target.id||d.target;
+    d3.select(this).attr('display',(!visibleIds.has(src)||!visibleIds.has(tgt))?'none':null);
+  });
+  if(selectedNode&&!visibleIds.has(selectedNode.id))closeDetailPanel();
+  setTimeout(()=>{gHulls.selectAll('*').remove();computeHulls()},600);
+}
+
+// ── Render Graph ──
+function renderGraph(){
+  const w=window.innerWidth,h=window.innerHeight;
+  svg.attr('width',w).attr('height',h);
+  zoomBehavior=d3.zoom().scaleExtent([.2,5]).on('zoom',(event)=>{
+    gEdges.attr('transform',event.transform);gNodes.attr('transform',event.transform);
+    gHulls.attr('transform',event.transform);
+    lodUpdate(event.transform.k);
+  });
+  svg.call(zoomBehavior);
+
+  const disciplines=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'];
+  function lodUpdate(k){
+    gNodes.selectAll('.node-group text').attr('opacity',d=>{
+      if(d.isBottleneck)return 0;
+      if(k>=1.2)return 1;
+      return d.influence>=8?1:0;
+    });
+    gHulls.selectAll('path').attr('opacity',k>=.4?.12:.06);
+  }
+
+  // ── Tree layers (bottom timeline + discipline legend) ──
+  function drawTree(){
+    gTree.selectAll('*').remove();
+    const discOrders=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'];
+    const h=window.innerHeight,w=window.innerWidth;
+    const padX=w*.05;
+    const stripTop=h*.90; // dark background top
+
+    // Dark background strip across bottom
+    gTree.append('rect').attr('x',0).attr('y',stripTop).attr('width',w).attr('height',h-stripTop)
+      .attr('fill','rgba(0,0,8,.75)');
+
+    // ── Timeline ──
+    const births=simData.allNodes.filter(n=>!n.isBottleneck).map(n=>n.birth);
+    const minB=Math.min(...births),maxB=Math.max(...births);
+    const tlY=h*.92, tlX1=padX, tlX2=w-padX;
+    const toX=yr=>tlX1+(tlX2-tlX1)*(yr-minB)/(maxB-minB||1);
+
+    gTree.append('line').attr('x1',tlX1).attr('x2',tlX2).attr('y1',tlY).attr('y2',tlY)
+      .attr('stroke','rgba(255,255,255,.35)').attr('stroke-width','2');
+    gTree.append('text').attr('x',w/2).attr('y',tlY+16).attr('text-anchor','middle')
+      .attr('fill','rgba(255,255,255,.45)').attr('font-size','11').attr('font-weight','600')
+      .text(lang==='en'?'⏳ Time →':'⏳ 时间 →');
+
+    // Year ticks
+    const span=maxB-minB;
+    let step=100;
+    [50,100,200,250,500,1000].forEach(s=>{if(span/s<=10&&span/s>=3)step=s});
+    const sYr=Math.floor(minB/step)*step, eYr=Math.ceil(maxB/step)*step;
+    for(let yr=sYr;yr<=eYr;yr+=step){
+      const x=toX(yr),label=yr<0?(-yr)+'BC':String(yr);
+      gTree.append('line').attr('x1',x).attr('x2',x).attr('y1',tlY-5).attr('y2',tlY+5)
+        .attr('stroke','rgba(255,255,255,.3)').attr('stroke-width','1.5');
+      gTree.append('text').attr('x',x).attr('y',tlY-8).attr('text-anchor','middle')
+        .attr('font-size','9').attr('font-weight','600').attr('fill','rgba(255,255,255,.45)').text(label);
+    }
+    // ── Era background labels ──
+    const eras=[
+      {label:lang==='en'?'Ancient':'古代',start:minB,end:500},
+      {label:lang==='en'?'Medieval':'中世纪',start:500,end:1400},
+      {label:lang==='en'?'Sci. Revolution':'科学革命',start:1400,end:1700},
+      {label:lang==='en'?'Enlightenment':'启蒙工业',start:1700,end:1900},
+      {label:lang==='en'?'Modern':'现代',start:1900,end:maxB}
+    ];
+    eras.forEach(e=>{
+      if(e.start>maxB||e.end<minB)return;
+      const x1=toX(Math.max(e.start,minB)),x2=toX(Math.min(e.end,maxB));
+      if(e.start>minB){
+        gTree.append('line').attr('x1',x1).attr('x2',x1).attr('y1',h*.05).attr('y2',tlY-10)
+          .attr('stroke','rgba(255,255,255,.04)').attr('stroke-width','1').attr('stroke-dasharray','3,5');
+      }
+      gTree.append('text').attr('x',(x1+x2)/2).attr('y',h*.06).attr('text-anchor','middle')
+        .attr('fill','rgba(255,255,255,.1)').attr('font-size','18').attr('font-weight','700')
+        .attr('letter-spacing','3').attr('pointer-events','none')
+        .text(e.label);
+    });
+  }
+  drawTree();
+  window.addEventListener('resize',drawTree);
+
+  // ── Discipline hulls ──
+  function computeHulls(){
+    const discOrders=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'];
+    discOrders.forEach(disc=>{
+      const pts=simData.allNodes.filter(n=>n.discipline===disc&&!n.isBottleneck&&n.x&&n.y).map(n=>[n.x,n.y]);
+      if(pts.length<3)return;
+      const hull=d3.polygonHull(pts);
+      if(!hull)return;
+      const color=(discColors[disc]||{}).color||'#64748b';
+      gHulls.append('polygon')
+        .attr('points',hull.map(p=>p[0]+','+p[1]).join(' '))
+        .attr('fill',color)
+        .attr('opacity',.12)
+        .attr('stroke','none')
+        .on('mouseenter',function(){
+          d3.select(this).transition().duration(250)
+            .attr('opacity',.35)
+            .attr('stroke',color)
+            .attr('stroke-width',2)
+            .attr('stroke-opacity',.6);
+        })
+        .on('mouseleave',function(){
+          d3.select(this).transition().duration(300)
+            .attr('opacity',.12)
+            .attr('stroke','none');
+        });
+    });
+  }
+
+  // ── Force simulation with pre-spread initial positions ──
+  const births=simData.allNodes.filter(n=>!n.isBottleneck).map(n=>n.birth||1900);
+  const minB=Math.min(...births),maxB=Math.max(...births);
+  // Pre-spread nodes so simulation doesn't start from random cluster
+  const preDisc={};const discKeys=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'];
+  simData.allNodes.forEach(d=>{if(!d.isBottleneck)d.x=w*.08+(w*.84)*((d.birth||1900)-minB)/(maxB-minB||1);const di=d.discipline;(preDisc[di]=preDisc[di]||[]).push(d)});
+  discKeys.forEach((disc,i)=>{
+    const yc=h*.05+(h*.85)*(i+.5)/7;
+    (preDisc[disc]||[]).forEach((d,j)=>{d.y=yc+(j%2?8:-8)*Math.ceil((j+1)/2);d.fx=null;d.fy=null});
+  });
+  simData.allNodes.forEach(d=>{if(d.isBottleneck){d.x=w/2;d.y=h/2}});
+  // Force simulation
+  simulation=d3.forceSimulation(simData.allNodes)
+    .force('x',d3.forceX(d=>{
+      if(d.isBottleneck)return w/2;
+      return w*.08+(w*.84)*((d.birth||1900)-minB)/(maxB-minB||1);
+    }).strength(.08))
+    .force('y',d3.forceY(d=>{
+      if(d.isBottleneck)return h/2;
+      let idx=discKeys.indexOf(d.discipline);
+      if(d.tags&&d.tags.length>1){const ci=discKeys.indexOf(d.tags.find(t=>t!==d.discipline));if(ci>=0)idx=(idx+ci)/2-0.3}
+      return h*.05+(h*.85)*(idx+.5)/7;
+    }).strength(.15))
+    .force('charge',d3.forceManyBody().strength(d=>d.isBottleneck?-200:-350))
+    .force('collide',d3.forceCollide(d=>d.radius+6).strength(1))
+    .alphaDecay(.025).velocityDecay(.35).alphaMin(.005);
+
+  const linkG=gEdges.selectAll('line').data(simData.allEdges).join('line')
+    .attr('stroke',d=>{
+      const sc=getDiscColor(d.sourceNode.discipline),tc=getDiscColor(d.targetNode.discipline);
+      const id='edge-'+d.sourceNode.id+'-'+d.targetNode.id;
+      const grad=svg.select('defs').select('#grad-'+id);
+      if(grad.empty()){
+        const g=svg.select('defs').append('linearGradient').attr('id','grad-'+id).attr('gradientUnits','userSpaceOnUse');
+        g.append('stop').attr('offset','0%').attr('stop-color',sc.color).attr('stop-opacity',.6);
+        g.append('stop').attr('offset','100%').attr('stop-color',tc.color).attr('stop-opacity',.6);
+      }
+      return 'url(#grad-'+id+')';
+    })
+    .attr('stroke-width',d=>Math.max(.8,d.strokeWidth||1.2))
+    .attr('stroke-dasharray',d=>d.lineStyle==='dashed'?'5,4':d.lineStyle==='dotted'?'4,4':'none')
+    .attr('stroke-opacity',.5)
+    .classed('flash-line',d=>d.lineStyle==='dotted')
+    .classed('pulse-line',d=>d.type==='debate');
+
+  // ── 3D sphere shading gradient ──
+  if(svg.select('defs').select('#sphere-shading').empty()){
+    const g=svg.select('defs').append('radialGradient').attr('id','sphere-shading').attr('cx','35%').attr('cy','28%').attr('r','70%');
+    g.append('stop').attr('offset','0%').attr('stop-color','rgba(255,255,255,.45)');
+    g.append('stop').attr('offset','35%').attr('stop-color','rgba(255,255,255,.08)');
+    g.append('stop').attr('offset','70%').attr('stop-color','rgba(0,0,0,.1)');
+    g.append('stop').attr('offset','100%').attr('stop-color','rgba(0,0,0,.5)');
+  }
+
+  const nodeG=gNodes.selectAll('.node-group').data(simData.allNodes).join('g').attr('class','node-group').style('cursor','pointer');
+
+  nodeG.each(function(d){
+    const g=d3.select(this);
+    if(d.isBottleneck){
+      g.append('text').attr('text-anchor','middle').attr('dy','.35em').attr('font-size','24').attr('fill','#64748b').attr('pointer-events','none').text('?');
+      g.append('circle').attr('r',d.radius+2).attr('fill','none').attr('stroke','rgba(100,116,139,.3)').attr('stroke-width','1.5').attr('stroke-dasharray','3,2');
+    }else{
+      let fillVal=d.color;
+      if(d.tags&&d.tags.length>1){
+        const otherTag=d.tags.find(t=>t!==d.discipline);
+        if(otherTag&&discColors[otherTag]){
+          const gid='g-node-'+d.id;
+          if(svg.select('defs').select('#'+gid).empty()){
+            const grad=svg.select('defs').append('radialGradient').attr('id',gid).attr('cx','30%').attr('cy','30%').attr('r','70%');
+            grad.append('stop').attr('offset','0%').attr('stop-color',d.color);
+            grad.append('stop').attr('offset','60%').attr('stop-color',d.color);
+            grad.append('stop').attr('offset','100%').attr('stop-color',discColors[otherTag].color);
+          }
+          fillVal='url(#'+gid+')';
+        }
+      }
+      g.append('circle').attr('r',d.radius).attr('fill',fillVal).attr('opacity',.88);
+      g.append('circle').attr('r',d.radius).attr('fill','url(#sphere-shading)').attr('pointer-events','none');
+      g.append('circle').attr('r',d.radius+2).attr('fill','none').attr('stroke',d.glowColor).attr('stroke-width','2').attr('opacity',.3);
+      g.append('circle').attr('r',d.radius+6+d.influence*.5).attr('fill','none').attr('stroke',d.glowColor).attr('stroke-width','1').attr('opacity','var(--glow-base,.08)').attr('class','sphere-breathe');
+      if(d.tags&&d.tags.length>1){
+        const extras=d.tags.filter(t=>t!==d.discipline);
+        extras.forEach((tag,i)=>{
+          const dc=discColors[tag];if(!dc)return;
+          const sdR=d.radius+6,angle=i*Math.PI*2/extras.length;
+          g.append('circle').attr('cx',Math.cos(angle)*sdR).attr('cy',Math.sin(angle)*sdR)
+            .attr('r',4).attr('fill',dc.color).attr('stroke','rgba(255,255,255,.3)').attr('stroke-width','.5');
+        });
+      }
+    }
+  });
+
+  nodeG.each(function(d){
+    const g=d3.select(this);
+    if(d.isBottleneck)return;
+    const name=lang==='en'?(d.nameEn||d.name):d.name;
+    const r=d.radius,len=name.length;
+    if(len<=3){
+      g.append('text').attr('text-anchor','middle').attr('dy','.35em')
+        .attr('font-size',Math.min(12,Math.max(8,r*.55))).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none').text(name);
+    }else if(len<=5){
+      const fs=Math.max(5.5,Math.min(9,r*.35));
+      g.append('text').attr('text-anchor','middle').attr('dy','.35em')
+        .attr('font-size',fs).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none').text(name);
+    }else{
+      const mid=Math.ceil(len/2),fs=Math.max(5,Math.min(7,r*.32));
+      g.append('text').attr('text-anchor','middle').attr('y',-3)
+        .attr('font-size',fs).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none')
+        .text(name.slice(0,mid));
+      g.append('text').attr('text-anchor','middle').attr('y',6)
+        .attr('font-size',fs).attr('font-weight','600')
+        .attr('fill','#fff').attr('pointer-events','none')
+        .text(name.slice(mid));
+    }
+  });
+
+  nodeG.on('mouseenter',function(e,d){
+    if(d.isBottleneck){
+      tooltip.style('opacity',1).html('<div class="tt-name">⚠️ '+(lang==='en'?d.nameEn||d.name:d.name)+'</div><div class="tt-summary">'+(lang==='en'?d.summaryEn||d.summary:d.summary)+'</div>');
+    }else{
+      const yrs=(d.birth?d.birth:'-')+' – '+(d.death?d.death:'');
+      const dn=discName(d.discipline);
+      const nationality=lang==='en'?(d.nationalityEn||d.nationality):d.nationality;
+      const summary=(lang==='en'?(d.summaryEn||d.summary):d.summary)||'';
+      const firstContrib=d.keyContributions&&d.keyContributions[0];
+      const contribTitle=lang==='en'?(firstContrib?firstContrib.titleEn||firstContrib.title:''):(firstContrib?firstContrib.title:'');
+      const contribYear=firstContrib&&firstContrib.year?firstContrib.year:'';
+      const firstEvent=d.famousEvents&&d.famousEvents[0];
+      const eventTitle=lang==='en'?(firstEvent?firstEvent.titleEn||firstEvent.title:''):(firstEvent?firstEvent.title:'');
+      const honorText=eventTitle||(contribTitle?contribTitle+(contribYear?'（'+contribYear+'）':''):'');
+      let html='<div class="tt-name">'+(lang==='en'?d.nameEn||d.name:d.name)+'</div><div class="tt-years">'+yrs+'</div><span class="tt-disc" style="background:'+d.color+'30;color:'+d.color+'">'+dn+'</span>';
+      if(nationality)html+='<div style="font-size:11px;color:#64748b;margin-bottom:6px">'+nationality+'</div>';
+      if(summary)html+='<div class="tt-summary">'+summary.substring(0,80)+(summary.length>80?'…':'')+'</div>';
+      if(contribTitle)html+='<div class="tt-contrib">'+contribTitle+(contribYear?' · '+contribYear:'')+'</div>';
+      if(eventTitle)html+='<div style="font-size:10px;color:#f59e0b;margin-top:4px">🏆 '+eventTitle+'</div>';
+      tooltip.style('opacity',1).html(html);
+    }
+    const x=e.clientX+12,y=e.clientY-10;tooltip.style('left',(x+360>window.innerWidth?x-336:x)+'px').style('top',(y+240>window.innerHeight?y-256:y)+'px');
+  }).on('mouseleave',()=>tooltip.style('opacity',0));
+
+  simulation.on('tick',()=>{
+    linkG.attr('x1',d=>(d.source.x||0)).attr('y1',d=>(d.source.y||0)).attr('x2',d=>(d.target.x||0)).attr('y2',d=>(d.target.y||0));
+    nodeG.attr('transform',d=>'translate('+(d.x||0)+','+(d.y||0)+')');
+  }).on('end',()=>{
+    computeHulls();
+  });
+  simulation.alpha(1).restart();
+  setTimeout(computeHulls,3000);
+
+  // Zoom controls
+  document.getElementById('zoom-in').addEventListener('click',()=>svg.transition().duration(300).call(zoomBehavior.scaleBy,1.5));
+  document.getElementById('zoom-out').addEventListener('click',()=>svg.transition().duration(300).call(zoomBehavior.scaleBy,.7));
+  document.getElementById('reset-view').addEventListener('click',()=>{
+    svg.transition().duration(600).call(zoomBehavior.transform,d3.zoomIdentity);
+    closeDetailPanel();
+  });
+
+  const baseClick=function(e,d){
+    if(selectedNode&&selectedNode.id===d.id&&detailPanel.classed('open')){closeDetailPanel();return}
+    if(d.isBottleneck){
+      e.stopPropagation();tooltip.style('opacity',0);
+      const sol=d.solvedBy,sol2=d.solvedBy2;
+      const name=lang==='en'?d.nameEn||d.name:d.name;
+      const desc=lang==='en'?d.descEn||d.desc:d.desc;
+      const theory=d.solvedByTheory||'';
+      let solHtml='';
+      if(sol){const n=simData.allNodes.find(x=>x.id===sol);if(n)solHtml='<div style="margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.06)"><div style="font-size:10px;color:#64748b;margin-bottom:2px">'+t('solvedBy')+':</div><div style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:4px 8px;border-radius:6px;background:rgba(16,185,129,.1)" class="bottleneck-solution" data-id="'+sol+'"><span style="font-size:12px;color:#e2e8f0;font-weight:600">'+(lang==='en'?(n.nameEn||n.name):n.name)+'</span><span style="font-size:10px;color:#6ee7b7">'+theory+'</span></div></div>';}
+      if(sol2){const n=simData.allNodes.find(x=>x.id===sol2);if(n)solHtml+='<div style="display:flex;align-items:center;gap:6px;cursor:pointer;padding:4px 8px;border-radius:6px;background:rgba(16,185,129,.1);margin-top:2px" class="bottleneck-solution" data-id="'+sol2+'"><span style="font-size:12px;color:#e2e8f0;font-weight:600">'+(lang==='en'?(n.nameEn||n.name):n.name)+'</span></div>';}
+      tooltip.style('opacity',1).html('<div class="tt-name">⚠️ '+name+'</div><div style="font-size:11px;color:#94a3b8;line-height:1.5;margin-top:6px">'+desc+'</div>'+solHtml);
+      const x=e.clientX+12,y=e.clientY-10;tooltip.style('left',(x+360>window.innerWidth?x-336:x)+'px').style('top',(y+280>window.innerHeight?y-296:y)+'px');
+      setTimeout(()=>{document.querySelectorAll('.bottleneck-solution').forEach(el=>{el.addEventListener('click',function(ev){ev.stopPropagation();tooltip.style('opacity',0);const id=this.dataset.id;const n=simData.allNodes.find(x=>x.id===id);if(n){closeDetailPanel();setTimeout(()=>openDetailPanel(n),300)}});})},50);
+      return;
+    }
+    closeDetailPanel();setTimeout(()=>openDetailPanel(d),50);
+  };
+  nodeG.on('click',function(e,d){
+    e.stopPropagation();
+    baseClick(e,d);
+  });
+
+  // Click background to close
+  svg.on('click',()=>{closeDetailPanel();closeMobileFilter()});
+}
+
+// ── Detail Panel ──
+function openDetailPanel(d){
+  selectedNode=d;tooltip.style('opacity',0);
+  const c=getDiscColor(d.discipline);
+  const panel=detailPanel,scroll=panel.select('.dp-scroll');
+  scroll.node().scrollTop=0;
+  panel.select('.dp-accent').style('background','linear-gradient(180deg,'+c.color+','+c.glow+')');
+  // Set section theme color for all section titles
+  panel.selectAll('.dp-section-title').style('--sec-color',c.color);
+  const init=initials[d.discipline]||d.name[0];
+  panel.select('.dp-initial').text(init);
+  const portrait=panel.select('.dp-portrait');
+  portrait.selectAll('img').remove();
+  if(d.portrait&&d.portrait.startsWith('http')){
+    portrait.classed('has-img',true);
+    portrait.append('img').attr('src',d.portrait).attr('alt',d.name).on('error',function(){d3.select(this).remove();portrait.classed('has-img',false)});
+  }else{portrait.classed('has-img',false)}
+  portrait.style('background','radial-gradient(circle at 40% 35%, '+c.glow+'40, '+c.color+'10, rgba(0,0,0,.3))').style('border-color',c.glow+'40');
+  panel.select('.dp-name').text(lang==='en'?(d.nameEn||d.name):d.name);
+  panel.select('.dp-name-en').text(lang==='en'?d.name:d.nameEn||'');
+  const yrs=(d.birth?d.birth:'')+' – '+(d.death?d.death:lang==='en'?'present':'至今');
+  panel.select('.dp-meta').text(yrs+' · '+d.nationality);
+  // Badges
+  const badges=panel.select('.dp-badges');badges.html('');
+  const dBadge=badges.append('span').attr('class','dp-badge');
+  dBadge.style('background',c.color+'20').style('color',c.color).text(discName(d.discipline));
+  if(d.subDiscipline){
+    const sd=dataRef.subDisciplines.find(s=>s.id===d.subDiscipline);
+    if(sd){badges.append('span').attr('class','dp-badge').style('background','rgba(255,255,255,.05)').style('color','#cbd5e1').text(lang==='en'?(sd.nameEn||sd.name):sd.name)}
+  }
+  if(d.culturalTag){
+    const ct=dataRef.culturalTags.find(t=>t.id===d.culturalTag);
+    if(ct){badges.append('span').attr('class','dp-badge').style('background','rgba(255,255,255,.05)').style('color','#94a3b8').text(lang==='en'?(ct.nameEn||ct.name):ct.name)}
+  }
+  // Stars
+  const stars=panel.select('.dp-stars');stars.html('');
+  for(let i=0;i<10;i++){stars.append('div').attr('class','dp-star'+(i<d.influence?' filled':''))}
+  // Summary + LifeStory merged
+  const bio = (lang==='en'?(d.summaryEn||d.summary):d.summary) +
+    (d.lifeStory ? '<br><br>' + (lang==='en'?(d.lifeStoryEn||d.lifeStory):d.lifeStory) : '');
+  panel.select('.dp-summary').html(bio);
+  // Quotes
+  const qb=panel.select('.dp-quote-block');
+  const quotes=d.goldenQuotes||[];
+  if(quotes.length>0){
+    qb.style('display','block').style('border-color',c.color+'40');
+    let qi=0;
+    const showQuote=()=>{
+      qb.select('.dp-quote-text').text(quotes[qi]);
+      qb.select('.dp-quote-src').text((qi+1)+'/'+quotes.length);
+    };
+    let nav=qb.select('.dp-quote-nav');
+    if(quotes.length>1){
+      nav.html('');nav.append('button').text('‹').on('click',()=>{qi=(qi-1+quotes.length)%quotes.length;showQuote()});
+      nav.append('button').text('›').on('click',()=>{qi=(qi+1)%quotes.length;showQuote()});
+    }else{nav.html('')}
+    showQuote();
+  }else{qb.style('display','none')}
+  // Hide standalone life section (merged into summary)
+  panel.select('#sec-life').style('display','none');
+  // Contributions with discipline color accent
+  const secContrib=panel.select('#sec-contrib'),contribList=secContrib.select('.dp-contrib-list');
+  secContrib.select('.dp-section-title').style('--sec-color',c.color);
+  if(d.keyContributions&&d.keyContributions.length>0){
+    secContrib.style('display','block');
+    const types={theory:'理论',discovery:'发现',invention:'发明',experiment:'实验',work:'著作'};
+    const typesEn={theory:'Theory',discovery:'Discovery',invention:'Invention',experiment:'Experiment',work:'Work'};
+    contribList.html(d.keyContributions.sort((a,b)=>(a.year||0)-(b.year||0)).map(k=>{
+      const tp=lang==='en'?(typesEn[k.type]||k.type):(types[k.type]||k.type);
+      return '<div class="dp-contrib-item" style="--sec-color:'+c.color+'"><div class="dp-contrib-title">'+(lang==='en'?(k.titleEn||k.title):k.title)+' <span class="dp-contrib-year">'+(k.year||'')+'</span></div><div class="dp-contrib-desc">'+(lang==='en'?(k.descEn||k.desc):k.desc)+'</div><span class="dp-contrib-type">'+tp+'</span></div>';
+    }).join(''));
+  }else{secContrib.style('display','none')}
+  // Problems
+  const secProb=panel.select('#sec-problem'),probList=secProb.select('.dp-problem-list');
+  if(d.problemsSolved&&d.problemsSolved.length>0){
+    secProb.style('display','block');
+    probList.html(d.problemsSolved.map(p=>{
+      return '<div class="dp-problem-item"><div class="dp-plabel">'+(lang==='en'?(p.problemEn||p.problem):p.problem)+'</div><div class="dp-pdesc">'+(lang==='en'?(p.breakthroughEn||p.breakthrough):p.breakthrough)+'</div></div>';
+    }).join(''));
+  }else{secProb.style('display','none')}
+  // Controversies
+  const secContr=panel.select('#sec-controversy'),contrList=secContr.select('.dp-controversy-list');
+  if(d.controversies&&d.controversies.length>0){
+    secContr.style('display','block');
+    contrList.html(d.controversies.map(c=>{
+      return '<div class="dp-controversy-item" style="cursor:pointer" onclick="showDebatePopup(selectedNode)"><div class="dp-clabel">⚔️ '+(lang==='en'?(c.topicEn||c.topic):c.topic)+'</div><div class="dp-cdesc">'+(lang==='en'?(c.outcomeEn||c.outcome):c.outcome)+'</div></div>';
+    }).join(''));
+  }else{secContr.style('display','none')}
+  // Anecdote
+  const secAnec=panel.select('#sec-anecdote'),anecEl=secAnec.select('.dp-anecdote-text');
+  if(d.anecdote){
+    secAnec.style('display','block');
+    anecEl.html(lang==='en'?(d.anecdoteEn||d.anecdote):d.anecdote);
+  }else{secAnec.style('display','none')}
+  // Review
+  const secRev=panel.select('#sec-review'),revEl=secRev.select('.dp-review');
+  if(d.aiReview){
+    secRev.style('display','block');
+    revEl.html(lang==='en'?(d.aiReviewEn||d.aiReview):d.aiReview);
+  }else{secRev.style('display','none')}
+  // Relations
+  const secRel=panel.select('#sec-relation'),relList=secRel.select('.relation-list');
+  if(d.relationships&&d.relationships.length>0){
+    secRel.style('display','block');
+    relList.html(d.relationships.map(r=>{
+      const n=simData.allNodes.find(x=>x.id===r.target);
+      if(!n)return '';
+      const nc=getDiscColor(n.discipline);
+      return '<div class="relation-item" data-id="'+r.target+'"><div class="relation-dot" style="background:'+nc.color+'"></div><span class="relation-name">'+(lang==='en'?(n.nameEn||n.name):n.name)+'</span><span class="relation-type">'+(lang==='en'?(r.descriptionEn||r.description):r.description)+'</span></div>';
+    }).join(''));
+    relList.selectAll('.relation-item').on('click',function(){
+      const id=d3.select(this).attr('data-id');
+      const n=simData.allNodes.find(x=>x.id===id);
+      if(n){closeDetailPanel();setTimeout(()=>openDetailPanel(n),300)}
+    });
+  }else{secRel.style('display','none')}
+
+  // Key Works
+  const secWorks=panel.select('#sec-works'),worksList=secWorks.select('.dp-works-list');
+  if(d.keyWorks&&d.keyWorks.length>0){
+    secWorks.style('display','block').style('--sec-color',c.color);
+    worksList.html(d.keyWorks.map(k=>{
+      const tp={paper:(lang==='en'?'Paper':'论文'),book:(lang==='en'?'Book':'著作')}[k.type]||k.type;
+      return '<div class="dp-work-item"><div class="dp-work-title">'+(lang==='en'?(k.titleEn||k.title):k.title)+' <span class="dp-work-year">'+(k.year||'')+'</span></div><span class="dp-work-type">'+tp+'</span></div>';
+    }).join(''));
+  }else{secWorks.style('display','none')}
+  // Legacy
+  const secLegacy=panel.select('#sec-legacy'),legacyEl=secLegacy.select('.dp-legacy-text');
+  if(d.legacy){
+    secLegacy.style('display','block').style('--sec-color',c.color);
+    legacyEl.html(lang==='en'?(d.legacyEn||d.legacy):d.legacy);
+  }else{secLegacy.style('display','none')}
+  // Timeline (auto from birth + contributions + death)
+  const secTimeline=panel.select('#sec-timeline'),tlEl=secTimeline.select('.dp-timeline');
+  const tlItems=[];
+  if(d.birth)tlItems.push({year:d.birth,label:lang==='en'?'Born':'出生',type:'birth'});
+  if(d.keyContributions)tlItems.push(...d.keyContributions.filter(k=>k.year).map(k=>({year:k.year,label:(lang==='en'?(k.titleEn||k.title):k.title),type:'work'})));
+  if(d.death)tlItems.push({year:d.death,label:lang==='en'?'Died':'逝世',type:'death'});
+  tlItems.sort((a,b)=>a.year-b.year);
+  if(tlItems.length>0){
+    secTimeline.style('display','block').style('--sec-color',c.color);
+    tlEl.html(tlItems.map(t=>'<div class="dp-tl-item"><div class="dp-tl-year">'+(t.year<0?(-t.year)+'BC':t.year)+'</div><div class="dp-tl-label">'+t.label+'</div></div>').join(''));
+  }else{secTimeline.style('display','none')}
+  // Contemporaries (auto: +/- 30 years)
+  const secCtr=panel.select('#sec-contemporaries'),ctrList=secCtr.select('.dp-contemporaries-list');
+  const ctrs=simData.allNodes.filter(n=>!n.isBottleneck&&n.id!==d.id&&n.birth&&Math.abs(n.birth-d.birth)<=30);
+  if(ctrs.length>0){
+    secCtr.style('display','block').style('--sec-color',c.color);
+    ctrList.html(ctrs.map(n=>'<span class="dp-ct-item" data-id="'+n.id+'" style="border-color:'+(getDiscColor(n.discipline).color||'rgba(255,255,255,.08)')+'40">'+(lang==='en'?(n.nameEn||n.name):n.name)+'</span>').join(''));
+    ctrList.selectAll('.dp-ct-item').on('click',function(){
+      const id=d3.select(this).attr('data-id');
+      const n=simData.allNodes.find(x=>x.id===id);
+      if(n){closeDetailPanel();setTimeout(()=>openDetailPanel(n),300)}
+    });
+  }else{secCtr.style('display','none')}
+  // Influence Tree (from relationships)
+  const secInf=panel.select('#sec-influence'),infEl=secInf.select('.dp-influence-tree');
+  const infRels=d.relationships?d.relationships.filter(r=>r.type==='teacher'||r.type==='influence'):[];
+  if(infRels.length>0){
+    secInf.style('display','block').style('--sec-color',c.color);
+    infEl.html(infRels.map(r=>{
+      const n=simData.allNodes.find(x=>x.id===r.target);
+      if(!n)return '';
+      const nc=getDiscColor(n.discipline);
+      return '<div class="dp-it-item" data-id="'+r.target+'"><span class="dp-it-dot" style="background:'+nc.color+'"></span><span class="dp-it-arrow">←</span><span>'+(lang==='en'?(n.nameEn||n.name):n.name)+'</span><span style="font-size:10px;color:#64748b">'+(lang==='en'?(r.descriptionEn||r.description):r.description)+'</span></div>';
+    }).join(''));
+    infEl.selectAll('.dp-it-item').on('click',function(){
+      const id=d3.select(this).attr('data-id');
+      const n=simData.allNodes.find(x=>x.id===id);
+      if(n){closeDetailPanel();setTimeout(()=>openDetailPanel(n),300)}
+    });
+  }else{secInf.style('display','none')}
+
+  panel.classed('open',true);
+}
+
+function closeDetailPanel(){
+  detailPanel.classed('open',false);
+  selectedNode=null;
+}
+
+// ── Debate Popup ──
+function showDebatePopup(d){
+  const overlay=document.createElement('div');
+  overlay.style.cssText='position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s';
+  overlay.onclick=()=>{overlay.style.opacity='0';setTimeout(()=>overlay.remove(),300)};
+  const card=document.createElement('div');
+  card.style.cssText='background:rgba(15,15,30,.96);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:28px 32px;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.6)';
+  card.onclick=e=>e.stopPropagation();
+  const isEn=lang==='en';
+  const name=isEn?(d.nameEn||d.name):d.name;
+  const c=getDiscColor(d.discipline);
+  let html='<div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><div style="width:4px;height:28px;border-radius:2px;background:'+c.color+'"></div><div style="font-size:18px;font-weight:700;color:#e2e8f0">⚔️ 学术交锋</div></div>';
+  (d.controversies||[]).forEach(ct=>{
+    const topic=isEn?(ct.topicEn||ct.topic):ct.topic;
+    const outcome=isEn?(ct.outcomeEn||ct.outcome):ct.outcome;
+    const opp=ct.opponent?simData.allNodes.find(n=>n.id===ct.opponent):null;
+    const oppName=opp?(isEn?(opp.nameEn||opp.name):opp.name):'';
+    html+='<div style="margin-bottom:18px;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)">';
+    html+='<div style="font-size:15px;font-weight:600;color:#f1f5f9;margin-bottom:8px">'+topic+'</div>';
+    if(ct.stance)html+='<div style="padding:8px 10px;margin-bottom:6px;border-radius:6px;background:'+c.color+'10;border-left:2px solid '+c.color+'"><div style="font-size:11px;color:'+c.color+';font-weight:600">'+name+'</div><div style="font-size:13px;color:#e2e8f0;margin-top:2px">"'+ct.stance+'"</div></div>';
+    if(opp&&ct.opponentStance)html+='<div style="padding:8px 10px;margin-bottom:8px;border-radius:6px;background:rgba(239,68,68,.08);border-left:2px solid #ef4444"><div style="font-size:11px;color:#ef4444;font-weight:600">'+oppName+'</div><div style="font-size:13px;color:#e2e8f0;margin-top:2px">"'+ct.opponentStance+'"</div></div>';
+    html+='<div style="font-size:12px;color:#94a3b8;line-height:1.5">📌 '+outcome+'</div>';
+    html+='</div>';
+  });
+  card.innerHTML=html+'<div style="text-align:center;margin-top:8px"><button style="background:rgba(255,255,255,.06);border:none;color:#94a3b8;padding:8px 24px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit">关闭</button></div>';
+  card.querySelector('button').onclick=()=>{overlay.style.opacity='0';setTimeout(()=>overlay.remove(),300)};
+  overlay.appendChild(card);
+  document.body.appendChild(overlay);
+  requestAnimationFrame(()=>overlay.style.opacity='1');
+}
+document.querySelector('.dp-close').addEventListener('click',closeDetailPanel);
+
+// ── Font size ──
+(function(){
+  var btns=document.querySelectorAll('.dp-fs-btn');
+  function setSize(sz){
+    document.documentElement.setAttribute('data-font-size',sz);
+    btns.forEach(function(b){b.classList.toggle('active',b.dataset.size===sz)});
+    try{localStorage.setItem('scimap-font-size',sz)}catch(e){}
+  }
+  var saved=function(){try{return localStorage.getItem('scimap-font-size')}catch(e){return null}}()||'medium';
+  btns.forEach(function(b){b.addEventListener('click',function(){setSize(b.dataset.size)})});
+  setSize(saved);
+})();
+
+// ── Search ──
+function buildSearch(){
+  searchIndex=[];
+  dataRef.scientists.forEach(p=>{
+    const tokens=[p.name,p.nameEn||'',p.summary||'',p.summaryEn||''].join(' ').toLowerCase();
+    searchIndex.push({id:p.id,name:p.name,en:p.nameEn||'',tokens,discipline:p.discipline});
+  });
+  const input=document.getElementById('search-input'),results=document.getElementById('search-results');
+  input.addEventListener('input',()=>{
+    clearTimeout(window.searchTimeout);
+    window.searchTimeout=setTimeout(()=>doSearch(input.value),150);
+  });
+  input.addEventListener('blur',()=>setTimeout(()=>{if(!document.activeElement||!document.activeElement.closest('.sr-item'))results.classList.remove('show')},300));
+  input.addEventListener('focus',()=>{if(input.value.length>0)doSearch(input.value)});
+}
+function doSearch(q){
+  const results=document.getElementById('search-results');
+  if(!q||q.length<1){results.classList.remove('show');return}
+  const lower=q.toLowerCase();
+  const matches=searchIndex.filter(s=>s.tokens.includes(lower)).slice(0,8);
+  if(matches.length===0){results.innerHTML='<div class="sr-item" style="opacity:.5">'+t('noResults')+'</div>';results.classList.add('show');return}
+  results.innerHTML=matches.map(m=>{
+    const c=getDiscColor(m.discipline);
+    return '<div class="sr-item" data-id="'+m.id+'"><div class="sr-dot" style="background:'+c.color+'"></div><span class="sr-name">'+(lang==='en'?(m.en||m.name):m.name)+'</span><span class="sr-meta">'+discName(m.discipline)+'</span></div>';
+  }).join('');
+  results.classList.add('show');
+  results.querySelectorAll('.sr-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const id=el.dataset.id;
+      const n=simData.allNodes.find(x=>x.id===id);
+      if(n){
+        closeDetailPanel();
+        const tr=d3.zoomIdentity.translate(window.innerWidth*.45-n.x,window.innerHeight*.48-n.y).scale(1.2);
+        svg.transition().duration(600).call(zoomBehavior.transform,tr);
+        setTimeout(()=>openDetailPanel(n),500);
+      }
+      results.classList.remove('show');
+    });
+  });
+}
+
+// ── Twin Universe ──
+const TWIN_SITES=[
+  {name:'morris-quotes',desc:'Morris语录集·100条认知洞察与智慧点评',icon:'✨',cat:'content'},
+  {name:'research-frontiers',desc:'全球科研突破聚合与AI解读',icon:'🔬',cat:'ai'},
+  {name:'ai-chat-room',desc:'多模型AI对话界面',icon:'💬',cat:'ai'},
+  {name:'cosmic-discussion',desc:'宇宙大爆炸·AI终端深度对话',icon:'🌌',cat:'ai'},
+  {name:'being-towards-death',desc:'向死而生·AI终端哲学对话',icon:'🕯️',cat:'ai'},
+  {name:'cognitive-biases-atlas',desc:'认知星图·21种思维谬误可视化',icon:'🧠',cat:'tool'},
+  {name:'philomap',desc:'哲学星球 — 人类思想星图',icon:'🧬',cat:'content'},
+];
+const TWIN_CATS={ai:{label:'AI 对话',labelEn:'AI Chat',emoji:'🤖',cls:'ai'},tool:{label:'工具',labelEn:'Tools',emoji:'🛠️',cls:'tool'},content:{label:'内容精选',labelEn:'Content',emoji:'📖',cls:'content'},data:{label:'数据分析',labelEn:'Data',emoji:'📊',cls:'data'}};
+function buildTwinUniverse(){
+  const container=document.getElementById('twin-container');
+  const byCat={};TWIN_SITES.forEach(s=>{(byCat[s.cat]=byCat[s.cat]||[]).push(s)});
+  const order=['ai','tool','content','data'];let html='';
+  order.forEach(cat=>{
+    const list=byCat[cat];if(!list)return;
+    const info=TWIN_CATS[cat];
+    html+='<div class="tw-section"><div class="tw-section-title"><span>'+info.emoji+'</span>'+(lang==='en'?(info.labelEn||info.label):info.label)+'</div><div class="tw-grid">';
+    list.forEach(s=>{
+      html+='<a class="tw-card" href="https://yun-ai-base.github.io/'+s.name+'/" target="_blank" rel="noopener"><div class="tw-card-icon '+info.cls+'">'+s.icon+'</div><div class="tw-card-info"><div class="tw-card-name">'+s.name+'</div><div class="tw-card-desc">'+s.desc+'</div></div><span class="tw-card-arrow">→</span></a>';
+    });
+    html+='</div></div>';
+  });
+  container.innerHTML=html;
+}
+// ── View Switch ──
+let currentView='star';
+function switchView(view){
+  currentView=view;
+  document.querySelectorAll('.view-toggle button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+  const isStar=view==='star';
+  document.getElementById('bg-canvas').style.display=isStar?'block':'none';
+  document.getElementById('graph-svg').style.display=isStar?'block':'none';
+  document.getElementById('disc-legend').style.display=isStar?'':'none';
+  document.getElementById('filter-panel').style.display=isStar?'':'none';
+  document.getElementById('filter-toggle').style.display=isStar?'':'none';
+  document.getElementById('mob-filter-btn').style.display=isStar?'':'none';
+  document.getElementById('reset-view').style.display=isStar?'':'none';
+  document.getElementById('zoom-controls').style.display=isStar?'':'none';
+  document.getElementById('detail-panel').classList.remove('open');
+  document.getElementById('twin-view').classList.toggle('active',!isStar);
+  if(selectedNode){selectedNode=null;}
+  if(!isStar)buildTwinUniverse();
+}
+document.querySelectorAll('.view-toggle button').forEach(b=>{
+  b.addEventListener('click',()=>switchView(b.dataset.view));
+});
+
+// ── Filter toggle ──
+document.getElementById('filter-toggle').addEventListener('click',function(e){
+  e.stopPropagation();
+  const fp=document.getElementById('filter-panel');
+  fp.classList.toggle('collapsed');
+  this.textContent=fp.classList.contains('collapsed')?'◀':'▶';
+  this.classList.toggle('hidden',!fp.classList.contains('collapsed'));
+});
+
+// ── Start ──
+init();
+
+// Handle hash routing
+window.addEventListener('hashchange',()=>{
+  const id=location.hash.slice(1);
+  if(!id)return;
+  const n=simData&&simData.allNodes.find(x=>x.id===id);
+  if(n){closeDetailPanel();const tr=d3.zoomIdentity.translate(window.innerWidth*.45-n.x,window.innerHeight*.48-n.y).scale(1.2);svg.transition().duration(600).call(zoomBehavior.transform,tr);setTimeout(()=>openDetailPanel(n),500)}
+});
+</script>
+<!-- ═══════════ TWIN UNIVERSE ═══════════ -->
+<div id="twin-view">
+  <div class="tw-header">
+    <h2>🧬 科学孪生宇宙</h2>
+    <p>我的其他项目 · 点击跳转</p>
+  </div>
+  <div class="tw-container" id="twin-container"></div>
+</div>
+</body>
+</html>
