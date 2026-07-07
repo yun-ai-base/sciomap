@@ -211,7 +211,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 	.view-toggle button:hover{border-color:rgba(255,255,255,.35);color:#e2e8f0}
 	.view-toggle button.active{background:rgba(16,185,129,.2);border-color:rgba(16,185,129,.45);color:#6ee7b7;font-weight:600;box-shadow:0 0 16px rgba(16,185,129,.15)}
 	/* Twin Universe */
-	#twin-view{position:fixed;inset:0;z-index:3;background:radial-gradient(ellipse at 50% 50%,#0a0a20,#000008);display:none;flex-direction:column;overflow-y:auto}
+	#twin-view{position:fixed;inset:0;z-index:3;background:radial-gradient(ellipse at 50% 50%,#0a0a20,#000008);display:none;flex-direction:column;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.08) transparent}
+	#twin-view::-webkit-scrollbar{width:4px}
+	#twin-view::-webkit-scrollbar-track{background:transparent}
+	#twin-view::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:2px}
 	#twin-view.active{display:flex}
 	#twin-view .tw-header{text-align:center;padding:80px 24px 10px;flex-shrink:0}
 	#twin-view .tw-header h2{font-size:22px;font-weight:700;color:#f1f5f9;letter-spacing:1px}
@@ -1155,6 +1158,7 @@ function switchView(view){
   currentView=view;
   document.querySelectorAll('.view-toggle button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
   const isStar=view==='star';
+  document.querySelectorAll('#header h1,#header .sub').forEach(function(el){el.style.display=isStar?'':'none'});
   document.getElementById('bg-canvas').style.display=isStar?'block':'none';
   document.getElementById('graph-svg').style.display=isStar?'block':'none';
   document.getElementById('disc-legend').style.display=isStar?'':'none';
