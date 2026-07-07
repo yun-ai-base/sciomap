@@ -614,30 +614,7 @@ function renderGraph(){
       gTree.append('text').attr('x',x).attr('y',tlY-8).attr('text-anchor','middle')
         .attr('font-size','9').attr('font-weight','600').attr('fill','rgba(255,255,255,.45)').text(label);
     }
-    // ── Era background labels ──
-    const eras=[
-      {label:lang==='en'?'Ancient':'古代',start:minB,end:500},
-      {label:lang==='en'?'Medieval':'中世纪',start:500,end:1400},
-      {label:lang==='en'?'Sci. Revolution':'科学革命',start:1400,end:1700},
-      {label:lang==='en'?'Enlightenment':'启蒙工业',start:1700,end:1900},
-      {label:lang==='en'?'Modern':'现代',start:1900,end:maxB}
-    ];
-    eras.forEach(e=>{
-      if(e.start>maxB||e.end<minB)return;
-      const x1=toX(Math.max(e.start,minB)),x2=toX(Math.min(e.end,maxB));
-      if(e.start>minB){
-        gTree.append('line').attr('x1',x1).attr('x2',x1).attr('y1',h*.05).attr('y2',tlY-10)
-          .attr('stroke','rgba(255,255,255,.04)').attr('stroke-width','1').attr('stroke-dasharray','3,5');
-      }
-      gTree.append('text').attr('x',(x1+x2)/2).attr('y',h*.06).attr('text-anchor','middle')
-        .attr('fill','rgba(255,255,255,.1)').attr('font-size','18').attr('font-weight','700')
-        .attr('letter-spacing','3').attr('pointer-events','none')
-        .text(e.label);
-    });
   }
-  drawTree();
-  window.addEventListener('resize',drawTree);
-
   // ── Discipline hulls ──
   function computeHulls(){
     const discOrders=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'];
