@@ -245,6 +245,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 	  .view-toggle{top:auto;bottom:60px;left:50%;transform:translateX(-50%)}
 	}
 </style>
+<link rel="stylesheet" href="https://yun-ai-base.github.io/psychscope/twin-universe.css">
 </head>
 <body>
 <div id="loading"><div class="ring"></div><p id="load-txt">正在加载科学星图…</p></div>
@@ -324,7 +325,7 @@ function applyLang(){
   var twH2=document.querySelector('#twin-view .tw-header h2');if(twH2)twH2.textContent=t('twinTitle');
   var twP=document.querySelector('#twin-view .tw-header p');if(twP)twP.textContent=t('twinSub');
   var twinView=document.getElementById('twin-view');
-  if(twinView&&twinView.classList.contains('active'))buildTwinUniverse();
+  // twin universe rendered by external script
   // Update filter button text on language switch
   var isEn=lang==='en';
   document.querySelectorAll('.filter-btn').forEach(function(btn){
@@ -1096,32 +1097,6 @@ function doSearch(q){
   });
 }
 
-// ── Twin Universe ──
-const TWIN_SITES=[
-  {name:'morris-quotes',desc:'Morris语录集·100条认知洞察与智慧点评',icon:'✨',cat:'content'},
-  {name:'research-frontiers',desc:'全球科研突破聚合与AI解读',icon:'🔬',cat:'ai'},
-  {name:'ai-chat-room',desc:'多模型AI对话界面',icon:'💬',cat:'ai'},
-  {name:'cosmic-discussion',desc:'宇宙大爆炸·AI终端深度对话',icon:'🌌',cat:'ai'},
-  {name:'being-towards-death',desc:'向死而生·AI终端哲学对话',icon:'🕯️',cat:'ai'},
-  {name:'cognitive-biases-atlas',desc:'认知星图·21种思维谬误可视化',icon:'🧠',cat:'tool'},
-  {name:'philomap',desc:'哲学星球 — 人类思想星图',icon:'🧬',cat:'content'},
-];
-const TWIN_CATS={ai:{label:'AI 对话',labelEn:'AI Chat',emoji:'🤖',cls:'ai'},tool:{label:'工具',labelEn:'Tools',emoji:'🛠️',cls:'tool'},content:{label:'内容精选',labelEn:'Content',emoji:'📖',cls:'content'},data:{label:'数据分析',labelEn:'Data',emoji:'📊',cls:'data'}};
-function buildTwinUniverse(){
-  const container=document.getElementById('twin-container');
-  const byCat={};TWIN_SITES.forEach(s=>{(byCat[s.cat]=byCat[s.cat]||[]).push(s)});
-  const order=['ai','tool','content','data'];let html='';
-  order.forEach(cat=>{
-    const list=byCat[cat];if(!list)return;
-    const info=TWIN_CATS[cat];
-    html+='<div class="tw-section"><div class="tw-section-title"><span>'+info.emoji+'</span>'+(lang==='en'?(info.labelEn||info.label):info.label)+'</div><div class="tw-grid">';
-    list.forEach(s=>{
-      html+='<a class="tw-card" href="https://yun-ai-base.github.io/'+s.name+'/" target="_blank" rel="noopener"><div class="tw-card-icon '+info.cls+'">'+s.icon+'</div><div class="tw-card-info"><div class="tw-card-name">'+s.name+'</div><div class="tw-card-desc">'+s.desc+'</div></div><span class="tw-card-arrow">→</span></a>';
-    });
-    html+='</div></div>';
-  });
-  container.innerHTML=html;
-}
 // ── View Switch ──
 let currentView='star';
 function switchView(view){
@@ -1139,7 +1114,7 @@ function switchView(view){
   document.getElementById('detail-panel').classList.remove('open');
   document.getElementById('twin-view').classList.toggle('active',!isStar);
   if(selectedNode){selectedNode=null;}
-  if(!isStar)buildTwinUniverse();
+  // rendered by twin-universe.js
 }
 document.querySelectorAll('.view-toggle button').forEach(b=>{
   b.addEventListener('click',()=>switchView(b.dataset.view));
@@ -1173,5 +1148,6 @@ window.addEventListener('hashchange',()=>{
   </div>
   <div class="tw-container" id="twin-container"></div>
 </div>
+<script src="https://yun-ai-base.github.io/psychscope/twin-universe.js" data-project="sciomap"></script>
 </body>
 </html>
