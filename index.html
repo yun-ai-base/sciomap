@@ -1166,6 +1166,8 @@ window.addEventListener('hashchange',()=>{
   const n=simData&&simData.allNodes.find(x=>x.id===id);
   if(n){closeDetailPanel();const tr=d3.zoomIdentity.translate(window.innerWidth*.45-n.x,window.innerHeight*.48-n.y).scale(1.2);svg.transition().duration(600).call(zoomBehavior.transform,tr);setTimeout(()=>openDetailPanel(n),500)}
 });
+// Visit counter
+fetch('https://api.countapi.xyz/hit/yun-ai-base/sciomap').catch(()=>{});
 </script>
 <!-- ═══════════ TWIN UNIVERSE ═══════════ -->
 <div id="twin-view">
