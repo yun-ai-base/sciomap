@@ -63,6 +63,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 .sr-item .sr-meta{font-size:10px;color:#64748b;margin-left:auto}
 #lang-btn{position:fixed;z-index:8;top:12px;right:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:5px 12px;border-radius:8px;font-size:11px;font-family:inherit;cursor:pointer;transition:all .2s}
 #lang-btn:hover{background:rgba(255,255,255,.1);color:#e2e8f0}
+/* 头像开关 + 节点肖像 */
+#portrait-toggle{position:fixed;z-index:8;top:12px;right:64px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#94a3b8;padding:5px 11px;border-radius:8px;font-size:13px;font-family:inherit;cursor:pointer;transition:all .2s}
+#portrait-toggle:hover{background:rgba(255,255,255,.1);color:#e2e8f0}
+#portrait-toggle.off{opacity:.45;filter:grayscale(1)}
+.node-portrait{opacity:0;transition:opacity .5s ease;pointer-events:none}
+.node-portrait.loaded{opacity:1}
+.portraits-off .node-portrait{display:none!important}
+/* 节点名称描边，保证在头像/彩色球上都清晰可读 */
+.node-group text{paint-order:stroke;stroke:rgba(0,0,0,.62);stroke-width:2.4px;stroke-linejoin:round}
 #disc-legend{position:fixed;z-index:5;top:72px;left:50%;transform:translateX(-50%);display:flex;flex-wrap:wrap;justify-content:center;gap:10px;pointer-events:none;max-width:90vw}
 #disc-legend .lg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,.65)}
 #disc-legend .lg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
@@ -217,6 +226,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
   #detail-panel.open{transform:translateY(0)}
   .dp-scroll{padding:24px 16px 30px}
   #lang-btn{top:12px;right:12px;padding:4px 10px;font-size:10px}
+  #portrait-toggle{top:12px;right:52px;padding:4px 9px;font-size:11px}
 	  #disc-legend{top:60px;gap:5px;max-width:95vw}
 	  #disc-legend .lg-item{font-size:9px}
 	  #disc-legend .lg-dot{width:5px;height:5px}
@@ -278,6 +288,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 <div class="view-toggle"><button class="active" data-view="star">星图</button><button data-view="twin">孪生宇宙</button></div>
 <div id="disc-legend"></div>
 <button id="lang-btn">EN</button>
+<button id="portrait-toggle" title="显示/隐藏科学家头像">👤</button>
 <div id="tooltip"><div class="tt-name"></div><div class="tt-years"></div><span class="tt-disc"></span><div class="tt-quote"></div></div>
 
 <div id="filter-panel">
@@ -332,6 +343,29 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 <script>
 const langBtn=document.getElementById('lang-btn');
 let lang='zh',dataRef,simData,svg,gTree,gHulls,gEdges,gNodes,simulation,selectedNode,tooltip,detailPanel,searchIndex,bgRAF=null;
+// 头像（节点肖像）：浏览器从 Wikimedia 直链加载，沙箱无需联网；缓存至 localStorage
+let portraitsOn=true,portraitQueue=[];
+const portraitCache=new Map();
+try{const _pc=JSON.parse(localStorage.getItem('scimap_portraits_v1')||'{}');Object.keys(_pc).forEach(k=>portraitCache.set(k,_pc[k]));}catch(e){}
+function wikiPortrait(name){return 'https://en.wikipedia.org/wiki/Special:FilePath/'+encodeURIComponent(name||'')+'?width=440';}
+// 懒加载队列：并发 6，逐步点亮头像，避免首屏 124 个请求阻塞
+function portraitResolved(id,val){
+  portraitCache.set(id,val);
+  try{localStorage.setItem('scimap_portraits_v1',JSON.stringify(Object.fromEntries(portraitCache)));}catch(e){}
+}
+function prefetchPortraits(){
+  if(!portraitsOn)return;
+  const CONC=6;
+  for(let k=0;k<CONC&&portraitQueue.length;k++){
+    const job=portraitQueue.shift();
+    if(!job||!job.el||job.el.empty())continue;
+    const im=job.el;
+    im.on('load',function(){im.classed('loaded',true);portraitResolved(job.id,im.node().currentSrc||job.src);})
+      .on('error',function(){portraitResolved(job.id,'failed');im.remove();});
+    im.attr('href',job.src).attr('xlink:href',job.src);
+  }
+  if(portraitQueue.length)setTimeout(prefetchPortraits,450);
+}
 
 const i18n={
   zh:{mTitle:'🌟 人类群星闪耀',mSub:'科学星图 — 在群星闪耀时，发现科学的脉络',loadTxt:'正在加载科学星图…',sPlaceholder:'搜索科学家…',discipline:'学科',culture:'文化',era:'时代',reset:'重置全部筛选',influence:'影响力',lifeStory:'生平轨迹',contributions:'重大贡献',problems:'要解决的问题',controversies:'观点冲突',anecdote:'逸闻趣事',review:'深度点评',relations:'科学关联',solvedBy:'解决者',noResults:'无结果',fontSize:'字号',small:'小',medium:'中',large:'大',didYouKnow:'你知道吗',loadError:'加载失败，请使用 npx serve 启动本地服务器',keyWorks:'代表著作',legacy:'现代影响',lifeTimeline:'生平时间线',contemporaries:'同时代人',influenceTree:'师承关系',vStar:'星图',vTwin:'孪生宇宙',twinTitle:'🧬 科学孪生宇宙',twinSub:'我的其他项目 · 点击跳转'},
@@ -373,6 +407,15 @@ langBtn.addEventListener('click',()=>{
   if(selectedNode&&detailPanel.classList.contains('open'))openDetailPanel(selectedNode);
 });
 (function(){try{var v=localStorage.getItem('scimap-lang');if(v)lang=v}catch(e){};langBtn.textContent=lang==='zh'?'EN':'中'})();
+
+// 头像开关
+const portraitBtn=document.getElementById('portrait-toggle');
+portraitBtn.addEventListener('click',()=>{
+  portraitsOn=!portraitsOn;
+  gNodes.classed('portraits-off',!portraitsOn);
+  portraitBtn.classList.toggle('off',!portraitsOn);
+  if(portraitsOn)prefetchPortraits();
+});
 
 const discColors={
   mathematics:{color:'#3b82f6',glow:'#60a5fa'},physics:{color:'#10b981',glow:'#34d399'},
@@ -507,7 +550,8 @@ function processData(){
   const allNodes=[];
   dataRef.scientists.forEach(p=>{
     const c=getDiscColor(p.discipline);
-    allNodes.push({...p,radius:p.isBottleneck?10:(5+Math.pow(Math.max(1,p.influence-4),1.5)*0.9+(p.tags?(p.tags.length-1):0)*1.5),color:c.color,glowColor:c.glow,x:Math.random()*window.innerWidth*.85+window.innerWidth*.075,y:Math.random()*window.innerHeight*.85+window.innerHeight*.075,fx:null,fy:null,isBottleneck:false});
+    const portrait=p.portrait||wikiPortrait(p.nameEn||p.name);
+    allNodes.push({...p,portrait,radius:p.isBottleneck?10:(5+Math.pow(Math.max(1,p.influence-4),1.5)*0.9+(p.tags?(p.tags.length-1):0)*1.5),color:c.color,glowColor:c.glow,x:Math.random()*window.innerWidth*.85+window.innerWidth*.075,y:Math.random()*window.innerHeight*.85+window.innerHeight*.075,fx:null,fy:null,isBottleneck:false});
   });
   dataRef.bottlenecks.forEach(b=>{
     allNodes.push({id:b.id,name:b.label,nameEn:b.labelEn||b.label,birth:b.solvedYear?b.solvedYear-30:1900,death:null,discipline:b.discipline,subDiscipline:'',tags:[],culturalTag:'',era:b.era,radius:10,influence:0,color:'#64748b',glowColor:'#94a3b8',x:Math.random()*window.innerWidth*.5+window.innerWidth*.25,y:Math.random()*window.innerHeight*.5+window.innerHeight*.25,fx:null,fy:null,isBottleneck:true,summary:b.desc,summaryEn:b.descEn});
@@ -691,6 +735,8 @@ function renderGraph(){
   });
   svg.call(zoomBehavior);
 
+  portraitQueue.length=0; // 每次重渲染清空待加载队列
+
   const disciplines=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'];
   function lodUpdate(k){
     gNodes.selectAll('.node-group text').attr('opacity',d=>{
@@ -807,6 +853,23 @@ function renderGraph(){
         }
       }
       g.append('circle').attr('r',d.radius).attr('fill',fillVal).attr('opacity',.88);
+      // ── 节点肖像：浏览器从 Wikimedia 直链加载，圆形裁剪；失败/未加载时回退彩色球 ──
+      if(d.portrait){
+        const clipId='pc-'+d.id;
+        if(svg.select('defs').select('#'+clipId).empty()){
+          svg.select('defs').append('clipPath').attr('id',clipId).attr('clipPathUnits','userSpaceOnUse')
+            .append('circle').attr('r',d.radius);
+        }
+        const img=g.append('image').attr('class','node-portrait')
+          .attr('clip-path','url(#'+clipId+')')
+          .attr('x',-d.radius).attr('y',-d.radius)
+          .attr('width',d.radius*2).attr('height',d.radius*2)
+          .attr('preserveAspectRatio','xMidYMid slice');
+        const cached=portraitCache.get(d.id);
+        if(cached==='failed'){ img.remove(); }
+        else if(cached){ img.attr('href',cached).attr('xlink:href',cached).classed('loaded',true); }
+        else { img.attr('data-src',d.portrait); portraitQueue.push({id:d.id,el:img,src:d.portrait}); }
+      }
       g.append('circle').attr('r',d.radius).attr('fill','url(#sphere-shading)').attr('pointer-events','none');
       g.append('circle').attr('r',d.radius+2).attr('fill','none').attr('stroke',d.glowColor).attr('stroke-width','2').attr('opacity',.3);
       // 恒亮底环：不受 tick/筛选重设 group opacity 影响，保证光带始终可见
@@ -880,6 +943,7 @@ function renderGraph(){
     nodeG.attr('transform',d=>'translate('+(d.x||0)+','+(d.y||0)+')');
   }).on('end',()=>{
     computeHulls();
+    prefetchPortraits();
   });
   simulation.alpha(1).restart();
   setTimeout(computeHulls,3000);
