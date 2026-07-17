@@ -574,6 +574,11 @@ function drawBg(){
   bgRAF=requestAnimationFrame(drawBg)
 }
 bgRAF=requestAnimationFrame(drawBg);
+// 标签页切到后台时暂停星空动画，避免空转吃 CPU/电（切回再恢复）
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){ if(bgRAF){cancelAnimationFrame(bgRAF);bgRAF=null;} }
+  else { if(currentView==='star'&&!bgRAF)bgRAF=requestAnimationFrame(drawBg); }
+});
 
 // ── Init ──
 svg=d3.select('#graph-svg');
@@ -978,8 +983,8 @@ function renderGraph(){
           const src=cached||d.portrait;
           img.attr('href',src).attr('xlink:href',src);
           if(cached) img.classed('loaded',true);
-          else img.on('load',function(){img.classed('loaded',true);portraitCache.set(d.id,img.node().currentSrc||d.portrait);persistPortraitCache();})
-                  .on('error',function(){portraitCache.set(d.id,'failed');persistPortraitCache();img.remove();});
+          else img.on('load',function(){img.classed('loaded',true);portraitResolved(d.id,img.node().currentSrc||d.portrait);})
+                  .on('error',function(){portraitResolved(d.id,'failed');img.remove();});
         }
       }
       // 细圆环边框，区分节点与头像边缘
