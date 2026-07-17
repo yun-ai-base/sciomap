@@ -1481,7 +1481,7 @@ function collapseSection(sec,isCollapsed){
   });
 }
 function wireSectionCollapse(){
-  panel.selectAll('.dp-section').each(function(){
+  detailPanel.selectAll('.dp-section').each(function(){
     const sec=d3.select(this);
     const title=sec.select('.dp-section-title');
     if(title.select('.dp-sec-toggle').empty()){
