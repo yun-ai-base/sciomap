@@ -187,6 +187,72 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 .dp-problem-item{padding:10px 14px;border-radius:10px;background:rgba(245,158,11,.03);border:1px solid rgba(245,158,11,.08)}
 .dp-problem-item .dp-plabel{font-size:var(--fs-body);font-weight:600;color:#e2e8f0;margin-bottom:4px}
 .dp-problem-item .dp-pdesc{font-size:var(--fs-small);color:#94a3b8;line-height:1.6}
+
+/* ── Influence progress bar + era axis (panel hero) ── */
+.dp-inf-label{display:block;font-size:var(--fs-xs);color:#64748b;letter-spacing:.5px;margin-bottom:6px}
+.dp-inf-bar{position:relative;height:14px;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden;display:flex;align-items:center;margin:0 auto 12px;max-width:240px}
+.dp-inf-fill{position:absolute;left:0;top:0;bottom:0;border-radius:100px;background:linear-gradient(90deg,#10b981,#34d399);box-shadow:0 0 10px rgba(16,185,129,.5);transition:width .8s cubic-bezier(.22,1,.36,1)}
+.dp-inf-pct{position:relative;z-index:1;margin:0 auto;font-size:10px;font-weight:700;color:#0b1220;mix-blend-mode:difference}
+.dp-era{display:flex;align-items:center;gap:8px;justify-content:center;font-size:var(--fs-xs);color:#94a3b8;margin-bottom:4px}
+.dp-era-cap{color:#64748b;flex-shrink:0}
+.dp-era-bar{position:relative;flex:0 1 140px;height:6px;border-radius:100px;background:rgba(255,255,255,.07)}
+.dp-era-fill{position:absolute;top:0;bottom:0;border-radius:100px;background:linear-gradient(90deg,rgba(56,189,248,.7),rgba(168,85,247,.7))}
+.dp-era-label{flex-shrink:0;font-variant-numeric:tabular-nums;color:#cbd5e1;font-size:10px}
+
+/* ── Action buttons (Wiki / Focus / Share) ── */
+.dp-actions{display:flex;gap:8px;justify-content:center;margin-top:6px}
+.dp-action-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:#cbd5e1;cursor:pointer;font-family:inherit;font-size:var(--fs-xs);transition:all .15s}
+.dp-action-btn:hover{background:rgba(255,255,255,.1);color:#f1f5f9;border-color:rgba(255,255,255,.25)}
+.dp-action-btn:active{transform:scale(.96)}
+.dp-ab-ico{font-size:13px;line-height:1}
+.dp-action-btn.copied{border-color:#10b981;color:#6ee7b7}
+
+/* ── Timeline: famousEvents distinct style ── */
+.dp-tl-item.event .dp-tl-year{color:#f59e0b}
+.dp-tl-item.event::before{background:#f59e0b;opacity:.7;box-shadow:0 0 6px rgba(245,158,11,.6)}
+.dp-tl-item.event .dp-tl-label{color:#fde68a}
+
+/* ── Badge click-to-filter affordance ── */
+.dp-badge{cursor:pointer;transition:all .15s}
+.dp-badge:hover{filter:brightness(1.3);box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.dp-badge::after{content:'⤢';margin-left:5px;opacity:.45;font-size:9px}
+
+/* ── Section collapse (mobile readability) ── */
+.dp-section-title{cursor:pointer;user-select:none}
+.dp-cmp-btn{margin-left:auto;font-size:11px;color:#64748b;font-weight:400;letter-spacing:0;padding:1px 9px;border-radius:100px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);transition:all .15s;opacity:.85}
+.dp-cmp-btn:hover{color:#e2e8f0;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.08)}
+.dp-sec-toggle{margin-left:auto;font-size:11px;color:#64748b;font-weight:400;letter-spacing:0;padding:1px 8px;border-radius:100px;transition:all .15s;opacity:.7}
+.dp-section.collapsed .dp-sec-toggle{opacity:.4}
+.dp-section .dp-sec-toggle::before{content:'收起 ▴'}
+.dp-section.collapsed .dp-sec-toggle::before{content:'展开 ▾'}
+@media(max-width:768px){.dp-inf-bar{max-width:200px}}
+.dp-section.collapsed .dp-sec-toggle{transform:rotate(0)}
+@media(max-width:768px){
+  .dp-section:not(.expanded) > *:not(.dp-section-title){display:none}
+  .dp-section .dp-sec-toggle::before{content:'展开 ▾'}
+  .dp-section.expanded .dp-sec-toggle::before{content:'收起 ▴'}
+  .dp-inf-bar{max-width:200px}
+}
+@media(min-width:769px){
+  .dp-section .dp-sec-toggle::before{content:'收起 ▴'}
+  .dp-section.collapsed .dp-sec-toggle::before{content:'展开 ▾'}
+}
+
+/* ── Compare popup ── */
+.cmp-pop{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s}
+.cmp-card{background:rgba(15,15,30,.97);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 24px;max-width:560px;width:92%;max-height:84vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.cmp-head{font-size:17px;font-weight:700;color:#e2e8f0;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.cmp-table{display:flex;flex-direction:column;gap:10px}
+.cmp-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .15s}
+.cmp-row:hover{background:rgba(255,255,255,.06)}
+.cmp-row.is-main{border-color:rgba(16,185,129,.4);background:rgba(16,185,129,.06)}
+.cmp-ava{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#e2e8f0}
+.cmp-info{flex:1;min-width:0}
+.cmp-nm{font-size:13px;font-weight:600;color:#f1f5f9}
+.cmp-meta{font-size:11px;color:#94a3b8;margin-top:2px}
+.cmp-inf{font-size:11px;color:#64748b;flex-shrink:0;text-align:right}
+.cmp-inf b{color:#34d399;display:block;font-size:13px}
+.cmp-close{display:block;margin:16px auto 0;background:rgba(255,255,255,.06);border:none;color:#94a3b8;padding:8px 24px;border-radius:8px;font-size:12px;cursor:pointer;font-family:inherit}
 .school-tip{position:fixed;z-index:30;pointer-events:none;opacity:0;background:rgba(15,15,30,.96);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;max-width:280px;transition:opacity .15s;font-size:12px;box-shadow:0 8px 32px rgba(0,0,0,.5)}
 .school-tip .st-name{font-weight:600;color:#e2e8f0;margin-bottom:2px}
 .school-tip .st-desc{color:#94a3b8;line-height:1.5;font-size:11px}
@@ -313,7 +379,20 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
       <div class="dp-name-en"></div>
       <div class="dp-meta"></div>
       <div class="dp-badges"></div>
-      <div class="dp-influence"><span data-i18n="influence">影响力</span><div class="dp-stars"></div></div>
+      <div class="dp-influence">
+        <span class="dp-inf-label" data-i18n="influence">影响力</span>
+        <div class="dp-inf-bar" title="影响力 /10"><div class="dp-inf-fill"></div><span class="dp-inf-pct"></span></div>
+        <div class="dp-era">
+          <span class="dp-era-cap" data-i18n="eraLabel">活跃年代</span>
+          <span class="dp-era-bar"><span class="dp-era-fill"></span></span>
+          <span class="dp-era-label"></span>
+        </div>
+      </div>
+      <div class="dp-actions">
+        <button class="dp-action-btn" id="dp-wiki" title="在维基百科查看"><span class="dp-ab-ico">🔗</span><span data-i18n="wiki">维基</span></button>
+        <button class="dp-action-btn" id="dp-focus" title="在星图中聚焦此人"><span class="dp-ab-ico">🎯</span><span data-i18n="focus">聚焦</span></button>
+        <button class="dp-action-btn" id="dp-share" title="复制分享链接"><span class="dp-ab-ico">📤</span><span data-i18n="share">分享</span></button>
+      </div>
     </div>
     <div class="dp-fs-row"><span class="dp-fs-label" data-i18n="fontSize">字号</span><div class="dp-fs-btns"><button class="dp-fs-btn" data-size="small" data-i18n="small">小</button><button class="dp-fs-btn active" data-size="medium" data-i18n="medium">中</button><button class="dp-fs-btn" data-size="large" data-i18n="large">大</button></div></div>
     <div class="dp-quote-block"><div class="dp-quote-text"></div><div class="dp-quote-src"></div><div class="dp-quote-nav"></div></div>
@@ -369,8 +448,8 @@ function prefetchPortraits(){
 }
 
 const i18n={
-  zh:{mTitle:'🌟 人类群星闪耀',mSub:'科学星图 — 在群星闪耀时，发现科学的脉络',loadTxt:'正在加载科学星图…',sPlaceholder:'搜索科学家…',discipline:'学科',culture:'文化',era:'时代',reset:'重置全部筛选',influence:'影响力',lifeStory:'生平轨迹',contributions:'重大贡献',problems:'要解决的问题',controversies:'观点冲突',anecdote:'逸闻趣事',review:'深度点评',relations:'科学关联',solvedBy:'解决者',noResults:'无结果',fontSize:'字号',small:'小',medium:'中',large:'大',didYouKnow:'你知道吗',loadError:'加载失败，请使用 npx serve 启动本地服务器',keyWorks:'代表著作',legacy:'现代影响',lifeTimeline:'生平时间线',contemporaries:'同时代人',influenceTree:'师承关系',vStar:'星图',vTwin:'孪生宇宙',twinTitle:'🧬 科学孪生宇宙',twinSub:'我的其他项目 · 点击跳转'},
-  en:{mTitle:'🌟 Stellar Minds',mSub:'The Star Map of Science — Trace the evolution of science',loadTxt:'Loading science star map…',sPlaceholder:'Search scientists…',discipline:'Discipline',culture:'Culture',era:'Era',reset:'Reset Filters',influence:'Influence',lifeStory:'Life Story',contributions:'Key Contributions',problems:'Problems Solved',controversies:'Controversies',anecdote:'Anecdotes',review:'Deep Review',relations:'Connections',solvedBy:'Solved by',noResults:'No results',fontSize:'Font Size',small:'S',medium:'M',large:'L',didYouKnow:'Did You Know?',loadError:'Load failed. Use npx serve or a local server.',keyWorks:'Key Works',legacy:'Modern Legacy',lifeTimeline:'Life Timeline',contemporaries:'Contemporaries',influenceTree:'Influence Tree',vStar:'Star Map',vTwin:'Twinverse',twinTitle:'🧬 Science Twinverse',twinSub:'My other projects — click to visit'}
+  zh:{mTitle:'🌟 人类群星闪耀',mSub:'科学星图 — 在群星闪耀时，发现科学的脉络',loadTxt:'正在加载科学星图…',sPlaceholder:'搜索科学家…',discipline:'学科',culture:'文化',era:'时代',reset:'重置全部筛选',influence:'影响力',lifeStory:'生平轨迹',contributions:'重大贡献',problems:'要解决的问题',controversies:'观点冲突',anecdote:'逸闻趣事',review:'深度点评',relations:'科学关联',solvedBy:'解决者',noResults:'无结果',fontSize:'字号',small:'小',medium:'中',large:'大',didYouKnow:'你知道吗',loadError:'加载失败，请使用 npx serve 启动本地服务器',keyWorks:'代表著作',legacy:'现代影响',lifeTimeline:'生平时间线',contemporaries:'同时代人',influenceTree:'师承关系',vStar:'星图',vTwin:'孪生宇宙',twinTitle:'🧬 科学孪生宇宙',twinSub:'我的其他项目 · 点击跳转',wiki:'维基',focus:'聚焦',share:'分享',compare:'对比',eraLabel:'活跃年代',fameLabel:'人生大事记'},
+  en:{mTitle:'🌟 Stellar Minds',mSub:'The Star Map of Science — Trace the evolution of science',loadTxt:'Loading science star map…',sPlaceholder:'Search scientists…',discipline:'Discipline',culture:'Culture',era:'Era',reset:'Reset Filters',influence:'Influence',lifeStory:'Life Story',contributions:'Key Contributions',problems:'Problems Solved',controversies:'Controversies',anecdote:'Anecdotes',review:'Deep Review',relations:'Connections',solvedBy:'Solved by',noResults:'No results',fontSize:'Font Size',small:'S',medium:'M',large:'L',didYouKnow:'Did You Know?',loadError:'Load failed. Use npx serve or a local server.',keyWorks:'Key Works',legacy:'Modern Legacy',lifeTimeline:'Life Timeline',contemporaries:'Contemporaries',influenceTree:'Influence Tree',vStar:'Star Map',vTwin:'Twinverse',twinTitle:'🧬 Science Twinverse',twinSub:'My other projects — click to visit',wiki:'Wiki',focus:'Focus',share:'Share',compare:'Compare',eraLabel:'Active Era',fameLabel:'Life Milestones'}
 };
 function t(key){return (i18n[lang]||i18n.zh)[key]||key}
 function applyLang(){
@@ -1162,7 +1241,7 @@ function openDetailPanel(d){
   panel.select('.dp-meta').text(yrs+' · '+d.nationality);
   // Badges
   const badges=panel.select('.dp-badges');badges.html('');
-  const dBadge=badges.append('span').attr('class','dp-badge');
+  const dBadge=badges.append('span').attr('class','dp-badge').attr('data-fkey','discipline').attr('data-fval',d.discipline);
   dBadge.style('background',c.color+'20').style('color',c.color).text(discName(d.discipline));
   if(d.subDiscipline){
     const sd=dataRef.subDisciplines.find(s=>s.id===d.subDiscipline);
@@ -1170,11 +1249,33 @@ function openDetailPanel(d){
   }
   if(d.culturalTag){
     const ct=dataRef.culturalTags.find(t=>t.id===d.culturalTag);
-    if(ct){badges.append('span').attr('class','dp-badge').style('background','rgba(255,255,255,.05)').style('color','#94a3b8').text(lang==='en'?(ct.nameEn||ct.name):ct.name)}
+    if(ct){badges.append('span').attr('class','dp-badge').attr('data-fkey','culturalTag').attr('data-fval',d.culturalTag).style('background','rgba(255,255,255,.05)').style('color','#94a3b8').text(lang==='en'?(ct.nameEn||ct.name):ct.name)}
   }
-  // Stars
-  const stars=panel.select('.dp-stars');stars.html('');
-  for(let i=0;i<10;i++){stars.append('div').attr('class','dp-star'+(i<d.influence?' filled':''))}
+  // Influence progress bar (replaces 10-star rating) + era axis
+  ensureEraBounds();
+  const infFill=panel.select('.dp-inf-fill'),infPct=panel.select('.dp-inf-pct');
+  const infV=Math.max(0,Math.min(10,d.influence||0));
+  infFill.style('width',(infV*10)+'%');
+  infPct.text(infV+'/10');
+  const eraFill=panel.select('.dp-era-fill'),eraLabel=panel.select('.dp-era-label');
+  if(d.birth){
+    const b=d.birth, e=d.death||(b+70);
+    const span=(eraMax-eraMin)||1;
+    const lo=Math.max(0,Math.min(100,(b-eraMin)/span*100));
+    const w=Math.max(2,Math.min(100,(e-b)/span*100));
+    eraFill.style('left',lo+'%').style('width',w+'%');
+    const fmtY=y=>y<0?(-y+'BC'):(''+y);
+    eraLabel.text(fmtY(b)+' – '+(d.death?fmtY(d.death):(lang==='en'?'present':'至今')));
+  }else{eraFill.style('width','0');eraLabel.text('—')}
+  // Badges: clickable → filter the star map by discipline / culture
+  badges.selectAll('.dp-badge').each(function(){
+    const el=d3.select(this);
+    el.attr('title',lang==='en'?'Filter the map by this tag':'按此标签筛选星图')
+      .on('click',function(ev){
+        const key=el.attr('data-fkey'),val=el.attr('data-fval');
+        if(key&&val)filterByBadge(key,val);
+      });
+  });
   // Summary + LifeStory merged
   const bio = (lang==='en'?(d.summaryEn||d.summary):d.summary) +
     (d.lifeStory ? '<br><br>' + (lang==='en'?(d.lifeStoryEn||d.lifeStory):d.lifeStory) : '');
@@ -1270,22 +1371,29 @@ function openDetailPanel(d){
     secLegacy.style('display','block').style('--sec-color',c.color);
     legacyEl.html(lang==='en'?(d.legacyEn||d.legacy):d.legacy);
   }else{secLegacy.style('display','none')}
-  // Timeline (auto from birth + contributions + death)
+  // Timeline (auto from birth + contributions + famousEvents + death)
   const secTimeline=panel.select('#sec-timeline'),tlEl=secTimeline.select('.dp-timeline');
   const tlItems=[];
   if(d.birth)tlItems.push({year:d.birth,label:lang==='en'?'Born':'出生',type:'birth'});
   if(d.keyContributions)tlItems.push(...d.keyContributions.filter(k=>k.year).map(k=>({year:k.year,label:(lang==='en'?(k.titleEn||k.title):k.title),type:'work'})));
+  if(d.famousEvents)tlItems.push(...d.famousEvents.filter(e=>e.year).map(e=>({year:e.year,label:(lang==='en'?(e.titleEn||e.title):e.title),type:'event'})));
   if(d.death)tlItems.push({year:d.death,label:lang==='en'?'Died':'逝世',type:'death'});
   tlItems.sort((a,b)=>a.year-b.year);
   if(tlItems.length>0){
     secTimeline.style('display','block').style('--sec-color',c.color);
-    tlEl.html(tlItems.map(t=>'<div class="dp-tl-item"><div class="dp-tl-year">'+(t.year<0?(-t.year)+'BC':t.year)+'</div><div class="dp-tl-label">'+t.label+'</div></div>').join(''));
+    tlEl.html(tlItems.map(t=>'<div class="dp-tl-item'+(t.type==='event'?' event':'')+'"><div class="dp-tl-year">'+(t.year<0?(-t.year)+'BC':t.year)+'</div><div class="dp-tl-label">'+t.label+'</div></div>').join(''));
   }else{secTimeline.style('display','none')}
-  // Contemporaries (auto: +/- 30 years)
+  // Contemporaries (auto: +/- 30 years) + compare
   const secCtr=panel.select('#sec-contemporaries'),ctrList=secCtr.select('.dp-contemporaries-list');
   const ctrs=simData.allNodes.filter(n=>!n.isBottleneck&&n.id!==d.id&&n.birth&&Math.abs(n.birth-d.birth)<=30);
   if(ctrs.length>0){
     secCtr.style('display','block').style('--sec-color',c.color);
+    const cTitle=secCtr.select('.dp-section-title');
+    cTitle.selectAll('.dp-cmp-btn').remove();
+    cTitle.append('span').attr('class','dp-cmp-btn')
+      .style('margin-left','auto').style('cursor','pointer')
+      .text(lang==='en'?'Compare':'对比')
+      .on('click',function(ev){ev.stopPropagation();showComparePopup(d,ctrs);});
     ctrList.html(ctrs.map(n=>'<span class="dp-ct-item" data-id="'+n.id+'" style="border-color:'+(getDiscColor(n.discipline).color||'rgba(255,255,255,.08)')+'40">'+(lang==='en'?(n.nameEn||n.name):n.name)+'</span>').join(''));
     ctrList.selectAll('.dp-ct-item').on('click',function(){
       const id=d3.select(this).attr('data-id');
@@ -1311,9 +1419,107 @@ function openDetailPanel(d){
     });
   }else{secInf.style('display','none')}
 
+  // Section collapse (mobile readability): add toggle to each title, collapse by default on mobile
+  wireSectionCollapse();
+  if(window.innerWidth<768){panel.selectAll('.dp-section').each(function(){collapseSection(d3.select(this),true)});}
+
   panel.classed('open',true);
   // 点亮该科学家的影响 / 师承关系链
   highlightInfluenceChain(d);
+}
+
+// ── Era axis bounds (cached) ──
+let eraMin=0,eraMax=2026;
+function ensureEraBounds(){
+  if(!simData||eraMin!==0&&eraMax!==2026)return;
+  let mn=1e9,mx=-1e9;
+  simData.allNodes.forEach(n=>{
+    if(n.birth)mn=Math.min(mn,n.birth);
+    const d=n.death||(n.birth?n.birth+70:n.birth);
+    if(d)mx=Math.max(mx,d);
+  });
+  if(mn<mx){eraMin=mn;eraMax=Math.max(mx,2026);}
+}
+// ── Badge → filter the star map ──
+function filterByBadge(key,val){
+  Object.keys(currentFilters).forEach(k=>currentFilters[k].clear());
+  document.querySelectorAll('.filter-btn.active').forEach(b=>b.classList.remove('active'));
+  currentFilters[key].add(val);
+  const btn=document.querySelector('.filter-btn[data-key="'+key+'"][data-value="'+val+'"]');
+  if(btn)btn.classList.add('active');
+  applyAllFilters();
+  closeDetailPanel();
+  // bring focus back to the star map
+  const sv=document.getElementById('graph-svg');
+  if(sv)sv.scrollIntoView({behavior:'smooth'});
+  else window.scrollTo({top:0,behavior:'smooth'});
+}
+// ── Focus a single node in the graph (shared by 聚焦 button) ──
+function focusNodeInGraph(n){
+  if(!n||!simulation||!zoomBehavior)return;
+  const vw=window.innerWidth,vh=window.innerHeight;
+  const panelH=(vw<768)?vh*0.66:0;
+  const visibleH=vh-panelH;
+  const k=Math.min(2.2,Math.max(1.2,1.6));
+  const cx=n.x||vw/2,cy=n.y||vh/2;
+  const targetCY=panelH+visibleH/2;
+  const tr=d3.zoomIdentity.translate(vw/2-cx*k,targetCY-cy*k).scale(k);
+  svg.transition().duration(650).call(zoomBehavior.transform,tr);
+}
+// ── Section collapse helpers ──
+function collapseSection(sec,isCollapsed){
+  sec.classed('collapsed',isCollapsed).classed('expanded',!isCollapsed);
+  const node=sec.node();if(!node)return;
+  Array.from(node.children).forEach(ch=>{
+    const el=d3.select(ch);
+    if(el.classed('dp-section-title'))return;
+    el.style('display',isCollapsed?'none':'');
+  });
+}
+function wireSectionCollapse(){
+  panel.selectAll('.dp-section').each(function(){
+    const sec=d3.select(this);
+    const title=sec.select('.dp-section-title');
+    if(title.select('.dp-sec-toggle').empty()){
+      title.append('span').attr('class','dp-sec-toggle');
+    }
+    title.on('click',function(ev){
+      // ignore clicks on the compare button (handled separately)
+      if(ev.target&&ev.target.classList&&ev.target.classList.contains('dp-cmp-btn'))return;
+      const isC=sec.classed('collapsed');
+      collapseSection(sec,!isC);
+    });
+  });
+}
+// ── Compare popup (main scientist vs contemporaries) ──
+function showComparePopup(main,list){
+  const overlay=document.createElement('div');overlay.className='cmp-pop';
+  const card=document.createElement('div');card.className='cmp-card';
+  const isEn=lang==='en';
+  let rows=[];
+  const rowFor=(n,isMain)=>{
+    const c=getDiscColor(n.discipline);
+    const yrs=(n.birth?n.birth:'?')+'–'+(n.death?n.death:(isEn?'present':'至今'));
+    const disc=discName(n.discipline);
+    return '<div class="cmp-row'+(isMain?' is-main':'')+'" data-id="'+n.id+'">'+
+      '<div class="cmp-ava" style="background:'+c.color+'22;color:'+c.color+'">'+(n.name[0]||'?')+'</div>'+
+      '<div class="cmp-info"><div class="cmp-nm">'+(isEn?(n.nameEn||n.name):n.name)+(isMain?' ★':'')+'</div>'+
+      '<div class="cmp-meta">'+yrs+' · '+disc+'</div></div>'+
+      '<div class="cmp-inf">影响力<b>'+Math.round((n.influence||0))+'/10</b></div></div>';
+  };
+  rows.push(rowFor(main,true));
+  list.slice(0,8).forEach(n=>rows.push(rowFor(n,false)));
+  card.innerHTML='<div class="cmp-head">👥 '+(isEn?'Side by Side':'同时代对比')+'</div><div class="cmp-table">'+rows.join('')+'</div>'+
+    '<button class="cmp-close">'+(isEn?'Close':'关闭')+'</button>';
+  overlay.appendChild(card);
+  overlay.onclick=e=>{if(e.target===overlay)overlay.remove()};
+  card.querySelector('.cmp-close').onclick=()=>overlay.remove();
+  card.querySelectorAll('.cmp-row').forEach(r=>r.addEventListener('click',()=>{
+    const id=r.getAttribute('data-id');const n=simData.allNodes.find(x=>x.id===id);
+    if(n){overlay.remove();closeDetailPanel();setTimeout(()=>openDetailPanel(n),300);}
+  }));
+  document.body.appendChild(overlay);
+  requestAnimationFrame(()=>overlay.style.opacity='1');
 }
 
 function closeDetailPanel(){
@@ -1353,6 +1559,31 @@ function showDebatePopup(d){
   requestAnimationFrame(()=>overlay.style.opacity='1');
 }
 document.querySelector('.dp-close').addEventListener('click',closeDetailPanel);
+
+// ── Panel action buttons: Wiki / Focus / Share ──
+(function(){
+  const wikiBtn=document.getElementById('dp-wiki');
+  const focusBtn=document.getElementById('dp-focus');
+  const shareBtn=document.getElementById('dp-share');
+  if(wikiBtn)wikiBtn.addEventListener('click',()=>{
+    const d=selectedNode;if(!d)return;
+    const name=(d.nameEn||d.name||'').trim();
+    const url='https://en.wikipedia.org/wiki/'+encodeURIComponent(name.replace(/\s+/g,'_'));
+    window.open(url,'_blank','noopener');
+  });
+  if(focusBtn)focusBtn.addEventListener('click',()=>{
+    const d=selectedNode;if(!d)return;
+    focusNodeInGraph(d);
+  });
+  if(shareBtn)shareBtn.addEventListener('click',()=>{
+    const d=selectedNode;if(!d)return;
+    const url=location.origin+location.pathname+'#'+d.id;
+    history.replaceState(null,'','#'+d.id);
+    const done=()=>{shareBtn.classList.add('copied');const t=shareBtn.querySelector('span:last-child');const old=t?t.textContent:'';if(t)t.textContent=(lang==='en'?'Copied':'已复制');setTimeout(()=>{shareBtn.classList.remove('copied');if(t)t.textContent=old;},1600);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(()=>{prompt((lang==='en'?'Share link:':'分享链接：'),url);});}
+    else{prompt((lang==='en'?'Share link:':'分享链接：'),url);}
+  });
+})();
 
 // ── Font size ──
 (function(){
