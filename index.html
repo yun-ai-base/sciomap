@@ -207,10 +207,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 @keyframes tlNova{0%{stroke:#fff;stroke-width:3}100%{stroke:none;stroke-width:0}}
 /* 关系链追溯：焦点节点脉冲 + 退出 chip */
 .node-group.chain-focus circle{filter:drop-shadow(0 0 8px rgba(245,158,11,.9))}
+.chain-edge{filter:drop-shadow(0 0 3px rgba(245,158,11,.55))}
 #chain-chip{position:fixed;left:50%;top:78px;transform:translateX(-50%) translateY(-8px);z-index:30;display:none;align-items:center;gap:8px;padding:8px 18px;border-radius:100px;background:rgba(245,158,11,.16);border:1px solid rgba(245,158,11,.5);color:#fbbf24;font-size:12px;font-weight:600;letter-spacing:.4px;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 22px rgba(0,0,0,.4);opacity:0;transition:opacity .25s,transform .25s;pointer-events:auto;white-space:nowrap}
 #chain-chip.show{opacity:1;transform:translateX(-50%) translateY(0)}
 #chain-chip:hover{background:rgba(245,158,11,.26)}
-@media(max-width:768px){#chain-chip{top:auto;bottom:120px;font-size:11px;padding:7px 14px}}
+@media(max-width:768px){#chain-chip{top:auto;bottom:172px;font-size:11px;padding:7px 14px}}
 @media(max-width:768px){
   :root{--fs-name:20px;--fs-name-en:12px;--fs-body:12px;--fs-quote:13px;--fs-section:12px;--fs-small:11px;--fs-meta:12px;--fs-xs:10px}
   [data-font-size=large]{--fs-name:28px;--fs-name-en:17px;--fs-body:17px;--fs-quote:19px;--fs-section:16px;--fs-small:14px;--fs-meta:15px;--fs-xs:13px}
@@ -222,7 +223,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
   #filter-panel.collapsed{transform:translateY(100%);opacity:0;pointer-events:none}
   #filter-toggle{display:none}
   #mob-filter-btn{display:flex}
-  #detail-panel{width:100%;right:0;border-left:none;border-radius:16px 16px 0 0;transform:translateY(100%);top:auto;bottom:0;height:85vh}
+  #detail-panel{width:100%;right:0;border-left:none;border-radius:16px 16px 0 0;transform:translateY(100%);top:auto;bottom:0;height:66vh}
   #detail-panel.open{transform:translateY(0)}
   .dp-scroll{padding:24px 16px 30px}
   #lang-btn{top:12px;right:12px;padding:4px 10px;font-size:10px}
@@ -276,7 +277,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 	  .tw-card{padding:12px 14px}
 	  .tw-section{margin-bottom:20px}
 	  .tw-section-title{font-size:12px}
-	  .view-toggle{top:auto;bottom:60px;left:50%;transform:translateX(-50%)}
+	  .view-toggle{top:auto;bottom:124px;left:50%;transform:translateX(-50%)}
 	}
 </style>
 </head>
@@ -669,12 +670,14 @@ function highlightInfluenceChain(node){
     if(on){
       l.attr('display',null)
        .attr('data-chain','1')
+       .classed('chain-edge',true)
        .transition().duration(400)
        .attr('stroke','#f59e0b')
        .attr('stroke-opacity',.95)
        .attr('stroke-width',Math.max(2,(d.strokeWidth||1.2)*1.6));
     }else{
       l.attr('data-chain',null)
+       .classed('chain-edge',false)
        .transition().duration(400)
        .attr('stroke-opacity',.03);
     }
@@ -682,6 +685,26 @@ function highlightInfluenceChain(node){
   // 淡化学科色块 hull
   gHulls.selectAll('path').interrupt().transition().duration(400).attr('opacity',.03);
   showChainChip(chainNodes.size-1);
+  if(chainNodes.size>1)fitChainView(chainNodes);
+}
+// 自动缩放/平移，把影响链居中到可见区域（移动端避开底部面板）
+function fitChainView(ids){
+  if(!ids||!ids.size||!simulation||!zoomBehavior)return;
+  if(ids.size>90)return; // 链过大则不强行缩放
+  const ns=simData.allNodes.filter(n=>ids.has(n.id)&&n.x!=null);
+  if(ns.length<2)return;
+  let minX=1e9,minY=1e9,maxX=-1e9,maxY=-1e9;
+  ns.forEach(n=>{minX=Math.min(minX,n.x);maxX=Math.max(maxX,n.x);minY=Math.min(minY,n.y);maxY=Math.max(maxY,n.y);});
+  if(minX>maxX)return;
+  const w=maxX-minX||1,h=maxY-minY||1,pad=90;
+  const vw=window.innerWidth,vh=window.innerHeight;
+  const panelH=(vw<768)?vh*0.66:0; // 移动端面板占底部
+  const visibleH=vh-panelH;
+  const cx=(minX+maxX)/2,cy=(minY+maxY)/2;
+  const k=Math.min(2.2,Math.max(.7,Math.min((vw-2*pad)/w,(visibleH-2*pad)/h)));
+  const targetCY=panelH+visibleH/2; // 可见区（面板上方）中心
+  const tr=d3.zoomIdentity.translate(vw/2-cx*k,targetCY-cy*k).scale(k);
+  svg.transition().duration(650).call(zoomBehavior.transform,tr);
 }
 function clearInfluenceChain(){
   if(!chainActive)return;
@@ -1029,7 +1052,7 @@ function setupTimeline(minB,maxB){
 
   function fmtYr(y){y=Math.round(y);return y<0?(-y)+(lang==='en'?' BC':' 前'):String(y);}
   function paint(){
-    const ratio=(tlYear-tlMin)/(tlMax-tlMin||1);
+    if(chainActive)return; // 影响链聚焦模式下，时间轴重绘不擦除链高亮    const ratio=(tlYear-tlMin)/(tlMax-tlMin||1);
     const w=track.clientWidth;
     handle.style.left=(ratio*w)+'px';
     prog.style.width=(ratio*w)+'px';
@@ -1054,7 +1077,7 @@ function setupTimeline(minB,maxB){
       const vis=pass&&born;
       const sel=d3.select(this);sel.interrupt();
       sel.style('display',vis?null:'none').attr('opacity',vis?1:0);
-      sel.selectAll('circle').classed('tl-nova',vis&&ry>tlYear-22);
+      sel.selectAll('circle').classed('tl-nova',vis&&ry>tlYear-22&&!d.isBottleneck);
     });
     gEdges.selectAll('line').each(function(d){
       const s=d.source,t=d.target;
