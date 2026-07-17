@@ -196,6 +196,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:#000008;font-family:
 #tl-year{flex:0 0 auto;min-width:58px;text-align:right;font-size:12px;font-weight:700;color:#e2e8f0;letter-spacing:.3px;font-variant-numeric:tabular-nums}
 .tl-nova{animation:tlNova 1.1s ease-out}
 @keyframes tlNova{0%{stroke:#fff;stroke-width:3}100%{stroke:none;stroke-width:0}}
+/* 关系链追溯：焦点节点脉冲 + 退出 chip */
+.node-group.chain-focus circle{filter:drop-shadow(0 0 8px rgba(245,158,11,.9))}
+#chain-chip{position:fixed;left:50%;top:78px;transform:translateX(-50%) translateY(-8px);z-index:30;display:none;align-items:center;gap:8px;padding:8px 18px;border-radius:100px;background:rgba(245,158,11,.16);border:1px solid rgba(245,158,11,.5);color:#fbbf24;font-size:12px;font-weight:600;letter-spacing:.4px;cursor:pointer;backdrop-filter:blur(10px);box-shadow:0 6px 22px rgba(0,0,0,.4);opacity:0;transition:opacity .25s,transform .25s;pointer-events:auto;white-space:nowrap}
+#chain-chip.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#chain-chip:hover{background:rgba(245,158,11,.26)}
+@media(max-width:768px){#chain-chip{top:auto;bottom:120px;font-size:11px;padding:7px 14px}}
 @media(max-width:768px){
   :root{--fs-name:20px;--fs-name-en:12px;--fs-body:12px;--fs-quote:13px;--fs-section:12px;--fs-small:11px;--fs-meta:12px;--fs-xs:10px}
   [data-font-size=large]{--fs-name:28px;--fs-name-en:17px;--fs-body:17px;--fs-quote:19px;--fs-section:16px;--fs-small:14px;--fs-meta:15px;--fs-xs:13px}
@@ -575,6 +581,103 @@ function applyAllFilters(){
   if(selectedNode&&!visibleIds.has(selectedNode.id))closeDetailPanel();
   setTimeout(()=>{gHulls.selectAll('*').remove();computeHulls()},600);
   if(tlActive&&typeof tlReveal==='function')tlReveal();
+}
+
+// ── Influence Chain Tracing（关系链追溯：点亮一位科学家的师承 / 影响谱系）──
+let chainActive=false;
+const CHAIN_TYPES=new Set(['teacher','influence']);
+function highlightInfluenceChain(node){
+  if(!simData||!node||node.isBottleneck)return;
+  const startId=node.id;
+  // 邻接表：仅沿 师承 / 影响 边双向遍历，得到完整思想谱系
+  const adj=new Map();
+  const addAdj=(a,b,edge)=>{if(!adj.has(a))adj.set(a,[]);adj.get(a).push({to:b,edge});};
+  simData.allEdges.forEach(e=>{
+    if(!CHAIN_TYPES.has(e.type))return;
+    const s=e.source.id||e.source,tg=e.target.id||e.target;
+    addAdj(s,tg,e);addAdj(tg,s,e);
+  });
+  const chainNodes=new Set([startId]);
+  const chainEdges=new Set();
+  const queue=[startId];
+  while(queue.length){
+    const cur=queue.shift();
+    (adj.get(cur)||[]).forEach(({to,edge})=>{
+      chainEdges.add(edge);
+      if(!chainNodes.has(to)){chainNodes.add(to);queue.push(to);}
+    });
+  }
+  chainActive=true;
+  // 结点：链上全亮，链外压暗
+  gNodes.selectAll('.node-group').each(function(d){
+    const on=chainNodes.has(d.id);
+    const g=d3.select(this);
+    g.interrupt();
+    g.selectAll('circle,text').interrupt().transition().duration(400)
+      .attr('opacity',on?null:.05).attr('display',null);
+    g.classed('chain-focus',on&&d.id===startId);
+  });
+  // 边：链上高亮加粗，链外压暗
+  gEdges.selectAll('line').each(function(d){
+    const on=chainEdges.has(d);
+    const l=d3.select(this);
+    l.interrupt();
+    if(on){
+      l.attr('display',null)
+       .attr('data-chain','1')
+       .transition().duration(400)
+       .attr('stroke','#f59e0b')
+       .attr('stroke-opacity',.95)
+       .attr('stroke-width',Math.max(2,(d.strokeWidth||1.2)*1.6));
+    }else{
+      l.attr('data-chain',null)
+       .transition().duration(400)
+       .attr('stroke-opacity',.03);
+    }
+  });
+  // 淡化学科色块 hull
+  gHulls.selectAll('path').interrupt().transition().duration(400).attr('opacity',.03);
+  showChainChip(chainNodes.size-1);
+}
+function clearInfluenceChain(){
+  if(!chainActive)return;
+  chainActive=false;
+  hideChainChip();
+  gNodes.selectAll('.node-group').classed('chain-focus',false);
+  gEdges.selectAll('line').each(function(d){
+    const l=d3.select(this);
+    l.interrupt().attr('data-chain',null)
+     .attr('stroke',null) // 恢复原渐变（join 时会重设，此处清除内联覆盖）
+     .attr('stroke-width',Math.max(.8,d.strokeWidth||1.2));
+  });
+  // 用 applyAllFilters 恢复正确的可见性与渐变描边
+  restoreEdgeStroke();
+  applyAllFilters();
+}
+// 恢复边渐变描边（clearInfluenceChain 后重新绑定 url(#grad-...)）
+function restoreEdgeStroke(){
+  gEdges.selectAll('line').attr('stroke',function(d){
+    const id='edge-'+(d.sourceNode?d.sourceNode.id:d.source.id)+'-'+(d.targetNode?d.targetNode.id:d.target.id);
+    return 'url(#grad-'+id+')';
+  }).attr('stroke-opacity',.5);
+}
+// 关系链提示 chip（可点击退出）
+function showChainChip(count){
+  let chip=document.getElementById('chain-chip');
+  if(!chip){
+    chip=document.createElement('div');
+    chip.id='chain-chip';
+    chip.onclick=()=>{closeDetailPanel();};
+    document.body.appendChild(chip);
+  }
+  const label=lang==='en'?('Influence chain · '+count+' linked ✕'):('关系链 · '+count+' 位相关 ✕');
+  chip.textContent=label;
+  chip.style.display='flex';
+  requestAnimationFrame(()=>chip.classList.add('show'));
+}
+function hideChainChip(){
+  const chip=document.getElementById('chain-chip');
+  if(chip){chip.classList.remove('show');setTimeout(()=>{if(chip)chip.style.display='none'},250);}
 }
 
 // ── Render Graph ──
@@ -1110,11 +1213,14 @@ function openDetailPanel(d){
   }else{secInf.style('display','none')}
 
   panel.classed('open',true);
+  // 点亮该科学家的影响 / 师承关系链
+  highlightInfluenceChain(d);
 }
 
 function closeDetailPanel(){
   detailPanel.classed('open',false);
   selectedNode=null;
+  clearInfluenceChain();
 }
 
 // ── Debate Popup ──
