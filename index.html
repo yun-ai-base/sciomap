@@ -1228,6 +1228,7 @@ function openDetailPanel(d){
   const c=getDiscColor(d.discipline);
   const panel=detailPanel,scroll=panel.select('.dp-scroll');
   scroll.node().scrollTop=0;
+  panel.classed('open',true); // 提前置为打开：即便后续某段渲染异常，面板也保证可见
   panel.select('.dp-accent').style('background','linear-gradient(180deg,'+c.color+','+c.glow+')');
   // Set section theme color for all section titles
   panel.selectAll('.dp-section-title').style('--sec-color',c.color);
@@ -1424,13 +1425,11 @@ function openDetailPanel(d){
     });
   }else{secInf.style('display','none')}
 
-  // Section collapse (mobile readability): add toggle to each title, collapse by default on mobile
+  // Section collapse：默认全部展开（移动端不再强制折叠，避免面板看起来空白）；点章节标题可收起
   wireSectionCollapse();
-  if(window.innerWidth<768){panel.selectAll('.dp-section').each(function(){collapseSection(d3.select(this),true)});}
 
-  panel.classed('open',true);
-  // 点亮该科学家的影响 / 师承关系链
-  highlightInfluenceChain(d);
+  // 点亮该科学家的影响 / 师承关系链（面板已提前打开，此处异常不影响展示）
+  try{highlightInfluenceChain(d);}catch(err){console.error('highlightInfluenceChain error:',err);}
 }
 
 // ── Era axis bounds (cached) ──
