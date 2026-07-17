@@ -728,7 +728,8 @@ function restoreEdgeStroke(){
     return 'url(#grad-'+id+')';
   }).attr('stroke-opacity',.5);
 }
-// 关系链提示 chip（可点击退出）
+// 关系链提示 chip（可点击退出；3 秒后自动淡出，避免遮挡阅读）
+let chipTimer=null;
 function showChainChip(count){
   let chip=document.getElementById('chain-chip');
   if(!chip){
@@ -741,8 +742,11 @@ function showChainChip(count){
   chip.textContent=label;
   chip.style.display='flex';
   requestAnimationFrame(()=>chip.classList.add('show'));
+  if(chipTimer)clearTimeout(chipTimer);
+  chipTimer=setTimeout(()=>{const c=document.getElementById('chain-chip');if(c){c.classList.remove('show');setTimeout(()=>{if(c&&chainActive)c.style.display='none'},250);}},3000);
 }
 function hideChainChip(){
+  if(chipTimer){clearTimeout(chipTimer);chipTimer=null;}
   const chip=document.getElementById('chain-chip');
   if(chip){chip.classList.remove('show');setTimeout(()=>{if(chip)chip.style.display='none'},250);}
 }
