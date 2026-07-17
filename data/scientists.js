@@ -402,7 +402,23 @@ _sciomapData = {
       "anecdote": "欧几里得最有名的轶事来自他对托勒密一世说的那句'几何无王者之路'——意思是学习几何没有捷径，无论你是国王还是平民，都必须一步步走完证明的逻辑链条。还有一个故事说，一个学生刚背下第一个定理就问欧几里得：'学这个能赚多少钱？'欧几里得生气地对仆人说：'给他三枚钱币，因为他想在学习中获得实际利益。'",
       "anecdoteEn": "Euclid told King Ptolemy I: 'There is no royal road to geometry.' When a student asked what profit geometry would bring, Euclid gave him coins and dismissed him.",
       "aiReview": "欧几里得的《几何原本》在科学史上的地位怎么强调都不为过。它不仅是一本几何教材——它是人类文明中第一个完整的、自洽的、从基本原理出发演绎出来的知识体系。这种'欧几里得式建构'定义了什么叫'科学的证明'。爱因斯坦将广义相对论建立在非欧几何之上时，他使用的依然是欧几里得式的公理化语言。直到今天，数学家们证明定理时，潜意识里遵循的还是欧几里得在两千三百年前设定的范式。",
-      "aiReviewEn": "Euclid's Elements stands as a monument in science history. It is the most influential textbook ever written — a work of elegance, coherence, and rigorous logic. From basic axioms it builds an entire edifice of knowledge. 'Euclidean format' and 'mathematical proof' became the gold standard. Even Einstein built general relativity on non-Euclidean geometry using Euclid's axiomatic framework. To this day, when mathematicians prove theorems, they unconsciously follow the pattern Euclid set over two thousand years ago."
+      "aiReviewEn": "Euclid's Elements stands as a monument in science history. It is the most influential textbook ever written — a work of elegance, coherence, and rigorous logic. From basic axioms it builds an entire edifice of knowledge. 'Euclidean format' and 'mathematical proof' became the gold standard. Even Einstein built general relativity on non-Euclidean geometry using Euclid's axiomatic framework. To this day, when mathematicians prove theorems, they unconsciously follow the pattern Euclid set over two thousand years ago.",
+      "problemsSolved": [
+        {
+          "problem": "零散的几何知识如何体系化",
+          "problemEn": "Systematizing scattered geometry",
+          "breakthrough": "以《几何原本》建立公理化演绎体系，影响两千年",
+          "breakthroughEn": "Built the axiomatic-deductive system of the Elements"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "第五公设(平行公设)之谜",
+          "topicEn": "The riddle of the fifth postulate",
+          "outcome": "平行公设能否由其他公理推出，争论两千年，最终催生非欧几何",
+          "outcomeEn": "Whether it follows from the others was debated for millennia, birthing non-Euclidean geometry"
+        }
+      ]
     },
     {
       "id": "pythagoras",
@@ -529,7 +545,23 @@ _sciomapData = {
       "anecdote": "叙拉古国王希耶罗二世做了一顶金王冠，怀疑工匠掺了银但无法验证，请阿基米德帮忙。阿基米德在浴缸里洗澡时，看到身体入水排出了水，突然有了灵感——他跳出浴缸，赤身裸体跑上大街高喊'尤里卡！'（我找到了！）。他用等重的金子和王冠分别放入水中比较排出的水量，从而判断王冠是否掺假。这个故事虽然可能被添油加醋，但'尤里卡时刻'已成为科学突破瞬间的代名词。",
       "anecdoteEn": "The famous 'Eureka' story: while bathing, Archimedes realized he could test the purity of a gold crown by comparing water displacement. He ran naked through the streets shouting 'Eureka!'",
       "aiReview": "阿基米德最令人震惊的是他思想的超前性。他在没有微积分、没有代数符号的情况下，仅凭几何推理就达到了需要微积分才能完成的精密计算。他的'方法'（Method）一书直到1906年才被发现——在这本书中他揭示了如何用平衡法和穷竭法发现这些结果。如果古希腊的数学传统没有在黑暗时代中断，如果阿基米德'穷竭法'的思路得到延续和发展，人类可能早一千多年就发明了微积分。这提醒我们，科学的进步不仅取决于天才的思想，还取决于文明传承的连续性。",
-      "aiReviewEn": "Archimedes' work astonishes for how far ahead of its time it was. Without calculus or modern notation, he achieved calculations that would require calculus. His Method, not discovered until 1906, reveals how he used his 'mechanical method' and equilibrium to derive results. These techniques, lost when the Hellenistic tradition was interrupted, would not be rediscovered until Newton and Leibniz invented calculus nearly two thousand years later. The lesson: scientific progress depends not just on brilliant ideas, but on the continuity of intellectual tradition."
+      "aiReviewEn": "Archimedes' work astonishes for how far ahead of its time it was. Without calculus or modern notation, he achieved calculations that would require calculus. His Method, not discovered until 1906, reveals how he used his 'mechanical method' and equilibrium to derive results. These techniques, lost when the Hellenistic tradition was interrupted, would not be rediscovered until Newton and Leibniz invented calculus nearly two thousand years later. The lesson: scientific progress depends not just on brilliant ideas, but on the continuity of intellectual tradition.",
+      "problemsSolved": [
+        {
+          "problem": "如何测量不规则物体的体积",
+          "problemEn": "Measuring the volume of irregular objects",
+          "breakthrough": "悟出浮力原理(“尤里卡”)，并以穷竭法逼近圆周率——微积分的先声",
+          "breakthroughEn": "Discovered buoyancy and approximated π by exhaustion, foreshadowing calculus"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "接近积分思想的手稿失传千年",
+          "topicEn": "A near-calculus manuscript lost for a millennium",
+          "outcome": "其《方法论》失传，直到1906年羊皮重写本重现，人们才知他已触及积分思想",
+          "outcomeEn": "His Method was lost until a 1906 palimpsest revealed how close he came to integration"
+        }
+      ]
     },
     {
       "id": "newton",
@@ -741,6 +773,28 @@ _sciomapData = {
           "desc": "科普利奖章",
           "descEn": "Copley Medal"
         }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "正十七边形能否尺规作图（两千年悬案）",
+          "problemEn": "Constructibility of the regular 17-gon",
+          "breakthrough": "19岁证明可作，创立分圆理论，重启古希腊几何难题",
+          "breakthroughEn": "At 19 he proved it constructible, founding cyclotomy"
+        },
+        {
+          "problem": "如何从少量观测重新找回谷神星",
+          "problemEn": "Recovering the lost dwarf planet Ceres",
+          "breakthrough": "以最小二乘法精确预测其轨道，一举成名",
+          "breakthroughEn": "Used least squares to predict its orbit precisely"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "非欧几何的优先权与沉默",
+          "topicEn": "Priority and silence on non-Euclidean geometry",
+          "outcome": "高斯私下已发现非欧几何却因怕争议秘而不宣，后波约与罗巴切夫斯基公开发表引发优先权之议",
+          "outcomeEn": "Gauss privately discovered non-Euclidean geometry but withheld it, sparking priority disputes when Bolyai and Lobachevsky published"
+        }
       ]
     },
     {
@@ -805,7 +859,29 @@ _sciomapData = {
       "anecdote": "欧拉计算能力的传奇之一：他曾经需要计算两个天文学家关于某颗彗星轨道进入时间的争论，两人各自给出了不同的计算结果。欧拉在脑海里进行了全部计算，然后给出了答案——他的结果和后来实际观测到的彗星位置只差了一点点，而两位天文学家的计算反而误差更大。另一个故事：他在失明后的一天口述了一篇论文，助手记录完后，欧拉说:'我忘记加入其中一个项了，它应该是…'然后修改了公式——实际上他在脑海中已经完成了全部推导。",
       "anecdoteEn": "Euler once computed a comet's orbit entirely in his head, matching observations better than two astronomers' competing calculations. After going blind, he could mentally complete complex proofs and correct errors from memory alone.",
       "aiReview": "欧拉是人类历史上最多产的数学家，但更令人惊讶的不是数量而是质量。他的每一篇论文几乎都有实质性贡献——发现新定理、发明新方法或解决棘手问题。他还有一种罕见的天赋：将复杂问题化简。无论是七桥问题还是欧拉公式，他都有能力看到问题的本质并将其用最优雅的方式表达出来。如果数学史上有'最高效的头脑'的评选，欧拉当之无愧。",
-      "aiReviewEn": "Euler was the most prolific mathematician in history, with astonishing output. His every paper made substantial contributions. Blind in his later years, he produced even more — as if physical limitation freed his inner vision. He had a rare gift for making hard things simple. Whether Euler's formula or the Seven Bridges problem, he revealed the essence behind phenomena. When asked which mathematician was the 'ultimate master of formulas,' the answer is always Euler."
+      "aiReviewEn": "Euler was the most prolific mathematician in history, with astonishing output. His every paper made substantial contributions. Blind in his later years, he produced even more — as if physical limitation freed his inner vision. He had a rare gift for making hard things simple. Whether Euler's formula or the Seven Bridges problem, he revealed the essence behind phenomena. When asked which mathematician was the 'ultimate master of formulas,' the answer is always Euler.",
+      "problemsSolved": [
+        {
+          "problem": "巴塞尔问题：所有平方倒数之和",
+          "problemEn": "The Basel problem",
+          "breakthrough": "求得 Σ1/n² = π²/6，技惊欧洲数学界",
+          "breakthroughEn": "Found the sum equals π²/6"
+        },
+        {
+          "problem": "柯尼斯堡七桥能否一次走完",
+          "problemEn": "The Seven Bridges of Königsberg",
+          "breakthrough": "证明不可能，开创图论与拓扑学",
+          "breakthroughEn": "Proved it impossible, founding graph theory and topology"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "与达朗贝尔关于弦振动与负数对数的论战",
+          "topicEn": "Debate with d’Alembert on vibrating strings and logarithms of negatives",
+          "outcome": "长期书信论战推动了函数概念与复分析的澄清",
+          "outcomeEn": "Their long dispute helped clarify the notion of function and complex logarithms"
+        }
+      ]
     },
     {
       "id": "riemann",
@@ -875,7 +951,23 @@ _sciomapData = {
       "anecdote": "黎曼是一个极度腼腆的人——他有严重的舞台恐惧症。他的1854年任职演讲是在巨大的心理压力下完成的。但他对数学的信念战胜了恐惧——他知道自己要说的是全新的东西。他的博士答辩会上，向来严厉的高斯问他为什么要研究这么难的问题，黎曼紧张得几乎说不出完整的句子，但他的回答条理清晰、内容深刻。高斯后来对同事说:'这个年轻人有远大的前程。'",
       "anecdoteEn": "Riemann was extremely shy with stage fright. His historic 1854 lecture was delivered under intense anxiety, but his passion for mathematics overcame his fear. Gauss called him 'a young man with great prospects.'",
       "aiReview": "黎曼的工作方式具有一种特别的'密度'——他是数学史上'论文最少但影响最大'的数学家之一。他39年生命中发表的论文数量大概只有欧拉的百分之一，但每一篇都开启了一个新的方向。黎曼几何改变了空间的观念，黎曼猜想刺激了数论和复分析的发展，黎曼映射定理是复变函数的基石。这就像一个人只射出了几支箭，但每一支都正中靶心。他的早逝是数学史上最大的'如果'——如果黎曼活到了正常寿命，他还会带来多少革命性的思想？",
-      "aiReviewEn": "Riemann's work has a special 'density' — he is one of the most influential mathematicians in history with remarkably few papers. Dead at 39, his total publications were barely 1% of Euler's, yet each opened an entirely new field. Riemannian geometry redefined the concept of space, enabling general relativity and complex analysis. The Riemann mapping theorem is the foundation of complex analysis. His hypotheses are deceptively simple but each contains profound depth. Riemann may well be the most imaginative mathematician in history — how else could one generate so many revolutionary ideas from so few pages?"
+      "aiReviewEn": "Riemann's work has a special 'density' — he is one of the most influential mathematicians in history with remarkably few papers. Dead at 39, his total publications were barely 1% of Euler's, yet each opened an entirely new field. Riemannian geometry redefined the concept of space, enabling general relativity and complex analysis. The Riemann mapping theorem is the foundation of complex analysis. His hypotheses are deceptively simple but each contains profound depth. Riemann may well be the most imaginative mathematician in history — how else could one generate so many revolutionary ideas from so few pages?",
+      "problemsSolved": [
+        {
+          "problem": "如何刻画弯曲空间的几何",
+          "problemEn": "Geometry of curved space",
+          "breakthrough": "创立黎曼几何，为广义相对论提供数学语言",
+          "breakthroughEn": "Founded Riemannian geometry, the language of general relativity"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "黎曼猜想至今悬而未决",
+          "topicEn": "The still-unsolved Riemann Hypothesis",
+          "outcome": "关于ζ函数零点的猜想主宰素数分布研究，成为千禧年七大难题之一",
+          "outcomeEn": "His hypothesis on ζ-zeros governs prime distribution and is a Millennium Prize problem"
+        }
+      ]
     },
     {
       "id": "leibniz",
@@ -1332,7 +1424,15 @@ _sciomapData = {
         }
       ],
       "legacy": "麦克斯韦方程组统一了电学、磁学和光学，预言了电磁波的存在；被公认为牛顿之后爱因斯坦之前最伟大的物理学家。",
-      "legacyEn": "Maxwell's equations unified electricity, magnetism, and optics, predicting electromagnetic waves; widely regarded as the greatest physicist between Newton and Einstein."
+      "legacyEn": "Maxwell's equations unified electricity, magnetism, and optics, predicting electromagnetic waves; widely regarded as the greatest physicist between Newton and Einstein.",
+      "controversies": [
+        {
+          "topic": "电磁理论初期遭冷遇",
+          "topicEn": "Early rejection of electromagnetic theory",
+          "outcome": "其位移电流与以太机械模型饱受质疑，直到赫兹实验探测到电磁波才被广泛接受",
+          "outcomeEn": "His displacement current and ether models were doubted until Hertz detected EM waves"
+        }
+      ]
     },
     {
       "id": "einstein",
@@ -1983,7 +2083,23 @@ _sciomapData = {
         }
       ],
       "legacy": "建立了β衰变理论引入了弱相互作用概念；领导建造了世界上第一个核反应堆（芝加哥一号堆），开启了核能时代。",
-      "legacyEn": "Formulated the theory of beta decay, introducing the concept of the weak interaction; built the world's first nuclear reactor (Chicago Pile-1), ushering in the nuclear age."
+      "legacyEn": "Formulated the theory of beta decay, introducing the concept of the weak interaction; built the world's first nuclear reactor (Chicago Pile-1), ushering in the nuclear age.",
+      "problemsSolved": [
+        {
+          "problem": "β衰变背后的相互作用",
+          "problemEn": "The interaction behind beta decay",
+          "breakthrough": "提出弱相互作用的费米理论，并建成首座可控核反应堆",
+          "breakthroughEn": "Formulated the weak-interaction theory and built the first nuclear reactor"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "原子弹与“费米悖论”",
+          "topicEn": "The bomb and the Fermi paradox",
+          "outcome": "深度参与曼哈顿计划带来道德争议；“他们都在哪儿”之问至今诘问地外文明",
+          "outcomeEn": "His Manhattan Project role raised moral questions; “where is everybody?” still haunts SETI"
+        }
+      ]
     },
     {
       "id": "feynman",
@@ -2076,7 +2192,23 @@ _sciomapData = {
         }
       ],
       "legacy": "费曼图革新了粒子物理的计算方法；量子电动力学的奠基人之一，1965年诺贝尔奖得主；以超凡的教学天赋将物理学的美妙传递给大众。",
-      "legacyEn": "Feynman diagrams revolutionized calculation methods in particle physics; co-founder of quantum electrodynamics, 1965 Nobel laureate; unmatched teacher who conveyed the beauty of physics to the public."
+      "legacyEn": "Feynman diagrams revolutionized calculation methods in particle physics; co-founder of quantum electrodynamics, 1965 Nobel laureate; unmatched teacher who conveyed the beauty of physics to the public.",
+      "problemsSolved": [
+        {
+          "problem": "量子电动力学中的无穷大发散",
+          "problemEn": "Infinities in quantum electrodynamics",
+          "breakthrough": "以重整化与费曼图给出可计算的QED，获诺贝尔奖",
+          "breakthroughEn": "Tamed QED with renormalization and Feynman diagrams"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "挑战者号事故调查中的对峙",
+          "topicEn": "Clash during the Challenger inquiry",
+          "outcome": "当众用冰水演示O型环失效，直指NASA管理与工程沟通的系统性问题",
+          "outcomeEn": "Publicly dunked an O-ring in ice water, exposing NASA’s management failures"
+        }
+      ]
     },
     {
       "id": "rutherford",
@@ -2272,7 +2404,15 @@ _sciomapData = {
         }
       ],
       "legacy": "发现钋和镭两种新元素，开创了放射性科学的新纪元；玛丽·居里两次获得诺贝尔奖，成为科学史上最杰出的女性科学家典范。",
-      "legacyEn": "Discovered the elements polonium and radium, opening a new era of radioactivity science; Marie Curie won two Nobel Prizes, becoming the most iconic woman scientist in history."
+      "legacyEn": "Discovered the elements polonium and radium, opening a new era of radioactivity science; Marie Curie won two Nobel Prizes, becoming the most iconic woman scientist in history.",
+      "controversies": [
+        {
+          "topic": "婚外情风波与性别、排外偏见",
+          "topicEn": "Scandal, sexism and xenophobia",
+          "outcome": "与朗之万的绯闻被法国媒体大肆渲染，掺杂性别与排外偏见，险些波及第二次诺奖",
+          "outcomeEn": "The Langevin affair unleashed sexist and xenophobic press that nearly cost her second Nobel"
+        }
+      ]
     },
     {
       "id": "lavoisier",
@@ -2596,10 +2736,16 @@ _sciomapData = {
           "descriptionEn": "Mendelian genetics later filled the gap in Darwin's theory regarding the mechanism of heredity"
         },
         {
-          "target": "watson-crick",
+          "target": "crick",
           "type": "influence",
           "description": "孟德尔的遗传因子概念最终由DNA双螺旋结构在分子层面证实",
           "descriptionEn": "Mendel's concept of hereditary factors was ultimately confirmed at the molecular level by the DNA double helix"
+        },
+        {
+          "target": "watson",
+          "type": "influence",
+          "description": "孟德尔的遗传因子概念最终由 DNA 双螺旋结构在分子层面证实",
+          "descriptionEn": "Mendel’s concept of hereditary factors was ultimately confirmed at the molecular level by the DNA double helix"
         }
       ],
       "lifeStory": "孟德尔1822年出生于奥地利的一个农民家庭。他曾在奥尔米茨大学学习哲学和物理学，后因经济原因进入布尔诺的圣托马斯修道院成为修道士。1851年被派往维也纳大学学习自然科学——这四年是他科学思想形成的关键时期。1856年起他在修道院的花园里开始豌豆杂交实验，到1863年共研究了约28,000株豌豆植株，系统记录了7对性状的遗传规律。1865年他在布尔诺自然历史学会上宣读了他的发现，但听众反应冷淡。1866年论文发表后几乎无人问津。孟德尔1884年去世时，他的工作几乎完全被世界遗忘。直到1900年，三位科学家（德弗里斯、科伦斯、切尔马克）各自独立得到了相同的结果，才重新发现了孟德尔的论文——这时世界才意识到这份工作的革命性意义。",
@@ -2769,6 +2915,14 @@ _sciomapData = {
           "problemEn": "Complexity of the Ptolemaic Geocentric System",
           "breakthrough": "提出日心说模型，将太阳置于宇宙中心，简化行星运动解释",
           "breakthroughEn": "Proposed the heliocentric model, placing the Sun at the center, simplifying planetary motion"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "日心说与教会宇宙观的冲突",
+          "topicEn": "Heliocentrism versus Church cosmology",
+          "outcome": "《天体运行论》挑战地心说，后被列入禁书目录近两个世纪",
+          "outcomeEn": "De revolutionibus challenged geocentrism and was later placed on the Index for nearly two centuries"
         }
       ]
     },
@@ -3631,6 +3785,14 @@ _sciomapData = {
           "breakthrough": "提出图灵机模型，证明某些数学问题不存在通用算法",
           "breakthroughEn": "Proposed the Turing machine model, proving some mathematical problems have no general algorithm"
         }
+      ],
+      "controversies": [
+        {
+          "topic": "因性取向被定罪与迟来的平反",
+          "topicEn": "Criminal conviction for his sexuality and posthumous pardon",
+          "outcome": "因同性恋被判罪并被迫化学阉割，贡献长期保密，2013年才获英国皇家赦免",
+          "outcomeEn": "Convicted for homosexuality and chemically castrated; his work stayed classified for decades until a 2013 royal pardon"
+        }
       ]
     },
     {
@@ -3716,6 +3878,14 @@ _sciomapData = {
           "problemEn": "Architecture Design for Programmable Computers",
           "breakthrough": "提出冯·诺依曼架构（存储程序概念），成为现代计算机设计的基础",
           "breakthroughEn": "Proposed the von Neumann architecture (stored-program concept), basis of modern computer design"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "EDVAC报告署名与工程贡献之争",
+          "topicEn": "The EDVAC authorship dispute",
+          "outcome": "《EDVAC报告初稿》仅署冯·诺依曼之名，引发对埃克特、莫奇利工程贡献被忽视的长期争议",
+          "outcomeEn": "The First Draft bore only von Neumann’s name, long overshadowing Eckert and Mauchly’s engineering"
         }
       ]
     },
@@ -4010,6 +4180,22 @@ _sciomapData = {
           "year": 2018,
           "desc": "图灵奖",
           "descEn": "Turing Award"
+        }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "深度神经网络难以训练",
+          "problemEn": "Training deep neural networks",
+          "breakthrough": "推广反向传播，并以深度信念网络(2006)、AlexNet(2012)点燃深度学习革命",
+          "breakthroughEn": "Popularized backpropagation and ignited deep learning with deep belief nets (2006) and AlexNet (2012)"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "AI风险警告与神经网络的沉浮",
+          "topicEn": "Warning on AI risk after decades in the wilderness",
+          "outcome": "神经网络曾在“AI寒冬”被主流否定；2023年他从谷歌离职公开警告AI威胁，引发安全大讨论",
+          "outcomeEn": "Neural nets were dismissed in the “AI winters”; in 2023 he left Google to warn of AI’s dangers"
         }
       ]
     },
@@ -5573,7 +5759,23 @@ _sciomapData = {
       "lifeStory": "康托尔1845年出生于俄国圣彼得堡，在德国接受教育。他的集合论在当时受到激烈批评，晚年患上精神疾病，但后来被公认为现代数学的伟大开创者。",
       "lifeStoryEn": "Cantor was born in 1845 in Saint Petersburg and educated in Germany. His set theory faced fierce criticism, but was later recognized as foundational to modern mathematics.",
       "aiReview": "康托尔的集合论为整个数学提供了统一的语言基础，对无穷的数学化处理是人类智识的巨大飞跃，深刻影响了逻辑学和哲学。",
-      "aiReviewEn": "Cantor's set theory provided a unified language for modern mathematics. His exploration of the infinite was a massive leap in human understanding, influencing logic, philosophy, and mathematics alike."
+      "aiReviewEn": "Cantor's set theory provided a unified language for modern mathematics. His exploration of the infinite was a massive leap in human understanding, influencing logic, philosophy, and mathematics alike.",
+      "problemsSolved": [
+        {
+          "problem": "无穷是否可以比较大小",
+          "problemEn": "Can infinities be compared",
+          "breakthrough": "以对角线论证与超限基数证明存在不同“大小”的无穷",
+          "breakthroughEn": "Showed different sizes of infinity via diagonalization and transfinite numbers"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "集合论遭克罗内克激烈反对",
+          "topicEn": "Kronecker’s fierce opposition to set theory",
+          "outcome": "“上帝创造整数”式的反对令康托尔备受打击，晚年多次入院",
+          "outcomeEn": "Kronecker’s attacks devastated Cantor, who suffered repeated breakdowns"
+        }
+      ]
     },
     {
       "id": "hilbert",
@@ -5648,7 +5850,29 @@ _sciomapData = {
       "lifeStory": "希尔伯特1862年出生于德国柯尼斯堡，在哥廷根大学执掌数学研究所，使哥廷根成为世界数学中心，直至纳粹上台。",
       "lifeStoryEn": "Hilbert was born in 1862 in Konigsberg, Germany. He led the mathematical institute at Gottingen, making it the world's mathematics center until the Nazi rise.",
       "aiReview": "希尔伯特以其广博的视野和深刻的问题引领了20世纪数学潮流，其形式主义和公理化思想深刻影响了数学基础和计算理论。",
-      "aiReviewEn": "Hilbert's breadth and depth shaped 20th-century mathematics. His formalist program and axiomatic thinking profoundly influenced logic and computer science, setting the agenda for modern mathematical research."
+      "aiReviewEn": "Hilbert's breadth and depth shaped 20th-century mathematics. His formalist program and axiomatic thinking profoundly influenced logic and computer science, setting the agenda for modern mathematical research.",
+      "problemsSolved": [
+        {
+          "problem": "不变量理论的“戈丹问题”",
+          "problemEn": "Gordan’s problem in invariant theory",
+          "breakthrough": "以非构造性存在证明一举终结，震动数学界",
+          "breakthroughEn": "Settled it with a non-constructive existence proof"
+        },
+        {
+          "problem": "20世纪数学该往何处去",
+          "problemEn": "Where should 20th-century mathematics go",
+          "breakthrough": "1900年提出23个问题，为整个世纪的数学定向",
+          "breakthroughEn": "Posed 23 problems in 1900 that shaped a century of mathematics"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "希尔伯特纲领与基础论战",
+          "topicEn": "The Hilbert program and the foundational crisis",
+          "outcome": "其形式主义纲领被哥德尔不完备定理证明无法完全实现，并与布劳威尔的直觉主义激烈交锋",
+          "outcomeEn": "His formalist program was undercut by Gödel’s theorems, amid a fierce clash with Brouwer’s intuitionism"
+        }
+      ]
     },
     {
       "id": "poincare",
@@ -5724,7 +5948,23 @@ _sciomapData = {
       "lifeStory": "庞加莱1854年出生于法国南锡，被誉为最后一位数学全才，在拓扑学、微分方程、数论、天体力学的每个领域都留下了开创性工作。",
       "lifeStoryEn": "Poincare was born in 1854 in Nancy, France. Known as the last universalist mathematician, he made pioneering contributions across topology, differential equations, number theory, and celestial mechanics.",
       "aiReview": "庞加莱是连接19世纪与20世纪数学的桥梁人物，代数拓扑的创立和庞加莱猜想至今仍是数学研究的核心驱动力。",
-      "aiReviewEn": "The last universalist mathematician, bridging the 19th and 20th centuries. Poincare's contributions across dynamical systems, topology, and mathematical physics defined the core questions of modern mathematics."
+      "aiReviewEn": "The last universalist mathematician, bridging the 19th and 20th centuries. Poincare's contributions across dynamical systems, topology, and mathematical physics defined the core questions of modern mathematics.",
+      "problemsSolved": [
+        {
+          "problem": "三体问题是否有一般解",
+          "problemEn": "Is there a general solution to the three-body problem",
+          "breakthrough": "证明不存在解析通解，并发现对初值的敏感依赖——混沌的先声",
+          "breakthroughEn": "Proved no general closed-form solution exists and glimpsed chaos"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "狭义相对论的优先权之争",
+          "topicEn": "Priority dispute over special relativity",
+          "outcome": "庞加莱先给出部分数学形式(洛伦兹群、相对性原理)，但物理诠释与突破归于爱因斯坦",
+          "outcomeEn": "Poincaré had parts of the mathematics first, but the physical breakthrough is credited to Einstein"
+        }
+      ]
     },
     {
       "id": "godel",
@@ -5800,7 +6040,23 @@ _sciomapData = {
       "lifeStory": "哥德尔1906年出生于奥匈帝国布吕恩，在维也纳大学完成博士论文。1931年发表不完备定理后震惊数学界，1940年移居美国普林斯顿高等研究院。",
       "lifeStoryEn": "Godel was born in 1906 in Brunn, Austria-Hungary. After his 1931 incompleteness theorems shocked the mathematical world, he emigrated to the IAS Princeton in 1940.",
       "aiReview": "哥德尔的不完备定理划定了形式化方法的根本局限，是数理逻辑和数学哲学史上最深刻的结果之一，深刻影响了计算机科学和人工智能理论。",
-      "aiReviewEn": "Godel's incompleteness theorems revealed the fundamental limits of formal systems — one of the deepest insights in logic and mathematics, profoundly influencing philosophy, computation, and AI theory."
+      "aiReviewEn": "Godel's incompleteness theorems revealed the fundamental limits of formal systems — one of the deepest insights in logic and mathematics, profoundly influencing philosophy, computation, and AI theory.",
+      "problemsSolved": [
+        {
+          "problem": "数学能否被证明既完备又一致",
+          "problemEn": "Can mathematics be proved complete and consistent",
+          "breakthrough": "以不完备性定理给出否定回答，划出形式系统的根本界限",
+          "breakthroughEn": "His incompleteness theorems answered no, bounding formal systems"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "结论被大众误读为“数学不可靠”",
+          "topicEn": "Popular misreadings of incompleteness",
+          "outcome": "不完备性常被曲解为数学不可信；他证明的连续统假设独立性也长期引发哲学争论",
+          "outcomeEn": "Incompleteness is often misread as “math is unreliable”; his work on the continuum hypothesis fueled debate"
+        }
+      ]
     },
     {
       "id": "nash",
@@ -7468,6 +7724,28 @@ _sciomapData = {
           "desc": "诺贝尔化学奖",
           "descEn": "Nobel Prize in Chemistry"
         }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "化学键的本质是什么",
+          "problemEn": "The nature of the chemical bond",
+          "breakthrough": "用量子力学阐明共价键、杂化轨道与电负性",
+          "breakthroughEn": "Explained covalent bonds, hybridization and electronegativity via quantum mechanics"
+        },
+        {
+          "problem": "镰状细胞贫血的根源",
+          "problemEn": "The cause of sickle-cell anemia",
+          "breakthrough": "提出首个“分子病”概念，开创分子医学",
+          "breakthroughEn": "Introduced the first “molecular disease” concept"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "大剂量维生素C主张与DNA三螺旋错误",
+          "topicEn": "Vitamin C megadoses and the wrong DNA model",
+          "outcome": "其维C抗癌/抗感冒主张缺乏严谨证据遭批评，且曾提出错误的DNA三螺旋结构",
+          "outcomeEn": "His vitamin-C claims lacked rigorous evidence, and he proposed an incorrect triple-helix DNA"
+        }
       ]
     },
     {
@@ -8000,7 +8278,23 @@ _sciomapData = {
         }
       ],
       "legacy": "将天文学科普推向空前高度的科学传播者；《宇宙》系列纪录片和书籍激励了整整一代人投身科学；推动行星科学与地外文明探索。",
-      "legacyEn": "The greatest popularizer of astronomy; Cosmos TV series and book inspired an entire generation to pursue science; advanced planetary science and SETI research."
+      "legacyEn": "The greatest popularizer of astronomy; Cosmos TV series and book inspired an entire generation to pursue science; advanced planetary science and SETI research.",
+      "problemsSolved": [
+        {
+          "problem": "行星环境与地外生命如何研究",
+          "problemEn": "Studying planetary environments and alien life",
+          "breakthrough": "揭示金星温室效应、推动搜寻地外文明与旅行者“金唱片”",
+          "breakthroughEn": "Explained Venus’s greenhouse effect and championed SETI and the Voyager Golden Record"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "科普声望与学界评价的落差",
+          "topicEn": "Fame in outreach versus academic standing",
+          "outcome": "因大众科普被部分同行轻视，曾被美国科学院拒之门外；“核冬天”模型亦有争议",
+          "outcomeEn": "His popular fame drew disdain; he was denied NAS membership, and his “nuclear winter” model was contested"
+        }
+      ]
     },
     {
       "id": "guo-shoujing",
@@ -8150,7 +8444,23 @@ _sciomapData = {
       "lifeStory": "亚里士多德于公元前384年出生于希腊北部斯塔基拉城，17岁前往雅典柏拉图学园学习，师从柏拉图20年之久。柏拉图去世后，他离开雅典，担任马其顿王子亚历山大的教师。公元前335年回到雅典创办吕克昂学园，在此进行了大量生物学研究。他收集并分类了超过500种动物，撰写了《动物志》《动物构造》《动物繁殖》等多部生物学著作。他的研究方法强调观察和分类，为后来所有生物学分支奠定了基础。",
       "lifeStoryEn": "Aristotle was born in 384 BCE in Stagira, northern Greece. At 17, he went to Athens to study at Plato’s Academy, where he remained for 20 years. After Plato’s death, he left Athens and became the tutor of Alexander the Great. He returned to Athens in 335 BCE to found the Lyceum, where he conducted extensive biological research. He collected and classified over 500 species of animals and wrote numerous biological works including History of Animals, Parts of Animals, and Generation of Animals. His method emphasized observation and classification, laying the foundation for all subsequent branches of biology.",
       "aiReview": "亚里士多德是生物学史上的一座丰碑。他的贡献不仅在于具体知识，更在于他确立了以观察和分类为核心的科学方法论。虽然他的一些具体结论（如自发发生说）已被现代科学推翻，但他开创的生物学研究范式影响极其深远。从林奈的分类学到达尔文的进化论，亚里士多德的影子无处不在。他被评价为“第一位真正的生物学家”实至名归。",
-      "aiReviewEn": "Aristotle's systematic approach to biology, physics, and logic laid the foundations of Western science. Though many of his specific conclusions were later overturned, his empirical approach and classification methods proved lasting."
+      "aiReviewEn": "Aristotle's systematic approach to biology, physics, and logic laid the foundations of Western science. Though many of his specific conclusions were later overturned, his empirical approach and classification methods proved lasting.",
+      "problemsSolved": [
+        {
+          "problem": "如何系统地认识纷繁的自然界",
+          "problemEn": "How to systematically understand nature",
+          "breakthrough": "建立生物分类、形式逻辑与因果学说，奠定诸多学科框架",
+          "breakthroughEn": "Founded biological classification, formal logic and causal theory"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "物理学说统治并阻滞科学两千年",
+          "topicEn": "Physics that ruled—and stalled—science for two millennia",
+          "outcome": "其“重物下落更快”与地心说被奉为权威，直到伽利略、牛顿才被推翻",
+          "outcomeEn": "His “heavier falls faster” and geocentric views became dogma until overturned by Galileo and Newton"
+        }
+      ]
     },
     {
       "id": "wallace",
@@ -9312,6 +9622,22 @@ _sciomapData = {
           "desc": "图灵奖",
           "descEn": "Turing Award"
         }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "如何让机器进行符号推理",
+          "problemEn": "Making machines reason with symbols",
+          "breakthrough": "发明LISP语言、首创“人工智能”一词并推动分时系统",
+          "breakthroughEn": "Invented LISP, coined “artificial intelligence,” and advanced time-sharing"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "对强人工智能到来的乐观预期",
+          "topicEn": "Over-optimism about strong AI",
+          "outcome": "早期对AI能力与时间表的乐观预测屡屡落空，助推了后来的“AI寒冬”",
+          "outcomeEn": "Early optimistic forecasts repeatedly failed, feeding later “AI winters”"
+        }
       ]
     },
     {
@@ -9399,6 +9725,22 @@ _sciomapData = {
           "desc": "图灵奖",
           "descEn": "Turing Award"
         }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "如何求网络中的最短路径",
+          "problemEn": "Shortest paths in a network",
+          "breakthrough": "提出Dijkstra算法，并奠定结构化程序设计",
+          "breakthroughEn": "Devised Dijkstra’s algorithm and founded structured programming"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "“GOTO语句有害”引发的编程范式论战",
+          "topicEn": "“Go To Statement Considered Harmful”",
+          "outcome": "这封公开信点燃结构化编程大论战，他对若干语言与工程实践的尖锐批评亦广受争议",
+          "outcomeEn": "His famous letter sparked the structured-programming debate and pointed critiques of many languages"
+        }
       ]
     },
     {
@@ -9459,7 +9801,7 @@ _sciomapData = {
           "descriptionEn": "Ritchie's Unix directly inspired Torvalds to create Linux, the open-source operating system kernel."
         },
         {
-          "target": "thompson",
+          "target": "ken-thompson",
           "type": "collab",
           "label": "长期合作者",
           "description": "里奇与肯·汤普森在贝尔实验室密切合作，共同创造了Unix和C语言",
@@ -9484,6 +9826,22 @@ _sciomapData = {
           "year": 1983,
           "desc": "图灵奖",
           "descEn": "Turing Award"
+        }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "缺乏可移植的系统级编程语言",
+          "problemEn": "No portable systems programming language",
+          "breakthrough": "发明C语言，并与汤普森共同创造Unix",
+          "breakthroughEn": "Created C and, with Thompson, Unix"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "Unix的知识产权与开放之争",
+          "topicEn": "Ownership and openness of Unix",
+          "outcome": "AT&T对Unix的商业化与版权主张，引发与BSD等阵营长期的许可与诉讼争议",
+          "outcomeEn": "AT&T’s commercialization of Unix triggered long licensing and legal disputes with BSD and others"
         }
       ]
     },
@@ -9570,6 +9928,22 @@ _sciomapData = {
           "year": 2016,
           "desc": "图灵奖",
           "descEn": "Turing Award"
+        }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "全球信息如何互联与共享",
+          "problemEn": "How to link and share global information",
+          "breakthrough": "发明万维网(HTTP/HTML/URL)并坚持免费开放",
+          "breakthroughEn": "Invented the Web (HTTP/HTML/URL) and kept it royalty-free"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "Web的中心化与数据垄断反思",
+          "topicEn": "Centralization and data monopoly of the Web",
+          "outcome": "面对隐私失控与平台垄断，他发起Solid项目试图“重新去中心化”网络",
+          "outcomeEn": "Amid privacy loss and monopolies, he launched Solid to “re-decentralize” the Web"
         }
       ]
     },
@@ -9658,6 +10032,160 @@ _sciomapData = {
           "desc": "IEEE计算机先锋奖",
           "descEn": "IEEE Computer Pioneer Award"
         }
+      ],
+      "problemsSolved": [
+        {
+          "problem": "缺乏自由开放的类Unix内核",
+          "problemEn": "No free Unix-like kernel",
+          "breakthrough": "创造Linux内核，日后又发明分布式版本控制工具Git",
+          "breakthroughEn": "Created the Linux kernel and later Git"
+        }
+      ],
+      "controversies": [
+        {
+          "topic": "社区言辞风格与设计路线之争",
+          "topicEn": "Abrasive style and design debates",
+          "outcome": "以尖刻言辞著称，2018年为社区行为公开致歉并短暂离开；与塔能鲍姆有过“Linux设计过时”的著名辩论",
+          "outcomeEn": "Known for harsh language, he apologized and briefly stepped back in 2018; famously debated Tanenbaum on kernel design"
+        }
+      ]
+    },
+    {
+      "id": "minkowski",
+      "name": "赫尔曼·闵可夫斯基",
+      "nameEn": "Hermann Minkowski",
+      "birth": 1864,
+      "death": 1909,
+      "nationality": "德国/立陶宛",
+      "nationalityEn": "German/Lithuanian",
+      "discipline": "mathematics",
+      "subDiscipline": "几何",
+      "tags": [
+        "mathematics",
+        "physics"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "influence": 8,
+      "summary": "德国数学家，将爱因斯坦的狭义相对论重构为四维时空（闵可夫斯基时空）的几何框架，深刻影响了广义相对论与现代物理。",
+      "summaryEn": "German mathematician who recast Einstein's special relativity into the geometry of four-dimensional spacetime (Minkowski space), profoundly shaping general relativity and modern physics.",
+      "lifeStory": "1864 年生于立陶宛的犹太人家庭，少年即展露数学天才；曾任苏黎世联邦理工学院、哥廷根大学教授，是爱因斯坦的师长。1907 年提出四维时空概念，1909 年因阑尾炎病逝，年仅 44 岁。",
+      "keyContributions": [
+        {
+          "title": "闵可夫斯基时空",
+          "titleEn": "Minkowski Spacetime",
+          "year": 1907,
+          "desc": "将时间作为第四维与空间统一，为相对论提供几何语言",
+          "type": "theory"
+        }
+      ],
+      "aiReview": "闵可夫斯基把“时间”变成了一条可度量的几何轴，让相对论从物理直觉升格为严格的数学结构；没有他的时空框架，广义相对论几乎无从谈起。",
+      "goldenQuotes": [
+        "从今往后，空间自身与时间自身注定要退隐为阴影，唯有二者的结合才能保持独立的现实。"
+      ],
+      "relationships": [
+        {
+          "target": "einstein",
+          "type": "teacher",
+          "description": "闵可夫斯基是爱因斯坦在苏黎世的老师，其时空观直接启发了相对论",
+          "descriptionEn": "Minkowski taught Einstein in Zurich; his spacetime view directly inspired relativity"
+        }
+      ]
+    },
+    {
+      "id": "ken-thompson",
+      "name": "肯·汤普森",
+      "nameEn": "Ken Thompson",
+      "birth": 1943,
+      "death": null,
+      "nationality": "美国",
+      "nationalityEn": "American",
+      "discipline": "cs",
+      "subDiscipline": "系统",
+      "tags": [
+        "cs"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "influence": 8,
+      "summary": "美国计算机科学家，Unix 操作系统与 C 语言的共同创造者，贝尔实验室计算机科学研究的核心人物。",
+      "summaryEn": "American computer scientist, co-creator of the Unix operating system and the C programming language, and a central figure at Bell Labs.",
+      "lifeStory": "1960 年代起在贝尔实验室工作，与丹尼斯·里奇共同设计了 Unix 与 C 语言，深刻塑造了现代计算基础设施；后参与 Go 语言设计。",
+      "keyContributions": [
+        {
+          "title": "Unix 操作系统",
+          "titleEn": "Unix OS",
+          "year": 1971,
+          "desc": "与里奇共同创造，奠定了现代操作系统的范式",
+          "type": "invention"
+        },
+        {
+          "title": "C 语言",
+          "titleEn": "C Language",
+          "year": 1972,
+          "desc": "与里奇共同设计，成为系统编程的基石",
+          "type": "invention"
+        }
+      ],
+      "aiReview": "汤普森把“工具即哲学”贯彻到极致：Unix 的管道思想与 C 的可移植性，至今仍是软件世界的底层语法。",
+      "goldenQuotes": [
+        "当你发现一样东西很有趣时，就去做它。"
+      ],
+      "relationships": [
+        {
+          "target": "ritchie",
+          "type": "collab",
+          "description": "与里奇共同创造 Unix 和 C 语言",
+          "descriptionEn": "Co-created Unix and C with Ritchie"
+        }
+      ]
+    },
+    {
+      "id": "stallman",
+      "name": "理查德·斯托曼",
+      "nameEn": "Richard Stallman",
+      "birth": 1953,
+      "death": null,
+      "nationality": "美国",
+      "nationalityEn": "American",
+      "discipline": "cs",
+      "subDiscipline": "系统",
+      "tags": [
+        "cs"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "influence": 7,
+      "summary": "美国程序员与自由软件运动发起人，创建 GNU 项目与自由软件基金会（FSF），倡导软件应当自由共享。",
+      "summaryEn": "American programmer and founder of the free software movement; created the GNU project and the Free Software Foundation (FSF).",
+      "lifeStory": "1983 年发起 GNU 项目，旨在构建完全自由的操作系统；他开发的 GCC、Emacs 等自由工具奠定了开源生态的基石，并提出了 “copyleft” 理念。",
+      "keyContributions": [
+        {
+          "title": "GNU 项目",
+          "titleEn": "GNU Project",
+          "year": 1983,
+          "desc": "发起自由操作系统运动，催生了 GCC、Emacs 等核心工具",
+          "type": "work"
+        },
+        {
+          "title": "自由软件运动",
+          "titleEn": "Free Software Movement",
+          "year": 1985,
+          "desc": "创立 FSF，提出 copyleft 与软件自由四大自由",
+          "type": "theory"
+        }
+      ],
+      "aiReview": "斯托曼把“自由”写进了代码的许可证里。尽管与开源阵营理念有分歧，但他确立的四大自由仍是整个数字公地的道德基线。",
+      "goldenQuotes": [
+        "自由软件关乎自由，而非价格。"
+      ],
+      "relationships": [
+        {
+          "target": "torvalds",
+          "type": "collab",
+          "description": "与托瓦兹在自由/开源软件运动上理念有别却相互成就",
+          "descriptionEn": "Different philosophies from Torvalds, yet mutually enabling the free/open-source movement"
+        }
       ]
     }
   ],
@@ -9702,6 +10230,195 @@ _sciomapData = {
       "solvedBy2": "godel",
       "solvedYear": 1936,
       "solvedByTheory": "图灵机/不可判定性"
+    },
+    {
+      "id": "problem-planetary-motion",
+      "type": "bottleneck",
+      "label": "行星运动之谜",
+      "labelEn": "The Riddle of Planetary Motion",
+      "discipline": "astronomy",
+      "era": "revolution",
+      "desc": "行星为何沿椭圆轨道绕日运行？第谷积累了海量精密观测，却无人能说清天体运动背后的统一规律，古代的本轮说已濒临崩溃。",
+      "descEn": "Why do planets trace ellipses around the Sun? Tycho amassed precise observations, but no one could state the unified law behind celestial motion; the ancient epicycles were collapsing.",
+      "solvedBy": "newton",
+      "solvedBy2": "kepler",
+      "solvedYear": 1687,
+      "solvedByTheory": "万有引力定律"
+    },
+    {
+      "id": "problem-combustion",
+      "type": "bottleneck",
+      "label": "燃烧的本质（燃素之谜）",
+      "labelEn": "The Nature of Combustion (Phlogiston)",
+      "discipline": "chemistry",
+      "era": "enlightenment",
+      "desc": "物体燃烧时到底发生了什么？主流的“燃素说”认为可燃物含有会逸散的燃素，却无法解释金属煅烧后质量反而增加的矛盾。",
+      "descEn": "What really happens when things burn? The dominant phlogiston theory held that fuels release a substance called phlogiston, yet it could not explain why metals gain mass when calcined.",
+      "solvedBy": "lavoisier",
+      "solvedYear": 1783,
+      "solvedByTheory": "氧化燃烧学说"
+    },
+    {
+      "id": "problem-species-origin",
+      "type": "bottleneck",
+      "label": "物种起源之谜",
+      "labelEn": "The Origin of Species",
+      "discipline": "biology",
+      "era": "enlightenment",
+      "desc": "地球上千万种生物从何而来？为何彼此既相似又相异？特创论无法解释化石记录与地理分布，生命多样性的成因悬而未决。",
+      "descEn": "Where did Earth’s millions of species come from, and why are they at once alike and different? Special creation could not explain the fossil record or biogeography.",
+      "solvedBy": "darwin",
+      "solvedBy2": "wallace",
+      "solvedYear": 1859,
+      "solvedByTheory": "自然选择进化论"
+    },
+    {
+      "id": "problem-blackbody",
+      "type": "bottleneck",
+      "label": "黑体辐射与紫外灾难",
+      "labelEn": "Blackbody Radiation & the UV Catastrophe",
+      "discipline": "physics",
+      "era": "modern",
+      "desc": "经典物理预言黑体在高频段应辐射出无穷能量（“紫外灾难”），与实验曲线严重不符，牛顿-麦克斯韦体系出现致命裂缝。",
+      "descEn": "Classical physics predicted a blackbody should radiate infinite energy at high frequencies (the “ultraviolet catastrophe”), contradicting experiment and cracking the Newton–Maxwell edifice.",
+      "solvedBy": "planck",
+      "solvedYear": 1900,
+      "solvedByTheory": "能量量子化假说"
+    },
+    {
+      "id": "problem-atom-structure",
+      "type": "bottleneck",
+      "label": "原子内部结构之谜",
+      "labelEn": "The Structure of the Atom",
+      "discipline": "physics",
+      "era": "modern",
+      "desc": "原子是不可分的实心球，还是另有乾坤？“葡萄干布丁”模型盛行，但α粒子散射实验给出的大角度反弹让它无法立足。",
+      "descEn": "Is the atom a solid indivisible sphere, or something more? The “plum-pudding” model prevailed until alpha-particle scattering revealed large-angle recoils it could not explain.",
+      "solvedBy": "rutherford",
+      "solvedBy2": "bohr",
+      "solvedYear": 1911,
+      "solvedByTheory": "原子核式模型"
+    },
+    {
+      "id": "problem-germ",
+      "type": "bottleneck",
+      "label": "疾病的成因（瘴气还是病菌）",
+      "labelEn": "The Cause of Disease (Miasma vs Germs)",
+      "discipline": "medicine",
+      "era": "enlightenment",
+      "desc": "传染病由“污浊空气（瘴气）”引起，还是另有元凶？发酵、腐败与感染的真正机制不明，术后死亡率居高不下。",
+      "descEn": "Are infectious diseases caused by “bad air” (miasma), or something else? The true mechanism of fermentation, putrefaction and infection was unknown, and surgical mortality stayed high.",
+      "solvedBy": "pasteur",
+      "solvedBy2": "lister",
+      "solvedYear": 1861,
+      "solvedByTheory": "微生物致病理论"
+    },
+    {
+      "id": "problem-calculus-rigor",
+      "type": "bottleneck",
+      "label": "微积分的严格根基",
+      "labelEn": "The Rigor of Calculus",
+      "discipline": "mathematics",
+      "era": "enlightenment",
+      "desc": "牛顿与莱布尼茨的微积分威力巨大，却建立在“无穷小”这一含糊概念上，被贝克莱讥为“逝去量的幽灵”，根基摇摇欲坠。",
+      "descEn": "The calculus of Newton and Leibniz was immensely powerful yet rested on the vague notion of “infinitesimals,” mocked by Berkeley as “ghosts of departed quantities.”",
+      "solvedBy": "cauchy",
+      "solvedYear": 1821,
+      "solvedByTheory": "极限的严格化（ε-δ）"
+    },
+    {
+      "id": "problem-em-unification",
+      "type": "bottleneck",
+      "label": "电与磁的统一",
+      "labelEn": "The Unification of Electricity & Magnetism",
+      "discipline": "physics",
+      "era": "enlightenment",
+      "desc": "电、磁、光看似互不相干。法拉第用实验揭示了电磁感应，但缺乏能把三者统摄于一体的数学理论。",
+      "descEn": "Electricity, magnetism and light seemed unrelated. Faraday’s experiments revealed electromagnetic induction, but a unifying mathematical theory was missing.",
+      "solvedBy": "maxwell",
+      "solvedBy2": "faraday",
+      "solvedYear": 1865,
+      "solvedByTheory": "电磁场理论（麦克斯韦方程组）"
+    },
+    {
+      "id": "problem-infinity",
+      "type": "bottleneck",
+      "label": "无穷的大小之谜",
+      "labelEn": "The Sizes of Infinity",
+      "discipline": "mathematics",
+      "era": "enlightenment",
+      "desc": "“无穷”是不是只有一种？整数与实数哪个“更多”？数学家长期回避无穷，视其为不可触碰的禁区。",
+      "descEn": "Is there only one “infinity”? Are there “more” reals than integers? For centuries mathematicians shunned the infinite as untouchable.",
+      "solvedBy": "cantor",
+      "solvedYear": 1874,
+      "solvedByTheory": "集合论与超限数"
+    },
+    {
+      "id": "problem-quantum-mechanics",
+      "type": "bottleneck",
+      "label": "微观粒子的运动规律",
+      "labelEn": "The Laws of the Quantum World",
+      "discipline": "physics",
+      "era": "modern",
+      "desc": "玻尔模型能解释氢原子，却在多电子体系与光谱强度上处处碰壁。微观世界究竟遵循怎样一套全新的力学？",
+      "descEn": "Bohr’s model explained hydrogen but failed for multi-electron atoms and spectral intensities. What entirely new mechanics governs the microscopic world?",
+      "solvedBy": "heisenberg",
+      "solvedBy2": "schrodinger",
+      "solvedYear": 1925,
+      "solvedByTheory": "量子力学（矩阵/波动力学）"
+    },
+    {
+      "id": "problem-parity",
+      "type": "bottleneck",
+      "label": "宇称守恒是否成立",
+      "labelEn": "Is Parity Always Conserved?",
+      "discipline": "physics",
+      "era": "modern",
+      "desc": "物理定律在镜像世界中是否完全相同（宇称守恒）曾被视为天经地义，但θ-τ之谜让这一“铁律”出现裂缝。",
+      "descEn": "It was taken for granted that the laws of physics are mirror-symmetric (parity conservation)—until the θ–τ puzzle cracked this “iron law.”",
+      "solvedBy": "yang-zhenning",
+      "solvedBy2": "li-zhengdao",
+      "solvedYear": 1956,
+      "solvedByTheory": "弱相互作用中宇称不守恒"
+    },
+    {
+      "id": "problem-malaria",
+      "type": "bottleneck",
+      "label": "疟疾的克星",
+      "labelEn": "Conquering Malaria",
+      "discipline": "medicine",
+      "era": "modern",
+      "desc": "疟原虫对氯喹等既有药物日益耐药，全球每年数百万人因疟疾丧生，急需一种全新机理的抗疟药。",
+      "descEn": "As malaria parasites grew resistant to chloroquine and other drugs, millions died each year, demanding an antimalarial with a wholly new mechanism.",
+      "solvedBy": "tu-youyou",
+      "solvedYear": 1972,
+      "solvedByTheory": "青蒿素的发现"
+    },
+    {
+      "id": "problem-crop-yield",
+      "type": "bottleneck",
+      "label": "粮食增产之困",
+      "labelEn": "Feeding Billions",
+      "discipline": "biology",
+      "era": "modern",
+      "desc": "水稻被认为是自花授粉、无杂种优势可用的作物，人口激增下如何大幅提高单产，是关乎数亿人温饱的世纪难题。",
+      "descEn": "Rice was believed to be self-pollinating with no usable heterosis. Amid a population boom, dramatically raising yield was a challenge on which hundreds of millions depended.",
+      "solvedBy": "yuan-longping",
+      "solvedYear": 1973,
+      "solvedByTheory": "杂交水稻"
+    },
+    {
+      "id": "problem-expanding-universe",
+      "type": "bottleneck",
+      "label": "宇宙是静止的吗",
+      "labelEn": "Is the Universe Static?",
+      "discipline": "astronomy",
+      "era": "modern",
+      "desc": "银河系就是整个宇宙吗？宇宙是永恒静止的吗？“旋涡星云”究竟在河内还是河外，是当时天文学最大的争论。",
+      "descEn": "Is the Milky Way the entire universe, and is the cosmos eternal and static? Whether “spiral nebulae” lay inside or outside our galaxy was astronomy’s greatest debate.",
+      "solvedBy": "hubble",
+      "solvedYear": 1929,
+      "solvedByTheory": "宇宙膨胀（哈勃定律）"
     }
   ]
 };
