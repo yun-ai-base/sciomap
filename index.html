@@ -876,10 +876,11 @@ function renderGraph(){
         }
       }
       g.append('circle').attr('r',d.radius).attr('fill',fillVal).attr('opacity',.88);
-      // ── 节点肖像：浏览器从 Wikimedia 直链加载，圆形裁剪；失败/未加载时回退彩色球 ──
+      g.append('circle').attr('r',d.radius).attr('fill','url(#sphere-shading)').attr('pointer-events','none');
+      // ── 节点肖像：render 时直接加载（不再延迟到 on('end') 队列），浏览器从 Wikimedia 直链加载，圆形裁剪；失败/未加载时回退彩色球 ──
       if(d.portrait){
         const clipId='pc-'+d.id;
-        if(svg.select('defs').select('#'+clipId).empty()){
+        if(svg.select('#'+clipId).empty()){
           svg.select('defs').append('clipPath').attr('id',clipId).attr('clipPathUnits','userSpaceOnUse')
             .append('circle').attr('r',d.radius);
         }
@@ -890,10 +891,16 @@ function renderGraph(){
           .attr('preserveAspectRatio','xMidYMid slice');
         const cached=portraitCache.get(d.id);
         if(cached==='failed'){ img.remove(); }
-        else if(cached){ img.attr('href',cached).attr('xlink:href',cached).classed('loaded',true); }
-        else { img.attr('data-src',d.portrait); portraitQueue.push({id:d.id,el:img,src:d.portrait}); }
+        else {
+          const src=cached||d.portrait;
+          img.attr('href',src).attr('xlink:href',src);
+          if(cached) img.classed('loaded',true);
+          else img.on('load',function(){img.classed('loaded',true);portraitCache.set(d.id,img.node().currentSrc||d.portrait);persistPortraitCache();})
+                  .on('error',function(){portraitCache.set(d.id,'failed');persistPortraitCache();img.remove();});
+        }
       }
-      g.append('circle').attr('r',d.radius).attr('fill','url(#sphere-shading)').attr('pointer-events','none');
+      // 细圆环边框，区分节点与头像边缘
+      g.append('circle').attr('r',d.radius).attr('fill','none').attr('stroke','rgba(255,255,255,.45)').attr('stroke-width',1).attr('pointer-events','none');
       g.append('circle').attr('r',d.radius+2).attr('fill','none').attr('stroke',d.glowColor).attr('stroke-width','2').attr('opacity',.3);
       // 恒亮底环：不受 tick/筛选重设 group opacity 影响，保证光带始终可见
       g.append('circle').attr('r',d.radius+6+d.influence*.5).attr('fill','none').attr('stroke',d.glowColor).attr('stroke-width','1.4').attr('opacity',.22).attr('pointer-events','none');
