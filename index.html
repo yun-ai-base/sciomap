@@ -1052,7 +1052,7 @@ function setupTimeline(minB,maxB){
 
   function fmtYr(y){y=Math.round(y);return y<0?(-y)+(lang==='en'?' BC':' 前'):String(y);}
   function paint(){
-    if(chainActive)return; // 影响链聚焦模式下，时间轴重绘不擦除链高亮    const ratio=(tlYear-tlMin)/(tlMax-tlMin||1);
+    const ratio=(tlYear-tlMin)/(tlMax-tlMin||1);
     const w=track.clientWidth;
     handle.style.left=(ratio*w)+'px';
     prog.style.width=(ratio*w)+'px';
@@ -1064,6 +1064,7 @@ function setupTimeline(minB,maxB){
   function reveal(){
     const full=tlYear>=tlMax;
     tlActive=!full;
+    if(chainActive){paint();return;} // 影响链聚焦时，时间轴只更新自身UI，不擦除链高亮
     if(full){
       gNodes.selectAll('.node-group').interrupt().style('display',null).attr('opacity',null);
       gNodes.selectAll('circle').classed('tl-nova',false);
