@@ -1,0 +1,343 @@
+{
+  "pythagoras": {
+    "keyWorks": [
+      {"title": "毕达哥拉斯定理的证明", "titleEn": "Proof of the Pythagorean Theorem", "year": -500, "type": "book"},
+      {"title": "毕达哥拉斯学派数论", "titleEn": "Pythagorean Number Theory", "year": -500, "type": "book"}
+    ],
+    "legacy": "毕达哥拉斯学派开创了数学作为演绎科学的传统，其定理是几何学中最基础的结果之一。",
+    "legacyEn": "The Pythagorean school pioneered mathematics as a deductive science; the Pythagorean theorem remains one of the most fundamental results in geometry."
+  },
+  "euclid": {
+    "keyWorks": [
+      {"title": "几何原本", "titleEn": "Elements", "year": -300, "type": "book"}
+    ],
+    "legacy": "欧几里得的《几何原本》是历史上最成功的数学教科书，统治了几何学教学两千余年，其公理化方法成为数学的黄金标准。",
+    "legacyEn": "Euclid's Elements is the most successful mathematics textbook in history, dominating geometry teaching for over two millennia; its axiomatic method became the gold standard for mathematics."
+  },
+  "archimedes": {
+    "keyWorks": [
+      {"title": "论球与圆柱", "titleEn": "On the Sphere and Cylinder", "year": -225, "type": "book"},
+      {"title": "论浮体", "titleEn": "On Floating Bodies", "year": -250, "type": "book"},
+      {"title": "数沙者", "titleEn": "The Sand Reckoner", "year": -250, "type": "paper"}
+    ],
+    "legacy": "阿基米德被公认为古代最伟大的数学家，其积分思想先于微积分近两千年，奠定了静力学和流体静力学的基础。",
+    "legacyEn": "Archimedes is regarded as the greatest mathematician of antiquity; his integration techniques anticipated calculus by nearly two millennia and he founded statics and hydrostatics."
+  },
+  "descartes": {
+    "keyWorks": [
+      {"title": "谈谈方法（附几何学）", "titleEn": "Discourse on the Method (with La Geometrie)", "year": 1637, "type": "book"},
+      {"title": "第一哲学沉思集", "titleEn": "Meditations on First Philosophy", "year": 1641, "type": "book"}
+    ],
+    "legacy": "笛卡尔创立了解析几何，将代数与几何统一，为微积分的诞生铺平了道路；他也是近代哲学的奠基人。",
+    "legacyEn": "Descartes founded analytic geometry, uniting algebra and geometry and paving the way for calculus; he is also the father of modern philosophy."
+  },
+  "fermat": {
+    "keyWorks": [
+      {"title": "求最大值和最小值的方法", "titleEn": "Method for Determining Maxima and Minima", "year": 1636, "type": "paper"},
+      {"title": "丢番图《算术》评注（费马大定理）", "titleEn": "Marginal Notes on Diophantus' Arithmetica (Fermat's Last Theorem)", "year": 1637, "type": "paper"}
+    ],
+    "legacy": "费马被誉为近代数论之父，费马大定理困扰了数学家三百余年，直到1995年才被怀尔斯证明。他在概率论和解析几何方面也有开创性贡献。",
+    "legacyEn": "Fermat is considered the father of modern number theory; Fermat's Last Theorem baffled mathematicians for over 300 years until Andrew Wiles proved it in 1995. He also made pioneering contributions to probability and analytic geometry."
+  },
+  "pascal": {
+    "keyWorks": [
+      {"title": "论算术三角形", "titleEn": "Treatise on the Arithmetical Triangle", "year": 1654, "type": "paper"},
+      {"title": "思想录", "titleEn": "Pensees", "year": 1670, "type": "book"}
+    ],
+    "legacy": "帕斯卡在数学中创立了概率论的基础和帕斯卡三角形，在物理学中确立了帕斯卡定律。",
+    "legacyEn": "Pascal laid the foundations of probability theory, discovered Pascal's triangle, and established Pascal's law in physics."
+  },
+  "newton": {
+    "keyWorks": [
+      {"title": "自然哲学的数学原理", "titleEn": "Philosophiae Naturalis Principia Mathematica", "year": 1687, "type": "book"},
+      {"title": "光学", "titleEn": "Opticks", "year": 1704, "type": "book"}
+    ],
+    "legacy": "经典力学的奠基人，其运动定律和万有引力定律统治了物理学近300年。",
+    "legacyEn": "Founded classical mechanics; his laws of motion and universal gravitation dominated physics for nearly 300 years."
+  },
+  "leibniz": {
+    "keyWorks": [
+      {"title": "求极大极小的新方法", "titleEn": "Nova Methodus pro Maximis et Minimis", "year": 1684, "type": "paper"},
+      {"title": "单子论", "titleEn": "Monadology", "year": 1714, "type": "book"},
+      {"title": "形而上学序论", "titleEn": "Discourse on Metaphysics", "year": 1686, "type": "book"}
+    ],
+    "legacy": "莱布尼茨与牛顿独立发明了微积分，其符号体系至今仍在沿用；他在逻辑学、哲学和二进制方面也有深远影响。",
+    "legacyEn": "Leibniz independently invented calculus (his notation still used today) and made profound contributions to logic, philosophy, and the binary system fundamental to computing."
+  },
+  "euler": {
+    "keyWorks": [
+      {"title": "无穷小分析引论", "titleEn": "Introductio in Analysin Infinitorum", "year": 1748, "type": "book"},
+      {"title": "力学", "titleEn": "Mechanica sive Motus Scientia Analytica Exposita", "year": 1736, "type": "book"},
+      {"title": "寻求具有极值性质的曲线的方法", "titleEn": "Methodus Inveniendi Lineas Curvas Maximi Minive Proprietate Gaudentes", "year": 1744, "type": "book"}
+    ],
+    "legacy": "欧拉是历史上最多产的数学家，其贡献遍及所有数学分支；欧拉公式、欧拉恒等式、图论基础及现代函数符号深刻影响了现代数学。",
+    "legacyEn": "Euler was the most prolific mathematician in history, contributing to every branch of mathematics; Euler's formula, Euler's identity, graph theory foundations, and modern function notation are among his lasting legacies."
+  },
+  "lagrange": {
+    "keyWorks": [
+      {"title": "分析力学", "titleEn": "Mecanique Analytique", "year": 1788, "type": "book"},
+      {"title": "解析函数理论", "titleEn": "Theorie des Fonctions Analytiques", "year": 1797, "type": "book"}
+    ],
+    "legacy": "拉格朗日在分析力学中实现了力学的纯代数化处理，拉格朗日乘子法和拉格朗日力学是物理和工程的核心工具。",
+    "legacyEn": "Lagrange reduced mechanics to purely algebraic analysis; Lagrange multipliers and Lagrangian mechanics are core tools in physics and engineering."
+  },
+  "laplace": {
+    "keyWorks": [
+      {"title": "天体力学", "titleEn": "Traite de Mecanique Celeste", "year": 1799, "type": "book"},
+      {"title": "概率分析理论", "titleEn": "Theorie Analytique des Probabilites", "year": 1812, "type": "book"},
+      {"title": "关于概率的哲学随笔", "titleEn": "Essai Philosophique sur les Probabilites", "year": 1814, "type": "book"}
+    ],
+    "legacy": "拉普拉斯方程是数学物理的核心，拉普拉斯变换是工程分析的基础工具；他完善了概率论并提出了拉普拉斯决定论。",
+    "legacyEn": "Laplace's equation is central to mathematical physics; the Laplace transform is fundamental to engineering analysis. He refined probability theory and formulated Laplace's determinism."
+  },
+  "gauss": {
+    "keyWorks": [
+      {"title": "算术研究", "titleEn": "Disquisitiones Arithmeticae", "year": 1801, "type": "book"},
+      {"title": "关于曲面的一般研究", "titleEn": "General Investigations of Curved Surfaces (Theorema Egregium)", "year": 1827, "type": "paper"}
+    ],
+    "legacy": "高斯被誉为「数学王子」，其《算术研究》奠定了现代数论的基础；他在代数、几何、分析、概率、天文和物理方面作出了革命性贡献。",
+    "legacyEn": "Known as the 'Prince of Mathematicians', Gauss' Disquisitiones Arithmeticae founded modern number theory; he revolutionized algebra, geometry, analysis, probability, astronomy, and physics."
+  },
+  "cauchy": {
+    "keyWorks": [
+      {"title": "分析教程", "titleEn": "Cours d'Analyse de l'Ecole Royale Polytechnique", "year": 1821, "type": "book"},
+      {"title": "微积分概要", "titleEn": "Resume des Lecons sur le Calcul Infinitesimal", "year": 1823, "type": "book"},
+      {"title": "关于定积分理论的论文", "titleEn": "Memoire sur les Integrales Definies", "year": 1825, "type": "paper"}
+    ],
+    "legacy": "柯西为微积分奠定了严格的极限基础，是现代分析的真正奠基人；柯西积分公式和柯西-黎曼方程是复变函数的核心。",
+    "legacyEn": "Cauchy put calculus on a rigorous foundation with his limit-based approach; Cauchy's integral formula and the Cauchy-Riemann equations are central to complex analysis."
+  },
+  "riemann": {
+    "keyWorks": [
+      {"title": "论作为几何基础的假设", "titleEn": "On the Hypotheses which Lie at the Bases of Geometry", "year": 1854, "type": "paper"},
+      {"title": "论不超过一个给定值的素数个数", "titleEn": "On the Number of Primes Less Than a Given Magnitude", "year": 1859, "type": "paper"}
+    ],
+    "legacy": "黎曼开创了黎曼几何，为广义相对论提供了数学框架；黎曼假设是数学史上最重要的未解问题之一。",
+    "legacyEn": "Riemann created Riemannian geometry, providing the mathematical framework for general relativity; the Riemann Hypothesis remains one of the most important unsolved problems in mathematics."
+  },
+  "galois": {
+    "keyWorks": [
+      {"title": "关于根式求解方程条件的研究", "titleEn": "Memoire sur les Conditions de Resolubilite des Equations par Radicaux", "year": 1832, "type": "paper"}
+    ],
+    "legacy": "伽罗瓦年仅20岁便创立了群论，彻底解决了高次方程根式可解性问题，成为现代代数的里程碑。",
+    "legacyEn": "Galois founded group theory at age 20, completely solving the problem of solvability of polynomial equations by radicals — a milestone in modern algebra."
+  },
+  "cantor": {
+    "keyWorks": [
+      {"title": "论实数代数数集合的一个性质", "titleEn": "On a Property of the Set of Real Algebraic Numbers", "year": 1874, "type": "paper"},
+      {"title": "超穷数理论基础", "titleEn": "Contributions to the Founding of the Theory of Transfinite Numbers", "year": 1897, "type": "book"}
+    ],
+    "legacy": "康托尔创立了集合论和超穷数理论，其对无限的数学化处理彻底改变了数学基础。",
+    "legacyEn": "Cantor founded set theory and transfinite number theory; his mathematical treatment of infinity revolutionized the foundations of mathematics."
+  },
+  "hilbert": {
+    "keyWorks": [
+      {"title": "几何基础", "titleEn": "Grundlagen der Geometrie", "year": 1899, "type": "book"},
+      {"title": "数学问题——1900年巴黎演讲", "titleEn": "Mathematical Problems (1900 Paris Lecture)", "year": 1900, "type": "paper"}
+    ],
+    "legacy": "希尔伯特提出的23个问题设定了20世纪数学的研究议程；他倡导的形式主义方案和希尔伯特空间观念深刻影响了数学和量子力学。",
+    "legacyEn": "Hilbert's 23 problems set the research agenda for 20th-century mathematics; his formalism program and the concept of Hilbert space profoundly influenced mathematics and quantum mechanics."
+  },
+  "poincare": {
+    "keyWorks": [
+      {"title": "位置分析", "titleEn": "Analysis Situs", "year": 1895, "type": "paper"},
+      {"title": "科学的价值", "titleEn": "The Value of Science", "year": 1905, "type": "book"},
+      {"title": "天体力学新方法", "titleEn": "Les Methodes Nouvelles de la Mecanique Celeste", "year": 1892, "type": "book"}
+    ],
+    "legacy": "庞加莱是最后的全才数学家，创立了代数拓扑和动力系统理论，在相对论和混沌理论方面也有重要贡献。",
+    "legacyEn": "Poincare was the last universalist mathematician, founding algebraic topology and dynamical systems theory, with major contributions to relativity and chaos theory."
+  },
+  "godel": {
+    "keyWorks": [
+      {"title": "《数学原理》及相关系统中的形式不可判定命题", "titleEn": "On Formally Undecidable Propositions of Principia Mathematica and Related Systems", "year": 1931, "type": "paper"},
+      {"title": "选择公理与广义连续统假设的一致性", "titleEn": "The Consistency of the Axiom of Choice and the Generalized Continuum Hypothesis", "year": 1940, "type": "book"}
+    ],
+    "legacy": "哥德尔的不完备定理证明了任何一致的形式系统都无法自证其无矛盾性，动摇了数学基础的确定性，是20世纪最深刻的思想成果之一。",
+    "legacyEn": "Godel's incompleteness theorems proved that any consistent formal system cannot prove its own consistency, shaking the foundations of mathematics — one of the 20th century's deepest intellectual achievements."
+  },
+  "von-neumann": {
+    "keyWorks": [
+      {"title": "量子力学的数学基础", "titleEn": "Mathematical Foundations of Quantum Mechanics", "year": 1932, "type": "book"},
+      {"title": "博弈论与经济行为", "titleEn": "Theory of Games and Economic Behavior", "year": 1944, "type": "book"},
+      {"title": "EDVAC报告草案", "titleEn": "First Draft of a Report on the EDVAC", "year": 1945, "type": "paper"}
+    ],
+    "legacy": "冯·诺依曼是现代存储程序计算机架构的设计者，博弈论的创立者之一，在量子力学数学化、数值分析和自复制自动机理论方面均有奠基性贡献。",
+    "legacyEn": "Von Neumann was the architect of the modern stored-program computer, a founder of game theory, and made foundational contributions to the mathematization of quantum mechanics, numerical analysis, and self-reproducing automata theory."
+  },
+  "turing": {
+    "keyWorks": [
+      {"title": "论可计算数及其在判定问题上的应用", "titleEn": "On Computable Numbers, with an Application to the Entscheidungsproblem", "year": 1936, "type": "paper"},
+      {"title": "计算机器与智能", "titleEn": "Computing Machinery and Intelligence", "year": 1950, "type": "paper"}
+    ],
+    "legacy": "图灵是理论计算机科学的奠基人，图灵机是计算理论的基石；他在人工智能领域提出的图灵测试至今仍是重要概念。",
+    "legacyEn": "Turing founded theoretical computer science; the Turing machine is the cornerstone of computation theory. His Turing Test remains a central concept in artificial intelligence."
+  },
+  "nash": {
+    "keyWorks": [
+      {"title": "N人对策中的均衡点", "titleEn": "Equilibrium Points in N-Person Games", "year": 1950, "type": "paper"},
+      {"title": "非合作博弈", "titleEn": "Non-Cooperative Games", "year": 1951, "type": "paper"},
+      {"title": "黎曼流形的嵌入问题", "titleEn": "The Imbedding Problem for Riemannian Manifolds", "year": 1956, "type": "paper"}
+    ],
+    "legacy": "纳什创立了非合作博弈的理论框架，纳什均衡成为经济学和社会科学的中心概念；他在几何学中也有突破性贡献。",
+    "legacyEn": "Nash created the framework for non-cooperative game theory; the Nash equilibrium became a central concept in economics and social sciences. He also made groundbreaking contributions to geometry (Nash embedding theorems)."
+  },
+  "chen-xingshen": {
+    "keyWorks": [
+      {"title": "高斯-博内公式的一个简单内蕴证明", "titleEn": "A Simple Intrinsic Proof of the Gauss-Bonnet Formula", "year": 1944, "type": "paper"},
+      {"title": "埃尔米特流形的示性类", "titleEn": "Characteristic Classes of Hermitian Manifolds", "year": 1946, "type": "paper"}
+    ],
+    "legacy": "陈省身是整体微分几何的奠基人之一，陈示性类（Chern classes）是现代数学和理论物理中最基本的不变量之一。",
+    "legacyEn": "Chern was a founder of global differential geometry; Chern classes are among the most fundamental invariants in modern mathematics and theoretical physics."
+  },
+  "hua-luogeng": {
+    "keyWorks": [
+      {"title": "堆垒素数论", "titleEn": "Additive Theory of Prime Numbers", "year": 1947, "type": "book"},
+      {"title": "数论导引", "titleEn": "Introduction to Number Theory", "year": 1957, "type": "book"},
+      {"title": "多复变函数论中的典型域的调和分析", "titleEn": "Harmonic Analysis of Classical Domains in Several Complex Variables", "year": 1958, "type": "book"}
+    ],
+    "legacy": "华罗庚是中国现代数学的奠基人，在华林问题和多复变函数论领域作出世界级贡献，其学术和教育工作培养了一大批中国数学家。",
+    "legacyEn": "Hua Luogeng was the founding figure of modern Chinese mathematics, making world-class contributions to Waring's problem and several complex variables; his teaching and leadership nurtured generations of Chinese mathematicians."
+  },
+  "qiu-chengtong": {
+    "keyWorks": [
+      {"title": "卡拉比猜想的证明", "titleEn": "On the Ricci Curvature of a Compact Kahler Manifold and the Complex Monge-Ampere Equation (Proof of the Calabi Conjecture)", "year": 1978, "type": "paper"},
+      {"title": "正质量定理的证明", "titleEn": "Proof of the Positive Energy Theorem (with R. Schoen)", "year": 1979, "type": "paper"}
+    ],
+    "legacy": "丘成桐是首位获得菲尔兹奖的华人数学家，卡拉比-丘流形是弦理论中至关重要的几何结构。",
+    "legacyEn": "Yau was the first Chinese Fields Medalist; Calabi-Yau manifolds are crucial geometric structures in string theory. He has profoundly influenced differential geometry and general relativity."
+  },
+  "chen-jingrun": {
+    "keyWorks": [
+      {"title": "大偶数表为一个素数及一个不超过两个素数的乘积之和", "titleEn": "On the Representation of a Large Even Integer as the Sum of a Prime and the Product of at Most Two Primes (Chen's Theorem)", "year": 1973, "type": "paper"}
+    ],
+    "legacy": "陈景润关于哥德巴赫猜想的研究——陈氏定理——是迄今最接近猜想的成果，被誉为「数论皇冠上的明珠」。",
+    "legacyEn": "Chen Jingrun's work on Goldbach's conjecture — Chen's theorem — is the closest known result to the full conjecture, hailed as 'the jewel in the crown of number theory'."
+  },
+  "su-buqing": {
+    "keyWorks": [
+      {"title": "射影曲线的一般理论", "titleEn": "General Theory of Projective Curves", "year": 1930, "type": "paper"},
+      {"title": "微分几何学", "titleEn": "Differential Geometry", "year": 1960, "type": "book"}
+    ],
+    "legacy": "苏步青是中国微分几何学派的创始人，在仿射微分几何和射影微分几何领域作出重要贡献。",
+    "legacyEn": "Su Buqing founded the Chinese school of differential geometry, making major contributions to affine and projective differential geometry."
+  },
+  "wu-wenjun": {
+    "keyWorks": [
+      {"title": "初等几何定理的机器证明", "titleEn": "On the Decision Problem and the Mechanization of Theorem Proving in Elementary Geometry", "year": 1984, "type": "paper"},
+      {"title": "数学机械化", "titleEn": "Mathematics Mechanization", "year": 2000, "type": "book"}
+    ],
+    "legacy": "吴文俊创立了吴消元法（吴方法），将中国古代数学思想与现代数学结合，开创了机器证明的新领域。",
+    "legacyEn": "Wu Wenjun created Wu's method (Wu elimination), combining ancient Chinese mathematical thought with modern computing to pioneer automated theorem proving."
+  },
+  "tao-zhexuan": {
+    "keyWorks": [
+      {"title": "素数包含任意长的等差数列", "titleEn": "The Primes Contain Arbitrarily Long Arithmetic Progressions (Green-Tao Theorem)", "year": 2008, "type": "paper"},
+      {"title": "非线性色散方程", "titleEn": "Nonlinear Dispersive Equations: Local and Global Analysis", "year": 2006, "type": "book"}
+    ],
+    "legacy": "陶哲轩是当代最杰出的数学家之一，格林-陶定理解决了素数分布中的长期难题；他在调和分析、偏微分方程、组合数学等领域均有深刻贡献。",
+    "legacyEn": "Tao is one of the most accomplished contemporary mathematicians; the Green-Tao theorem solved a long-standing problem on primes in arithmetic progressions. He has made profound contributions to harmonic analysis, PDEs, and combinatorics."
+  },
+  "babbage": {
+    "keyWorks": [
+      {"title": "论机器与制造业的经济", "titleEn": "On the Economy of Machinery and Manufactures", "year": 1832, "type": "book"},
+      {"title": "一位哲学家的生命历程", "titleEn": "Passages from the Life of a Philosopher", "year": 1864, "type": "book"}
+    ],
+    "legacy": "巴贝奇设计了差分机和分析引擎——现代计算机的概念先驱，其可编程、存储和穿孔卡片的思想预示了通用计算时代。",
+    "legacyEn": "Babbage designed the Difference Engine and Analytical Engine — conceptual forerunners of the modern computer. His ideas of programmability, memory, and punched cards foreshadowed the age of general-purpose computing."
+  },
+  "lovelace": {
+    "keyWorks": [
+      {"title": "分析机札记", "titleEn": "Notes on the Analytical Engine (Sketch of the Analytical Engine, translation with notes)", "year": 1843, "type": "paper"}
+    ],
+    "legacy": "阿达·洛夫莱斯编写了史上第一个计算机算法，被视为第一位程序员；她预见了计算机不仅可以算数，还可以处理音乐和图形。",
+    "legacyEn": "Ada Lovelace wrote the first computer algorithm, making her the world's first programmer; she envisioned that computers could process music and graphics, not just numbers."
+  },
+  "shannon": {
+    "keyWorks": [
+      {"title": "通信的数学理论", "titleEn": "A Mathematical Theory of Communication", "year": 1948, "type": "paper"},
+      {"title": "保密系统的通信理论", "titleEn": "Communication Theory of Secrecy Systems", "year": 1949, "type": "paper"}
+    ],
+    "legacy": "香农创立了信息论，定义了信息熵的概念，奠定了数字通信和数据压缩的理论基础；他在密码学和布尔代数电路设计方面也有开创性贡献。",
+    "legacyEn": "Shannon founded information theory, defining information entropy and laying the theoretical foundation for digital communication and data compression; he also pioneered cryptography and Boolean circuit design."
+  },
+  "mccarthy": {
+    "keyWorks": [
+      {"title": "带符号表达式的递归函数及其机器计算", "titleEn": "Recursive Functions of Symbolic Expressions and Their Computation by Machine (Part I)", "year": 1960, "type": "paper"},
+      {"title": "具有常识的程序", "titleEn": "Programs with Common Sense", "year": 1959, "type": "paper"}
+    ],
+    "legacy": "麦卡锡创立了人工智能学科，发明了LISP语言（第二古老的编程语言），并提出了分时系统概念。",
+    "legacyEn": "McCarthy founded the field of artificial intelligence, invented the LISP programming language (the second-oldest high-level language), and pioneered the concept of time-sharing systems."
+  },
+  "knuth": {
+    "keyWorks": [
+      {"title": "计算机程序设计艺术 第一卷：基本算法", "titleEn": "The Art of Computer Programming, Volume 1: Fundamental Algorithms", "year": 1968, "type": "book"},
+      {"title": "TeX排版系统", "titleEn": "The TeXbook", "year": 1986, "type": "book"}
+    ],
+    "legacy": "高德纳的《计算机程序设计艺术》是计算机科学最权威的经典著作，他发明的TeX排版系统是学术论文排版的事实标准。",
+    "legacyEn": "Knuth's The Art of Computer Programming is the most authoritative classic in computer science; he created the TeX typesetting system, the de facto standard for academic publishing."
+  },
+  "dijkstra": {
+    "keyWorks": [
+      {"title": "关于图论的附注（Dijkstra算法）", "titleEn": "A Note on Two Problems in Connexion with Graphs (Dijkstra's Algorithm)", "year": 1959, "type": "paper"},
+      {"title": "Goto语句是有害的", "titleEn": "Go To Statement Considered Harmful", "year": 1968, "type": "paper"}
+    ],
+    "legacy": "戴克斯特拉发明了Dijkstra最短路径算法，是结构化编程的倡导者，其关于程序正确性证明的思想深刻影响了软件开发方法论。",
+    "legacyEn": "Dijkstra created the shortest path algorithm bearing his name; he was a leading advocate of structured programming and his ideas on program correctness deeply influenced software development methodology."
+  },
+  "ritchie": {
+    "keyWorks": [
+      {"title": "C程序设计语言", "titleEn": "The C Programming Language (with Brian Kernighan)", "year": 1978, "type": "book"},
+      {"title": "UNIX分时系统", "titleEn": "The UNIX Time-Sharing System (with Ken Thompson)", "year": 1974, "type": "paper"}
+    ],
+    "legacy": "里奇是C语言的创造者（至今仍是最广泛使用的系统编程语言之一）和UNIX操作系统的共同发明人，深刻影响了整个计算机行业。",
+    "legacyEn": "Ritchie created the C language (still one of the most widely used system programming languages) and co-created UNIX, profoundly shaping the entire computing industry."
+  },
+  "berners-lee": {
+    "keyWorks": [
+      {"title": "信息管理：一个提案", "titleEn": "Information Management: A Proposal", "year": 1989, "type": "paper"},
+      {"title": "编织万维网", "titleEn": "Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web", "year": 1999, "type": "book"}
+    ],
+    "legacy": "伯纳斯-李发明了万维网、HTML、HTTP和URL，彻底改变了人类获取信息的方式。他坚持万维网应保持开放和免费。",
+    "legacyEn": "Berners-Lee invented the World Wide Web, HTML, HTTP, and URLs, fundamentally transforming how humanity accesses information. He has steadfastly advocated for keeping the web open and free."
+  },
+  "torvalds": {
+    "keyWorks": [
+      {"title": "Linux内核", "titleEn": "The Linux Kernel (Original Release)", "year": 1991, "type": "paper"},
+      {"title": "只是为了好玩", "titleEn": "Just for Fun: The Story of an Accidental Revolutionary", "year": 2001, "type": "book"}
+    ],
+    "legacy": "托瓦兹创建了Linux内核（开源操作系统的事实标准）和Git版本控制系统，对现代软件开发的基础设施产生了不可替代的影响。",
+    "legacyEn": "Torvalds created the Linux kernel (the de facto standard for open-source operating systems) and the Git version control system, irreplaceably shaping the infrastructure of modern software development."
+  },
+  "hinton": {
+    "keyWorks": [
+      {"title": "通过反向传播误差学习表示", "titleEn": "Learning Representations by Back-Propagating Errors (with Rumelhart and Williams)", "year": 1986, "type": "paper"},
+      {"title": "用神经网络降低数据维度", "titleEn": "Reducing the Dimensionality of Data with Neural Networks", "year": 2006, "type": "paper"}
+    ],
+    "legacy": "辛顿是深度学习之父，反向传播算法和深度信念网络推动了人工智能的第三次复兴，获2018年图灵奖。",
+    "legacyEn": "Hinton is the godfather of deep learning; his work on backpropagation and deep belief networks sparked the AI renaissance. He received the 2018 Turing Award."
+  },
+  "yao-qizhi": {
+    "keyWorks": [
+      {"title": "安全计算协议", "titleEn": "Protocols for Secure Computations", "year": 1982, "type": "paper"},
+      {"title": "量子电路复杂性", "titleEn": "Quantum Circuit Complexity", "year": 1993, "type": "paper"}
+    ],
+    "legacy": "姚期智是首位获得图灵奖的华人，在安全多方计算（姚氏百万富翁问题）和量子计算复杂性理论方面作出奠基性贡献。",
+    "legacyEn": "Yao was the first Chinese Turing Award winner, making foundational contributions to secure multi-party computation (Yao's Millionaires' Problem) and quantum communication complexity."
+  },
+  "li-feifei": {
+    "keyWorks": [
+      {"title": "ImageNet：一个大规模分层图像数据库", "titleEn": "ImageNet: A Large-Scale Hierarchical Image Database", "year": 2009, "type": "paper"},
+      {"title": "用于图像描述的深度视觉语义对齐", "titleEn": "Deep Visual-Semantic Alignments for Generating Image Descriptions", "year": 2015, "type": "paper"}
+    ],
+    "legacy": "李飞飞创建了ImageNet数据集，直接推动了深度学习的革命性突破；她在计算机视觉和认知AI领域持续发挥领导作用。",
+    "legacyEn": "Fei-Fei Li created the ImageNet dataset, which directly triggered the deep learning revolution; she continues to lead advances in computer vision and cognitively inspired AI."
+  },
+  "wang-xuan": {
+    "keyWorks": [
+      {"title": "汉字激光照排系统", "titleEn": "Chinese Character Laser Phototypesetting System", "year": 1980, "type": "paper"},
+      {"title": "汉字信息处理技术", "titleEn": "Chinese Character Information Processing Technology", "year": 1995, "type": "book"}
+    ],
+    "legacy": "王选发明了汉字激光照排系统，使中文印刷从铅字时代进入了计算机时代，被誉为「当代毕昇」。",
+    "legacyEn": "Wang Xuan invented the Chinese character laser phototypesetting system, moving Chinese printing from the age of lead type to the computer age. He is hailed as 'the modern Bi Sheng'."
+  }
+}
