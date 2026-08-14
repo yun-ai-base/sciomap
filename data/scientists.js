@@ -1,11 +1,43 @@
 _sciomapData = {
   "metadata": {
-    "version": "1.0.0",
-    "updated": "2026-07-07",
+    "version": "1.2.0",
+    "updated": "2026-08-14",
     "title": "科星图 Sciomap — 人类科学星图",
     "titleEn": "Sciomap — The Star Map of Science",
     "subtitle": "在群星闪耀时，发现科学的脉络",
-    "subtitleEn": "Trace the evolution of science through its brightest stars"
+    "subtitleEn": "Trace the evolution of science through its brightest stars",
+    "changelog": [
+      {
+        "version": "1.2.0",
+        "date": "2026-08-14",
+        "summary": "第一批扩增：新增 18 位科学家（女性 9 人、古代中国 4 人、日本 2 人、拉美 2 人、当代 AI 2 人），补充 eastern/latin-american 文明圈定义",
+        "added": [
+          "zu-chongzhi",
+          "shen-kuo",
+          "song-yingxing",
+          "wang-zhenyi",
+          "emmy-noether",
+          "lise-meitner",
+          "rosalind-franklin",
+          "grace-hopper",
+          "maryam-mirzakhani",
+          "dorothy-hodgkin",
+          "katalin-kariko",
+          "vera-rubin",
+          "yukawa-hideki",
+          "nambu-yoichiro",
+          "molina-mario",
+          "milstein-cesar",
+          "lecun-yann",
+          "hassabis-demis"
+        ]
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-08-14",
+        "summary": "存量修订：修复文明圈标签与子学科错误，回填 gender/awards/sources/verifiedAt，新增 5 个子学科定义"
+      }
+    ]
   },
   "disciplines": [
     {
@@ -244,6 +276,36 @@ _sciomapData = {
       "name": "分析化学",
       "nameEn": "Analytical Chemistry",
       "discipline": "chemistry"
+    },
+    {
+      "id": "observational-astro",
+      "name": "观测天文学",
+      "nameEn": "Observational Astronomy",
+      "discipline": "astronomy"
+    },
+    {
+      "id": "theoretical-astro",
+      "name": "理论天体物理",
+      "nameEn": "Theoretical Astrophysics",
+      "discipline": "astronomy"
+    },
+    {
+      "id": "planetary",
+      "name": "行星科学",
+      "nameEn": "Planetary Science",
+      "discipline": "astronomy"
+    },
+    {
+      "id": "theoretical-chem",
+      "name": "理论化学",
+      "nameEn": "Theoretical Chemistry",
+      "discipline": "chemistry"
+    },
+    {
+      "id": "optics",
+      "name": "光学",
+      "nameEn": "Optics",
+      "discipline": "physics"
     }
   ],
   "eras": [
@@ -308,6 +370,16 @@ _sciomapData = {
       "id": "other",
       "name": "其他",
       "nameEn": "Other"
+    },
+    {
+      "id": "eastern",
+      "name": "东方",
+      "nameEn": "Eastern"
+    },
+    {
+      "id": "latin-american",
+      "name": "拉丁美洲",
+      "nameEn": "Latin American"
     }
   ],
   "relationshipTypes": [
@@ -363,7 +435,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "ancient",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Euklid-von-Alexandria_1.jpg/440px-Euklid-von-Alexandria_1.jpg",
+      "portrait": "data/portraits/euclid.jpg",
       "influence": 9,
       "summary": "欧几里得是几何学之父，其《几何原本》以公理化的方法系统整理了古希腊的几何知识。这部著作在两千多年间一直是西方数学教育的标准教科书，其公理化的思想方法深刻影响了整个科学的发展。",
       "summaryEn": "Euclid is the father of geometry. His 'Elements' systematized Greek geometry through the axiomatic method, serving as the standard mathematics textbook for over 2,000 years.",
@@ -418,7 +490,25 @@ _sciomapData = {
           "outcome": "平行公设能否由其他公理推出，争论两千年，最终催生非欧几何",
           "outcomeEn": "Whether it follows from the others was debated for millennia, birthing non-Euclidean geometry"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "几何原本",
+          "titleEn": "Elements",
+          "year": -300,
+          "type": "book"
+        }
+      ],
+      "legacy": "欧几里得的《几何原本》是历史上最成功的数学教科书，统治了几何学教学两千余年，其公理化方法成为数学的黄金标准。",
+      "legacyEn": "Euclid's Elements is the most successful mathematics textbook in history, dominating geometry teaching for over two millennia; its axiomatic method became the gold standard for mathematics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "pythagoras",
@@ -435,7 +525,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "ancient",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Pythagoras_in_the_Roman_Forum%2C_Colosseum.jpg/440px-Pythagoras_in_the_Roman_Forum%2C_Colosseum.jpg",
+      "portrait": "data/portraits/pythagoras.jpg",
       "influence": 8,
       "summary": "毕达哥拉斯是古希腊数学家、哲学家，创立了以'万物皆数'为信条的毕达哥拉斯学派。他发现勾股定理（毕达哥拉斯定理），在数论和音乐理论方面也有奠基性贡献，对柏拉图和西方数学哲学传统影响深远。",
       "summaryEn": "Pythagoras was an ancient Greek mathematician and philosopher who founded a school believing 'all is number.' He discovered the Pythagorean theorem and made foundational contributions to number theory and music theory.",
@@ -474,7 +564,31 @@ _sciomapData = {
       "anecdote": "毕达哥拉斯学派有很多古怪的规定：不准吃豆子、不准捡起掉落的食物、不准在灯边照镜子、起床后要揉平床单上的痕迹。这些规矩今天看来不可思议，反映了这个学派既是学术团体又是宗教秘密社团的混合性质。他们的哲学训练包括严格的沉默期——新入学的成员前五年只能听课、不能提问。",
       "anecdoteEn": "The Pythagorean school had strange rules: don't eat beans, don't pick up fallen food, smooth bed sheets after rising. New members observed five years of silence — listening but never questioning.",
       "aiReview": "毕达哥拉斯的思想遗产不是具体的数学定理，而是一种根本的信念：宇宙可以用数学来理解。这个信念今天看来理所当然，但在公元前六世纪，这是一个革命性的飞跃——它意味着世界不是由任性的神明随意支配的，而是遵循着可理解的数学规律。从哥白尼到开普勒、从伽利略到牛顿，再到现代物理学家——所有人类对宇宙的精确理解，根源都在毕达哥拉斯那里。",
-      "aiReviewEn": "Pythagoras' legacy goes beyond mathematics — it represents a worldview: that the universe can be understood through numbers. In the 6th century BC, this was a revolutionary leap. It meant the world was not governed by capricious gods but by discoverable mathematical laws. From Plato to Galileo to Newton to modern physicists, the quest for precise mathematical description of nature traces back to Pythagoras."
+      "aiReviewEn": "Pythagoras' legacy goes beyond mathematics — it represents a worldview: that the universe can be understood through numbers. In the 6th century BC, this was a revolutionary leap. It meant the world was not governed by capricious gods but by discoverable mathematical laws. From Plato to Galileo to Newton to modern physicists, the quest for precise mathematical description of nature traces back to Pythagoras.",
+      "keyWorks": [
+        {
+          "title": "毕达哥拉斯定理的证明",
+          "titleEn": "Proof of the Pythagorean Theorem",
+          "year": -500,
+          "type": "book"
+        },
+        {
+          "title": "毕达哥拉斯学派数论",
+          "titleEn": "Pythagorean Number Theory",
+          "year": -500,
+          "type": "book"
+        }
+      ],
+      "legacy": "毕达哥拉斯学派开创了数学作为演绎科学的传统，其定理是几何学中最基础的结果之一。",
+      "legacyEn": "The Pythagorean school pioneered mathematics as a deductive science; the Pythagorean theorem remains one of the most fundamental results in geometry.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "archimedes",
@@ -561,7 +675,37 @@ _sciomapData = {
           "outcome": "其《方法论》失传，直到1906年羊皮重写本重现，人们才知他已触及积分思想",
           "outcomeEn": "His Method was lost until a 1906 palimpsest revealed how close he came to integration"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "论球与圆柱",
+          "titleEn": "On the Sphere and Cylinder",
+          "year": -225,
+          "type": "book"
+        },
+        {
+          "title": "论浮体",
+          "titleEn": "On Floating Bodies",
+          "year": -250,
+          "type": "book"
+        },
+        {
+          "title": "数沙者",
+          "titleEn": "The Sand Reckoner",
+          "year": -250,
+          "type": "paper"
+        }
+      ],
+      "legacy": "阿基米德被公认为古代最伟大的数学家，其积分思想先于微积分近两千年，奠定了静力学和流体静力学的基础。",
+      "legacyEn": "Archimedes is regarded as the greatest mathematician of antiquity; his integration techniques anticipated calculus by nearly two millennia and he founded statics and hydrostatics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "newton",
@@ -579,7 +723,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "revolution",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GodfreyKneller-IsaacNewton-1689.jpg/440px-GodfreyKneller-IsaacNewton-1689.jpg",
+      "portrait": "data/portraits/newton.jpg",
       "influence": 10,
       "summary": "牛顿是有史以来最具影响力的科学家之一，他的万有引力定律和运动三定律构成了经典物理学的完整框架。他与莱布尼茨分别独立发明了微积分。其著作《自然哲学的数学原理》被公认为科学史上最重要的著作——首次用数学语言系统描述了宇宙的运行规律。",
       "summaryEn": "Newton is one of the most influential scientists in history. His laws of motion and universal gravitation formed classical physics. His 'Principia' is the most important work in scientific history.",
@@ -693,7 +837,15 @@ _sciomapData = {
         }
       ],
       "legacy": "经典力学的奠基人，其运动定律和万有引力定律统治了物理学近300年，至今仍是工程学的基础。",
-      "legacyEn": "Founded classical mechanics; his laws of motion and universal gravitation dominated physics for nearly 300 years and remain foundational to engineering."
+      "legacyEn": "Founded classical mechanics; his laws of motion and universal gravitation dominated physics for nearly 300 years and remain foundational to engineering.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "gauss",
@@ -711,7 +863,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Carl_Friedrich_Gauss.jpg/440px-Carl_Friedrich_Gauss.jpg",
+      "portrait": "data/portraits/gauss.jpg",
       "influence": 10,
       "summary": "高斯被誉为'数学王子'，是历史上最伟大的数学家之一。他在数论、代数、统计、几何和物理学等多个领域做出了奠基性贡献。他的《算术研究》开创了现代数论，他在微分几何、正态分布和非欧几何方面的发现深刻影响了现代科学的走向。",
       "summaryEn": "Known as the 'Prince of Mathematicians', Gauss made foundational contributions to number theory, algebra, statistics, geometry, and physics. His work shaped the course of modern science.",
@@ -795,7 +947,31 @@ _sciomapData = {
           "outcome": "高斯私下已发现非欧几何却因怕争议秘而不宣，后波约与罗巴切夫斯基公开发表引发优先权之议",
           "outcomeEn": "Gauss privately discovered non-Euclidean geometry but withheld it, sparking priority disputes when Bolyai and Lobachevsky published"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "算术研究",
+          "titleEn": "Disquisitiones Arithmeticae",
+          "year": 1801,
+          "type": "book"
+        },
+        {
+          "title": "关于曲面的一般研究",
+          "titleEn": "General Investigations of Curved Surfaces (Theorema Egregium)",
+          "year": 1827,
+          "type": "paper"
+        }
+      ],
+      "legacy": "高斯被誉为「数学王子」，其《算术研究》奠定了现代数论的基础；他在代数、几何、分析、概率、天文和物理方面作出了革命性贡献。",
+      "legacyEn": "Known as the 'Prince of Mathematicians', Gauss' Disquisitiones Arithmeticae founded modern number theory; he revolutionized algebra, geometry, analysis, probability, astronomy, and physics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "euler",
@@ -812,7 +988,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Leonhard_Euler_%28by_Johann_Georg_Brucker%29.jpg/440px-Leonhard_Euler_%28by_Johann_Georg_Brucker%29.jpg",
+      "portrait": "data/portraits/euler.jpg",
       "influence": 10,
       "summary": "欧拉是历史上最高产的数学家，其著作量超过任何同行。他在分析学、图论、数论、力学和光学等领域都做出了奠基性贡献。他引入了大量至今通用的数学符号（如π、e、f(x)等），被誉为'分析的化身'。",
       "summaryEn": "Euler is the most prolific mathematician in history. He made foundational contributions to analysis, graph theory, number theory, mechanics, and optics. He introduced many still-used symbols including π, e, and f(x).",
@@ -881,7 +1057,37 @@ _sciomapData = {
           "outcome": "长期书信论战推动了函数概念与复分析的澄清",
           "outcomeEn": "Their long dispute helped clarify the notion of function and complex logarithms"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "无穷小分析引论",
+          "titleEn": "Introductio in Analysin Infinitorum",
+          "year": 1748,
+          "type": "book"
+        },
+        {
+          "title": "力学",
+          "titleEn": "Mechanica sive Motus Scientia Analytica Exposita",
+          "year": 1736,
+          "type": "book"
+        },
+        {
+          "title": "寻求具有极值性质的曲线的方法",
+          "titleEn": "Methodus Inveniendi Lineas Curvas Maximi Minive Proprietate Gaudentes",
+          "year": 1744,
+          "type": "book"
+        }
+      ],
+      "legacy": "欧拉是历史上最多产的数学家，其贡献遍及所有数学分支；欧拉公式、欧拉恒等式、图论基础及现代函数符号深刻影响了现代数学。",
+      "legacyEn": "Euler was the most prolific mathematician in history, contributing to every branch of mathematics; Euler's formula, Euler's identity, graph theory foundations, and modern function notation are among his lasting legacies.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "riemann",
@@ -898,7 +1104,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Bernhard_Riemann_3.jpg/440px-Bernhard_Riemann_3.jpg",
+      "portrait": "data/portraits/riemann.jpg",
       "influence": 9,
       "summary": "黎曼是19世纪最具原创力的数学家之一。他开创的黎曼几何为爱因斯坦的广义相对论提供了数学框架，黎曼猜想至今仍是数学界最重要的未解难题之一。他的工作以极少的论文数量但极高的思想密度著称。",
       "summaryEn": "Riemann was one of the most original mathematicians of the 19th century. His Riemannian geometry provided the mathematical framework for Einstein's general relativity, and the Riemann Hypothesis remains one of the most important unsolved problems.",
@@ -967,7 +1173,31 @@ _sciomapData = {
           "outcome": "关于ζ函数零点的猜想主宰素数分布研究，成为千禧年七大难题之一",
           "outcomeEn": "His hypothesis on ζ-zeros governs prime distribution and is a Millennium Prize problem"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "论作为几何基础的假设",
+          "titleEn": "On the Hypotheses which Lie at the Bases of Geometry",
+          "year": 1854,
+          "type": "paper"
+        },
+        {
+          "title": "论不超过一个给定值的素数个数",
+          "titleEn": "On the Number of Primes Less Than a Given Magnitude",
+          "year": 1859,
+          "type": "paper"
+        }
+      ],
+      "legacy": "黎曼开创了黎曼几何，为广义相对论提供了数学框架；黎曼假设是数学史上最重要的未解问题之一。",
+      "legacyEn": "Riemann created Riemannian geometry, providing the mathematical framework for general relativity; the Riemann Hypothesis remains one of the most important unsolved problems in mathematics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "leibniz",
@@ -984,7 +1214,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "revolution",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Gottfried_Wilhelm_Leibniz_%28Bernhard_Francke%29.jpg/440px-Gottfried_Wilhelm_Leibniz_%28Bernhard_Francke%29.jpg",
+      "portrait": "data/portraits/leibniz.jpg",
       "influence": 8,
       "summary": "莱布尼茨独立于牛顿发明了微积分，其符号体系至今通用。他在二进制、数理逻辑和形而上学方面也有开创性贡献。",
       "summaryEn": "Leibniz independently invented calculus alongside Newton — his notation still used today. He pioneered binary arithmetic and made contributions to logic and philosophy.",
@@ -1030,7 +1260,37 @@ _sciomapData = {
           "outcome": "莱布尼茨独立于牛顿发明微积分，其符号体系至今被广泛使用。英国数学界因偏袒牛顿长期落后于欧洲大陆",
           "outcomeEn": "Leibniz independently invented calculus; his notation is still used today. England's favoritism toward Newton set back British mathematics"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "求极大极小的新方法",
+          "titleEn": "Nova Methodus pro Maximis et Minimis",
+          "year": 1684,
+          "type": "paper"
+        },
+        {
+          "title": "单子论",
+          "titleEn": "Monadology",
+          "year": 1714,
+          "type": "book"
+        },
+        {
+          "title": "形而上学序论",
+          "titleEn": "Discourse on Metaphysics",
+          "year": 1686,
+          "type": "book"
+        }
+      ],
+      "legacy": "莱布尼茨与牛顿独立发明了微积分，其符号体系至今仍在沿用；他在逻辑学、哲学和二进制方面也有深远影响。",
+      "legacyEn": "Leibniz independently invented calculus (his notation still used today) and made profound contributions to logic, philosophy, and the binary system fundamental to computing.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "galileo",
@@ -1048,7 +1308,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "revolution",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg/440px-Justus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg",
+      "portrait": "data/portraits/galileo.jpg",
       "influence": 9,
       "summary": "伽利略是现代科学的奠基人之一。他通过实验和数学方法结合的方式开创了近代物理学，用望远镜的天文发现动摇了地心说的根基。他发现了自由落体定律、惯性原理，研究了摆的等时性，被誉为'观测天文学之父'和'现代物理学之父'。",
       "summaryEn": "Galileo is one of the founders of modern science. He pioneered the experimental-mathematical method, discovered laws of free fall and inertia, and used the telescope to challenge the geocentric worldview.",
@@ -1146,7 +1406,15 @@ _sciomapData = {
         }
       ],
       "legacy": "实验科学和现代天文学的奠基人，用望远镜观测证实了哥白尼日心说；开创了基于实验观测与数学推理相结合的科学方法论。",
-      "legacyEn": "Founder of experimental science and modern astronomy; used telescopic observations to confirm the Copernican heliocentric model; pioneered the scientific method combining observation with mathematical reasoning."
+      "legacyEn": "Founder of experimental science and modern astronomy; used telescopic observations to confirm the Copernican heliocentric model; pioneered the scientific method combining observation with mathematical reasoning.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "kepler",
@@ -1164,7 +1432,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "revolution",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Johannes_Kepler_1610.jpg/440px-Johannes_Kepler_1610.jpg",
+      "portrait": "data/portraits/kepler.jpg",
       "influence": 9,
       "summary": "开普勒提出了行星运动三大定律，精确描述了行星绕太阳运动的轨迹和速度变化。他的工作打破了'天体必须沿完美圆周运动'的古老信念，为牛顿的万有引力理论提供了关键基础。",
       "summaryEn": "Kepler formulated the three laws of planetary motion, breaking the ancient belief that celestial bodies must move in perfect circles and providing the key foundation for Newton's theory of gravitation.",
@@ -1231,7 +1499,15 @@ _sciomapData = {
         }
       ],
       "legacy": "发现行星运动三大定律，将天文学从几何描述提升为物理科学；开普勒定律为牛顿万有引力定律奠定了关键基础。",
-      "legacyEn": "Discovered the three laws of planetary motion, elevating astronomy from geometric description to physical science; Kepler's laws provided the foundation for Newton's universal gravitation."
+      "legacyEn": "Discovered the three laws of planetary motion, elevating astronomy from geometric description to physical science; Kepler's laws provided the foundation for Newton's universal gravitation.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "faraday",
@@ -1249,7 +1525,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Faraday_Michael_1842.jpg/440px-Faraday_Michael_1842.jpg",
+      "portrait": "data/portraits/faraday.jpg",
       "influence": 9,
       "summary": "法拉第是19世纪最伟大的实验物理学家之一。他发现了电磁感应现象，提出了场的概念，发明了发电机和电动机的原型。他的实验发现为麦克斯韦的电磁理论奠定了实验基础，而他的'场'的概念彻底改变了物理学对空间的理解。",
       "summaryEn": "Faraday was one of the greatest experimental physicists of the 19th century. He discovered electromagnetic induction, proposed the concept of fields, and invented prototypes of the electric generator and motor.",
@@ -1321,7 +1597,15 @@ _sciomapData = {
         }
       ],
       "legacy": "发现电磁感应现象，为发电机和电动机奠定了实验基础；提出电场和磁力线的概念，启发了麦克斯韦的电磁场理论。",
-      "legacyEn": "Discovered electromagnetic induction, laying the experimental foundation for generators and electric motors; introduced field lines, inspiring Maxwell's electromagnetic theory."
+      "legacyEn": "Discovered electromagnetic induction, laying the experimental foundation for generators and electric motors; introduced field lines, inspiring Maxwell's electromagnetic theory.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "maxwell",
@@ -1432,7 +1716,15 @@ _sciomapData = {
           "outcome": "其位移电流与以太机械模型饱受质疑，直到赫兹实验探测到电磁波才被广泛接受",
           "outcomeEn": "His displacement current and ether models were doubted until Hertz detected EM waves"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "einstein",
@@ -1450,7 +1742,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/440px-Albert_Einstein_Head.jpg",
+      "portrait": "data/portraits/einstein.jpg",
       "influence": 10,
       "summary": "爱因斯坦是20世纪最伟大的物理学家，提出了狭义和广义相对论，彻底改变了人类对时空、引力和宇宙的理解。他用量子概念解释了光电效应，为量子理论做出了奠基性贡献。他的质能方程E=mc²成为科学史上最著名的公式，深刻影响了核物理和宇宙学的发展方向。",
       "summaryEn": "Einstein was the greatest physicist of the 20th century. He proposed special and general relativity, fundamentally changing our understanding of space, time, gravity, and the universe.",
@@ -1584,7 +1876,22 @@ _sciomapData = {
         }
       ],
       "legacy": "20世纪最伟大的物理学家，狭义与广义相对论彻底改变了人类对时空、引力和宇宙的理解；光电效应理论为量子力学做出奠基性贡献。",
-      "legacyEn": "The greatest physicist of the 20th century; special and general relativity revolutionized our understanding of space, time, gravity, and the universe; his photoelectric effect theory was foundational to quantum mechanics."
+      "legacyEn": "The greatest physicist of the 20th century; special and general relativity revolutionized our understanding of space, time, gravity, and the universe; his photoelectric effect theory was foundational to quantum mechanics.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1921,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "bohr",
@@ -1693,7 +2000,22 @@ _sciomapData = {
         }
       ],
       "legacy": "提出氢原子玻尔模型引入电子轨道量子化；创立哥本哈根学派成为量子力学正统诠释的主导力量。",
-      "legacyEn": "Proposed the Bohr model of the hydrogen atom with quantized electron orbits; founded the Copenhagen interpretation, the dominant framework of quantum mechanics."
+      "legacyEn": "Proposed the Bohr model of the hydrogen atom with quantized electron orbits; founded the Copenhagen interpretation, the dominant framework of quantum mechanics.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1922,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "heisenberg",
@@ -1710,7 +2032,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Bundesarchiv_Bild183-57242-0002%2C_Werner_Heisenberg.jpg/440px-Bundesarchiv_Bild183-57242-0002%2C_Werner_Heisenberg.jpg",
+      "portrait": "data/portraits/heisenberg.jpg",
       "influence": 9,
       "summary": "海森堡是量子力学的核心奠基人之一。他创立了矩阵力学——量子力学的第一个完整的数学框架，并提出了不确定性原理，揭示了微观世界测量行为的根本限制。",
       "summaryEn": "Heisenberg was a core founder of quantum mechanics. He created matrix mechanics — the first complete mathematical formulation of quantum theory — and proposed the uncertainty principle, revealing fundamental limits of measurement.",
@@ -1802,7 +2124,22 @@ _sciomapData = {
         }
       ],
       "legacy": "创立矩阵力学——量子力学的第一种严格数学表述；提出不确定性原理：位置和动量无法同时被精确测定。",
-      "legacyEn": "Founded matrix mechanics, the first rigorous mathematical formulation of quantum mechanics; proposed the uncertainty principle: position and momentum cannot both be precisely determined."
+      "legacyEn": "Founded matrix mechanics, the first rigorous mathematical formulation of quantum mechanics; proposed the uncertainty principle: position and momentum cannot both be precisely determined.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1932,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "schrodinger",
@@ -1819,7 +2156,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Erwin_Schr%C3%B6dinger_%28Nobel%29.jpg/440px-Erwin_Schr%C3%B6dinger_%28Nobel%29.jpg",
+      "portrait": "data/portraits/schrodinger.jpg",
       "influence": 9,
       "summary": "薛定谔提出了量子力学的基本方程——薛定谔方程，创立了波动力学。他的'薛定谔的猫'思想实验成为量子力学最著名的比喻。",
       "summaryEn": "Schrödinger formulated the fundamental equation of quantum mechanics — the Schrödinger equation — and founded wave mechanics. His 'Schrödinger's cat' became the most famous metaphor in quantum physics.",
@@ -1903,7 +2240,22 @@ _sciomapData = {
         }
       ],
       "legacy": "薛定谔方程成为量子力学的基本运动方程，其波函数诠释奠定了量子力学的基础；《生命是什么》启发了分子生物学的发展。",
-      "legacyEn": "Schrödinger's equation became the fundamental equation of quantum mechanics, with the wavefunction interpretation forming the core of quantum theory; What Is Life? inspired the birth of molecular biology."
+      "legacyEn": "Schrödinger's equation became the fundamental equation of quantum mechanics, with the wavefunction interpretation forming the core of quantum theory; What Is Life? inspired the birth of molecular biology.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1933,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "planck",
@@ -1920,7 +2272,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Max_Planck_Nobel_1918.jpg/440px-Max_Planck_Nobel_1918.jpg",
+      "portrait": "data/portraits/planck.jpg",
       "influence": 9,
       "summary": "普朗克提出了能量量子化假说——能量不是连续的，而是以不可分割的'量子'形式发射和吸收。这一假说开创了量子物理学，被誉为量子理论之父。他提出的普朗克常数成为自然界最基本的常数之一。",
       "summaryEn": "Planck proposed that energy is emitted and absorbed in discrete 'quanta,' not continuously — the hypothesis that founded quantum physics. Planck's constant became one of the most fundamental constants in nature.",
@@ -1990,7 +2342,22 @@ _sciomapData = {
         }
       ],
       "legacy": "提出能量量子化假说开启了量子物理的大门，普朗克常数 h 成为量子力学最基本的常数之一。",
-      "legacyEn": "Introduced the quantum hypothesis of energy quantization, opening the door to quantum physics; Planck's constant h became one of the most fundamental constants in quantum mechanics."
+      "legacyEn": "Introduced the quantum hypothesis of energy quantization, opening the door to quantum physics; Planck's constant h became one of the most fundamental constants in quantum mechanics.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1918,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "fermi",
@@ -2007,7 +2374,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Enrico_Fermi_1943-49.jpg/440px-Enrico_Fermi_1943-49.jpg",
+      "portrait": "data/portraits/fermi.jpg",
       "influence": 9,
       "summary": "费米是最后一位同时精通理论和实验的物理学全才。他建造了世界上第一座核反应堆，在量子统计（费米-狄拉克统计）、β衰变理论和粒子物理方面做出了开创性贡献。他被广泛认为是20世纪最杰出的意大利科学家。",
       "summaryEn": "Fermi was the last physicist equally masterful in theory and experiment. He built the world's first nuclear reactor and made pioneering contributions to quantum statistics, beta decay theory, and particle physics.",
@@ -2099,7 +2466,22 @@ _sciomapData = {
           "outcome": "深度参与曼哈顿计划带来道德争议；“他们都在哪儿”之问至今诘问地外文明",
           "outcomeEn": "His Manhattan Project role raised moral questions; “where is everybody?” still haunts SETI"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1938,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "feynman",
@@ -2116,7 +2498,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Richard_Feynman_Nobel.jpg/440px-Richard_Feynman_Nobel.jpg",
+      "portrait": "data/portraits/feynman.jpg",
       "influence": 9,
       "summary": "费曼是20世纪最富创造力的理论物理学家之一，在量子电动力学方面做出了革命性贡献。他发明的费曼图将粒子相互作用可视化，彻底改变了理论物理的计算方式。他也是无与伦比的科学教育家，以深入浅出的讲解和对科学的热情影响了无数人。",
       "summaryEn": "Feynman was one of the most creative theoretical physicists of the 20th century. His Feynman diagrams revolutionized quantum electrodynamics calculations. He was also an unparalleled science educator.",
@@ -2208,7 +2590,22 @@ _sciomapData = {
           "outcome": "当众用冰水演示O型环失效，直指NASA管理与工程沟通的系统性问题",
           "outcomeEn": "Publicly dunked an O-ring in ice water, exposing NASA’s management failures"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1965,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "rutherford",
@@ -2225,7 +2622,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ernest_Rutherford_%28Nobel%29.jpg/440px-Ernest_Rutherford_%28Nobel%29.jpg",
+      "portrait": "data/portraits/rutherford.jpg",
       "influence": 8,
       "summary": "卢瑟福通过金箔实验发现了原子核，提出了原子的核结构模型，发现了质子并实现了第一次人工核嬗变。他是核物理学之父。",
       "summaryEn": "Rutherford discovered the atomic nucleus, proposed the nuclear model, discovered the proton, and achieved the first artificial nuclear transmutation. Father of nuclear physics.",
@@ -2301,7 +2698,22 @@ _sciomapData = {
         }
       ],
       "legacy": "通过α粒子散射实验发现原子核结构，提出了行星式原子模型；首次人工核嬗变并发现了质子。",
-      "legacyEn": "Discovered the atomic nucleus through alpha particle scattering experiments, proposing the planetary model of the atom; achieved the first artificial nuclear transmutation and discovered the proton."
+      "legacyEn": "Discovered the atomic nucleus through alpha particle scattering experiments, proposing the planetary model of the atom; achieved the first artificial nuclear transmutation and discovered the proton.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 1908,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "curie",
@@ -2412,7 +2824,28 @@ _sciomapData = {
           "outcome": "与朗之万的绯闻被法国媒体大肆渲染，掺杂性别与排外偏见，险些波及第二次诺奖",
           "outcomeEn": "The Langevin affair unleashed sexist and xenophobic press that nearly cost her second Nobel"
         }
-      ]
+      ],
+      "gender": "female",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1903,
+          "type": "nobel"
+        },
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 1911,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "lavoisier",
@@ -2483,7 +2916,15 @@ _sciomapData = {
           "breakthrough": "定量实验证明燃烧是氧化反应，推翻燃素说，奠定现代化学基础",
           "breakthroughEn": "Quantitative experiments proved combustion is oxidation, overthrowing phlogiston theory"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "dalton",
@@ -2500,7 +2941,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/John_Dalton_by_Charles_Turner.jpg/440px-John_Dalton_by_Charles_Turner.jpg",
+      "portrait": "data/portraits/dalton.jpg",
       "influence": 8,
       "summary": "道尔顿提出了近代原子论，用原子概念解释了化学反应中的定量关系，开创了分析化学和原子量的测定。他是现代化学的奠基人之一。",
       "summaryEn": "Dalton proposed modern atomic theory, explaining chemical reactions with atoms. He pioneered analytical chemistry and atomic weight measurement.",
@@ -2531,7 +2972,15 @@ _sciomapData = {
       "lifeStory": "道尔顿1766年出生于英国一个农民家庭。他靠自学成为教师和科学家。1803年提出原子论：物质由不可分割的原子组成，同类原子质量相同。他还编制了第一张原子量表。他是色盲患者——这个生理缺陷使他注意到了色盲现象，并第一个写了相关科学论文。",
       "lifeStoryEn": "Born in 1766 in England, Dalton was self-taught. He proposed his atomic theory in 1803 and compiled the first atomic weight table. He was colorblind and wrote the first scientific paper on the condition.",
       "aiReview": "道尔顿的原子论是化学史上标志性的转折点——它使化学家们第一次有了一个统一的框架来理解元素和化合物的组成。",
-      "aiReviewEn": "Dalton's atomic theory marked a turning point in chemistry — for the first time, it gave chemists a unified way to understand elements and compounds."
+      "aiReviewEn": "Dalton's atomic theory marked a turning point in chemistry — for the first time, it gave chemists a unified way to understand elements and compounds.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "mendeleev",
@@ -2548,7 +2997,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Mendeleev_photograph.jpg/440px-Mendeleev_photograph.jpg",
+      "portrait": "data/portraits/mendeleev.jpg",
       "influence": 9,
       "summary": "门捷列夫发现了元素周期律，编制了元素周期表，这是化学史上最重要的成就之一。他大胆地预言的多种元素（镓、钪、锗等）在后来逐一被发现，而且性质与他的预言高度吻合，奠定了他在科学史上的不朽地位。",
       "summaryEn": "Mendeleev discovered the periodic law and created the periodic table. He boldly predicted undiscovered elements whose properties matched his predictions almost perfectly.",
@@ -2596,7 +3045,15 @@ _sciomapData = {
           "breakthrough": "编制元素周期表，根据原子量和化学性质的周期性预言未知元素",
           "breakthroughEn": "Created the periodic table, predicted unknown elements based on periodic properties"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "darwin",
@@ -2697,7 +3154,15 @@ _sciomapData = {
           "outcome": "达尔文的进化论引发科学与宗教的剧烈冲突。赫胥黎与威尔伯福斯主教在牛津辩论后，进化论逐渐被科学界接受",
           "outcomeEn": "Darwin's theory sparked intense science-religion conflict. After Huxley vs Wilberforce debate, evolution was gradually accepted by science"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "mendel",
@@ -2714,7 +3179,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Gregor_Mendel_2.jpg/440px-Gregor_Mendel_2.jpg",
+      "portrait": "data/portraits/mendel.jpg",
       "influence": 9,
       "summary": "孟德尔通过豌豆杂交实验发现了遗传学的基本定律，成为现代遗传学的奠基人。他揭示了生物的性状由离散的遗传因子（基因）控制，并提出了分离定律和自由组合定律。他的工作在生前被完全忽视，去世16年后才被重新发现。",
       "summaryEn": "Mendel discovered the fundamental laws of heredity through pea experiments, founding modern genetics. He revealed that traits are controlled by discrete hereditary factors (genes) through the laws of segregation and independent assortment.",
@@ -2761,7 +3226,15 @@ _sciomapData = {
           "breakthrough": "通过豌豆杂交实验发现遗传的分离定律和自由组合定律",
           "breakthroughEn": "Discovered laws of segregation and independent assortment through pea experiments"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "pasteur",
@@ -2779,7 +3252,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Pasteur.jpg/440px-Pasteur.jpg",
+      "portrait": "data/portraits/pasteur.jpg",
       "influence": 9,
       "summary": "巴斯德奠定了微生物学的基础，提出了疾病的细菌学说。他发明的巴氏消毒法至今广泛使用，研制的狂犬病疫苗和炭疽疫苗开创了现代免疫学。他彻底改变了医学和公共卫生的面貌。",
       "summaryEn": "Pasteur founded microbiology and proposed the germ theory of disease. He invented pasteurization and developed rabies and anthrax vaccines, revolutionizing medicine and public health.",
@@ -2847,7 +3320,15 @@ _sciomapData = {
           "outcome": "巴斯德通过鹅颈瓶实验彻底否定了自然发生说，确立了微生物学的基本原理",
           "outcomeEn": "Pasteur's swan-neck flask experiments definitively disproved spontaneous generation, establishing microbiology's foundation"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "copernicus",
@@ -2865,7 +3346,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "revolution",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Nikolaus_Kopernikus.jpg/440px-Nikolaus_Kopernikus.jpg",
+      "portrait": "data/portraits/copernicus.jpg",
       "influence": 10,
       "summary": "哥白尼提出了日心说，推翻了统治西方一千多年的地心说体系。他的《天体运行论》引发了科学革命，从根本上改变了人类在宇宙中的位置认知。哥白尼的工作不仅是天文学的革新，更是人类思想史上的一次范式转换——它标志着人类开始用理性怀疑代替盲目接受传统权威。",
       "summaryEn": "Copernicus proposed the heliocentric model, overthrowing the geocentric system that had dominated for over a millennium. His work sparked the Scientific Revolution and changed humanity's place in the cosmos.",
@@ -2924,7 +3405,15 @@ _sciomapData = {
           "outcome": "《天体运行论》挑战地心说，后被列入禁书目录近两个世纪",
           "outcomeEn": "De revolutionibus challenged geocentrism and was later placed on the Index for nearly two centuries"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hubble",
@@ -2941,7 +3430,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Edwin_Hubble_1931.jpg/440px-Edwin_Hubble_1931.jpg",
+      "portrait": "data/portraits/hubble.jpg",
       "influence": 9,
       "summary": "哈勃证明了银河系之外存在其他星系，并发现了星系退行速度与距离成正比的哈勃定律——这是宇宙膨胀的第一个观测证据。他的工作彻底改变了人类对宇宙大小和演化的认知，为大爆炸理论奠定了观测基础。",
       "summaryEn": "Hubble proved there are galaxies beyond the Milky Way and discovered Hubble's Law — the proportionality between galaxy recession speed and distance. This provided the first observational evidence for the expanding universe.",
@@ -3021,7 +3510,15 @@ _sciomapData = {
         }
       ],
       "legacy": "发现宇宙膨胀（哈勃定律），首次证明河外星系的存在；人类对宇宙尺度认识的根本性革命，哈勃空间望远镜以他命名。",
-      "legacyEn": "Discovered the expansion of the universe (Hubble's law), first proved the existence of galaxies beyond the Milky Way; revolutionized humanity's understanding of cosmic scale, honored by the Hubble Space Telescope."
+      "legacyEn": "Discovered the expansion of the universe (Hubble's law), first proved the existence of galaxies beyond the Milky Way; revolutionized humanity's understanding of cosmic scale, honored by the Hubble Space Telescope.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hawking",
@@ -3032,7 +3529,7 @@ _sciomapData = {
       "nationality": "英国",
       "nationalityEn": "England",
       "discipline": "physics",
-      "subDiscipline": "cosmology",
+      "subDiscipline": "relativity",
       "tags": [
         "physics",
         "astronomy"
@@ -3114,7 +3611,15 @@ _sciomapData = {
         }
       ],
       "legacy": "预言黑洞蒸发（霍金辐射），将量子效应引入引力物理；《时间简史》成为有史以来最畅销的科普著作之一。",
-      "legacyEn": "Predicted black hole evaporation (Hawking radiation), introducing quantum effects into gravitational physics; A Brief History of Time became one of the best-selling popular science books of all time."
+      "legacyEn": "Predicted black hole evaporation (Hawking radiation), introducing quantum effects into gravitational physics; A Brief History of Time became one of the best-selling popular science books of all time.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "yang-zhenning",
@@ -3132,7 +3637,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Chen_Ning_Yang_%E6%9D%A8%E6%8C%AF%E5%AE%81.jpg/440px-Chen_Ning_Yang_%E6%9D%A8%E6%8C%AF%E5%AE%81.jpg",
+      "portrait": "data/portraits/yang-zhenning.jpg",
       "influence": 10,
       "summary": "杨振宁是当代最伟大的理论物理学家之一，他与李政道因提出弱相互作用中宇称不守恒而获诺贝尔奖。但他对物理学最深远的影响是杨-米尔斯规范场论——这一理论是现代粒子物理标准模型的基石，被誉为20世纪最重要的理论物理贡献之一。",
       "summaryEn": "Yang is one of the greatest theoretical physicists of our time. He won the Nobel Prize for parity non-conservation with Lee, but his Yang-Mills theory is his most profound contribution — a cornerstone of the Standard Model.",
@@ -3218,7 +3723,22 @@ _sciomapData = {
         }
       ],
       "legacy": "杨-米尔斯规范场论是现代粒子物理标准模型的基石；与李政道共同提出弱相互作用中宇称不守恒，获1957年诺贝尔物理学奖。",
-      "legacyEn": "Yang-Mills gauge theory is the foundation of the Standard Model of particle physics; co-proposed parity non-conservation in weak interactions with Lee, winning the 1957 Nobel Prize."
+      "legacyEn": "Yang-Mills gauge theory is the foundation of the Standard Model of particle physics; co-proposed parity non-conservation in weak interactions with Lee, winning the 1957 Nobel Prize.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1957,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "li-zhengdao",
@@ -3235,7 +3755,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Tsung-Dao_Lee_%E6%9D%8E%E6%94%BF%E9%81%93.jpg/440px-Tsung-Dao_Lee_%E6%9D%8E%E6%94%BF%E9%81%93.jpg",
+      "portrait": "data/portraits/li-zhengdao.jpg",
       "influence": 8,
       "summary": "李政道与杨振宁共同提出弱相互作用中宇称不守恒，推翻了物理学的古老信念。他是历史上第二年轻的诺贝尔物理学奖获得者（31岁）。在统计物理、场论和天体物理方面也有重要贡献。",
       "summaryEn": "Lee jointly proposed parity non-conservation in weak interactions with Yang, overturning a long-held physics belief. At 31, he was the second-youngest Nobel laureate in physics history.",
@@ -3309,7 +3829,22 @@ _sciomapData = {
         }
       ],
       "legacy": "与杨振宁共同提出弱相互作用中宇称不守恒，推翻了物理学中宇称守恒的教条，获1957年诺贝尔物理学奖。",
-      "legacyEn": "Co-proposed parity non-conservation in weak interactions with Yang, overturning the long-held dogma of parity conservation in physics, winning the 1957 Nobel Prize."
+      "legacyEn": "Co-proposed parity non-conservation in weak interactions with Yang, overturning the long-held dogma of parity conservation in physics, winning the 1957 Nobel Prize.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1957,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "wu-jianxiong",
@@ -3326,7 +3861,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Chien-Shiung_Wu_%E5%90%B3%E5%81%A5%E9%9B%84.png/440px-Chien-Shiung_Wu_%E5%90%B4%E5%81%A5%E9%9B%84.png",
+      "portrait": "data/portraits/wu-jianxiong.jpg",
       "influence": 8,
       "summary": "吴健雄是世界上最杰出的实验物理学家之一。她用精密的β衰变实验证实了李政道和杨振宁的宇称不守恒理论，这项实验被称为'物理学史上最优雅的实验之一'。她被公认为20世纪最伟大的女性物理学家。",
       "summaryEn": "Wu was one of the world's greatest experimental physicists. Her precise beta decay experiment confirmed Lee and Yang's parity non-conservation theory — called 'one of the most elegant experiments in physics history.'",
@@ -3392,7 +3927,15 @@ _sciomapData = {
         }
       ],
       "legacy": "通过精密的β衰变实验（吴氏实验）首次证实弱相互作用中宇称不守恒，被公认为世界最杰出的实验物理学家之一。",
-      "legacyEn": "The Wu experiment was the first to experimentally confirm parity non-conservation in weak interactions; regarded as one of the greatest experimental physicists in history."
+      "legacyEn": "The Wu experiment was the first to experimentally confirm parity non-conservation in weak interactions; regarded as one of the greatest experimental physicists in history.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "qian-xuesen",
@@ -3409,7 +3952,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Qian_Xuesen.jpg/440px-Qian_Xuesen.jpg",
+      "portrait": "data/portraits/qian-xuesen.jpg",
       "influence": 8,
       "summary": "钱学森是中国航天事业的奠基人，在空气动力学、火箭技术和系统工程领域做出卓越贡献，被誉为中国航天之父。",
       "summaryEn": "Qian Xuesen founded China's space program, making outstanding contributions to aerodynamics, rocket technology, and systems engineering. Known as the father of Chinese aerospace.",
@@ -3459,7 +4002,15 @@ _sciomapData = {
         }
       ],
       "legacy": "中国航天事业的奠基人，领导了中国导弹和运载火箭的研制；创立工程控制论学科，将系统科学引入中国。",
-      "legacyEn": "Founding father of China's space program; led the development of China's missiles and launch vehicles; established the discipline of engineering cybernetics."
+      "legacyEn": "Founding father of China's space program; led the development of China's missiles and launch vehicles; established the discipline of engineering cybernetics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "chen-shengshen",
@@ -3476,7 +4027,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Shiing-shen_Chern.jpg/440px-Shiing-shen_Chern.jpg",
+      "portrait": "data/portraits/chen-shengshen.jpg",
       "influence": 9,
       "summary": "陈省身是20世纪最杰出的微分几何学家之一，被誉为'微分几何之父'。他提出的陈类和陈-韦伊理论深刻影响了现代数学和理论物理，在代数拓扑和规范场论中有着基础性作用。他是首位获得沃尔夫数学奖的华人数学家。",
       "summaryEn": "Chern was one of the greatest differential geometers of the 20th century, known as the 'father of differential geometry.' His Chern classes and Chern-Weil theory profoundly influenced modern mathematics and theoretical physics.",
@@ -3530,7 +4081,31 @@ _sciomapData = {
           "desc": "沃尔夫数学奖",
           "descEn": "Wolf Prize in Mathematics"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "高斯-博内公式的一个简单内蕴证明",
+          "titleEn": "A Simple Intrinsic Proof of the Gauss-Bonnet Formula",
+          "year": 1944,
+          "type": "paper"
+        },
+        {
+          "title": "埃尔米特流形的示性类",
+          "titleEn": "Characteristic Classes of Hermitian Manifolds",
+          "year": 1946,
+          "type": "paper"
+        }
+      ],
+      "legacy": "陈省身是整体微分几何的奠基人之一，陈示性类（Chern classes）是现代数学和理论物理中最基本的不变量之一。",
+      "legacyEn": "Chern was a founder of global differential geometry; Chern classes are among the most fundamental invariants in modern mathematics and theoretical physics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hua-luogeng",
@@ -3547,7 +4122,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Hua_Luogeng_1956.jpg/440px-Hua_Luogeng_1956.jpg",
+      "portrait": "data/portraits/hua-luogeng.jpg",
       "influence": 8,
       "summary": "华罗庚是中国现代数学的奠基人和开拓者。他在数论、代数和多复变函数论方面做出了世界级的贡献。他不仅是一位杰出的理论数学家，还致力于将数学方法应用于国民经济建设，培养了一代中国数学家。",
       "summaryEn": "Hua Luogeng was the founder of modern Chinese mathematics. He made world-class contributions to number theory, algebra, and several complex variables. He also applied mathematics to China's economic development and trained generations of mathematicians.",
@@ -3586,7 +4161,37 @@ _sciomapData = {
       "anecdote": "华罗庚在清华工作期间，为了弥补学历不足，每天只睡四五个小时。他住在工友宿舍，月薪只有15元，但买书从不吝啬。他自学英语时，把英文数学论文逐字逐句翻译，然后用中文写笔记，再用英文复述。他还说自己的学习方法就是'把一本厚书读薄，再把一本薄书读厚'。这个从学徒到国际数学家的传奇，鼓舞了无数中国青年投身科学。",
       "anecdoteEn": "At Tsinghua, Hua slept only 4-5 hours daily, living in a worker's dorm on a 15-yuan salary. He memorized math papers by translating them word for word. His journey from shop apprentice to world-class mathematician inspired generations of Chinese youth.",
       "aiReview": "华罗庚的传奇在于他没有学历、没有背景、没有导师，仅靠自学走完了从初中生到国际数学家的路途。这在中国乃至世界数学史上都是罕见的。更难能可贵的是他在功成名就之后，没有停留在象牙塔里做纯理论研究，而是主动将数学方法推广到工厂和田间——这种'把论文写在大地上'的精神，使得他不仅是一位数学家，更是一位科学传播的符号。",
-      "aiReviewEn": "Hua Luogeng's legend — no formal degree, no study abroad background for his initial work — is rare in both Chinese and world mathematics. More precious was his refusal to stop after the Cultural Revolution, continuing to apply and promote mathematics in production — embodying the spirit of 'writing mathematics on the land of China.' He was not just a mathematician but a symbol of mathematical culture."
+      "aiReviewEn": "Hua Luogeng's legend — no formal degree, no study abroad background for his initial work — is rare in both Chinese and world mathematics. More precious was his refusal to stop after the Cultural Revolution, continuing to apply and promote mathematics in production — embodying the spirit of 'writing mathematics on the land of China.' He was not just a mathematician but a symbol of mathematical culture.",
+      "keyWorks": [
+        {
+          "title": "堆垒素数论",
+          "titleEn": "Additive Theory of Prime Numbers",
+          "year": 1947,
+          "type": "book"
+        },
+        {
+          "title": "数论导引",
+          "titleEn": "Introduction to Number Theory",
+          "year": 1957,
+          "type": "book"
+        },
+        {
+          "title": "多复变函数论中的典型域的调和分析",
+          "titleEn": "Harmonic Analysis of Classical Domains in Several Complex Variables",
+          "year": 1958,
+          "type": "book"
+        }
+      ],
+      "legacy": "华罗庚是中国现代数学的奠基人，在华林问题和多复变函数论领域作出世界级贡献，其学术和教育工作培养了一大批中国数学家。",
+      "legacyEn": "Hua Luogeng was the founding figure of modern Chinese mathematics, making world-class contributions to Waring's problem and several complex variables; his teaching and leadership nurtured generations of Chinese mathematicians.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "chen-jingrun",
@@ -3628,7 +4233,25 @@ _sciomapData = {
       "lifeStory": "陈景润1933年出生于福建福州。他因华罗庚的赏识进入中国科学院数学研究所。在艰苦条件下，他用传统的手算方式在哥德巴赫猜想上取得了世界领先的成果。1973年发表'1+2'证明，轰动国际数学界。",
       "lifeStoryEn": "Born in 1933 in Fuzhou, Chen was discovered by Hua Luogeng. Working with hand calculations under difficult conditions, he proved '1+2' in 1973, stunning the international math community.",
       "aiReview": "陈景润在文革期间极端艰苦的条件下用纸笔完成了令世界瞩目的数学工作——这本身就是中国科学精神的一个象征。",
-      "aiReviewEn": "Chen Jingrun's dedication to Goldbach's Conjecture under extreme conditions — spending years in a tiny room filling draft papers with calculations — is itself a monument to the Chinese mathematical spirit."
+      "aiReviewEn": "Chen Jingrun's dedication to Goldbach's Conjecture under extreme conditions — spending years in a tiny room filling draft papers with calculations — is itself a monument to the Chinese mathematical spirit.",
+      "keyWorks": [
+        {
+          "title": "大偶数表为一个素数及一个不超过两个素数的乘积之和",
+          "titleEn": "On the Representation of a Large Even Integer as the Sum of a Prime and the Product of at Most Two Primes (Chen's Theorem)",
+          "year": 1973,
+          "type": "paper"
+        }
+      ],
+      "legacy": "陈景润关于哥德巴赫猜想的研究——陈氏定理——是迄今最接近猜想的成果，被誉为「数论皇冠上的明珠」。",
+      "legacyEn": "Chen Jingrun's work on Goldbach's conjecture — Chen's theorem — is the closest known result to the full conjecture, hailed as 'the jewel in the crown of number theory'.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "qiu-chengtong",
@@ -3645,7 +4268,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Shing-Tung_Yau_at_Harvard.jpg/440px-Shing-Tung_Yau_at_Harvard.jpg",
+      "portrait": "data/portraits/qiu-chengtong.jpg",
       "influence": 9,
       "summary": "丘成桐证明了卡拉比猜想，开创了卡拉比-丘流形——这一几何构造后来成为弦论的关键组成部分。他是首位获得菲尔兹奖的华人数学家（1982年），在微分几何和偏微分方程领域做出了世界级贡献。",
       "summaryEn": "Yau proved the Calabi conjecture, creating Calabi-Yau manifolds — geometric structures that later became crucial to string theory. He was the first Chinese Fields Medalist (1982).",
@@ -3689,7 +4312,38 @@ _sciomapData = {
           "desc": "菲尔兹奖",
           "descEn": "Fields Medal"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "卡拉比猜想的证明",
+          "titleEn": "On the Ricci Curvature of a Compact Kahler Manifold and the Complex Monge-Ampere Equation (Proof of the Calabi Conjecture)",
+          "year": 1978,
+          "type": "paper"
+        },
+        {
+          "title": "正质量定理的证明",
+          "titleEn": "Proof of the Positive Energy Theorem (with R. Schoen)",
+          "year": 1979,
+          "type": "paper"
+        }
+      ],
+      "legacy": "丘成桐是首位获得菲尔兹奖的华人数学家，卡拉比-丘流形是弦理论中至关重要的几何结构。",
+      "legacyEn": "Yau was the first Chinese Fields Medalist; Calabi-Yau manifolds are crucial geometric structures in string theory. He has profoundly influenced differential geometry and general relativity.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "菲尔兹奖",
+          "nameEn": "Fields Medal",
+          "year": 1982,
+          "type": "fields"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "turing",
@@ -3707,7 +4361,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Alan_Turing_Aged_16.jpg/440px-Alan_Turing_Aged_16.jpg",
+      "portrait": "data/portraits/turing.jpg",
       "influence": 10,
       "summary": "图灵是计算机科学和人工智能之父。他提出的图灵机模型奠定了理论计算机科学的基础，成为现代计算理论的起点。二战期间他破译了德国恩尼格玛密码，对战局产生了重大影响。他还提出了图灵测试来探讨机器是否能思考的问题，开创了人工智能这一领域。",
       "summaryEn": "Turing is the father of computer science and AI. His Turing machine laid the foundation of computation theory. He broke the Enigma code during WWII and proposed the Turing test for machine intelligence.",
@@ -3793,7 +4447,31 @@ _sciomapData = {
           "outcome": "因同性恋被判罪并被迫化学阉割，贡献长期保密，2013年才获英国皇家赦免",
           "outcomeEn": "Convicted for homosexuality and chemically castrated; his work stayed classified for decades until a 2013 royal pardon"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "论可计算数及其在判定问题上的应用",
+          "titleEn": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+          "year": 1936,
+          "type": "paper"
+        },
+        {
+          "title": "计算机器与智能",
+          "titleEn": "Computing Machinery and Intelligence",
+          "year": 1950,
+          "type": "paper"
+        }
+      ],
+      "legacy": "图灵是理论计算机科学的奠基人，图灵机是计算理论的基石；他在人工智能领域提出的图灵测试至今仍是重要概念。",
+      "legacyEn": "Turing founded theoretical computer science; the Turing machine is the cornerstone of computation theory. His Turing Test remains a central concept in artificial intelligence.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "von-neumann",
@@ -3887,7 +4565,37 @@ _sciomapData = {
           "outcome": "《EDVAC报告初稿》仅署冯·诺依曼之名，引发对埃克特、莫奇利工程贡献被忽视的长期争议",
           "outcomeEn": "The First Draft bore only von Neumann’s name, long overshadowing Eckert and Mauchly’s engineering"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "量子力学的数学基础",
+          "titleEn": "Mathematical Foundations of Quantum Mechanics",
+          "year": 1932,
+          "type": "book"
+        },
+        {
+          "title": "博弈论与经济行为",
+          "titleEn": "Theory of Games and Economic Behavior",
+          "year": 1944,
+          "type": "book"
+        },
+        {
+          "title": "EDVAC报告草案",
+          "titleEn": "First Draft of a Report on the EDVAC",
+          "year": 1945,
+          "type": "paper"
+        }
+      ],
+      "legacy": "冯·诺依曼是现代存储程序计算机架构的设计者，博弈论的创立者之一，在量子力学数学化、数值分析和自复制自动机理论方面均有奠基性贡献。",
+      "legacyEn": "Von Neumann was the architect of the modern stored-program computer, a founder of game theory, and made foundational contributions to the mathematization of quantum mechanics, numerical analysis, and self-reproducing automata theory.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "shannon",
@@ -3905,7 +4613,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/ClaudeShannon_MFO3807.jpg/440px-ClaudeShannon_MFO3807.jpg",
+      "portrait": "data/portraits/shannon.jpg",
       "influence": 9,
       "summary": "香农是信息论之父，其《通信的数学理论》为数字通信和信息时代奠定了理论基础。他还将布尔代数应用于开关电路，开创了数字电路设计的先河。他的工作深刻影响了从电话通信到互联网的一切信息技术。",
       "summaryEn": "Shannon is the father of information theory. His 'Mathematical Theory of Communication' laid the foundation for the digital age. He also applied Boolean algebra to switching circuits, pioneering digital circuit design.",
@@ -3963,7 +4671,31 @@ _sciomapData = {
           "breakthrough": "创立信息论，提出比特（bit）作为信息单位，给出信道容量公式",
           "breakthroughEn": "Founded information theory, proposed the bit as information unit, formulated channel capacity"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "通信的数学理论",
+          "titleEn": "A Mathematical Theory of Communication",
+          "year": 1948,
+          "type": "paper"
+        },
+        {
+          "title": "保密系统的通信理论",
+          "titleEn": "Communication Theory of Secrecy Systems",
+          "year": 1949,
+          "type": "paper"
+        }
+      ],
+      "legacy": "香农创立了信息论，定义了信息熵的概念，奠定了数字通信和数据压缩的理论基础；他在密码学和布尔代数电路设计方面也有开创性贡献。",
+      "legacyEn": "Shannon founded information theory, defining information entropy and laying the theoretical foundation for digital communication and data compression; he also pioneered cryptography and Boolean circuit design.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "knuth",
@@ -3981,7 +4713,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/KnuthAtOpenContentAlliance.jpg/440px-KnuthAtOpenContentAlliance.jpg",
+      "portrait": "data/portraits/knuth.jpg",
       "influence": 8,
       "summary": "高德纳（高纳德·克努特）是算法分析之父，其多卷巨著《计算机程序设计艺术》是计算机科学的经典。他还发明了TeX排版系统，改变了学术出版。",
       "summaryEn": "Knuth is the father of algorithm analysis. His 'Art of Computer Programming' is a CS classic. He also created the TeX typesetting system, transforming academic publishing.",
@@ -4023,7 +4755,38 @@ _sciomapData = {
           "desc": "图灵奖",
           "descEn": "Turing Award"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "计算机程序设计艺术 第一卷：基本算法",
+          "titleEn": "The Art of Computer Programming, Volume 1: Fundamental Algorithms",
+          "year": 1968,
+          "type": "book"
+        },
+        {
+          "title": "TeX排版系统",
+          "titleEn": "The TeXbook",
+          "year": 1986,
+          "type": "book"
+        }
+      ],
+      "legacy": "高德纳的《计算机程序设计艺术》是计算机科学最权威的经典著作，他发明的TeX排版系统是学术论文排版的事实标准。",
+      "legacyEn": "Knuth's The Art of Computer Programming is the most authoritative classic in computer science; he created the TeX typesetting system, the de facto standard for academic publishing.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 1974,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "yao-qizhi",
@@ -4040,7 +4803,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Andrew_Yao.jpg/440px-Andrew_Yao.jpg",
+      "portrait": "data/portraits/yao-qizhi.jpg",
       "influence": 8,
       "summary": "姚期智是首位获得图灵奖的华裔计算机科学家，在计算理论、密码学和量子计算领域做出了开创性贡献。",
       "summaryEn": "Yao was the first Chinese-descendant winner of the Turing Award. He made pioneering contributions to computational theory, cryptography, and quantum computing.",
@@ -4080,7 +4843,38 @@ _sciomapData = {
           "desc": "图灵奖",
           "descEn": "Turing Award"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "安全计算协议",
+          "titleEn": "Protocols for Secure Computations",
+          "year": 1982,
+          "type": "paper"
+        },
+        {
+          "title": "量子电路复杂性",
+          "titleEn": "Quantum Circuit Complexity",
+          "year": 1993,
+          "type": "paper"
+        }
+      ],
+      "legacy": "姚期智是首位获得图灵奖的华人，在安全多方计算（姚氏百万富翁问题）和量子计算复杂性理论方面作出奠基性贡献。",
+      "legacyEn": "Yao was the first Chinese Turing Award winner, making foundational contributions to secure multi-party computation (Yao's Millionaires' Problem) and quantum communication complexity.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 2000,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "li-feifei",
@@ -4097,7 +4891,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Fei-Fei_Li_at_AI_Governance_2019_%28cropped%29.jpg/440px-Fei-Fei_Li_at_AI_Governance_2019_%28cropped%29.jpg",
+      "portrait": "data/portraits/li-feifei.jpg",
       "influence": 7,
       "summary": "李飞飞创立了ImageNet数据集和挑战赛，推动了深度学习在计算机视觉领域的革命。",
       "summaryEn": "Li created the ImageNet dataset and challenge, which propelled the deep learning revolution in computer vision.",
@@ -4122,7 +4916,31 @@ _sciomapData = {
       "lifeStory": "李飞飞1976年出生于北京。她在斯坦福大学获得博士学位并成为教授。2009年领导团队创建了ImageNet——包含超过1400万张标注图片。2012年ImageNet挑战赛上辛顿团队的深度卷积网络以压倒性优势夺冠，成为AI历史转折点。",
       "lifeStoryEn": "Born in 1976 in Beijing, Li earned her PhD from Stanford and became a professor there. She led the creation of ImageNet (14M+ labeled images) in 2009, which became the catalyst for the deep learning revolution.",
       "aiReview": "李飞飞的ImageNet不仅是数据集，更是推动AI领域从各自为战走向统一标准的关键动力。",
-      "aiReviewEn": "Fei-Fei Li's ImageNet dataset was the critical catalyst that moved AI from fragmented research to unified standards — a key driver of the deep learning revolution."
+      "aiReviewEn": "Fei-Fei Li's ImageNet dataset was the critical catalyst that moved AI from fragmented research to unified standards — a key driver of the deep learning revolution.",
+      "keyWorks": [
+        {
+          "title": "ImageNet：一个大规模分层图像数据库",
+          "titleEn": "ImageNet: A Large-Scale Hierarchical Image Database",
+          "year": 2009,
+          "type": "paper"
+        },
+        {
+          "title": "用于图像描述的深度视觉语义对齐",
+          "titleEn": "Deep Visual-Semantic Alignments for Generating Image Descriptions",
+          "year": 2015,
+          "type": "paper"
+        }
+      ],
+      "legacy": "李飞飞创建了ImageNet数据集，直接推动了深度学习的革命性突破；她在计算机视觉和认知AI领域持续发挥领导作用。",
+      "legacyEn": "Fei-Fei Li created the ImageNet dataset, which directly triggered the deep learning revolution; she continues to lead advances in computer vision and cognitively inspired AI.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hinton",
@@ -4139,7 +4957,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Geoffrey_Hinton_at_UdeM_%28cropped%29.jpg/440px-Geoffrey_Hinton_at_UdeM_%28cropped%29.jpg",
+      "portrait": "data/portraits/hinton.jpg",
       "influence": 10,
       "summary": "辛顿是深度学习之父，推动了反向传播算法的实用化，发明了深度信念网络，开启了人工智能革命。2018年获图灵奖。",
       "summaryEn": "Hinton is the godfather of deep learning. He made backpropagation practical, invented deep belief networks, and sparked the AI revolution. Winner of the 2018 Turing Award.",
@@ -4197,7 +5015,44 @@ _sciomapData = {
           "outcome": "神经网络曾在“AI寒冬”被主流否定；2023年他从谷歌离职公开警告AI威胁，引发安全大讨论",
           "outcomeEn": "Neural nets were dismissed in the “AI winters”; in 2023 he left Google to warn of AI’s dangers"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "通过反向传播误差学习表示",
+          "titleEn": "Learning Representations by Back-Propagating Errors (with Rumelhart and Williams)",
+          "year": 1986,
+          "type": "paper"
+        },
+        {
+          "title": "用神经网络降低数据维度",
+          "titleEn": "Reducing the Dimensionality of Data with Neural Networks",
+          "year": 2006,
+          "type": "paper"
+        }
+      ],
+      "legacy": "辛顿是深度学习之父，反向传播算法和深度信念网络推动了人工智能的第三次复兴，获2018年图灵奖。",
+      "legacyEn": "Hinton is the godfather of deep learning; his work on backpropagation and deep belief networks sparked the AI renaissance. He received the 2018 Turing Award.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 2018,
+          "type": "turing"
+        },
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 2024,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "zhang-heng",
@@ -4214,7 +5069,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "ancient",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Zhang_Heng_%E5%BC%B5%E8%A1%A1.jpg/440px-Zhang_Heng_%E5%BC%B5%E8%A1%A1.jpg",
+      "portrait": "data/portraits/zhang-heng.jpg",
       "influence": 7,
       "summary": "张衡是中国古代最伟大的天文学家和发明家。他发明的浑天仪用水力驱动模拟天体运行，地动仪则是世界上第一台地震检测仪器。他还在数学、地理、文学和绘画方面卓有成就，是东汉时期百科全书式的天才。",
       "summaryEn": "Zhang Heng was ancient China's greatest astronomer. He invented the water-powered armillary sphere and the world's first seismoscope. He was a true Renaissance man of the Eastern Han dynasty.",
@@ -4265,7 +5120,15 @@ _sciomapData = {
         }
       ],
       "legacy": "发明了世界上第一台地动仪和改良型浑天仪；《灵宪》阐述了完整的宇宙生成理论，正确解释了月光的来源和月食现象。",
-      "legacyEn": "Invented the world's first seismoscope and improved the armillary sphere; Ling Xian expounded a complete cosmological theory and correctly explained the source of moonlight and lunar eclipses."
+      "legacyEn": "Invented the world's first seismoscope and improved the armillary sphere; Ling Xian expounded a complete cosmological theory and correctly explained the source of moonlight and lunar eclipses.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "tu-youyou",
@@ -4283,7 +5146,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Tu_Youyou_1950s.jpg/440px-Tu_Youyou_1950s.jpg",
+      "portrait": "data/portraits/tu-youyou.jpg",
       "influence": 8,
       "summary": "屠呦呦发现了青蒿素——一种治疗疟疾的特效药，为全球疟疾防治做出了革命性贡献。2015年获得诺贝尔生理学或医学奖，是首位在中国本土完成研究的诺贝尔科学奖得主。",
       "summaryEn": "Tu Youyou discovered artemisinin — a revolutionary treatment for malaria. She won the 2015 Nobel Prize in Physiology or Medicine, the first science Nobel laureate for research conducted within China.",
@@ -4315,7 +5178,22 @@ _sciomapData = {
           "desc": "诺贝尔生理学或医学奖",
           "descEn": "Nobel Prize in Medicine"
         }
-      ]
+      ],
+      "gender": "female",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 2015,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "yuan-longping",
@@ -4332,7 +5210,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Yuan_Longping.jpg/440px-Yuan_Longping.jpg",
+      "portrait": "data/portraits/yuan-longping.jpg",
       "influence": 9,
       "summary": "袁隆平是中国杂交水稻之父，成功培育出高产杂交水稻，为解决中国和世界的粮食安全问题做出了卓越贡献。他的研究使中国水稻产量大幅提升，养活了数以亿计的人口。他一生扎根田间，被誉为'把论文写在大地上'的科学家。",
       "summaryEn": "Yuan Longping is the father of hybrid rice. He developed high-yield hybrid rice varieties that significantly increased rice production, helping feed hundreds of millions and making China food-secure.",
@@ -4372,7 +5250,15 @@ _sciomapData = {
           "desc": "国家最高科学技术奖",
           "descEn": "National Highest Science and Technology Award"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "nan-rendong",
@@ -4389,7 +5275,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "modern",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Nan_Rendong.jpg/440px-Nan_Rendong.jpg",
+      "portrait": "data/portraits/nan-rendong.jpg",
       "influence": 7,
       "summary": "南仁东是中国天眼FAST项目的首席科学家和总工程师，领导建造了世界上最大的单口径射电望远镜。",
       "summaryEn": "Nan was the chief scientist of China's FAST project, building the world's largest single-dish radio telescope.",
@@ -4439,7 +5325,15 @@ _sciomapData = {
         }
       ],
       "legacy": "FAST射电望远镜的创始人和总设计师，历时22年将世界最大单口径射电望远镜从构想变为现实，使中国射电天文学跻身世界前列。",
-      "legacyEn": "Founder and chief designer of FAST, spending 22 years turning the world's largest single-dish radio telescope from concept into reality, elevating Chinese radio astronomy to the global forefront."
+      "legacyEn": "Founder and chief designer of FAST, spending 22 years turning the world's largest single-dish radio telescope from concept into reality, elevating Chinese radio astronomy to the global forefront.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hua-tuo",
@@ -4456,7 +5350,7 @@ _sciomapData = {
       ],
       "culturalTag": "chinese",
       "era": "ancient",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Hua_Tuo.jpg/440px-Hua_Tuo.jpg",
+      "portrait": "data/portraits/hua-tuo.jpg",
       "influence": 7,
       "summary": "华佗是中国古代最著名的外科医生，发明了麻沸散（最早的麻醉剂之一），被尊为外科鼻祖。",
       "summaryEn": "Hua Tuo was ancient China's most famous surgeon. He invented Mafeisan (one of the earliest anesthetics) and is revered as the father of Chinese surgery.",
@@ -4473,7 +5367,15 @@ _sciomapData = {
       "lifeStory": "华佗约145年出生于东汉沛国谯县（今安徽亳州）。他通晓内、外、妇、儿、针灸各科，尤以外科著称。他发明了麻沸散用于外科手术——比西方使用麻醉剂早了1600多年。他还创编了五禽戏健身操。据传曹操因头风病召他医治，华佗建议开颅手术，曹操怀疑他谋害自己，将其下狱处死。华佗的医书也在狱中被焚毁——这是中国医学史上的重大损失。",
       "lifeStoryEn": "Born around 145 AD in Bozhou, Hua Tuo was master of all medical fields, especially surgery. He invented an anesthetic (Mafeisan) 1,600 years before the West. He was executed by Cao Cao and his medical texts were burned.",
       "aiReview": "华佗的悲剧在于他的超前——开颅手术的想法在1800年前太过激进，以至被当作谋杀的企图。",
-      "aiReviewEn": "Hua Tuo's legend lies in how radically ahead of his time his ideas were. Anesthesia and surgery were too far ahead for late 2nd-century China — perhaps this is why he was executed by Cao Cao under suspicion of plotting."
+      "aiReviewEn": "Hua Tuo's legend lies in how radically ahead of his time his ideas were. Anesthesia and surgery were too far ahead for late 2nd-century China — perhaps this is why he was executed by Cao Cao under suspicion of plotting.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "li-shi-zhen",
@@ -4521,7 +5423,15 @@ _sciomapData = {
       "anecdote": "李时珍为了验证曼陀罗花的麻醉效果，亲自服用后进行试验。他在服下曼陀罗花后，记录了自己失去痛觉的过程和恢复后的感受，并详细描述了不同剂量下的效果差异。这种'自身试药'的精神在当时的中国极为罕见——更接近于现代药物临床试验的基本理念。",
       "anecdoteEn": "Li personally tested the anesthetic properties of Datura flowers by ingesting them, carefully recording the dose-dependent effects, a rare example of self-experimentation in medical history.",
       "aiReview": "李时珍的伟大在于他打破了古代学者'重文轻实'的传统——他不是满足于在书房里翻阅古籍、抄写前人的说法，而是亲自走进山野，去核实每一条记载。他的工作方法是真正的科学精神：观察、采集、验证、分类、记录。在西方，直到文艺复兴之后才逐渐建立起这种实证传统。李时珍与欧洲文艺复兴几乎是同时代的——他1518年出生时，哥白尼还是5岁的孩子；他去世时，伽利略已经22岁。东西方在地球两端各自进行着知识体系的革命。",
-      "aiReviewEn": "Li Shizhen's greatness embodies the ancient tradition of 'empirical investigation.' While most scholars of his time were content citing ancient texts, he personally walked into mountains and fields to examine every herb. His method embodied the core scientific spirit: observe, collect, verify, classify, record. This spirit of empiricism grew alongside the European Renaissance. In 1518, when Li Shizhen was born, Leonardo da Vinci was still alive; by his death, Galileo was already 22. They were building parallel towers of knowledge on opposite sides of the world."
+      "aiReviewEn": "Li Shizhen's greatness embodies the ancient tradition of 'empirical investigation.' While most scholars of his time were content citing ancient texts, he personally walked into mountains and fields to examine every herb. His method embodied the core scientific spirit: observe, collect, verify, classify, record. This spirit of empiricism grew alongside the European Renaissance. In 1518, when Li Shizhen was born, Leonardo da Vinci was still alive; by his death, Galileo was already 22. They were building parallel towers of knowledge on opposite sides of the world.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "zhang-zhongjing",
@@ -4563,7 +5473,15 @@ _sciomapData = {
       "lifeStory": "张仲景约150年出生于东汉南阳。曾任长沙太守，但他用自己的俸禄为百姓看病。他的家族在瘟疫中死亡惨重，激发了他研究医学的决心。他撰写的《伤寒杂病论》总结了汉代以前的医学成就，确立了'辨证施治'的原则。",
       "lifeStoryEn": "Born around 150 AD in Nanyang, Zhang served as a governor but used his salary to treat the poor. Losing family members to plague motivated his medical studies. His treatise established Chinese medicine's diagnostic principles.",
       "aiReview": "张仲景的辨证论治体系使中医成为第一个有完整理论体系的传统医学。",
-      "aiReviewEn": "Zhang Zhongjing's syndrome differentiation system transformed Chinese medicine from scattered folk knowledge into a systematically organized medical tradition — an achievement comparable to Galen's in the West."
+      "aiReviewEn": "Zhang Zhongjing's syndrome differentiation system transformed Chinese medicine from scattered folk knowledge into a systematically organized medical tradition — an achievement comparable to Galen's in the West.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hippocrates",
@@ -4615,7 +5533,15 @@ _sciomapData = {
       "anecdote": "希波克拉底曾为马其顿国王佩尔狄卡斯二世诊断一种怪病——国王消瘦、精神萎靡、所有医生都束手无策。希波克拉底观察后判断国王患的不是身体疾病而是'相思病'——爱上了已故父亲的情妇。据说诊断后国王的症状就缓解了。这个故事（真实性存疑）体现了希波克拉底的一个重要信念：医生不但要治疗身体，还要理解心理。",
       "anecdoteEn": "Hippocrates diagnosed the King of Macedon's mysterious illness as lovesickness — the king was in love with his late father's mistress. Whether true or not, the story illustrates Hippocrates' belief that physicians must understand the mind as well as the body.",
       "aiReview": "希波克拉底的伟大不在于任何具体的医学发现——四体液学说早已被推翻——而在于他改变了人类思考疾病的方式。在他之前，生病=被神惩罚；在他之后，生病=需要被研究理解的自然过程。这种'去神秘化'是理性主义在医学领域的第一次胜利。今天，希波克拉底的名字出现在每一张医学院的毕业典礼上——新医生们朗读誓词时，他们不仅在继承一套职业道德，更在确认一种思维方式：医学是对自然的理解，而不是对超自然的祈祷。",
-      "aiReviewEn": "Hippocrates' greatness requires no specific medical discovery. His four humors theory has been overturned, but his essential method survives: before him, disease = divine punishment; after him, disease = natural process to be studied. This 'secularization' was the first great victory in medical thought. Today, the Hippocratic Oath remains on every medical school graduate's lips. When doctors recite it, they are not inheriting a code of ethics but affirming a way of thinking: medicine is the understanding of nature, not the invocation of the supernatural."
+      "aiReviewEn": "Hippocrates' greatness requires no specific medical discovery. His four humors theory has been overturned, but his essential method survives: before him, disease = divine punishment; after him, disease = natural process to be studied. This 'secularization' was the first great victory in medical thought. Today, the Hippocratic Oath remains on every medical school graduate's lips. When doctors recite it, they are not inheriting a code of ethics but affirming a way of thinking: medicine is the understanding of nature, not the invocation of the supernatural.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "fleming",
@@ -4681,10 +5607,26 @@ _sciomapData = {
           "breakthrough": "发现青霉素的杀菌作用，开启了抗生素时代",
           "breakthroughEn": "Discovered penicillin's antibacterial effect, ushering in the antibiotic era"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 1945,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "watson",
+      "portrait": "data/portraits/watson.jpg",
       "name": "詹姆斯·沃森",
       "nameEn": "James Watson",
       "birth": 1928,
@@ -4745,10 +5687,26 @@ _sciomapData = {
           "breakthrough": "与克里克共同发现DNA双螺旋结构，揭示遗传信息的分子基础",
           "breakthroughEn": "With Crick, discovered the DNA double helix, revealing the molecular basis of heredity"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 1962,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "crick",
+      "portrait": "",
       "name": "弗朗西斯·克里克",
       "nameEn": "Francis Crick",
       "birth": 1916,
@@ -4803,7 +5761,22 @@ _sciomapData = {
           "breakthrough": "与沃森共同发现DNA双螺旋结构，揭示遗传信息的分子基础",
           "breakthroughEn": "With Watson, discovered the DNA double helix, revealing the molecular basis of heredity"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 1962,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "linnaeus",
@@ -4845,7 +5818,15 @@ _sciomapData = {
       "lifeStory": "林奈1707年出生于瑞典。1735年出版《自然系统》，建立了等级分类体系。他的双名法（属名+种名）解决了物种命名混乱的问题。他派遣学生到世界各地采集标本。",
       "lifeStoryEn": "Born in 1707 in Sweden. His 1735 'Systema Naturae' established biological classification. Binomial nomenclature solved species naming chaos. He sent students worldwide to collect specimens.",
       "aiReview": "林奈的格言'上帝创造了万物，林奈安排了万物'——虽然自负，但他的分类体系确实奠定了现代生物学的语言基础。",
-      "aiReviewEn": "Linnaeus' system of classification — 'God created, Linnaeus organized' — indeed laid the foundation for modern biological nomenclature and taxonomy, providing the language for all subsequent biological discovery."
+      "aiReviewEn": "Linnaeus' system of classification — 'God created, Linnaeus organized' — indeed laid the foundation for modern biological nomenclature and taxonomy, providing the language for all subsequent biological discovery.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "boyle",
@@ -4902,7 +5883,15 @@ _sciomapData = {
           "desc": "英国皇家学会院士",
           "descEn": "Fellow of the Royal Society"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "nobel",
@@ -4944,7 +5933,15 @@ _sciomapData = {
       "lifeStory": "诺贝尔1833年出生于瑞典斯德哥尔摩一个发明家家庭。他1867年发明了安全炸药——用硅藻土吸收硝化甘油，使其便于运输和使用。他拥有355项专利，建立了跨国工业帝国。他终身未娶。1895年立下遗嘱，用其巨额财富设立诺贝尔奖。",
       "lifeStoryEn": "Born in 1833 in Stockholm. He invented dynamite in 1867 by absorbing nitroglycerin in diatomaceous earth. Held 355 patents. Unmarried. His 1895 will used his fortune to establish the Nobel Prizes.",
       "aiReview": "诺贝尔的故事充满了矛盾的复杂性：他发明的炸药被用于战争，而他设立的奖则表彰和平。他的遗嘱遭到亲属的强烈反对，但他最终改变了世界奖励科学的方式。",
-      "aiReviewEn": "Nobel's story embodies the complexity of contradiction: inventing dynamite for war, using his fortune to fund peace — which sparked fierce controversy about the purity of his motives, yet ultimately changed how the world honors scientific achievement."
+      "aiReviewEn": "Nobel's story embodies the complexity of contradiction: inventing dynamite for war, using his fortune to fund peace — which sparked fierce controversy about the purity of his motives, yet ultimately changed how the world honors scientific achievement.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hou-debang",
@@ -4978,10 +5975,19 @@ _sciomapData = {
       "lifeStory": "侯德榜1890年出生于福建福州。他赴美留学获哥伦比亚大学博士学位。侯氏制碱法（1941年）将制碱和化肥生产联合，大幅提高效率。他晚年将技术无偿公开。",
       "lifeStoryEn": "Born in 1890 in Fuzhou. He earned his PhD from Columbia. The 1941 Hou Process combined soda and fertilizer production. He公开d the technology freely.",
       "aiReview": "侯德榜掌握着当时世界领先的制碱技术却选择公开——这展现了中国科学家的爱国情怀和奉献精神。",
-      "aiReviewEn": "Hou Debang held a world-leading alkali production technique but chose to make it public — embodying the Chinese scientist's patriotic spirit and selfless dedication to national development."
+      "aiReviewEn": "Hou Debang held a world-leading alkali production technique but chose to make it public — embodying the Chinese scientist's patriotic spirit and selfless dedication to national development.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "deng-jiaxian",
+      "portrait": "",
       "name": "邓稼先",
       "nameEn": "Deng Jiaxian",
       "birth": 1924,
@@ -5050,10 +6056,19 @@ _sciomapData = {
         }
       ],
       "legacy": "中国核武器事业的开拓者与核心组织者，领导完成中国原子弹和氢弹的理论设计，为国家安全做出不可替代的贡献。",
-      "legacyEn": "Pioneer and key organizer of China's nuclear weapons program; led the theoretical design of China's atomic bomb and hydrogen bomb."
+      "legacyEn": "Pioneer and key organizer of China's nuclear weapons program; led the theoretical design of China's atomic bomb and hydrogen bomb.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "wang-xuan",
+      "portrait": "",
       "name": "王选",
       "nameEn": "Wang Xuan",
       "birth": 1937,
@@ -5092,10 +6107,35 @@ _sciomapData = {
           "desc": "国家最高科学技术奖",
           "descEn": "National Highest Science and Technology Award"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "汉字激光照排系统",
+          "titleEn": "Chinese Character Laser Phototypesetting System",
+          "year": 1980,
+          "type": "paper"
+        },
+        {
+          "title": "汉字信息处理技术",
+          "titleEn": "Chinese Character Information Processing Technology",
+          "year": 1995,
+          "type": "book"
+        }
+      ],
+      "legacy": "王选发明了汉字激光照排系统，使中文印刷从铅字时代进入了计算机时代，被誉为「当代毕昇」。",
+      "legacyEn": "Wang Xuan invented the Chinese character laser phototypesetting system, moving Chinese printing from the age of lead type to the computer age. He is hailed as 'the modern Bi Sheng'.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "zhong-nanshan",
+      "portrait": "",
       "name": "钟南山",
       "nameEn": "Zhong Nanshan",
       "birth": 1936,
@@ -5134,10 +6174,19 @@ _sciomapData = {
           "desc": "共和国勋章",
           "descEn": "Medal of the Republic"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "tan-jiazhen",
+      "portrait": "",
       "name": "谈家桢",
       "nameEn": "Tan Jiazhen",
       "birth": 1909,
@@ -5175,7 +6224,15 @@ _sciomapData = {
       "lifeStory": "谈家桢1909年出生于浙江宁波。他在加州理工学院师从摩尔根和杜布赞斯基学习遗传学。他回国后在艰苦条件下坚持遗传学研究，在抵制苏联李森科主义（否定基因理论）的斗争中坚持真理。",
       "lifeStoryEn": "Born in 1909 in Ningbo. He studied genetics at Caltech under Morgan and Dobzhansky. Returning to China, he persisted in genetic research despite Lysenkoism's campaign against genetics.",
       "aiReview": "在1950年代苏联李森科主义的政治压力下，谈家桢坚持遗传学真理——这种科学良知值得铭记。",
-      "aiReviewEn": "In the 1950s, under the immense pressure of Lysenko's political persecution of genetics, Tan Jiazhen stood firm for genetic science, defending scientific truth at great personal risk."
+      "aiReviewEn": "In the 1950s, under the immense pressure of Lysenko's political persecution of genetics, Tan Jiazhen stood firm for genetic science, defending scientific truth at great personal risk.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "descartes",
@@ -5243,7 +6300,31 @@ _sciomapData = {
       "lifeStory": "笛卡尔1596年出生于法国，创立解析几何和近代哲学，被誉为近代哲学之父。其名言「我思故我在」奠定了理性主义认识论的基础。",
       "lifeStoryEn": "Descartes was born in 1596 in France, founded analytic geometry and modern philosophy, known for 'Cogito, ergo sum.'",
       "aiReview": "笛卡尔通过解析几何架起了代数与几何的桥梁，其理性主义方法论对后世科学产生深远影响。",
-      "aiReviewEn": "By linking algebra with geometry, Descartes created analytic geometry. His systematic doubt and rationalism had a profound and lasting influence on later philosophy and science."
+      "aiReviewEn": "By linking algebra with geometry, Descartes created analytic geometry. His systematic doubt and rationalism had a profound and lasting influence on later philosophy and science.",
+      "keyWorks": [
+        {
+          "title": "谈谈方法（附几何学）",
+          "titleEn": "Discourse on the Method (with La Geometrie)",
+          "year": 1637,
+          "type": "book"
+        },
+        {
+          "title": "第一哲学沉思集",
+          "titleEn": "Meditations on First Philosophy",
+          "year": 1641,
+          "type": "book"
+        }
+      ],
+      "legacy": "笛卡尔创立了解析几何，将代数与几何统一，为微积分的诞生铺平了道路；他也是近代哲学的奠基人。",
+      "legacyEn": "Descartes founded analytic geometry, uniting algebra and geometry and paving the way for calculus; he is also the father of modern philosophy.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "fermat",
@@ -5317,7 +6398,31 @@ _sciomapData = {
       "lifeStory": "费马1607年出生于法国，职业是法官，数学是他业余爱好，却在数论、解析几何、概率论等多个领域做出开创性贡献。",
       "lifeStoryEn": "Fermat was born in 1607 in France. He was a judge by profession but made groundbreaking contributions to number theory, analytic geometry, and probability.",
       "aiReview": "费马作为业余数学家对专业数学产生了深远影响，其大定理历经三百多年才被证明，展现了数学猜想的持久魅力。",
-      "aiReviewEn": "As an amateur mathematician, Fermat had a lasting impact on professional mathematics. His Last Theorem, unproven for over 350 years, demonstrated the enduring allure of mathematical problems."
+      "aiReviewEn": "As an amateur mathematician, Fermat had a lasting impact on professional mathematics. His Last Theorem, unproven for over 350 years, demonstrated the enduring allure of mathematical problems.",
+      "keyWorks": [
+        {
+          "title": "求最大值和最小值的方法",
+          "titleEn": "Method for Determining Maxima and Minima",
+          "year": 1636,
+          "type": "paper"
+        },
+        {
+          "title": "丢番图《算术》评注（费马大定理）",
+          "titleEn": "Marginal Notes on Diophantus' Arithmetica (Fermat's Last Theorem)",
+          "year": 1637,
+          "type": "paper"
+        }
+      ],
+      "legacy": "费马被誉为近代数论之父，费马大定理困扰了数学家三百余年，直到1995年才被怀尔斯证明。他在概率论和解析几何方面也有开创性贡献。",
+      "legacyEn": "Fermat is considered the father of modern number theory; Fermat's Last Theorem baffled mathematicians for over 300 years until Andrew Wiles proved it in 1995. He also made pioneering contributions to probability and analytic geometry.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "pascal",
@@ -5393,7 +6498,31 @@ _sciomapData = {
       "lifeStory": "帕斯卡1623年出生于法国，幼年即展现数学天赋，12岁独立证明三角形内角和定理，后转向概率论和哲学写作。",
       "lifeStoryEn": "Pascal was born in 1623 in France, showing mathematical genius from childhood. He later turned to probability theory and philosophical writing.",
       "aiReview": "帕斯卡在短暂一生中横跨数学、物理和哲学，概率论的创立与《思想录》的哲学思考同样影响深远。",
-      "aiReviewEn": "Pascal was a prodigy who achieved extraordinary mathematical and physical results in his short life. His Pensées and contributions to probability theory equally influenced philosophy and science."
+      "aiReviewEn": "Pascal was a prodigy who achieved extraordinary mathematical and physical results in his short life. His Pensées and contributions to probability theory equally influenced philosophy and science.",
+      "keyWorks": [
+        {
+          "title": "论算术三角形",
+          "titleEn": "Treatise on the Arithmetical Triangle",
+          "year": 1654,
+          "type": "paper"
+        },
+        {
+          "title": "思想录",
+          "titleEn": "Pensees",
+          "year": 1670,
+          "type": "book"
+        }
+      ],
+      "legacy": "帕斯卡在数学中创立了概率论的基础和帕斯卡三角形，在物理学中确立了帕斯卡定律。",
+      "legacyEn": "Pascal laid the foundations of probability theory, discovered Pascal's triangle, and established Pascal's law in physics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "lagrange",
@@ -5411,7 +6540,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Joseph_Louis_Lagrange.jpg/440px-Joseph_Louis_Lagrange.jpg",
+      "portrait": "data/portraits/lagrange.jpg",
       "influence": 9,
       "summary": "拉格朗日在分析力学、变分法和数论方面做出开创性贡献。",
       "summaryEn": "Lagrange made pioneering contributions to analytical mechanics, calculus of variations, and number theory.",
@@ -5468,7 +6597,31 @@ _sciomapData = {
       "lifeStory": "拉格朗日1736年出生于意大利都灵，19岁成为教授，后受邀到柏林科学院工作，最终回到巴黎，在分析力学和数学分析方面做出巨大贡献。",
       "lifeStoryEn": "Lagrange was born in 1736 in Turin, Italy. He became a professor at 19, worked at the Berlin Academy, and later returned to Paris, making monumental contributions to analytical mechanics.",
       "aiReview": "拉格朗日将力学彻底数学化，其分析力学体系至今仍是理论物理的基石，变分法思想贯穿整个现代数学。",
-      "aiReviewEn": "Lagrange systematized 18th-century mathematics, and his analytical mechanics and calculus of variations remain foundational. His multiplier method pervades modern science and engineering."
+      "aiReviewEn": "Lagrange systematized 18th-century mathematics, and his analytical mechanics and calculus of variations remain foundational. His multiplier method pervades modern science and engineering.",
+      "keyWorks": [
+        {
+          "title": "分析力学",
+          "titleEn": "Mecanique Analytique",
+          "year": 1788,
+          "type": "book"
+        },
+        {
+          "title": "解析函数理论",
+          "titleEn": "Theorie des Fonctions Analytiques",
+          "year": 1797,
+          "type": "book"
+        }
+      ],
+      "legacy": "拉格朗日在分析力学中实现了力学的纯代数化处理，拉格朗日乘子法和拉格朗日力学是物理和工程的核心工具。",
+      "legacyEn": "Lagrange reduced mechanics to purely algebraic analysis; Lagrange multipliers and Lagrangian mechanics are core tools in physics and engineering.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "laplace",
@@ -5544,7 +6697,37 @@ _sciomapData = {
       "lifeStory": "拉普拉斯1749年出生于法国诺曼底，从农村少年成长为法国科学界领袖，其天体力学巨著将牛顿的引力理论推到极致。",
       "lifeStoryEn": "Laplace was born in 1749 in Normandy, France. Rising from humble origins to become France's scientific leader, his Celestial Mechanics perfected Newton's theory of gravitation.",
       "aiReview": "拉普拉斯将数学分析应用于天体力学，其方程和变换已成为数学物理的标准工具，决定论思想深刻影响了科学哲学。",
-      "aiReviewEn": "Laplace extended Newtonian mechanics to its fullest expression. His equation and transform are standard tools across science and engineering, while his determinism shaped scientific philosophy."
+      "aiReviewEn": "Laplace extended Newtonian mechanics to its fullest expression. His equation and transform are standard tools across science and engineering, while his determinism shaped scientific philosophy.",
+      "keyWorks": [
+        {
+          "title": "天体力学",
+          "titleEn": "Traite de Mecanique Celeste",
+          "year": 1799,
+          "type": "book"
+        },
+        {
+          "title": "概率分析理论",
+          "titleEn": "Theorie Analytique des Probabilites",
+          "year": 1812,
+          "type": "book"
+        },
+        {
+          "title": "关于概率的哲学随笔",
+          "titleEn": "Essai Philosophique sur les Probabilites",
+          "year": 1814,
+          "type": "book"
+        }
+      ],
+      "legacy": "拉普拉斯方程是数学物理的核心，拉普拉斯变换是工程分析的基础工具；他完善了概率论并提出了拉普拉斯决定论。",
+      "legacyEn": "Laplace's equation is central to mathematical physics; the Laplace transform is fundamental to engineering analysis. He refined probability theory and formulated Laplace's determinism.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "cauchy",
@@ -5618,7 +6801,37 @@ _sciomapData = {
       "lifeStory": "柯西1789年出生于法国，在法国大革命时期成长，对数学生涯产出极丰，共发表800多篇论文，仅次于欧拉。",
       "lifeStoryEn": "Cauchy was born in 1789 in France during the French Revolution. He published over 800 papers, second only to Euler in mathematical productivity.",
       "aiReview": "柯西为微积分提供了严格的极限理论基础，复变函数论的创立更是开辟了数学的新纪元，其严谨精神影响了整个19世纪数学。",
-      "aiReviewEn": "Cauchy provided the rigorous foundation for calculus that it had lacked. His creation of complex function theory opened a new era in mathematics, and his rigorous style profoundly shaped 19th-century analysis."
+      "aiReviewEn": "Cauchy provided the rigorous foundation for calculus that it had lacked. His creation of complex function theory opened a new era in mathematics, and his rigorous style profoundly shaped 19th-century analysis.",
+      "keyWorks": [
+        {
+          "title": "分析教程",
+          "titleEn": "Cours d'Analyse de l'Ecole Royale Polytechnique",
+          "year": 1821,
+          "type": "book"
+        },
+        {
+          "title": "微积分概要",
+          "titleEn": "Resume des Lecons sur le Calcul Infinitesimal",
+          "year": 1823,
+          "type": "book"
+        },
+        {
+          "title": "关于定积分理论的论文",
+          "titleEn": "Memoire sur les Integrales Definies",
+          "year": 1825,
+          "type": "paper"
+        }
+      ],
+      "legacy": "柯西为微积分奠定了严格的极限基础，是现代分析的真正奠基人；柯西积分公式和柯西-黎曼方程是复变函数的核心。",
+      "legacyEn": "Cauchy put calculus on a rigorous foundation with his limit-based approach; Cauchy's integral formula and the Cauchy-Riemann equations are central to complex analysis.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "galois",
@@ -5684,7 +6897,25 @@ _sciomapData = {
       "lifeStory": "伽罗瓦1811年出生于法国，21岁死于决斗。在短暂生命中创立了群论，其手稿在死后十多年才被数学界发现和重视。",
       "lifeStoryEn": "Galois was born in 1811 in France and died in a duel at age 21. He founded group theory, but his manuscripts were only discovered posthumously over a decade later.",
       "aiReview": "伽罗瓦的群论是19世纪最深刻的数学创造之一，他连接了代数和数论，其思想为现代数学的结构观点奠定了基石。",
-      "aiReviewEn": "Galois' group theory is among the deepest mathematical ideas of the 19th century. Born from the solvability of equations, it laid the foundation for the structural view of modern mathematics."
+      "aiReviewEn": "Galois' group theory is among the deepest mathematical ideas of the 19th century. Born from the solvability of equations, it laid the foundation for the structural view of modern mathematics.",
+      "keyWorks": [
+        {
+          "title": "关于根式求解方程条件的研究",
+          "titleEn": "Memoire sur les Conditions de Resolubilite des Equations par Radicaux",
+          "year": 1832,
+          "type": "paper"
+        }
+      ],
+      "legacy": "伽罗瓦年仅20岁便创立了群论，彻底解决了高次方程根式可解性问题，成为现代代数的里程碑。",
+      "legacyEn": "Galois founded group theory at age 20, completely solving the problem of solvability of polynomial equations by radicals — a milestone in modern algebra.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "cantor",
@@ -5775,7 +7006,31 @@ _sciomapData = {
           "outcome": "“上帝创造整数”式的反对令康托尔备受打击，晚年多次入院",
           "outcomeEn": "Kronecker’s attacks devastated Cantor, who suffered repeated breakdowns"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "论实数代数数集合的一个性质",
+          "titleEn": "On a Property of the Set of Real Algebraic Numbers",
+          "year": 1874,
+          "type": "paper"
+        },
+        {
+          "title": "超穷数理论基础",
+          "titleEn": "Contributions to the Founding of the Theory of Transfinite Numbers",
+          "year": 1897,
+          "type": "book"
+        }
+      ],
+      "legacy": "康托尔创立了集合论和超穷数理论，其对无限的数学化处理彻底改变了数学基础。",
+      "legacyEn": "Cantor founded set theory and transfinite number theory; his mathematical treatment of infinity revolutionized the foundations of mathematics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hilbert",
@@ -5872,7 +7127,31 @@ _sciomapData = {
           "outcome": "其形式主义纲领被哥德尔不完备定理证明无法完全实现，并与布劳威尔的直觉主义激烈交锋",
           "outcomeEn": "His formalist program was undercut by Gödel’s theorems, amid a fierce clash with Brouwer’s intuitionism"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "几何基础",
+          "titleEn": "Grundlagen der Geometrie",
+          "year": 1899,
+          "type": "book"
+        },
+        {
+          "title": "数学问题——1900年巴黎演讲",
+          "titleEn": "Mathematical Problems (1900 Paris Lecture)",
+          "year": 1900,
+          "type": "paper"
+        }
+      ],
+      "legacy": "希尔伯特提出的23个问题设定了20世纪数学的研究议程；他倡导的形式主义方案和希尔伯特空间观念深刻影响了数学和量子力学。",
+      "legacyEn": "Hilbert's 23 problems set the research agenda for 20th-century mathematics; his formalism program and the concept of Hilbert space profoundly influenced mathematics and quantum mechanics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "poincare",
@@ -5964,7 +7243,37 @@ _sciomapData = {
           "outcome": "庞加莱先给出部分数学形式(洛伦兹群、相对性原理)，但物理诠释与突破归于爱因斯坦",
           "outcomeEn": "Poincaré had parts of the mathematics first, but the physical breakthrough is credited to Einstein"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "位置分析",
+          "titleEn": "Analysis Situs",
+          "year": 1895,
+          "type": "paper"
+        },
+        {
+          "title": "科学的价值",
+          "titleEn": "The Value of Science",
+          "year": 1905,
+          "type": "book"
+        },
+        {
+          "title": "天体力学新方法",
+          "titleEn": "Les Methodes Nouvelles de la Mecanique Celeste",
+          "year": 1892,
+          "type": "book"
+        }
+      ],
+      "legacy": "庞加莱是最后的全才数学家，创立了代数拓扑和动力系统理论，在相对论和混沌理论方面也有重要贡献。",
+      "legacyEn": "Poincare was the last universalist mathematician, founding algebraic topology and dynamical systems theory, with major contributions to relativity and chaos theory.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "godel",
@@ -6056,7 +7365,31 @@ _sciomapData = {
           "outcome": "不完备性常被曲解为数学不可信；他证明的连续统假设独立性也长期引发哲学争论",
           "outcomeEn": "Incompleteness is often misread as “math is unreliable”; his work on the continuum hypothesis fueled debate"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "《数学原理》及相关系统中的形式不可判定命题",
+          "titleEn": "On Formally Undecidable Propositions of Principia Mathematica and Related Systems",
+          "year": 1931,
+          "type": "paper"
+        },
+        {
+          "title": "选择公理与广义连续统假设的一致性",
+          "titleEn": "The Consistency of the Axiom of Choice and the Generalized Continuum Hypothesis",
+          "year": 1940,
+          "type": "book"
+        }
+      ],
+      "legacy": "哥德尔的不完备定理证明了任何一致的形式系统都无法自证其无矛盾性，动摇了数学基础的确定性，是20世纪最深刻的思想成果之一。",
+      "legacyEn": "Godel's incompleteness theorems proved that any consistent formal system cannot prove its own consistency, shaking the foundations of mathematics — one of the 20th century's deepest intellectual achievements.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "nash",
@@ -6140,7 +7473,44 @@ _sciomapData = {
           "breakthrough": "提出纳什均衡概念，为博弈论奠定数学基础",
           "breakthroughEn": "Proposed Nash equilibrium, laying the mathematical foundation of game theory"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "N人对策中的均衡点",
+          "titleEn": "Equilibrium Points in N-Person Games",
+          "year": 1950,
+          "type": "paper"
+        },
+        {
+          "title": "非合作博弈",
+          "titleEn": "Non-Cooperative Games",
+          "year": 1951,
+          "type": "paper"
+        },
+        {
+          "title": "黎曼流形的嵌入问题",
+          "titleEn": "The Imbedding Problem for Riemannian Manifolds",
+          "year": 1956,
+          "type": "paper"
+        }
+      ],
+      "legacy": "纳什创立了非合作博弈的理论框架，纳什均衡成为经济学和社会科学的中心概念；他在几何学中也有突破性贡献。",
+      "legacyEn": "Nash created the framework for non-cooperative game theory; the Nash equilibrium became a central concept in economics and social sciences. He also made groundbreaking contributions to geometry (Nash embedding theorems).",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔经济学奖",
+          "nameEn": "Nobel Prize in Economic Sciences",
+          "year": 1994,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "su-buqing",
@@ -6207,7 +7577,31 @@ _sciomapData = {
       "lifeStory": "苏步青1902年出生于浙江平阳，留学日本获东北帝国大学博士学位。回国后在浙江大学和复旦大学任教，创立中国微分几何学派，享年101岁。",
       "lifeStoryEn": "Su Buqing was born in 1902 in Zhejiang, China. After earning his PhD from Tohoku Imperial University in Japan, he returned to teach at Zhejiang and Fudan Universities, founding the Chinese school of differential geometry.",
       "aiReview": "苏步青不仅自身在微分几何领域做出开创性工作，更重要的是培养了大批数学人才，为中国现代数学体系的建立做出了不可磨灭的贡献。",
-      "aiReviewEn": "Su Buqing was a pioneer of Chinese mathematics, founding the Chinese school of differential geometry, and educated generations of mathematicians in China."
+      "aiReviewEn": "Su Buqing was a pioneer of Chinese mathematics, founding the Chinese school of differential geometry, and educated generations of mathematicians in China.",
+      "keyWorks": [
+        {
+          "title": "射影曲线的一般理论",
+          "titleEn": "General Theory of Projective Curves",
+          "year": 1930,
+          "type": "paper"
+        },
+        {
+          "title": "微分几何学",
+          "titleEn": "Differential Geometry",
+          "year": 1960,
+          "type": "book"
+        }
+      ],
+      "legacy": "苏步青是中国微分几何学派的创始人，在仿射微分几何和射影微分几何领域作出重要贡献。",
+      "legacyEn": "Su Buqing founded the Chinese school of differential geometry, making major contributions to affine and projective differential geometry.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "wu-wenjun",
@@ -6283,7 +7677,31 @@ _sciomapData = {
           "desc": "国家最高科学技术奖",
           "descEn": "National Highest Science and Technology Award"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "初等几何定理的机器证明",
+          "titleEn": "On the Decision Problem and the Mechanization of Theorem Proving in Elementary Geometry",
+          "year": 1984,
+          "type": "paper"
+        },
+        {
+          "title": "数学机械化",
+          "titleEn": "Mathematics Mechanization",
+          "year": 2000,
+          "type": "book"
+        }
+      ],
+      "legacy": "吴文俊创立了吴消元法（吴方法），将中国古代数学思想与现代数学结合，开创了机器证明的新领域。",
+      "legacyEn": "Wu Wenjun created Wu's method (Wu elimination), combining ancient Chinese mathematical thought with modern computing to pioneer automated theorem proving.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "tao-zhexuan",
@@ -6366,7 +7784,38 @@ _sciomapData = {
           "desc": "菲尔兹奖",
           "descEn": "Fields Medal"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "素数包含任意长的等差数列",
+          "titleEn": "The Primes Contain Arbitrarily Long Arithmetic Progressions (Green-Tao Theorem)",
+          "year": 2008,
+          "type": "paper"
+        },
+        {
+          "title": "非线性色散方程",
+          "titleEn": "Nonlinear Dispersive Equations: Local and Global Analysis",
+          "year": 2006,
+          "type": "book"
+        }
+      ],
+      "legacy": "陶哲轩是当代最杰出的数学家之一，格林-陶定理解决了素数分布中的长期难题；他在调和分析、偏微分方程、组合数学等领域均有深刻贡献。",
+      "legacyEn": "Tao is one of the most accomplished contemporary mathematicians; the Green-Tao theorem solved a long-standing problem on primes in arithmetic progressions. He has made profound contributions to harmonic analysis, PDEs, and combinatorics.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "菲尔兹奖",
+          "nameEn": "Fields Medal",
+          "year": 2006,
+          "type": "fields"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hooke",
@@ -6383,7 +7832,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "revolution",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Robert_Hooke_by_Rita_Grest.jpg/440px-Robert_Hooke_by_Rita_Grest.jpg",
+      "portrait": "data/portraits/hooke.jpg",
       "influence": 7,
       "summary": "罗伯特·胡克是17世纪英国博学家，被誉为「英国的达芬奇」。他在力学领域提出胡克定律，在生物学中首次用显微镜观察到细胞并命名，在地质学、天文学和建筑学领域也有重要贡献。",
       "summaryEn": "Robert Hooke was a 17th-century English polymath, often called 'England's Leonardo da Vinci.' He formulated Hooke's law of elasticity, was the first to observe and name cells under a microscope, and made significant contributions to geology, astronomy, and architecture.",
@@ -6465,7 +7914,15 @@ _sciomapData = {
         }
       ],
       "legacy": "胡克定律的发现者为弹性力学和材料科学奠定了基础；显微图谱的开创性观察开启了科学显微术的大门。",
-      "legacyEn": "Discoverer of Hooke's law, laying the foundation for elasticity and materials science; Micrographia pioneered scientific microscopy."
+      "legacyEn": "Discoverer of Hooke's law, laying the foundation for elasticity and materials science; Micrographia pioneered scientific microscopy.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "hertz",
@@ -6541,7 +7998,15 @@ _sciomapData = {
         }
       ],
       "legacy": "首次产生并检测到无线电波，实验验证了麦克斯韦电磁理论；频率单位赫兹（Hz）以他命名。",
-      "legacyEn": "First to generate and detect radio waves, experimentally confirming Maxwell's electromagnetic theory; the hertz (Hz) is named after him."
+      "legacyEn": "First to generate and detect radio waves, experimentally confirming Maxwell's electromagnetic theory; the hertz (Hz) is named after him.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "boltzmann",
@@ -6638,7 +8103,15 @@ _sciomapData = {
         }
       ],
       "legacy": "统计力学的奠基人，玻尔兹曼熵公式 S = k log W 建立了微观粒子运动与宏观热力学定律之间的桥梁。",
-      "legacyEn": "Founder of statistical mechanics; Boltzmann's entropy formula S = k log W bridged microscopic motion and macroscopic thermodynamics."
+      "legacyEn": "Founder of statistical mechanics; Boltzmann's entropy formula S = k log W bridged microscopic motion and macroscopic thermodynamics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "kelvin",
@@ -6729,7 +8202,15 @@ _sciomapData = {
         }
       ],
       "legacy": "建立了绝对温标（开尔文温标），为热力学开辟了精确测量的道路；主导跨大西洋海底电缆工程。",
-      "legacyEn": "Established the absolute temperature scale (Kelvin), enabling precise thermodynamic measurements; led the transatlantic telegraph cable project."
+      "legacyEn": "Established the absolute temperature scale (Kelvin), enabling precise thermodynamic measurements; led the transatlantic telegraph cable project.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "clausius",
@@ -6746,7 +8227,7 @@ _sciomapData = {
       ],
       "culturalTag": "western",
       "era": "enlightenment",
-      "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Rudolf_Clausius.jpg/440px-Rudolf_Clausius.jpg",
+      "portrait": "data/portraits/clausius.jpg",
       "influence": 7,
       "summary": "鲁道夫·克劳修斯是德国物理学家，热力学的奠基人之一。他首次明确提出热力学第二定律，并引入了「熵」的概念，为热力学奠定了严格的理论基础。克拉珀龙-克劳修斯方程也是他的重要贡献之一。",
       "summaryEn": "Rudolf Clausius was a German physicist and one of the founders of thermodynamics. He was the first to clearly formulate the second law of thermodynamics and introduced the concept of 'entropy,' laying a rigorous theoretical foundation for the field. The Clausius-Clapeyron equation is also among his key contributions.",
@@ -6805,7 +8286,15 @@ _sciomapData = {
         }
       ],
       "legacy": "提出了热力学第二定律并引入了熵的概念，为热力学建立了严密的理论框架。",
-      "legacyEn": "Formulated the second law of thermodynamics and introduced the concept of entropy, establishing the rigorous framework of thermodynamics."
+      "legacyEn": "Formulated the second law of thermodynamics and introduced the concept of entropy, establishing the rigorous framework of thermodynamics.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "penrose",
@@ -6898,7 +8387,22 @@ _sciomapData = {
         }
       ],
       "legacy": "与霍金共同提出奇点定理，揭示了黑洞和大爆炸时空奇点的必然性；提出彭罗斯拼砖，深刻影响了晶体学。",
-      "legacyEn": "Co-proposed the singularity theorems with Hawking, proving the inevitability of black hole and Big Bang singularities; discovered Penrose tiling, profoundly influencing crystallography."
+      "legacyEn": "Co-proposed the singularity theorems with Hawking, proving the inevitability of black hole and Big Bang singularities; discovered Penrose tiling, profoundly influencing crystallography.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 2020,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "dirac",
@@ -6997,7 +8501,22 @@ _sciomapData = {
         }
       ],
       "legacy": "狄拉克方程将量子力学与狭义相对论统一，预言了反物质（正电子）的存在；《量子力学原理》是现代量子理论的经典教科书。",
-      "legacyEn": "The Dirac equation unified quantum mechanics with special relativity and predicted antimatter (the positron); his Principles of Quantum Mechanics is a classic of quantum theory."
+      "legacyEn": "The Dirac equation unified quantum mechanics with special relativity and predicted antimatter (the positron); his Principles of Quantum Mechanics is a classic of quantum theory.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1933,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "pauli",
@@ -7088,7 +8607,22 @@ _sciomapData = {
         }
       ],
       "legacy": "泡利不相容原理揭示了原子中电子排布的根本规律，是量子力学和化学的基石；提出中微子假说解释了β衰变中的能量守恒问题。",
-      "legacyEn": "The Pauli exclusion principle revealed the fundamental law of electron arrangement, forming the basis of quantum mechanics and chemistry; proposed the neutrino hypothesis to explain energy conservation in beta decay."
+      "legacyEn": "The Pauli exclusion principle revealed the fundamental law of electron arrangement, forming the basis of quantum mechanics and chemistry; proposed the neutrino hypothesis to explain energy conservation in beta decay.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1945,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "ding-zhaozhong",
@@ -7179,7 +8713,22 @@ _sciomapData = {
         }
       ],
       "legacy": "发现J/ψ粒子，证实粲夸克的存在，获1976年诺贝尔物理学奖；领导阿尔法磁谱仪实验在国际空间站搜寻反物质与暗物质。",
-      "legacyEn": "Discovered the J/ψ particle, confirming the charm quark, winning the 1976 Nobel Prize; led the AMS experiment on the ISS searching for antimatter and dark matter."
+      "legacyEn": "Discovered the J/ψ particle, confirming the charm quark, winning the 1976 Nobel Prize; led the AMS experiment on the ISS searching for antimatter and dark matter.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1976,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "chu-steven",
@@ -7270,7 +8819,22 @@ _sciomapData = {
         }
       ],
       "legacy": "发展了激光冷却和光学陷阱技术，为超冷原子物理和量子气体研究奠定基础，获1997年诺贝尔物理学奖。",
-      "legacyEn": "Developed laser cooling and optical trapping techniques, laying the foundation for ultra-cold atom physics and quantum gas research, winning the 1997 Nobel Prize."
+      "legacyEn": "Developed laser cooling and optical trapping techniques, laying the foundation for ultra-cold atom physics and quantum gas research, winning the 1997 Nobel Prize.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1997,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "tsui-daniel",
@@ -7355,7 +8919,22 @@ _sciomapData = {
         }
       ],
       "legacy": "发现分数量子霍尔效应，揭示强关联电子体系中的新量子物态，引发拓扑物态研究热潮，获1998年诺贝尔物理学奖。",
-      "legacyEn": "Discovered the fractional quantum Hall effect, revealing new quantum states in strongly correlated electron systems, sparking topological states research, winning the 1998 Nobel Prize."
+      "legacyEn": "Discovered the fractional quantum Hall effect, revealing new quantum states in strongly correlated electron systems, sparking topological states research, winning the 1998 Nobel Prize.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1998,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "kao-charles",
@@ -7434,7 +9013,22 @@ _sciomapData = {
         }
       ],
       "legacy": "开创性地提出用高纯度玻璃光纤实现长距离光通信，被誉为「光纤之父」，其研究彻底改变了全球通信产业，获2009年诺贝尔物理学奖。",
-      "legacyEn": "Pioneered the use of high-purity glass optical fibers for long-distance communication, known as the 'Father of Fiber Optics', revolutionizing global telecommunications, winning the 2009 Nobel Prize."
+      "legacyEn": "Pioneered the use of high-purity glass optical fibers for long-distance communication, known as the 'Father of Fiber Optics', revolutionizing global telecommunications, winning the 2009 Nobel Prize.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 2009,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "pan-jianwei",
@@ -7516,7 +9110,15 @@ _sciomapData = {
         }
       ],
       "legacy": "在量子隐形传态、多光子纠缠和量子密钥分发方面做出世界领先的突破；领导墨子号量子科学实验卫星实现了星地量子通信。",
-      "legacyEn": "Made world-leading breakthroughs in quantum teleportation, multi-photon entanglement, and quantum key distribution; led the Micius satellite quantum science experiments."
+      "legacyEn": "Made world-leading breakthroughs in quantum teleportation, multi-photon entanglement, and quantum key distribution; led the Micius satellite quantum science experiments.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "avogadro",
@@ -7570,7 +9172,15 @@ _sciomapData = {
       "lifeStory": "阿伏伽德罗1776年生于意大利都灵贵族家庭，早年学习法学，后转向科学。1811年提出分子假说但被忽视近50年。",
       "lifeStoryEn": "Born 1776 in Turin, studied law before turning to science. His molecular hypothesis was ignored for nearly 50 years.",
       "aiReview": "阿伏伽德罗的分子假说在他生前被忽视，但最终成为化学的基石。",
-      "aiReviewEn": "Avogadro's hypothesis — equal volumes of gases contain equal numbers of molecules — provided a fundamental link between the microscopic and macroscopic worlds of chemistry."
+      "aiReviewEn": "Avogadro's hypothesis — equal volumes of gases contain equal numbers of molecules — provided a fundamental link between the microscopic and macroscopic worlds of chemistry.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "arrhenius",
@@ -7647,7 +9257,22 @@ _sciomapData = {
           "desc": "诺贝尔化学奖",
           "descEn": "Nobel Prize in Chemistry"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 1903,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "pauling",
@@ -7746,7 +9371,28 @@ _sciomapData = {
           "outcome": "其维C抗癌/抗感冒主张缺乏严谨证据遭批评，且曾提出错误的DNA三螺旋结构",
           "outcomeEn": "His vitamin-C claims lacked rigorous evidence, and he proposed an incorrect triple-helix DNA"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 1954,
+          "type": "nobel"
+        },
+        {
+          "name": "诺贝尔和平奖",
+          "nameEn": "Nobel Peace Prize",
+          "year": 1962,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "xu-guangxian",
@@ -7761,7 +9407,7 @@ _sciomapData = {
       "tags": [
         "chemistry"
       ],
-      "culturalTag": "eastern",
+      "culturalTag": "chinese",
       "era": "modern",
       "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Xu_Guangxian_1951.jpg/440px-Xu_Guangxian_1951.jpg",
       "influence": 9,
@@ -7823,7 +9469,15 @@ _sciomapData = {
           "desc": "国家最高科学技术奖",
           "descEn": "National Highest Science and Technology Award"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "ptolemy",
@@ -7907,7 +9561,15 @@ _sciomapData = {
         }
       ],
       "legacy": "建立地心宇宙体系（托勒密体系），用本轮和均轮系统解释行星运动，统治天文学长达1400年。",
-      "legacyEn": "Established the geocentric model (Ptolemaic system), using epicycles and deferents to explain planetary motion, dominating astronomy for 1,400 years."
+      "legacyEn": "Established the geocentric model (Ptolemaic system), using epicycles and deferents to explain planetary motion, dominating astronomy for 1,400 years.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "tycho",
@@ -7991,7 +9653,15 @@ _sciomapData = {
         }
       ],
       "legacy": "绘制了历史上最精确的前望远镜时代星表，为开普勒三大定律提供了观测数据基础；观测了1572年超新星。",
-      "legacyEn": "Compiled the most precise pre-telescope star catalog, providing observational data for Kepler's three laws; observed the 1572 supernova."
+      "legacyEn": "Compiled the most precise pre-telescope star catalog, providing observational data for Kepler's three laws; observed the 1572 supernova.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "herschel",
@@ -8084,7 +9754,15 @@ _sciomapData = {
         }
       ],
       "legacy": "发现天王星使人类首次扩展了太阳系的边界；创建了银河系结构模型，改进了反射望远镜技术。",
-      "legacyEn": "Discovered Uranus, expanding the known boundaries of the Solar System; created a model of the Milky Way's structure and improved reflecting telescope technology."
+      "legacyEn": "Discovered Uranus, expanding the known boundaries of the Solar System; created a model of the Milky Way's structure and improved reflecting telescope technology.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "chandrasekhar",
@@ -8099,7 +9777,7 @@ _sciomapData = {
       "tags": [
         "astronomy"
       ],
-      "culturalTag": "western",
+      "culturalTag": "indian",
       "era": "modern",
       "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Chandrasekhar.jpg/440px-Chandrasekhar.jpg",
       "influence": 9,
@@ -8183,7 +9861,22 @@ _sciomapData = {
         }
       ],
       "legacy": "钱德拉塞卡极限预言了白矮星不复存在的临界质量，促成了中子星和黑洞的研究；对恒星结构和辐射转移理论做出奠基性贡献。",
-      "legacyEn": "The Chandrasekhar limit predicted the critical mass beyond which white dwarfs cannot exist, leading to the study of neutron stars and black holes; foundational contributions to stellar structure and radiative transfer."
+      "legacyEn": "The Chandrasekhar limit predicted the critical mass beyond which white dwarfs cannot exist, leading to the study of neutron stars and black holes; foundational contributions to stellar structure and radiative transfer.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1983,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "sagan",
@@ -8294,7 +9987,15 @@ _sciomapData = {
           "outcome": "因大众科普被部分同行轻视，曾被美国科学院拒之门外；“核冬天”模型亦有争议",
           "outcomeEn": "His popular fame drew disdain; he was denied NAS membership, and his “nuclear winter” model was contested"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "guo-shoujing",
@@ -8309,7 +10010,7 @@ _sciomapData = {
       "tags": [
         "astronomy"
       ],
-      "culturalTag": "eastern",
+      "culturalTag": "chinese",
       "era": "medieval",
       "portrait": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Guo_Shoujing.jpg/440px-Guo_Shoujing.jpg",
       "influence": 8,
@@ -8372,7 +10073,15 @@ _sciomapData = {
         }
       ],
       "legacy": "创制授时历精确计算回归年长度，其精度与格里高利历相当但早了三百年；设计制造了简仪、仰仪等十余种革命性天文仪器。",
-      "legacyEn": "Created the Shoushi Calendar, calculating the tropical year with accuracy comparable to the Gregorian calendar but 300 years earlier; designed over a dozen revolutionary astronomical instruments."
+      "legacyEn": "Created the Shoushi Calendar, calculating the tropical year with accuracy comparable to the Gregorian calendar but 300 years earlier; designed over a dozen revolutionary astronomical instruments.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "aristotle",
@@ -8460,7 +10169,15 @@ _sciomapData = {
           "outcome": "其“重物下落更快”与地心说被奉为权威，直到伽利略、牛顿才被推翻",
           "outcomeEn": "His “heavier falls faster” and geocentric views became dogma until overturned by Galileo and Newton"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "wallace",
@@ -8541,7 +10258,15 @@ _sciomapData = {
           "desc": "英国皇家学会院士",
           "descEn": "Fellow of the Royal Society"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "huxley",
@@ -8639,7 +10364,15 @@ _sciomapData = {
           "outcome": "1860年牛津辩论中，赫胥黎驳斥威尔伯福斯主教的攻击，为达尔文进化论赢得关键公众支持",
           "outcomeEn": "At the 1860 Oxford debate, Huxley refuted Bishop Wilberforce's attacks, winning crucial public support for Darwin's theory"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "mcclintock",
@@ -8731,7 +10464,22 @@ _sciomapData = {
           "desc": "诺贝尔生理学或医学奖",
           "descEn": "Nobel Prize in Medicine"
         }
-      ]
+      ],
+      "gender": "female",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 1983,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "tong-dizhou",
@@ -8810,7 +10558,15 @@ _sciomapData = {
       "lifeStory": "童第周1902年出生于浙江宁波一个农民家庭。他早年就读于复旦大学，后赴比利时留学，在布鲁塞尔大学师从胚胎学家达克教授，获博士学位。1934年回国后先后在山东大学、中央研究院、中国科学院工作。1950年代，他领导开展了鱼类胚胎发育研究，在世界上最早实现鱼类细胞核移植，为后来的克隆技术奠定了基础。他在文化大革命期间遭受迫害，但始终坚持科研。他一生淡泊名利，将大部分精力倾注于实验室和人才培养上。",
       "lifeStoryEn": "Born in 1902 to a peasant family in Ningbo, Zhejiang, Tong studied at Fudan University before pursuing his doctorate in Belgium at the University of Brussels under embryologist Prof. Albert Dalcq. He returned to China in 1934 and worked at Shandong University, Academia Sinica, and the Chinese Academy of Sciences. In the 1950s, he led fish embryonic development research, achieving one of the world’s earliest fish nuclear transplants, laying the groundwork for later cloning technology. He suffered persecution during the Cultural Revolution but never abandoned his research. Throughout his life, he was indifferent to fame and fortune, devoting himself to the laboratory and mentoring students.",
       "aiReview": "童第周是当之无愧的中国实验胚胎学之父。他在极其艰苦的条件下做出了国际一流的科研成果，这本身就令人肃然起敬。他的鱼类核移植实验比多利羊的诞生早了近半个世纪，观念超前。更难能可贵的是他在文化大革命那样的逆境中仍然坚持科学研究，体现了中国老一辈科学家坚韧不拔的精神品质。童第周为中国生命科学在国际上赢得了一席之地，其学术贡献和人格魅力都值得后人铭记。",
-      "aiReviewEn": "Tong Dizhou was a pioneer of Chinese experimental embryology. His cloning research in the 1960s was among the earliest in the world."
+      "aiReviewEn": "Tong Dizhou was a pioneer of Chinese experimental embryology. His cloning research in the 1960s was among the earliest in the world.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "shi-yigong",
@@ -8900,7 +10656,15 @@ _sciomapData = {
           "desc": "未来科学大奖",
           "descEn": "Future Science Prize"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "galen",
@@ -8974,7 +10738,15 @@ _sciomapData = {
       "lifeStory": "盖伦公元129年出生于古希腊帕加马（今土耳其境内），父亲是富有的建筑师。他14岁开始学习哲学和数学，后转向医学。他在帕加马的角斗士学校担任外科医生，积累了丰富的解剖和外科经验。公元162年前往罗马，凭借出色的医疗技术和公开解剖演示迅速声名鹊起，成为罗马皇帝马可·奥勒留的御医。盖伦一生撰写了超过500篇医学论文（现存约150篇），内容涵盖解剖、生理、病理、治疗、药物等所有医学领域。由于罗马禁止人体解剖，他的解剖知识主要来源于对猪、猴、猿等动物的研究，这也导致了许多张冠李戴的错误。",
       "lifeStoryEn": "Born in 129 CE in Pergamon (modern-day Turkey) to a wealthy architect father, Galen began studying philosophy and mathematics at 14 before turning to medicine. He served as a surgeon to gladiators in Pergamon, gaining extensive anatomical and surgical experience. In 162 CE, he went to Rome, where his exceptional medical skills and public dissection demonstrations earned him fame, eventually becoming court physician to Emperor Marcus Aurelius. Galen wrote over 500 medical treatises (about 150 survive), covering all fields of medicine. Because human dissection was forbidden in Rome, his anatomical knowledge came mainly from dissecting pigs, monkeys, and apes, which led to numerous errors.",
       "aiReview": "盖伦是医学史上绕不开的巨人。他的影响力之大，以至于长达15个世纪里，医生们宁愿相信盖伦的权威也不相信自己的眼睛——这正是维萨里和哈维等人需要用巨大勇气来挑战的。讽刺的是，盖伦本人恰恰是强调实证观察的，他的许多结论只是囿于时代局限（不能解剖人体）才出现偏差。因此，盖伦的遗产是双重的：他既留下了大量珍贵知识，也留下了一个关于“权威崇拜”的深刻教训——科学进步必须以实证而非权威为基础。",
-      "aiReviewEn": "Galen's medical system dominated Western medicine for over 1,300 years. His anatomical work, based on animal dissections, was the standard medical authority until the Renaissance."
+      "aiReviewEn": "Galen's medical system dominated Western medicine for over 1,300 years. His anatomical work, based on animal dissections, was the standard medical authority until the Renaissance.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "vesalius",
@@ -9048,7 +10820,15 @@ _sciomapData = {
       "lifeStory": "维萨里1514年出生于布鲁塞尔的一个医学世家。他在鲁汶大学、巴黎大学学习医学，因不满当时医学院照本宣科、由理发师执行解剖的教学方式，决心亲自进行解剖研究。在帕多瓦大学获得博士学位后留校任教，年仅23岁。他在教学之余亲自主刀解剖，并邀请画家绘制精确的解剖插图。1543年，29岁的维萨里出版了七卷本的《人体构造论》，成为科学史上的里程碑。同年他还发表了《人体构造论摘要》。晚年他离开学术研究，成为西班牙国王查理五世和菲利普二世的御医。1564年在从耶路撒冷朝圣归途中去世。",
       "lifeStoryEn": "Born in 1514 in Brussels into a medical family, Vesalius studied at the Universities of Leuven and Paris. Dissatisfied with the prevailing teaching method where professors read from texts while barbers performed dissections, he resolved to conduct dissections himself. He earned his doctorate at the University of Padua and stayed on as a professor at age 23. He personally performed dissections and commissioned artists to create precise anatomical illustrations. In 1543, at 29, he published the seven-volume De humani corporis fabrica, a landmark in scientific history. In his later years, he became court physician to Emperor Charles V and King Philip II of Spain. He died in 1564 while returning from a pilgrimage to Jerusalem.",
       "aiReview": "维萨里是医学史上的转折点——他象征着从“盲目崇拜权威”到“我亲眼所见”的范式转换。他的《人体构造论》不仅是一本解剖学教科书，更是一部艺术杰作和人文主义宣言。值得注意的是，维萨里虽然挑战了盖伦的权威，但他的革命是温和的——他只是在用事实说话。但这种温和的革命恰恰是最彻底的，因为一旦人们习惯了用眼睛观察而非从书本背诵，医学就再也不可能回到过去。维萨里为哈维发现血液循环铺平了解剖学道路。",
-      "aiReviewEn": "Vesalius broke with Galen by basing anatomy on direct human dissection. His De Humani Corporis Fabrica revolutionized medicine and corrected centuries of anatomical error."
+      "aiReviewEn": "Vesalius broke with Galen by basing anatomy on direct human dissection. His De Humani Corporis Fabrica revolutionized medicine and corrected centuries of anatomical error.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "harvey",
@@ -9128,7 +10908,15 @@ _sciomapData = {
           "breakthrough": "发现血液循环系统，证明心脏是血液流动的动力源",
           "breakthroughEn": "Discovered blood circulation, proved the heart powers blood flow"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "jenner",
@@ -9217,7 +11005,15 @@ _sciomapData = {
           "breakthrough": "发明牛痘接种法，开创免疫学，最终在全球范围内消灭了天花",
           "breakthroughEn": "Developed smallpox vaccination, founding immunology, leading to global smallpox eradication"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "lister",
@@ -9307,7 +11103,15 @@ _sciomapData = {
           "desc": "英国皇家学会院士",
           "descEn": "Fellow of the Royal Society"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "lin-qiaozhi",
@@ -9387,7 +11191,15 @@ _sciomapData = {
       "lifeStory": "林巧稚1901年出生于福建厦门鼓浪屿一个基督教家庭，5岁时母亲因宫颈癌去世，这促使她立志学医。1921年她考入北京协和医学院，经过8年艰苦学习获博士学位，成为协和首位获得留院资格的中国女性。此后她赴欧美考察进修。1940年代回国后任协和医院妇产科主任。新中国成立后，她继续在协和工作，并参与创建了许多妇产专科医院。她一生接生超过5万名婴儿。即使在文化大革命期间，她仍坚守岗位。1983年病逝于北京，遗嘱将毕生积蓄捐献给医学事业。",
       "lifeStoryEn": "Born in 1901 in Gulangyu, Xiamen, Fujian, to a Christian family, Lin’s mother died of cervical cancer when she was 5, inspiring her to study medicine. In 1921, she was admitted to Peking Union Medical College (PUMC). After 8 years of rigorous study, she earned her MD, becoming the first Chinese woman qualified to stay on staff at PUMC. She later studied abroad in Europe and America. In the 1940s, she returned to lead PUMC’s OB/GYN department. After the founding of New China, she continued at PUMC and helped establish numerous maternity hospitals. She delivered over 50,000 babies in her lifetime. Even during the Cultural Revolution, she remained at her post. She passed away in 1983 in Beijing, donating her life savings to medicine.",
       "aiReview": "林巧稚是中国现代医学史上的一座精神丰碑。她不仅在专业上开辟了中国妇产科学的新天地，更以其高尚的医德赢得了所有人的尊敬。她终身未婚，以医院为家，以患者为亲人——这种近乎偏执的奉献精神在今天看来也许难以理解，但恰恰是那个时代的中国知识分子最可贵的品质。林巧稚身上体现了医学的两个维度：科学的精确和人文的温度。她既是一位严谨的科学家，也是一位充满慈悲心的医者。“万婴之母”这个称号，是对她最好的诠释。",
-      "aiReviewEn": "Lin Qiaozhi, 'the mother of obstetrics and gynecology in China,' devoted her life to women's health and medical education, setting the standard for clinical medicine in China."
+      "aiReviewEn": "Lin Qiaozhi, 'the mother of obstetrics and gynecology in China,' devoted her life to women's health and medical education, setting the standard for clinical medicine in China.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "babbage",
@@ -9466,7 +11278,31 @@ _sciomapData = {
           "desc": "英国皇家学会院士",
           "descEn": "Fellow of the Royal Society"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "论机器与制造业的经济",
+          "titleEn": "On the Economy of Machinery and Manufactures",
+          "year": 1832,
+          "type": "book"
+        },
+        {
+          "title": "一位哲学家的生命历程",
+          "titleEn": "Passages from the Life of a Philosopher",
+          "year": 1864,
+          "type": "book"
+        }
+      ],
+      "legacy": "巴贝奇设计了差分机和分析引擎——现代计算机的概念先驱，其可编程、存储和穿孔卡片的思想预示了通用计算时代。",
+      "legacyEn": "Babbage designed the Difference Engine and Analytical Engine — conceptual forerunners of the modern computer. His ideas of programmability, memory, and punched cards foreshadowed the age of general-purpose computing.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "lovelace",
@@ -9536,7 +11372,25 @@ _sciomapData = {
       "lifeStory": "艾达·洛夫莱斯是著名诗人拜伦勋爵的女儿，母亲安妮·米尔班克是数学爱好者，刻意培养艾达的数学才能以避免她继承父亲的'疯狂诗意'。17岁时，艾达遇见了巴贝奇，对他的分析机产生了浓厚兴趣。1842-1843年，她翻译了意大利工程师梅纳布雷亚关于分析机的论文，并在其中加入了大量原创注释——这些注释比原文长三倍，其中包含了世界上第一个计算机程序。她将想象力与科学结合，提出'诗意的科学'理念。洛夫莱斯36岁时因癌症去世，其远见在百年后才被充分认识。",
       "lifeStoryEn": "Ada Lovelace was the daughter of the famous poet Lord Byron. Her mother, Anne Milbanke, was a mathematics enthusiast who cultivated Ada's mathematical talent to prevent her from inheriting her father's 'poetic madness.' At 17, Ada met Babbage and became fascinated by his Analytical Engine. In 1842-43, she translated an Italian engineer's paper on the Analytical Engine and added extensive original notes—three times longer than the original paper—containing the world's first computer program. She combined imagination with science, coining the concept of 'poetical science.' Lovelace died of cancer at 36, and her visionary insights were not fully recognized until a century later.",
       "aiReview": "洛夫莱斯的洞见之深令人震撼。她在1843年就提出计算机可以处理'任何能用符号表示的事物'，这本质上就是今天AI对符号系统处理的预言。她理解的'计算'远比同时代人深刻——不是算术，而是符号操作。她的'诗意的科学'概念与当代对AI创造力的探讨遥相呼应。令人叹息的是，如果她能活得更久，其思想对后世计算机发展的影响可能会大得多。她是一位被时代严重限制的天才。",
-      "aiReviewEn": "Ada Lovelace wrote the first algorithm intended for computer execution. The daughter of Lord Byron, she foresaw that machines could go beyond calculation to create music and art."
+      "aiReviewEn": "Ada Lovelace wrote the first algorithm intended for computer execution. The daughter of Lord Byron, she foresaw that machines could go beyond calculation to create music and art.",
+      "keyWorks": [
+        {
+          "title": "分析机札记",
+          "titleEn": "Notes on the Analytical Engine (Sketch of the Analytical Engine, translation with notes)",
+          "year": 1843,
+          "type": "paper"
+        }
+      ],
+      "legacy": "阿达·洛夫莱斯编写了史上第一个计算机算法，被视为第一位程序员；她预见了计算机不仅可以算数，还可以处理音乐和图形。",
+      "legacyEn": "Ada Lovelace wrote the first computer algorithm, making her the world's first programmer; she envisioned that computers could process music and graphics, not just numbers.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "mccarthy",
@@ -9638,7 +11492,38 @@ _sciomapData = {
           "outcome": "早期对AI能力与时间表的乐观预测屡屡落空，助推了后来的“AI寒冬”",
           "outcomeEn": "Early optimistic forecasts repeatedly failed, feeding later “AI winters”"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "带符号表达式的递归函数及其机器计算",
+          "titleEn": "Recursive Functions of Symbolic Expressions and Their Computation by Machine (Part I)",
+          "year": 1960,
+          "type": "paper"
+        },
+        {
+          "title": "具有常识的程序",
+          "titleEn": "Programs with Common Sense",
+          "year": 1959,
+          "type": "paper"
+        }
+      ],
+      "legacy": "麦卡锡创立了人工智能学科，发明了LISP语言（第二古老的编程语言），并提出了分时系统概念。",
+      "legacyEn": "McCarthy founded the field of artificial intelligence, invented the LISP programming language (the second-oldest high-level language), and pioneered the concept of time-sharing systems.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 1971,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "dijkstra",
@@ -9741,7 +11626,38 @@ _sciomapData = {
           "outcome": "这封公开信点燃结构化编程大论战，他对若干语言与工程实践的尖锐批评亦广受争议",
           "outcomeEn": "His famous letter sparked the structured-programming debate and pointed critiques of many languages"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "关于图论的附注（Dijkstra算法）",
+          "titleEn": "A Note on Two Problems in Connexion with Graphs (Dijkstra's Algorithm)",
+          "year": 1959,
+          "type": "paper"
+        },
+        {
+          "title": "Goto语句是有害的",
+          "titleEn": "Go To Statement Considered Harmful",
+          "year": 1968,
+          "type": "paper"
+        }
+      ],
+      "legacy": "戴克斯特拉发明了Dijkstra最短路径算法，是结构化编程的倡导者，其关于程序正确性证明的思想深刻影响了软件开发方法论。",
+      "legacyEn": "Dijkstra created the shortest path algorithm bearing his name; he was a leading advocate of structured programming and his ideas on program correctness deeply influenced software development methodology.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 1972,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "ritchie",
@@ -9843,7 +11759,38 @@ _sciomapData = {
           "outcome": "AT&T对Unix的商业化与版权主张，引发与BSD等阵营长期的许可与诉讼争议",
           "outcomeEn": "AT&T’s commercialization of Unix triggered long licensing and legal disputes with BSD and others"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "C程序设计语言",
+          "titleEn": "The C Programming Language (with Brian Kernighan)",
+          "year": 1978,
+          "type": "book"
+        },
+        {
+          "title": "UNIX分时系统",
+          "titleEn": "The UNIX Time-Sharing System (with Ken Thompson)",
+          "year": 1974,
+          "type": "paper"
+        }
+      ],
+      "legacy": "里奇是C语言的创造者（至今仍是最广泛使用的系统编程语言之一）和UNIX操作系统的共同发明人，深刻影响了整个计算机行业。",
+      "legacyEn": "Ritchie created the C language (still one of the most widely used system programming languages) and co-created UNIX, profoundly shaping the entire computing industry.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 1983,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "berners-lee",
@@ -9945,7 +11892,38 @@ _sciomapData = {
           "outcome": "面对隐私失控与平台垄断，他发起Solid项目试图“重新去中心化”网络",
           "outcomeEn": "Amid privacy loss and monopolies, he launched Solid to “re-decentralize” the Web"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "信息管理：一个提案",
+          "titleEn": "Information Management: A Proposal",
+          "year": 1989,
+          "type": "paper"
+        },
+        {
+          "title": "编织万维网",
+          "titleEn": "Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web",
+          "year": 1999,
+          "type": "book"
+        }
+      ],
+      "legacy": "伯纳斯-李发明了万维网、HTML、HTTP和URL，彻底改变了人类获取信息的方式。他坚持万维网应保持开放和免费。",
+      "legacyEn": "Berners-Lee invented the World Wide Web, HTML, HTTP, and URLs, fundamentally transforming how humanity accesses information. He has steadfastly advocated for keeping the web open and free.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 2016,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "torvalds",
@@ -10048,10 +12026,35 @@ _sciomapData = {
           "outcome": "以尖刻言辞著称，2018年为社区行为公开致歉并短暂离开；与塔能鲍姆有过“Linux设计过时”的著名辩论",
           "outcomeEn": "Known for harsh language, he apologized and briefly stepped back in 2018; famously debated Tanenbaum on kernel design"
         }
-      ]
+      ],
+      "keyWorks": [
+        {
+          "title": "Linux内核",
+          "titleEn": "The Linux Kernel (Original Release)",
+          "year": 1991,
+          "type": "paper"
+        },
+        {
+          "title": "只是为了好玩",
+          "titleEn": "Just for Fun: The Story of an Accidental Revolutionary",
+          "year": 2001,
+          "type": "book"
+        }
+      ],
+      "legacy": "托瓦兹创建了Linux内核（开源操作系统的事实标准）和Git版本控制系统，对现代软件开发的基础设施产生了不可替代的影响。",
+      "legacyEn": "Torvalds created the Linux kernel (the de facto standard for open-source operating systems) and the Git version control system, irreplaceably shaping the infrastructure of modern software development.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "minkowski",
+      "portrait": "data/portraits/minkowski.jpg",
       "name": "赫尔曼·闵可夫斯基",
       "nameEn": "Hermann Minkowski",
       "birth": 1864,
@@ -10059,7 +12062,7 @@ _sciomapData = {
       "nationality": "德国/立陶宛",
       "nationalityEn": "German/Lithuanian",
       "discipline": "mathematics",
-      "subDiscipline": "几何",
+      "subDiscipline": "geometry",
       "tags": [
         "mathematics",
         "physics"
@@ -10090,10 +12093,19 @@ _sciomapData = {
           "description": "闵可夫斯基是爱因斯坦在苏黎世的老师，其时空观直接启发了相对论",
           "descriptionEn": "Minkowski taught Einstein in Zurich; his spacetime view directly inspired relativity"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "ken-thompson",
+      "portrait": "",
       "name": "肯·汤普森",
       "nameEn": "Ken Thompson",
       "birth": 1943,
@@ -10101,7 +12113,7 @@ _sciomapData = {
       "nationality": "美国",
       "nationalityEn": "American",
       "discipline": "cs",
-      "subDiscipline": "系统",
+      "subDiscipline": "systems",
       "tags": [
         "cs"
       ],
@@ -10138,10 +12150,26 @@ _sciomapData = {
           "description": "与里奇共同创造 Unix 和 C 语言",
           "descriptionEn": "Co-created Unix and C with Ritchie"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 1983,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     },
     {
       "id": "stallman",
+      "portrait": "",
       "name": "理查德·斯托曼",
       "nameEn": "Richard Stallman",
       "birth": 1953,
@@ -10149,7 +12177,7 @@ _sciomapData = {
       "nationality": "美国",
       "nationalityEn": "American",
       "discipline": "cs",
-      "subDiscipline": "系统",
+      "subDiscipline": "systems",
       "tags": [
         "cs"
       ],
@@ -10186,7 +12214,1503 @@ _sciomapData = {
           "description": "与托瓦兹在自由/开源软件运动上理念有别却相互成就",
           "descriptionEn": "Different philosophies from Torvalds, yet mutually enabling the free/open-source movement"
         }
-      ]
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "al-khwarizmi",
+      "name": "花剌子米",
+      "nameEn": "Al-Khwarizmi",
+      "birth": 780,
+      "death": 850,
+      "nationality": "波斯（阿拔斯王朝）",
+      "nationalityEn": "Persia (Abbasid Caliphate)",
+      "discipline": "mathematics",
+      "subDiscipline": "algebra",
+      "tags": [
+        "mathematics",
+        "astronomy"
+      ],
+      "culturalTag": "islamic",
+      "era": "medieval",
+      "influence": 10,
+      "summary": "花剌子米是\"代数之父\"，其《代数学》第一次系统处理一次与二次方程，书名\"al-jabr\"演变为今天的\"algebra\"。他还把印度数字传入伊斯兰世界并最终传入欧洲，其名字拉丁化为\"Algorithmi\"，成为\"算法\"（algorithm）一词的来源。",
+      "summaryEn": "Al-Khwarizmi is the \"father of algebra\". His book on algebra gave the word \"algebra\" (from \"al-jabr\") and his name, Latinized as \"Algorithmi\", is the source of the word \"algorithm\". He also transmitted Indian numerals to the West.",
+      "keyContributions": [
+        {
+          "title": "《代数学》",
+          "titleEn": "The Compendious Book on Calculation by Completion and Balancing",
+          "year": 820,
+          "desc": "系统整理一次与二次方程的\"还原与对消\"解法，使代数脱离几何成为独立学科。",
+          "descEn": "Systematized solutions of linear and quadratic equations via \"completion and balancing\", making algebra an independent discipline.",
+          "type": "work"
+        },
+        {
+          "title": "印度数字传播",
+          "titleEn": "On the Calculation with Hindu Numerals",
+          "year": 825,
+          "desc": "把十进制位值制传入伊斯兰世界，后经欧洲演变为今日通用数字。",
+          "descEn": "Transmitted the decimal place-value system to the Islamic world, which later spread to Europe as our modern numerals.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "花剌子米生活在阿拔斯王朝巴格达的\"智慧宫\"，这里汇聚了希腊、印度、波斯的典籍。他既整理希腊几何，又吸收印度算术，把代数从几何中解放出来；他传播的印度数字，为欧洲文艺复兴的数学革命埋下伏笔。",
+      "lifeStoryEn": "Al-Khwarizmi worked at the House of Wisdom in Baghdad, where Greek, Indian, and Persian texts were gathered. He freed algebra from geometry and transmitted Indian numerals, laying groundwork for Europe's mathematical revolution.",
+      "goldenQuotes": [
+        "数学是打开自然奥秘的一把钥匙。"
+      ],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "ibn-al-haytham",
+      "name": "伊本·海什木",
+      "nameEn": "Ibn al-Haytham (Alhazen)",
+      "birth": 965,
+      "death": 1040,
+      "nationality": "阿拉伯（阿拔斯王朝）",
+      "nationalityEn": "Arab (Abbasid Caliphate)",
+      "discipline": "physics",
+      "subDiscipline": "optics",
+      "tags": [
+        "physics"
+      ],
+      "culturalTag": "islamic",
+      "era": "medieval",
+      "influence": 9,
+      "summary": "海什木是\"光学之父\"，其七卷本《光学书》正确解释了视觉机制——光是物体发出进入眼睛，而非眼睛发出光线。他建立了系统的实验方法，被誉为\"第一个真正的科学家\"。",
+      "summaryEn": "Ibn al-Haytham, the \"father of optics\", correctly explained vision in his seven-volume Book of Optics: light enters the eye from objects rather than being emitted by the eye. His systematic experimental method earned him the title \"first true scientist\".",
+      "keyContributions": [
+        {
+          "title": "《光学书》",
+          "titleEn": "Kitab al-Manazir (Book of Optics)",
+          "year": 1021,
+          "desc": "首次科学解释视觉机制与光的折射反射，奠定现代光学基础。",
+          "descEn": "First scientific account of vision, refraction, and reflection, laying the foundation of modern optics.",
+          "type": "work"
+        },
+        {
+          "title": "暗箱（针孔成像）实验",
+          "titleEn": "The Camera Obscura Experiment",
+          "year": 1025,
+          "desc": "通过暗箱实验研究光线的直线传播，是摄影与成像原理的先驱。",
+          "descEn": "Studied the rectilinear propagation of light via the camera obscura, anticipating photography.",
+          "type": "experiment"
+        }
+      ],
+      "lifeStory": "海什木在巴士拉和开罗生活，据说曾为控制尼罗河泛滥设计过方案。他主张知识必须经实验验证，其方法比伽利略早五百年，深刻影响了欧洲的科学革命。",
+      "lifeStoryEn": "Ibn al-Haytham lived in Basra and Cairo. He insisted knowledge must be verified by experiment, five centuries before Galileo, profoundly influencing the European scientific revolution.",
+      "goldenQuotes": [
+        "如果求知是为了真理，就应让观察和实验来裁决。"
+      ],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "al-biruni",
+      "name": "比鲁尼",
+      "nameEn": "Al-Biruni",
+      "birth": 973,
+      "death": 1048,
+      "nationality": "波斯",
+      "nationalityEn": "Persia",
+      "discipline": "astronomy",
+      "subDiscipline": "celestial-mechanics",
+      "tags": [
+        "astronomy",
+        "mathematics"
+      ],
+      "culturalTag": "islamic",
+      "era": "medieval",
+      "influence": 8,
+      "summary": "比鲁尼是中世纪最博学的学者之一，他精确测量了地球半径，研究地球自转，撰写《印度志》系统记录印度科学与文化，著作横跨天文、数学、地理与矿物学。",
+      "summaryEn": "Al-Biruni, one of the most erudite scholars of the Middle Ages, precisely measured the Earth's radius, studied its rotation, and wrote the Indica on Indian science and culture.",
+      "keyContributions": [
+        {
+          "title": "测量地球半径",
+          "titleEn": "Measurement of the Earth's Radius",
+          "year": 1000,
+          "desc": "利用山高与地平线角度精确测算地球半径约 6339 公里，误差不足 1%。",
+          "descEn": "Measured the Earth's radius at about 6339 km using mountain height and horizon angle, within 1% accuracy.",
+          "type": "discovery"
+        },
+        {
+          "title": "《印度志》",
+          "titleEn": "The Indica (Kitab al-Hind)",
+          "year": 1030,
+          "desc": "系统记录印度科学、数学与宗教，是跨文化研究的经典之作。",
+          "descEn": "A systematic account of Indian science, mathematics, and religion — a classic of cross-cultural study.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "比鲁尼游历印度，精通波斯语、阿拉伯语、梵语等多种语言，是罕见的跨文明学者。他的测量方法与学术客观性在中世纪独一无二。",
+      "lifeStoryEn": "Al-Biruni traveled in India and mastered Persian, Arabic, and Sanskrit. His measurement methods and scholarly objectivity were unmatched in the Middle Ages.",
+      "goldenQuotes": [],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "ibn-sina",
+      "name": "伊本·西那（阿维森纳）",
+      "nameEn": "Ibn Sina (Avicenna)",
+      "birth": 980,
+      "death": 1037,
+      "nationality": "波斯",
+      "nationalityEn": "Persia",
+      "discipline": "medicine",
+      "subDiscipline": "pharmacology",
+      "tags": [
+        "medicine"
+      ],
+      "culturalTag": "islamic",
+      "era": "medieval",
+      "influence": 9,
+      "summary": "伊本·西那的《医典》是医学史上最权威的著作之一，在欧洲作为医学教材使用近六百年。他系统整理了希腊、波斯、印度医学，被誉为\"医生之王\"。",
+      "summaryEn": "Ibn Sina's Canon of Medicine was the most authoritative medical text for nearly 600 years in Europe. Systematizing Greek, Persian, and Indian medicine, he was called the \"prince of physicians\".",
+      "keyContributions": [
+        {
+          "title": "《医典》",
+          "titleEn": "Al-Qanun fi al-Tibb (The Canon of Medicine)",
+          "year": 1025,
+          "desc": "五卷本医学百科全书，系统论述疾病、药物与解剖，统治欧洲医学教育至 17 世纪。",
+          "descEn": "A five-volume medical encyclopedia that dominated European medical education until the 17th century.",
+          "type": "work"
+        },
+        {
+          "title": "《治疗论》",
+          "titleEn": "Kitab al-Shifa (The Book of Healing)",
+          "year": 1027,
+          "desc": "百科全书式的哲学与科学著作，融合亚里士多德哲学与当时科学。",
+          "descEn": "An encyclopedic work of philosophy and science synthesizing Aristotelian thought with contemporary science.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "伊本·西那 16 岁开始行医，18 岁治愈布哈拉苏丹重病。他博闻强记，横跨医学、哲学与逻辑，其医学成就在东西方影响近千年。",
+      "lifeStoryEn": "Ibn Sina began practicing medicine at 16 and cured the Sultan of Bukhara at 18. His medicine influenced both East and West for nearly a millennium.",
+      "goldenQuotes": [
+        "医学是把抽象的道理应用到具体病人的艺术。"
+      ],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "jabir-ibn-hayyan",
+      "name": "贾比尔·伊本·海扬",
+      "nameEn": "Jabir ibn Hayyan (Geber)",
+      "birth": 721,
+      "death": 815,
+      "nationality": "阿拉伯/波斯",
+      "nationalityEn": "Arab/Persian",
+      "discipline": "chemistry",
+      "subDiscipline": "inorganic",
+      "tags": [
+        "chemistry"
+      ],
+      "culturalTag": "islamic",
+      "era": "medieval",
+      "influence": 8,
+      "summary": "贾比尔是实验化学的先驱，他把炼丹术引向系统实验，改进了蒸馏、结晶、过滤等基本操作，制备了硫酸、硝酸等多种物质，被称为\"化学之父\"。",
+      "summaryEn": "Jabir ibn Hayyan, the \"father of chemistry\", turned alchemy toward systematic experiment, improving distillation, crystallization, and filtration, and preparing sulfuric and nitric acids.",
+      "keyContributions": [
+        {
+          "title": "实验化学方法",
+          "titleEn": "Systematic Experimental Chemistry",
+          "year": 750,
+          "desc": "系统化蒸馏、升华、结晶等操作，把炼金术引向科学。",
+          "descEn": "Systematized distillation, sublimation, and crystallization, steering alchemy toward science.",
+          "type": "experiment"
+        },
+        {
+          "title": "酸与碱的制备",
+          "titleEn": "Preparation of Acids",
+          "year": 770,
+          "desc": "制备硫酸、硝酸、王水等，奠定实验化学的基础。",
+          "descEn": "Prepared sulfuric acid, nitric acid, and aqua regia, laying the foundation of experimental chemistry.",
+          "type": "discovery"
+        }
+      ],
+      "lifeStory": "贾比尔活动于阿拔斯王朝早期，其著作后来拉丁化为\"Geber\"传入欧洲，深刻影响了中世纪欧洲的炼金术与化学。",
+      "lifeStoryEn": "Jabir worked in the early Abbasid era; his writings, Latinized as \"Geber\", profoundly influenced medieval European alchemy and chemistry.",
+      "goldenQuotes": [],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "aryabhata",
+      "name": "阿耶波多",
+      "nameEn": "Aryabhata",
+      "birth": 476,
+      "death": 550,
+      "nationality": "印度",
+      "nationalityEn": "India",
+      "discipline": "astronomy",
+      "subDiscipline": "celestial-mechanics",
+      "tags": [
+        "astronomy",
+        "mathematics"
+      ],
+      "culturalTag": "indian",
+      "era": "medieval",
+      "influence": 9,
+      "summary": "阿耶波多是印度古典数学与天文学的奠基人，其《阿耶波提亚》提出地球自转、给出 π≈3.1416 的精确值并建立正弦表，深刻影响了印度及阿拉伯、欧洲的数学。",
+      "summaryEn": "Aryabhata founded classical Indian mathematics and astronomy. His Aryabhatiya proposed Earth's rotation, gave π≈3.1416, and built sine tables that influenced Indian, Arabic, and European mathematics.",
+      "keyContributions": [
+        {
+          "title": "《阿耶波提亚》",
+          "titleEn": "Aryabhatiya",
+          "year": 499,
+          "desc": "综合天文数学的经典，提出地球自转与 π 的精确近似。",
+          "descEn": "A classic combining astronomy and mathematics, proposing Earth's rotation and a precise value of π.",
+          "type": "work"
+        },
+        {
+          "title": "正弦表与三角学",
+          "titleEn": "Sine Tables and Trigonometry",
+          "year": 499,
+          "desc": "建立第一个系统的正弦表，推动三角学发展。",
+          "descEn": "Built the first systematic sine table, advancing trigonometry.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "阿耶波多 23 岁写下《阿耶波提亚》，以 118 颂诗体写成。他的思想经阿拉伯传到欧洲，对中世纪数学与天文影响深远。",
+      "lifeStoryEn": "Aryabhata wrote the Aryabhatiya at age 23 in 118 verses. His ideas spread via the Arabs to Europe, deeply influencing medieval mathematics and astronomy.",
+      "goldenQuotes": [],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "brahmagupta",
+      "name": "婆罗摩笈多",
+      "nameEn": "Brahmagupta",
+      "birth": 598,
+      "death": 668,
+      "nationality": "印度",
+      "nationalityEn": "India",
+      "discipline": "mathematics",
+      "subDiscipline": "number-theory",
+      "tags": [
+        "mathematics",
+        "astronomy"
+      ],
+      "culturalTag": "indian",
+      "era": "medieval",
+      "influence": 9,
+      "summary": "婆罗摩笈多第一次系统规定了数字 0 的运算规则，把负数当作合法数学对象，并给出二次方程的通解与\"婆罗摩笈多公式\"，是印度数学黄金时代的代表人物。",
+      "summaryEn": "Brahmagupta first gave systematic rules for arithmetic with zero, treated negative numbers as legitimate, and gave a general solution of the quadratic equation, representing the golden age of Indian mathematics.",
+      "keyContributions": [
+        {
+          "title": "0 的运算规则",
+          "titleEn": "Rules for Zero",
+          "year": 628,
+          "desc": "《婆罗摩悉檀多》首次规定 0 的加减乘除规则，确立 0 作为数的地位。",
+          "descEn": "First systematic rules for arithmetic with zero, establishing zero as a number.",
+          "type": "theory"
+        },
+        {
+          "title": "负数与二次方程",
+          "titleEn": "Negative Numbers and Quadratic Equations",
+          "year": 628,
+          "desc": "把负数纳入数学体系，给出二次方程的通解。",
+          "descEn": "Incorporated negative numbers and gave a general solution to the quadratic equation.",
+          "type": "theory"
+        }
+      ],
+      "lifeStory": "婆罗摩笈多是乌贾因天文台的负责人，其《婆罗摩悉檀多》系统总结了算术、代数与几何，是印度数学的里程碑，后来传入阿拉伯世界。",
+      "lifeStoryEn": "Brahmagupta headed the Ujjain observatory. His Brahmasphutasiddhanta, a milestone of Indian mathematics, was later transmitted to the Arab world.",
+      "goldenQuotes": [],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "ramanujan",
+      "name": "拉马努金",
+      "nameEn": "Srinivasa Ramanujan",
+      "birth": 1887,
+      "death": 1920,
+      "nationality": "印度",
+      "nationalityEn": "India",
+      "discipline": "mathematics",
+      "subDiscipline": "number-theory",
+      "tags": [
+        "mathematics"
+      ],
+      "culturalTag": "indian",
+      "era": "modern",
+      "influence": 9,
+      "summary": "拉马努金是印度传奇数学家，几乎未受正规训练却独立发现了近四千条数学公式，在模形式、无穷级数与数论方面留下深刻遗产，他与哈代的合作是数学史上最著名的故事之一。",
+      "summaryEn": "Ramanujan, a legendary Indian mathematician with almost no formal training, independently discovered nearly 4000 formulas. His work on modular forms, series, and number theory, and his collaboration with Hardy, are among the most famous stories in mathematics.",
+      "keyContributions": [
+        {
+          "title": "拉马努金公式与模形式",
+          "titleEn": "Ramanujan's Formulas and Modular Forms",
+          "year": 1916,
+          "desc": "发现大量关于 π、模形式与分割函数的公式，很多至今仍在指导研究。",
+          "descEn": "Discovered numerous formulas for π, modular forms, and partition functions that still guide research today.",
+          "type": "theory"
+        },
+        {
+          "title": "整数分割函数",
+          "titleEn": "Partition Function",
+          "year": 1918,
+          "desc": "与哈代共同给出分割函数 p(n) 的渐近公式。",
+          "descEn": "With Hardy, gave the asymptotic formula for the partition function p(n).",
+          "type": "theory"
+        }
+      ],
+      "lifeStory": "拉马努金在印度马德拉斯自学成才，1913 年写信给剑桥的哈代，哈代惊叹其公式并邀其赴英。两人合作六年，拉马努金留下三本笔记，成为后世数学家挖掘不尽的宝藏，33 岁英年早逝。",
+      "lifeStoryEn": "Ramanujan was self-taught in Madras. In 1913 he wrote to Hardy at Cambridge, who invited him to England. Their six-year collaboration and Ramanujan's three notebooks remain a treasure trove; he died at 33.",
+      "goldenQuotes": [
+        "一个方程对我而言没有意义，除非它表达了神的一个思想。",
+        "An equation for me has no meaning unless it expresses a thought of God."
+      ],
+      "portrait": null,
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "zu-chongzhi",
+      "name": "祖冲之",
+      "nameEn": "Zu Chongzhi",
+      "birth": 429,
+      "death": 500,
+      "nationality": "中国（南北朝）",
+      "nationalityEn": "China (Southern Dynasties)",
+      "discipline": "mathematics",
+      "subDiscipline": "number-theory",
+      "tags": [
+        "mathematics",
+        "astronomy"
+      ],
+      "culturalTag": "chinese",
+      "era": "ancient",
+      "portrait": null,
+      "influence": 8,
+      "summary": "将圆周率精确到小数点后 7 位（3.1415926~3.1415927），领先世界近千年；其'祖率'（密率 355/113）至今仍是圆周率的最佳分数逼近之一。",
+      "summaryEn": "Computed pi to 7 decimal places (3.1415926-3.1415927), leading the world for nearly a millennium; his 'Zu rate' (355/113) remains one of the best fractional approximations of pi.",
+      "keyContributions": [
+        {
+          "title": "祖率：圆周率的精确计算",
+          "titleEn": "The Zu Rate: Precise Computation of Pi",
+          "year": 460,
+          "desc": "以割圆术将圆周率精确到 3.1415926 与 3.1415927 之间，密率 355/113 的精度保持纪录约 900 年。",
+          "descEn": "Using inscribed polygon methods, computed pi between 3.1415926 and 3.1415927; his 355/113 approximation held the record for ~900 years.",
+          "type": "work"
+        },
+        {
+          "title": "大明历",
+          "titleEn": "Daming Calendar",
+          "year": 462,
+          "desc": "首次将岁差引入历法，实测回归年长度极为精确，是中国历法史上的重大改革。",
+          "descEn": "First to incorporate precession into a Chinese calendar, with an extremely precise tropical year measurement.",
+          "type": "work"
+        }
+      ],
+      "goldenQuotes": [
+        "「割之弥细，所失弥少」——极限思想的早期表达",
+        "Circle-cutting makes the loss ever smaller — an early expression of the limit concept."
+      ],
+      "lifeStory": "祖冲之 429 年生于建康（今南京），南朝宋齐间人，曾任南徐州从事、娄县令等职。他精通数学、天文历法与机械制造，造过指南车、千里船等。其《大明历》因与权贵戴法兴的'历法之争'而名留史册。",
+      "lifeStoryEn": "Born in Jiankang (Nanjing) in 429, Zu served in the Southern Dynasties. A master of mathematics, astronomy, and mechanics, he built compass carriages and fast ships. His Daming Calendar sparked a famous debate with the court official Dai Faxing.",
+      "famousEvents": [
+        {
+          "title": "《大明历》颁行",
+          "titleEn": "Adoption of the Daming Calendar",
+          "year": 510,
+          "desc": "历经两朝争议，大明历最终于 510 年颁行",
+          "descEn": "After decades of controversy, the Daming Calendar was finally adopted in 510"
+        }
+      ],
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "shen-kuo",
+      "name": "沈括",
+      "nameEn": "Shen Kuo",
+      "birth": 1031,
+      "death": 1095,
+      "nationality": "中国（北宋）",
+      "nationalityEn": "China (Northern Song Dynasty)",
+      "discipline": "astronomy",
+      "subDiscipline": "celestial-mechanics",
+      "tags": [
+        "astronomy",
+        "physics",
+        "mathematics"
+      ],
+      "culturalTag": "chinese",
+      "era": "medieval",
+      "portrait": null,
+      "influence": 8,
+      "summary": "北宋百科全书式科学家，其《梦溪笔谈》记录了地磁偏角、化石成因、石油命名等领先世界的发现，被李约瑟誉为'中国整部科学史中最卓越的人物'。",
+      "summaryEn": "An encyclopedic scientist of the Northern Song, whose Dream Pool Essays recorded the magnetic declination, fossil theory, and named petroleum — discoveries centuries ahead of Europe. Joseph Needham called him the most outstanding figure in all of Chinese science.",
+      "keyContributions": [
+        {
+          "title": "地磁偏角的发现",
+          "titleEn": "Discovery of Magnetic Declination",
+          "year": 1088,
+          "desc": "《梦溪笔谈》首次记载指南针不完全指向正南，比欧洲早约 400 年。",
+          "descEn": "Dream Pool Essays first recorded that compasses do not point exactly south, ~400 years before Europe.",
+          "type": "discovery"
+        },
+        {
+          "title": "《梦溪笔谈》",
+          "titleEn": "Dream Pool Essays",
+          "year": 1088,
+          "desc": "30 卷综合性科学笔记，涵盖天文、数学、物理、地质、医药等，是宋代科技的最高结晶。",
+          "descEn": "A 30-volume compendium covering astronomy, mathematics, physics, geology, and medicine — the summit of Song dynasty science.",
+          "type": "work"
+        }
+      ],
+      "goldenQuotes": [
+        "「石油至多，生于地中无穷」——首次命名'石油'",
+        "'Petroleum is abundant, produced inexhaustibly from the earth' — he coined the Chinese term for petroleum."
+      ],
+      "lifeStory": "沈括 1031 年生于杭州，出身官宦之家，历任县令、翰林学士等职，晚年被贬隐居润州，以笔记体写下《梦溪笔谈》。他一生涉猎极广，既是天文学家、数学家，又是水利、军事、外交人才。",
+      "lifeStoryEn": "Born in Hangzhou in 1031, Shen served as a magistrate and academician. Dismissed in his later years, he retired to Runzhou and wrote the Dream Pool Essays. He was an astronomer, mathematician, engineer, and diplomat in one.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "song-yingxing",
+      "name": "宋应星",
+      "nameEn": "Song Yingxing",
+      "birth": 1587,
+      "death": 1666,
+      "nationality": "中国（明末清初）",
+      "nationalityEn": "China (late Ming / early Qing)",
+      "discipline": "chemistry",
+      "subDiscipline": "inorganic",
+      "tags": [
+        "chemistry",
+        "engineering"
+      ],
+      "culturalTag": "chinese",
+      "era": "revolution",
+      "portrait": null,
+      "influence": 7,
+      "summary": "明末科学家，其《天工开物》系统总结了农业与手工业的生产技术，涵盖冶金、陶瓷、染色、火药等，被誉为'中国 17 世纪的工艺百科全书'。",
+      "summaryEn": "A late-Ming scientist whose Tiangong Kaiwu (Works of Heaven and the Inception of Things) systematized agriculture and craft production — metallurgy, ceramics, dyeing, gunpowder — earning it the title 'the encyclopedia of 17th-century Chinese technology'.",
+      "keyContributions": [
+        {
+          "title": "《天工开物》",
+          "titleEn": "Tiangong Kaiwu",
+          "year": 1637,
+          "desc": "18 卷工艺百科全书，首次系统记录锌的冶炼等当时世界先进技术，后被译成多国文字。",
+          "descEn": "An 18-volume encyclopedia of technology, first to document zinc smelting among other world-leading techniques; later translated into multiple languages.",
+          "type": "work"
+        },
+        {
+          "title": "冶金与火药技术总结",
+          "titleEn": "Metallurgy and Gunpowder",
+          "year": 1637,
+          "desc": "详细记载灌钢法、火药配方比例等，是研究明代科技史的第一手资料。",
+          "descEn": "Detailed accounts of steel-making and gunpowder formulations — primary sources for the history of Ming technology.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "宋应星 1587 年生于江西奉新，五次会试不第后转向实学，任江西分宜县教谕期间写成《天工开物》。他主张'贵五谷而贱金玉'，重视民生实用技术，明亡后隐居不仕。",
+      "lifeStoryEn": "Born in Jiangxi in 1587, Song failed the imperial examinations five times before turning to practical learning. As a local official he wrote Tiangong Kaiwu, valuing agriculture over gold. He lived in seclusion after the Ming fell.",
+      "gender": "male",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "wang-zhenyi",
+      "name": "王贞仪",
+      "nameEn": "Wang Zhenyi",
+      "birth": 1768,
+      "death": 1797,
+      "nationality": "中国（清代）",
+      "nationalityEn": "China (Qing Dynasty)",
+      "discipline": "astronomy",
+      "subDiscipline": "celestial-mechanics",
+      "tags": [
+        "astronomy",
+        "mathematics"
+      ],
+      "culturalTag": "chinese",
+      "era": "enlightenment",
+      "portrait": null,
+      "influence": 6,
+      "summary": "清代女天文学家与数学家，以实验解释月食原理、论证地圆说，突破'女子无才便是德'的时代枷锁，是中国古代最具代表性的女性科学家之一。",
+      "summaryEn": "A Qing-dynasty female astronomer and mathematician who explained lunar eclipses through experiment and argued the sphericity of the Earth, defying the era's restrictions on women — among the most representative female scientists of ancient China.",
+      "keyContributions": [
+        {
+          "title": "月食实验演示",
+          "titleEn": "Experimental Demonstration of Lunar Eclipses",
+          "year": 1785,
+          "desc": "用水晶灯、圆桌和镜子做模型，正确演示并解释了月食成因。",
+          "descEn": "Used a lamp, table, and mirror as a model to correctly demonstrate and explain how lunar eclipses occur.",
+          "type": "experiment"
+        },
+        {
+          "title": "天文与数学著作",
+          "titleEn": "Works on Astronomy and Mathematics",
+          "year": 1790,
+          "desc": "撰写《月食解》《勾股三角解》等十余部著作，传播科学知识。",
+          "descEn": "Wrote over a dozen works including Explanations of Lunar Eclipses and Solutions to Pythagorean Problems.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "王贞仪 1768 年生于安徽天长，祖父是天文历算学者。她随父游历南北，博学多才，通晓天文、数学、诗词与骑射。29 岁英年早逝，身后留下 56 卷著作。",
+      "lifeStoryEn": "Born in Anhui in 1768, Wang traveled widely with her father and mastered astronomy, mathematics, poetry, and archery. She died at 29, leaving 56 volumes of work.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "emmy-noether",
+      "name": "埃米·诺特",
+      "nameEn": "Emmy Noether",
+      "birth": 1882,
+      "death": 1935,
+      "nationality": "德国",
+      "nationalityEn": "Germany",
+      "discipline": "mathematics",
+      "subDiscipline": "algebra",
+      "tags": [
+        "mathematics",
+        "physics"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 9,
+      "summary": "抽象代数之母，诺特定理揭示了对称性与守恒律之间的深刻联系，成为现代物理学的基石之一；爱因斯坦称她是'自有女性受教育以来最伟大的数学天才'。",
+      "summaryEn": "The mother of abstract algebra; Noether's theorem revealed the deep link between symmetry and conservation laws, a cornerstone of modern physics. Einstein called her 'the most significant creative mathematical genius thus far produced since the higher education of women began.'",
+      "keyContributions": [
+        {
+          "title": "诺特定理",
+          "titleEn": "Noether's Theorem",
+          "year": 1918,
+          "desc": "证明每个连续对称性对应一个守恒律（如时间平移对称对应能量守恒），是现代物理学的基石。",
+          "descEn": "Proved that every continuous symmetry implies a conservation law — the foundation of modern theoretical physics.",
+          "type": "theory"
+        },
+        {
+          "title": "抽象代数体系",
+          "titleEn": "Abstract Algebra",
+          "year": 1921,
+          "desc": "以公理化方法重构环、理想、域等概念，奠定现代抽象代数。",
+          "descEn": "Axiomatically rebuilt rings, ideals, and fields, founding modern abstract algebra.",
+          "type": "theory"
+        }
+      ],
+      "goldenQuotes": [
+        "「若我能证明一个定理，它便值得存在。」",
+        "If one proves the equality of two numbers... then it is a beautiful thing."
+      ],
+      "relationships": [
+        {
+          "target": "einstein",
+          "type": "influence",
+          "description": "诺特定理为广义相对论中的能量守恒提供了严格数学基础",
+          "descriptionEn": "Noether's theorem provided the rigorous mathematical basis for energy conservation in general relativity"
+        }
+      ],
+      "lifeStory": "诺特 1882 年生于德国埃朗根，在女性极少能入大学的年代艰难求学。她先在哥廷根大学以'编外讲师'身份教书多年，因犹太身份于 1933 年流亡美国，1935 年去世。她在代数与数学物理上的贡献重塑了整个现代数学。",
+      "lifeStoryEn": "Born in Erlangen in 1882, Noether fought for education when women were barely admitted to universities. She taught unpaid at Göttingen for years, fled Nazi Germany in 1933, and died in 1935. Her work reshaped modern mathematics.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "lise-meitner",
+      "name": "莉泽·迈特纳",
+      "nameEn": "Lise Meitner",
+      "birth": 1878,
+      "death": 1968,
+      "nationality": "奥地利/瑞典",
+      "nationalityEn": "Austria/Sweden",
+      "discipline": "physics",
+      "subDiscipline": "nuclear",
+      "tags": [
+        "physics"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "核裂变的共同发现者，她与合作者解释了核裂变现象并命名了'fission'一词，却因性别与流亡身份被诺贝尔奖遗漏——'无冠的核物理女王'。",
+      "summaryEn": "Co-discoverer of nuclear fission; she explained the phenomenon and coined the term 'fission', yet was passed over by the Nobel Prize — 'the uncrowned queen of nuclear physics'.",
+      "keyContributions": [
+        {
+          "title": "核裂变的解释",
+          "titleEn": "Explanation of Nuclear Fission",
+          "year": 1938,
+          "desc": "与侄子弗里施提出铀核裂变理论并命名'fission'，为核能与核武器奠定物理基础。",
+          "descEn": "With her nephew Otto Frisch, proposed the theory of uranium fission and coined 'fission', underpinning nuclear energy and weapons.",
+          "type": "theory"
+        },
+        {
+          "title": "放射性研究与镭-228 发现",
+          "titleEn": "Radioactivity Research",
+          "year": 1917,
+          "desc": "独立发现放射性同位素镭-228（镁光同位素），长期与哈恩合作研究放射性元素。",
+          "descEn": "Discovered the isotope radium-228 (mesothorium); long-time collaborator of Otto Hahn on radioactive elements.",
+          "type": "discovery"
+        }
+      ],
+      "relationships": [
+        {
+          "target": "fermi",
+          "type": "collab",
+          "description": "与费米等人在核物理领域相互影响",
+          "descriptionEn": "Mutual influence with Fermi and others in nuclear physics"
+        }
+      ],
+      "lifeStory": "迈特纳 1878 年生于维也纳犹太家庭，是维也纳大学第二位女物理学博士。1938 年纳粹吞并奥地利后她被迫逃亡瑞典，流亡中仍与柏林实验室保持通信，最终从数据中解释出核裂变。1944 年诺奖仅授予哈恩，成为科学史上著名的性别不公案例。",
+      "lifeStoryEn": "Born in Vienna in 1878, Meitner was the second woman to earn a physics PhD there. Forced to flee to Sweden in 1938, she explained fission from exile while in contact with Berlin. The 1944 Nobel went only to Hahn — a landmark case of gender injustice in science.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "rosalind-franklin",
+      "name": "罗莎琳·富兰克林",
+      "nameEn": "Rosalind Franklin",
+      "birth": 1920,
+      "death": 1958,
+      "nationality": "英国",
+      "nationalityEn": "United Kingdom",
+      "discipline": "biology",
+      "subDiscipline": "molecular-bio",
+      "tags": [
+        "biology",
+        "chemistry"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 9,
+      "summary": "DNA 双螺旋结构的关键实验证据提供者，其 X 射线衍射照片'51 号照片'是沃森与克里克建立双螺旋模型的直接依据，贡献长期被低估。",
+      "summaryEn": "Provided the key experimental evidence for the DNA double helix — her X-ray diffraction 'Photo 51' directly enabled Watson and Crick's model. Her contribution was long underappreciated.",
+      "keyContributions": [
+        {
+          "title": "DNA X 射线衍射分析",
+          "titleEn": "X-ray Diffraction of DNA",
+          "year": 1952,
+          "desc": "拍摄出著名的 51 号照片，揭示 DNA 的螺旋结构，为双螺旋模型提供决定性证据。",
+          "descEn": "Produced the famous Photo 51 revealing DNA's helical structure — decisive evidence for the double helix.",
+          "type": "discovery"
+        },
+        {
+          "title": "病毒结构研究",
+          "titleEn": "Virus Structure",
+          "year": 1955,
+          "desc": "在烟草花叶病毒等病毒结构研究中作出奠基性贡献。",
+          "descEn": "Made foundational contributions to the structure of tobacco mosaic virus and other viruses.",
+          "type": "discovery"
+        }
+      ],
+      "relationships": [
+        {
+          "target": "watson",
+          "type": "influence",
+          "description": "其 X 射线数据为沃森与克里克的双螺旋模型提供关键证据",
+          "descriptionEn": "Her X-ray data provided key evidence for Watson and Crick's double helix model"
+        }
+      ],
+      "lifeStory": "富兰克林 1920 年生于伦敦，剑桥毕业，精通 X 射线晶体学。她在伦敦国王学院拍摄 DNA 衍射照片时与沃森、克里克存在资料共享争议，1958 年因卵巢癌去世，年仅 37 岁，未能等到 1962 年诺奖。她的贡献在后世得到充分承认。",
+      "lifeStoryEn": "Born in London in 1920, Franklin was a Cambridge-trained X-ray crystallographer. She took DNA diffraction images at King's College amid disputes over shared data. She died of ovarian cancer in 1958 at 37, before the 1962 Nobel. Her role is now fully acknowledged.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "grace-hopper",
+      "name": "格蕾丝·霍珀",
+      "nameEn": "Grace Hopper",
+      "birth": 1906,
+      "death": 1992,
+      "nationality": "美国",
+      "nationalityEn": "USA",
+      "discipline": "cs",
+      "subDiscipline": "systems",
+      "tags": [
+        "cs"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "编译器的先驱与 COBOL 语言之母，她创造了第一个编译器、提出了机器无关编程语言的思想，'debug'一词的普及也与她有关。",
+      "summaryEn": "Pioneer of compilers and mother of COBOL. She built the first compiler, championed machine-independent programming languages, and popularized the term 'debugging'.",
+      "keyContributions": [
+        {
+          "title": "第一个编译器 A-0",
+          "titleEn": "The A-0 Compiler",
+          "year": 1952,
+          "desc": "研制出世界上第一个编译器，实现从数学符号到机器码的自动翻译。",
+          "descEn": "Built the world's first compiler, automatically translating mathematical notation into machine code.",
+          "type": "work"
+        },
+        {
+          "title": "COBOL 语言",
+          "titleEn": "COBOL",
+          "year": 1959,
+          "desc": "推动并主导了面向商业的通用语言 COBOL 的设计，至今仍影响商务系统。",
+          "descEn": "Championed and co-designed COBOL, the business-oriented language still influencing enterprise systems.",
+          "type": "work"
+        }
+      ],
+      "goldenQuotes": [
+        "「请求原谅比请求许可更容易。」",
+        "It is easier to ask forgiveness than it is to get permission."
+      ],
+      "lifeStory": "霍珀 1906 年生于纽约，耶鲁大学数学博士。她先在哈佛参与 Mark I 计算机项目，后加入海军，以 79 岁高龄成为美军最年长现役军官。她的'船到桥头'精神塑造了早期软件工程文化。",
+      "lifeStoryEn": "Born in New York in 1906, Hopper earned a Yale math PhD. She worked on Harvard's Mark I, then joined the Navy, retiring as its oldest serving officer at 79. Her pragmatism shaped early software culture.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "maryam-mirzakhani",
+      "name": "玛丽亚姆·米尔扎哈尼",
+      "nameEn": "Maryam Mirzakhani",
+      "birth": 1977,
+      "death": 2017,
+      "nationality": "伊朗/美国",
+      "nationalityEn": "Iran/USA",
+      "discipline": "mathematics",
+      "subDiscipline": "geometry",
+      "tags": [
+        "mathematics"
+      ],
+      "culturalTag": "islamic",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "首位获得菲尔兹奖的女性数学家，在黎曼曲面与模空间的动力学与几何研究中作出突破性贡献，2017 年因乳腺癌去世，年仅 40 岁。",
+      "summaryEn": "The first woman to win the Fields Medal, for breakthrough work on the dynamics and geometry of Riemann surfaces and moduli spaces. She died of breast cancer in 2017 at 40.",
+      "keyContributions": [
+        {
+          "title": "模空间的动力学与几何",
+          "titleEn": "Dynamics and Geometry of Moduli Spaces",
+          "year": 2014,
+          "desc": "证明模空间上测地流的若干深刻性质，将双曲几何、动力系统与数论联系起来。",
+          "descEn": "Proved deep properties of geodesic flows on moduli spaces, linking hyperbolic geometry, dynamics, and number theory.",
+          "type": "theory"
+        },
+        {
+          "title": "菲尔兹奖",
+          "titleEn": "Fields Medal",
+          "year": 2014,
+          "desc": "2014 年获菲尔兹奖，为首位女性获奖者",
+          "descEn": "Won the Fields Medal in 2014, the first woman to do so"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "菲尔兹奖",
+          "titleEn": "Fields Medal",
+          "year": 2014,
+          "desc": "首位女性菲尔兹奖得主",
+          "descEn": "First woman awarded the Fields Medal"
+        }
+      ],
+      "lifeStory": "米尔扎哈尼 1977 年生于德黑兰，中学时在国际数学奥林匹克连获金牌，后赴哈佛读博，师从麦克马伦，任教于斯坦福。她 2017 年去世后，其头像被印在伊朗货币上，激励无数女性投身数学。",
+      "lifeStoryEn": "Born in Tehran in 1977, Mirzakhani won gold medals at the International Mathematical Olympiad, earned her PhD at Harvard under McMullen, and taught at Stanford. After her death in 2017, her portrait appeared on Iranian banknotes.",
+      "gender": "female",
+      "awards": [
+        {
+          "name": "菲尔兹奖",
+          "nameEn": "Fields Medal",
+          "year": 2014,
+          "type": "fields"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "dorothy-hodgkin",
+      "name": "多萝西·霍奇金",
+      "nameEn": "Dorothy Hodgkin",
+      "birth": 1910,
+      "death": 1994,
+      "nationality": "英国",
+      "nationalityEn": "United Kingdom",
+      "discipline": "chemistry",
+      "subDiscipline": "biochem",
+      "tags": [
+        "chemistry",
+        "biology"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "X 射线晶体学的集大成者，测定青霉素、维生素 B12 与胰岛素的三维结构，1964 年获诺贝尔化学奖，是第三位获此奖的女性。",
+      "summaryEn": "A master of X-ray crystallography who determined the structures of penicillin, vitamin B12, and insulin. She won the 1964 Nobel Prize in Chemistry, only the third woman to do so.",
+      "keyContributions": [
+        {
+          "title": "青霉素结构测定",
+          "titleEn": "Structure of Penicillin",
+          "year": 1945,
+          "desc": "以 X 射线晶体学确定青霉素的三维结构，推动抗生素生产。",
+          "descEn": "Determined the 3D structure of penicillin via X-ray crystallography, advancing antibiotic production.",
+          "type": "discovery"
+        },
+        {
+          "title": "维生素 B12 与胰岛素结构",
+          "titleEn": "Vitamin B12 and Insulin",
+          "year": 1969,
+          "desc": "测定维生素 B12（1964 诺奖）与胰岛素（1969）的复杂结构，是当时最难的晶体学问题。",
+          "descEn": "Determined the structures of vitamin B12 (1964 Nobel) and insulin (1969), among the hardest crystallographic problems of the time.",
+          "type": "discovery"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔化学奖",
+          "titleEn": "Nobel Prize in Chemistry",
+          "year": 1964,
+          "desc": "因测定重要生化物质结构获诺奖",
+          "descEn": "Nobel Prize for determining structures of important biochemical substances"
+        }
+      ],
+      "lifeStory": "霍奇金 1910 年生于开罗，童年患类风湿关节炎导致手部畸形，却成为晶体学巨匠。她是牛津大学仅有的三位女教授之一，也是诺贝尔奖得主中最具社会关怀精神的人物之一。",
+      "lifeStoryEn": "Born in Cairo in 1910, Hodgkin suffered rheumatoid arthritis from childhood, yet became a crystallography giant. One of only three female professors at Oxford, she was also a passionate advocate for science and peace.",
+      "gender": "female",
+      "awards": [
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 1964,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "katalin-kariko",
+      "name": "卡塔琳·考里科",
+      "nameEn": "Katalin Kariko",
+      "birth": 1955,
+      "death": null,
+      "nationality": "匈牙利/美国",
+      "nationalityEn": "Hungary/USA",
+      "discipline": "biology",
+      "subDiscipline": "molecular-bio",
+      "tags": [
+        "biology",
+        "medicine"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 9,
+      "summary": "mRNA 疫苗技术的奠基人，数十年坚持研究信使 RNA 疗法，其成果使新冠 mRNA 疫苗成为可能，2023 年获诺贝尔生理学或医学奖。",
+      "summaryEn": "Founder of mRNA vaccine technology. Her decades of research on messenger RNA therapy enabled the COVID-19 mRNA vaccines. She won the 2023 Nobel Prize in Physiology or Medicine.",
+      "keyContributions": [
+        {
+          "title": "核苷修饰 mRNA 技术",
+          "titleEn": "Modified Nucleoside mRNA",
+          "year": 2005,
+          "desc": "与韦斯曼发现用修饰核苷酸可绕过免疫系统攻击，这是 mRNA 疫苗可行的关键。",
+          "descEn": "With Drew Weissman, showed modified nucleosides evade immune attack — the key insight making mRNA vaccines viable.",
+          "type": "discovery"
+        },
+        {
+          "title": "mRNA 疫苗平台",
+          "titleEn": "mRNA Vaccine Platform",
+          "year": 2020,
+          "desc": "其技术支撑了新冠 mRNA 疫苗的快速研发，挽救数百万生命。",
+          "descEn": "Her technology underpinned the rapid development of COVID-19 mRNA vaccines, saving millions of lives.",
+          "type": "work"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔生理学或医学奖",
+          "titleEn": "Nobel Prize in Physiology or Medicine",
+          "year": 2023,
+          "desc": "因核苷碱基修饰研究获诺奖",
+          "descEn": "Nobel Prize for nucleoside base modification research"
+        }
+      ],
+      "relationships": [
+        {
+          "target": "tu-youyou",
+          "type": "influence",
+          "description": "同为以医学发现惠及全球的女科学家代表",
+          "descriptionEn": "Both are female scientists whose medical discoveries benefit the world"
+        }
+      ],
+      "lifeStory": "考里科 1955 年生于匈牙利小镇，在贫困中坚持科研，曾因申请不到经费被宾夕法尼亚大学降职。她 1990 年代起痴迷 mRNA 疗法，被视为'学术界的异类'，直到新冠疫苗成功才获得世界认可。",
+      "lifeStoryEn": "Born in a small Hungarian town in 1955, Kariko pursued science through poverty, once demoted by Penn for grant failures. She championed mRNA therapy for decades as an 'academic outlier' — until COVID vaccines vindicated her.",
+      "gender": "female",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 2023,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "vera-rubin",
+      "name": "维拉·鲁宾",
+      "nameEn": "Vera Rubin",
+      "birth": 1928,
+      "death": 2016,
+      "nationality": "美国",
+      "nationalityEn": "USA",
+      "discipline": "astronomy",
+      "subDiscipline": "observational-astro",
+      "tags": [
+        "astronomy",
+        "physics"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "暗物质存在的关键观测证据提供者，其星系旋转曲线研究证明星系外围恒星速度不衰减，为暗物质假说奠定观测基础，却始终与诺奖无缘。",
+      "summaryEn": "Her galaxy rotation curve measurements showed outer stars orbit as fast as inner ones — key observational evidence for dark matter. Despite this, she never received the Nobel Prize.",
+      "keyContributions": [
+        {
+          "title": "星系旋转曲线与暗物质",
+          "titleEn": "Galaxy Rotation Curves and Dark Matter",
+          "year": 1975,
+          "desc": "观测发现星系旋转曲线在边缘不下降，暗示大量不可见质量存在——暗物质的关键证据。",
+          "descEn": "Showed rotation curves stay flat at galaxy edges, implying invisible mass — the key evidence for dark matter.",
+          "type": "discovery"
+        },
+        {
+          "title": "暗物质命名与推广",
+          "titleEn": "Popularizing Dark Matter",
+          "year": 1980,
+          "desc": "推动暗物质概念进入主流天体物理学。",
+          "descEn": "Brought the concept of dark matter into mainstream astrophysics.",
+          "type": "work"
+        }
+      ],
+      "lifeStory": "鲁宾 1928 年生于华盛顿，从小在天文台观星，因性别屡遭名校拒收。她在卡内基研究所工作数十年，坚持观测旋涡星系，用数据改写了宇宙构成理论，并终生为女性在科学中的平等而斗争。",
+      "lifeStoryEn": "Born in Washington in 1928, Rubin faced gender barriers at elite schools. At Carnegie, she spent decades measuring spiral galaxies, rewriting our understanding of the universe's composition, and fighting for women in science.",
+      "gender": "female",
+      "awards": [],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "yukawa-hideki",
+      "name": "汤川秀树",
+      "nameEn": "Hideki Yukawa",
+      "birth": 1907,
+      "death": 1981,
+      "nationality": "日本",
+      "nationalityEn": "Japan",
+      "discipline": "physics",
+      "subDiscipline": "particle",
+      "tags": [
+        "physics"
+      ],
+      "culturalTag": "eastern",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "首位获得诺贝尔奖的日本人，提出介子理论预言了传递核力的新粒子（π 介子），1949 年获诺贝尔物理学奖。",
+      "summaryEn": "The first Japanese Nobel laureate. His meson theory predicted the particle (pion) that carries the nuclear force, winning the 1949 Nobel Prize in Physics.",
+      "keyContributions": [
+        {
+          "title": "介子理论",
+          "titleEn": "Meson Theory",
+          "year": 1935,
+          "desc": "预言存在传递核力的介子，1947 年实验发现 π 介子证实其理论。",
+          "descEn": "Predicted the meson mediating nuclear force; the pion was discovered experimentally in 1947, confirming the theory.",
+          "type": "theory"
+        },
+        {
+          "title": "诺贝尔物理学奖",
+          "titleEn": "Nobel Prize in Physics",
+          "year": 1949,
+          "desc": "首位获得诺奖的日本人",
+          "descEn": "First Japanese Nobel laureate in physics"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔物理学奖",
+          "titleEn": "Nobel Prize in Physics",
+          "year": 1949,
+          "desc": "首位获诺奖的日本人",
+          "descEn": "First Japanese winner of the Nobel Prize"
+        }
+      ],
+      "lifeStory": "汤川秀树 1907 年生于东京，京都帝国大学毕业后留校研究。1935 年发表介子理论时年仅 28 岁，二战期间坚持理论物理研究。晚年他积极呼吁和平，反对核武器。",
+      "lifeStoryEn": "Born in Tokyo in 1907, Yukawa studied at Kyoto Imperial University. He published his meson theory at 28. During WWII he continued theoretical work; later he became a vocal advocate for peace and against nuclear weapons.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 1949,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "nambu-yoichiro",
+      "name": "南部阳一郎",
+      "nameEn": "Yoichiro Nambu",
+      "birth": 1921,
+      "death": 2015,
+      "nationality": "日本/美国",
+      "nationalityEn": "Japan/USA",
+      "discipline": "physics",
+      "subDiscipline": "particle",
+      "tags": [
+        "physics"
+      ],
+      "culturalTag": "eastern",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "自发对称性破缺机制的提出者，该机制是粒子物理标准模型的核心思想，2008 年获诺贝尔物理学奖。",
+      "summaryEn": "Proposed spontaneous symmetry breaking, the central idea of the Standard Model of particle physics. He won the 2008 Nobel Prize in Physics.",
+      "keyContributions": [
+        {
+          "title": "自发对称性破缺",
+          "titleEn": "Spontaneous Symmetry Breaking",
+          "year": 1960,
+          "desc": "将超导理论中的对称性破缺思想引入粒子物理，为希格斯机制奠定基础。",
+          "descEn": "Imported symmetry breaking from superconductivity into particle physics, laying the foundation for the Higgs mechanism.",
+          "type": "theory"
+        },
+        {
+          "title": "色荷与 QCD 先驱",
+          "titleEn": "Color Charge and QCD",
+          "year": 1965,
+          "desc": "最早提出夸克的'色'自由度，是量子色动力学（QCD）的先驱之一。",
+          "descEn": "Among the first to propose the 'color' degree of freedom of quarks, a pioneer of quantum chromodynamics.",
+          "type": "theory"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔物理学奖",
+          "titleEn": "Nobel Prize in Physics",
+          "year": 2008,
+          "desc": "因发现自发对称性破缺机制获诺奖",
+          "descEn": "Nobel Prize for the discovery of spontaneous symmetry breaking"
+        }
+      ],
+      "lifeStory": "南部阳一郎 1921 年生于东京，东京大学毕业后赴美，长期任教于芝加哥大学。他以深刻的物理直觉著称，是粒子物理与弦理论的重要奠基人之一，2015 年去世。",
+      "lifeStoryEn": "Born in Tokyo in 1921, Nambu studied at the University of Tokyo and spent most of his career at the University of Chicago. Known for profound physical intuition, he was a key founder of particle physics and string theory. He died in 2015.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔物理学奖",
+          "nameEn": "Nobel Prize in Physics",
+          "year": 2008,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "molina-mario",
+      "name": "马里奥·莫利纳",
+      "nameEn": "Mario Molina",
+      "birth": 1943,
+      "death": 2020,
+      "nationality": "墨西哥/美国",
+      "nationalityEn": "Mexico/USA",
+      "discipline": "chemistry",
+      "subDiscipline": "physical-chem",
+      "tags": [
+        "chemistry",
+        "environment"
+      ],
+      "culturalTag": "latin-american",
+      "era": "modern",
+      "portrait": null,
+      "influence": 7,
+      "summary": "揭示氯氟烃（CFC）破坏臭氧层机制的化学家，其研究直接推动《蒙特利尔议定书》的签署，1995 年获诺贝尔化学奖。",
+      "summaryEn": "Revealed how chlorofluorocarbons (CFCs) destroy the ozone layer, directly driving the Montreal Protocol. He won the 1995 Nobel Prize in Chemistry.",
+      "keyContributions": [
+        {
+          "title": "CFC 破坏臭氧层机制",
+          "titleEn": "CFC Ozone Depletion Mechanism",
+          "year": 1974,
+          "desc": "与罗兰证明 CFC 在平流层分解并催化破坏臭氧，引发全球环境保护行动。",
+          "descEn": "With F. Sherwood Rowland, showed CFCs decompose in the stratosphere and catalytically destroy ozone, triggering global environmental action.",
+          "type": "discovery"
+        },
+        {
+          "title": "《蒙特利尔议定书》",
+          "titleEn": "Montreal Protocol",
+          "year": 1987,
+          "desc": "其研究直接促成国际社会淘汰 CFC 的协定，被称为'臭氧层保护的科学家基石'。",
+          "descEn": "His research directly led to the international treaty phasing out CFCs — the scientific cornerstone of ozone protection.",
+          "type": "work"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔化学奖",
+          "titleEn": "Nobel Prize in Chemistry",
+          "year": 1995,
+          "desc": "因大气化学研究获诺奖",
+          "descEn": "Nobel Prize for atmospheric chemistry"
+        }
+      ],
+      "lifeStory": "莫利纳 1943 年生于墨西哥城，是首位在化学领域获诺奖的墨西哥人。他在加州大学尔湾分校与罗兰合作完成臭氧研究，晚年投身气候变化与清洁能源议题，2020 年去世。",
+      "lifeStoryEn": "Born in Mexico City in 1943, Molina was the first Mexican Nobel laureate in chemistry. He did the ozone work at UC Irvine with Rowland, and later focused on climate change and clean energy until his death in 2020.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 1995,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "milstein-cesar",
+      "name": "塞萨尔·米尔斯坦",
+      "nameEn": "Cesar Milstein",
+      "birth": 1927,
+      "death": 2002,
+      "nationality": "阿根廷/英国",
+      "nationalityEn": "Argentina/UK",
+      "discipline": "biology",
+      "subDiscipline": "molecular-bio",
+      "tags": [
+        "biology",
+        "medicine"
+      ],
+      "culturalTag": "latin-american",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "单克隆抗体技术的共同发明者，该技术使精准诊断与靶向治疗成为可能，1984 年获诺贝尔生理学或医学奖。",
+      "summaryEn": "Co-inventor of monoclonal antibody technology, enabling precise diagnostics and targeted therapies. He won the 1984 Nobel Prize in Physiology or Medicine.",
+      "keyContributions": [
+        {
+          "title": "单克隆抗体技术",
+          "titleEn": "Monoclonal Antibodies",
+          "year": 1975,
+          "desc": "与科勒发明杂交瘤技术，可大量生产识别特定抗原的抗体，开创免疫学新纪元。",
+          "descEn": "With Georges Kohler, invented the hybridoma technique to mass-produce antibodies against specific antigens — a new era in immunology.",
+          "type": "discovery"
+        },
+        {
+          "title": "抗体多样性研究",
+          "titleEn": "Antibody Diversity",
+          "year": 1980,
+          "desc": "阐明抗体多样性的遗传机制，深化对免疫系统的理解。",
+          "descEn": "Elucidated the genetic basis of antibody diversity, deepening understanding of the immune system.",
+          "type": "theory"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔生理学或医学奖",
+          "titleEn": "Nobel Prize in Physiology or Medicine",
+          "year": 1984,
+          "desc": "因单克隆抗体技术获诺奖",
+          "descEn": "Nobel Prize for monoclonal antibody technology"
+        }
+      ],
+      "lifeStory": "米尔斯坦 1927 年生于阿根廷，布宜诺斯艾利斯大学毕业后赴英深造，后长期在剑桥医学研究委员会实验室工作。他坚决不为单克隆抗体技术申请专利，坚持让其惠及全人类。",
+      "lifeStoryEn": "Born in Argentina in 1927, Milstein studied in Buenos Aires then moved to Britain, working for decades at the MRC Laboratory in Cambridge. He refused to patent monoclonal antibodies, insisting they benefit all humanity.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔生理学或医学奖",
+          "nameEn": "Nobel Prize in Physiology or Medicine",
+          "year": 1984,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "lecun-yann",
+      "name": "扬·勒昆",
+      "nameEn": "Yann LeCun",
+      "birth": 1960,
+      "death": null,
+      "nationality": "法国/美国",
+      "nationalityEn": "France/USA",
+      "discipline": "cs",
+      "subDiscipline": "ai",
+      "tags": [
+        "cs"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "卷积神经网络（CNN）的奠基人，现代深度学习三巨头之一，2018 年与辛顿、本吉奥共获图灵奖。",
+      "summaryEn": "Founder of convolutional neural networks (CNNs) and one of the 'deep learning triumvirate'. He shared the 2018 Turing Award with Hinton and Bengio.",
+      "keyContributions": [
+        {
+          "title": "卷积神经网络 LeNet",
+          "titleEn": "Convolutional Neural Networks (LeNet)",
+          "year": 1989,
+          "desc": "提出 CNN 架构并用于手写数字识别，成为现代计算机视觉的基础。",
+          "descEn": "Proposed CNN architecture for handwritten digit recognition — the foundation of modern computer vision.",
+          "type": "theory"
+        },
+        {
+          "title": "图灵奖",
+          "titleEn": "Turing Award",
+          "year": 2018,
+          "desc": "与辛顿、本吉奥因深度学习获图灵奖",
+          "descEn": "Turing Award with Hinton and Bengio for deep learning"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "图灵奖",
+          "titleEn": "Turing Award",
+          "year": 2018,
+          "desc": "因深度学习获图灵奖",
+          "descEn": "Turing Award for deep learning"
+        }
+      ],
+      "relationships": [
+        {
+          "target": "hinton",
+          "type": "collab",
+          "description": "与辛顿同为深度学习三巨头",
+          "descriptionEn": "Co-leader of deep learning with Hinton"
+        }
+      ],
+      "lifeStory": "勒昆 1960 年生于巴黎郊区，获巴黎第六大学博士。他先后在贝尔实验室、纽约大学工作，现任 Meta 首席 AI 科学家，长期倡导自监督学习与开放 AI 研究。",
+      "lifeStoryEn": "Born near Paris in 1960, LeCun earned his PhD from Pierre and Marie Curie University. He worked at Bell Labs and NYU, now serving as Meta's chief AI scientist, championing self-supervised learning and open AI research.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "图灵奖",
+          "nameEn": "Turing Award",
+          "year": 2018,
+          "type": "turing"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
+    },
+    {
+      "id": "hassabis-demis",
+      "name": "德米斯·哈萨比斯",
+      "nameEn": "Demis Hassabis",
+      "birth": 1976,
+      "death": null,
+      "nationality": "英国",
+      "nationalityEn": "United Kingdom",
+      "discipline": "cs",
+      "subDiscipline": "ai",
+      "tags": [
+        "cs",
+        "biology"
+      ],
+      "culturalTag": "western",
+      "era": "modern",
+      "portrait": null,
+      "influence": 8,
+      "summary": "DeepMind 联合创始人，AlphaGo 与 AlphaFold 的缔造者。AlphaFold 解决了困扰生物学 50 年的蛋白质折叠问题，2024 年获诺贝尔化学奖。",
+      "summaryEn": "Co-founder of DeepMind, creator of AlphaGo and AlphaFold. AlphaFold solved the 50-year protein folding problem in biology, winning the 2024 Nobel Prize in Chemistry.",
+      "keyContributions": [
+        {
+          "title": "AlphaFold 蛋白质结构预测",
+          "titleEn": "AlphaFold Protein Structure Prediction",
+          "year": 2020,
+          "desc": "以深度学习准确预测蛋白质三维结构，攻克生物学 50 年难题，开启计算生物学新纪元。",
+          "descEn": "Deep learning accurately predicts protein 3D structures, cracking a 50-year biology problem and opening a new era of computational biology.",
+          "type": "work"
+        },
+        {
+          "title": "AlphaGo",
+          "titleEn": "AlphaGo",
+          "year": 2016,
+          "desc": "AI 首次在围棋上战胜世界冠军，展示强化学习的巨大潜力。",
+          "descEn": "AI defeated a world champion at Go for the first time, demonstrating the power of reinforcement learning.",
+          "type": "work"
+        }
+      ],
+      "famousEvents": [
+        {
+          "title": "诺贝尔化学奖",
+          "titleEn": "Nobel Prize in Chemistry",
+          "year": 2024,
+          "desc": "因 AlphaFold 获诺贝尔化学奖",
+          "descEn": "Nobel Prize in Chemistry for AlphaFold"
+        }
+      ],
+      "lifeStory": "哈萨比斯 1976 年生于伦敦，4 岁学棋、13 岁获国际象棋大师称号。他先后创立游戏公司、攻读认知神经科学博士，2010 年联合创立 DeepMind，2014 年被谷歌收购，成为 AI for Science 的旗手。",
+      "lifeStoryEn": "Born in London in 1976, Hassabis was a chess master at 13. After a games company and a neuroscience PhD, he co-founded DeepMind in 2010, acquired by Google in 2014 — now the flag-bearer of AI for Science.",
+      "gender": "male",
+      "awards": [
+        {
+          "name": "诺贝尔化学奖",
+          "nameEn": "Nobel Prize in Chemistry",
+          "year": 2024,
+          "type": "nobel"
+        }
+      ],
+      "wikidataId": null,
+      "sources": [
+        "wikidata",
+        "wikipedia"
+      ],
+      "verifiedAt": "2026-08-14"
     }
   ],
   "bottlenecks": [

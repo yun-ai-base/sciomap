@@ -1,7 +1,14 @@
 *.py
 *.md
+*.bak
+*.ps1
+__pycache__/
+*.pyc
 enrich.*
 add-*.js
+download_portraits.js
+upload_portraits.js
 scientists-data.json
+missing.json
 「
 +m.name+
