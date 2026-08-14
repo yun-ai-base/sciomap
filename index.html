@@ -518,10 +518,14 @@ function discName(id){return discDisplay[lang]&&discDisplay[lang][id]?discDispla
 
 function buildLegend(){
   const cont=document.getElementById('disc-legend');
-  cont.innerHTML=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'].map(d=>{
+  const items=['mathematics','physics','chemistry','astronomy','biology','cs','medicine'].map(d=>{
     const c=discColors[d]||{color:'#64748b'};
     return '<div class="lg-item"><span class="lg-dot" style="background:'+c.color+'"></span>'+discName(d)+'</div>';
-  }).join('');
+  });
+  // 历史难题节点图例说明（灰色虚线问号 = 历史难题，点击查看谁解决了它）
+  const tip=lang==='en'?'Historical puzzles — click to see who solved them':'历史难题 — 点击查看谁解决了它';
+  items.push('<div class="lg-item" style="cursor:help" title="'+tip+'"><span class="lg-dot" style="background:rgba(100,116,139,.25);border:1.5px dashed rgba(148,163,184,.9);width:8px;height:8px;border-radius:50%"></span><span style="color:#94a3b8">'+(lang==='en'?'Puzzle':'历史难题')+'</span></div>');
+  cont.innerHTML=items.join('');
 }
 
 // 节点显示名：英文名在节点上只显示姓氏（更短更清晰），中文名保持全名
@@ -967,8 +971,10 @@ function renderGraph(){
   nodeG.each(function(d){
     const g=d3.select(this);
     if(d.isBottleneck){
-      g.append('text').attr('text-anchor','middle').attr('dy','.35em').attr('font-size','24').attr('fill','#64748b').attr('pointer-events','none').text('?');
-      g.append('circle').attr('r',d.radius+2).attr('fill','none').attr('stroke','rgba(100,116,139,.3)').attr('stroke-width','1.5').attr('stroke-dasharray','3,2');
+      // 历史难题节点：灰色半透明圆底 + 白色加粗问号 + 虚线外环，明确区别于彩色科学家节点
+      g.append('circle').attr('r',d.radius).attr('fill','rgba(100,116,139,.20)').attr('stroke','rgba(148,163,184,.5)').attr('stroke-width','1.2');
+      g.append('text').attr('text-anchor','middle').attr('dy','.35em').attr('font-size','17').attr('font-weight','700').attr('fill','#e2e8f0').attr('pointer-events','none').text('?');
+      g.append('circle').attr('r',d.radius+5).attr('fill','none').attr('stroke','rgba(148,163,184,.38)').attr('stroke-width','1.5').attr('stroke-dasharray','3,3').attr('pointer-events','none');
     }else{
       let fillVal=d.color;
       if(d.tags&&d.tags.length>1){
